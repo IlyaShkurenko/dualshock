@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <link href="//fonts.googleapis.com/css?family=PT+Sans:400&subset=cyrillic" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="stylesheets/game.css">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="wrapblock">
+    <section class="row1">
+    <div id="left-column">
+       <p class="text">YOU</p>
+        <div class = "healthbar">
+            <div class = "health" :style="{width:youwidth + '%'}">
+                {{youwidth}}
+            </div>
+        </div>
+    </div>
+    <div id="right-column">
+     <p class="text">MONSTER</p>
+        <div class = "healthbar">
+            <div class = "health" :style="{width:monsterwidth + '%'}">
+                {{monsterwidth}}
+            </div>
+        </div>
+    </div>
+    </section>
+    <section class="row2">
+        <div v-if="!isRunning" id="buttons-block1">
+            <button id="button-start" @click = "startGame">START GAME</button>
+        </div>
+        <div v-else id="buttons-block2">
+            <button id="button-attack" @click = "attack">ATTACK</button>
+            <button id="button-special" @click = "special">SPECIAL ATTACK</button>
+            <button id="button-heal" @click = "heal">HEAL</button>
+            <button id="button-give" @click = "giveUp">GIVE UP</button>
+        </div>
+    </section>
+    <section class="row3" v-if="log.length > 0">
+    <ul>
+        <li v-for="action in log" :class = "{player: action.isPlayer, monster: !action.isPlayer}">
+        {{action.text}}</li>
+    </ul>
+    </section>
+</div>
+<script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+[{"type":"Комната","games":["FIFA 17"," GTA 5"," MK XL"," SHADOW OF MORDOR"],"price":"150","capacity":"10","date":"2010-10-10T21:00:00.000Z", "description": "Комната для больших компаний"},
+  {"type":"Комната","games":["PES 2018"," GTA 4"," KC GO"," UNCHARTED 4"],"price":"100","capacity":"6","date":"2017-10-10T21:00:00.000Z", "description": "Комната для больших компаний"},
+  {"type":"Комната","games":["FIFA 18"," INFAMOUS 2"," COD 2"," ROCKET LEAGUE"],"price":"200","capacity":"4","date":"2017-10-10T21:00:00.000Z", "description": "Комната для больших компаний"},
+  {"type":"Комната","games":["DESTINY"," CIVILIZATION 6"," FIFA 15"," PES 2018"],"price":"100","capacity":"2","date":"2017-01-01T22:00:00.000Z", "description": "Комната для больших компаний"}]
