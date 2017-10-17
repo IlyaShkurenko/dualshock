@@ -17,7 +17,7 @@
         >
     </div>-->
     <div class="enter">
-        <a href="Music.html">
+        <router-link to="/admin">
             <div class="buttom  login hvr-grow hvr-icon-up">Войти</div>
             <div class="rectangle-big">
                 <div class="rectangle" style="margin-right: 0.6vw; width: 6.3vw">
@@ -27,7 +27,7 @@
                     </div>
                 </div>
             </div>
-        </a>
+        </router-link>
         <div class="buttom register hvr-grow hvr-icon-up">Регистрация</div>
         <div class="rectangle-big">
             <div class="rectangle" style="margin-right: 8vw;">
