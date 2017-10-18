@@ -63,5 +63,6 @@ module.exports = {
     create,
     update,
     getAll,
-    getById
+    getById,
+    refuge
 };

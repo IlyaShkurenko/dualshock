@@ -4,33 +4,20 @@ var ref = require('refuge');
 var fs = require('fs');
 var path = require('path');
 var multer  = require('multer');
-var formidable = require('formidable'),
+var formidable = require('formidable');
+var cors = require('cors')
+router.options('*', cors());
     util = require('util');
 /* GET home page. */
-var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, 'uploads/')
-    },
-    filename: function (req, file, cb) {
-        cb(null, Date.now() + path.extname(file.originalname))
-    }
-});
-
-var upload = multer({ storage: storage });
 router.get('/',async function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');
-    let rooms = await ref.getAll();
+    let rooms = await ref.refuge();
     res.json(rooms);
 });
 router.post('/', (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');
-   /* req.on('data', (data) => {
-       console.log(data.toString())
-    });
-
-    return res.json('success');*/
     var form = new formidable.IncomingForm(),
         fields = {};
     form
@@ -49,6 +36,12 @@ router.post('/', (req, res) => {
             res.end('received fields:\n\n '+util.inspect(fields));
         });
     form.parse(req);
+});
+router.delete('/',async (req,res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');
+    let rooms = await ref.getAll();
+    res.json(rooms);
 });
 /*router.post('/', upload.single('image'), (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');

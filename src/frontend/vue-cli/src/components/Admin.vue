@@ -3,7 +3,8 @@
         <div id="throbber" style="display:none; min-height:120px;"></div>
         <div id="noty-holder"></div>
         <div id="wrapper">
-
+            <p>{{$store.state.rooms.length}}</p>
+        <router-view></router-view>
             <!-- Navigation -->
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -83,10 +84,10 @@
                                         <li><a href="#tab3primary" data-toggle="tab"><span class="glyphicon glyphicon-cloud"></span> Кальяны</a></li>
                                         <li><a href="#tab3primary" data-toggle="tab"><span class="fa fa-beer"></span> Бар</a></li>
                                         <li class="dropdown">
-                                            <a href="#" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+                                            <a href="#" data-toggle="dropdown"><span class="fa fa-gamepad"></span> Приставки и комнаты</a>
                                             <ul class="dropdown-menu" role="menu">
-                                                <li><a href="#tab4primary" data-toggle="tab">Primary 4</a></li>
-                                                <li><a href="#tab5primary" data-toggle="tab">Primary 5</a></li>
+                                                <li><a href="#tab4primary" data-toggle="tab"><span class="fa fa-beer"></span> Добавить</a></li>
+                                                <li><a href="#tabremove" data-toggle="tab"><span class="fa fa-beer"></span> Удалить</a></li>
                                             </ul>
                                         </li>
                                     </ul>
@@ -274,7 +275,7 @@
                                             </div>
                                         </div>
                                         <div class="tab-pane fade" id="tab3primary">Primary 3</div>
-                                        <div class="tab-pane fade" id="tab4primary">Primary 4</div>
+                                        <div class="tab-pane fade" id="tabremove"><remove-cmp :rooms = "$store.state.rooms" @deleteRoom = "deleteRoom"></remove-cmp></div>
                                         <div class="tab-pane fade" id="tab5primary">Primary 5</div>
                                     </div>
                                 </div>
@@ -704,6 +705,7 @@
         margin: 1px 6px 1px 1px;
         float: left;
         display: block;
+        height: 150px;
     }
 
     .p {
@@ -753,7 +755,37 @@
     body{
         background-image: url("../images/zel2.jpg");
     }
+
 </style>
 
 <script>
+    import Remove from './Remove.vue'
+    import {mapGetters} from 'vuex'
+    import {mapActions} from 'vuex'
+    export default {
+        data(){
+            return{
+                rm: this.$store.state.rooms
+            }
+        },
+        components: {
+            removeCmp: Remove
+        },
+        methods: {
+            deleteRoom(index){
+                this.$store.state.rooms.splice(index,1);
+                this.delRooms();
+                console.log(this.$store.state.rooms);
+            },
+        ...mapActions([
+            'getRooms',
+            'delRooms'
+        ])
+        },
+        computed: {
+            ...mapGetters([
+                           'rooms'
+                       ])
+        }
+    }
 </script>

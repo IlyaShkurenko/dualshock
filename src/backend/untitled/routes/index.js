@@ -6,8 +6,8 @@ var fs = require('fs');
 router.get('/',async function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');
-    let rooms = await ref.getAll();
-    res.json(rooms);
+    res.sendFile('index.html');
+    console.log("yes");
 });
 module.exports = router;
 /*var express = require('express');

@@ -55,7 +55,7 @@
     </div>
     <div class="main-img">
         <img src="../images/main.jpg" style="width: 100%" class="image-opacity">
-            <event-component v-for="(image, index) in event.images" :event="event" :index="index"></event-component>
+            <event-component v-for="(image, index) in $store.state.rooms.length" :rooms="$store.state.rooms" :index="index"></event-component>
     </div>
     </div>
 </template>
@@ -66,16 +66,10 @@
     export default {
       data(){
           return {
-              event:{
-                  images: ['fifa17.png', 'fifa17.png', 'hookah2.png'],
-                  names:['FIFA 17', 'MORTAL XL', 'HOOKAH'],
-                  description:['Надоело смотреть футбол по телевизору? тогда тебе к нам.',
-                  'Любите файтинги? тогда этот турнир специально для вас',
-                  ' Устали от трудного дня? Тогда вам к нам']
-              },
-                  imageSrc: 'http://nahmdong.com/vitalhill/img/default.png',
-                  success: null,
-                  message: '',
+
+              imageSrc: 'http://nahmdong.com/vitalhill/img/default.png',
+              success: null,
+              message: '',
               image: {},
               srcPrefix: '/vue/image-uploader/assets/img/',
               content: null,

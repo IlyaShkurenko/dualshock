@@ -1,6 +1,7 @@
 <template>
     <div class="prices">
         <router-link to="/">Back</router-link>
+        <p>{{$store.state.slider[0]}}</p>
         <div class="textpad">
             <h2>Кухня</h2>
         </div>
@@ -189,9 +190,9 @@
                             </li>
                         </ul>
                     </div>
-                    <div v-for="item in roomsLength" class="item">
+                    <div v-for="(item,index) in roomsLength" class="item">
                         <ul class="thumbnails">
-                            <li v-for="item in 4" class="col-sm-3">
+                            <li v-for="item in $store.state.slider[index]" class="col-sm-3">
                                 <div class="fff">
                                     <div class="thumbnail">
                                         <a href="buy.html"><img src="../images/vip1.png" alt=""></a>
@@ -396,26 +397,41 @@
 
 </style>
 <script>
+    import {mapActions} from 'vuex'
     export default {
         data(){
             return {
                 url: 'vip/1/',
-                rLength: 0
+                rLength: 0,
+                roomsInSlider: []
             }
         },
         computed: {
            roomsLength(){
                return this.rLength = Math.ceil((this.$store.state.rooms.length - 4)/4)
-           }
+           },
+            sliderLength(id){
+               return {
+                   index: this.roomsInSlider[id]
+               }
+            }
         },
         methods: {
             getImgUrl(img) {
                 var images = require.context('../images/', false, /\.png$/);
                 return images('./' + img)
+            },
+            ...mapActions([
+                'getRooms',
+                'getArray'
+            ]),
+            isMore(number){
+                return number >= 4
+            },
+            updated(){
+                console.log('updated');
+                this.getRooms()
             }
         },
-        created(){
-            this.$store.dispatch('getRooms')
-        }
     }
 </script>
