@@ -86,7 +86,7 @@
                                         <li class="dropdown">
                                             <a href="#" data-toggle="dropdown"><span class="fa fa-gamepad"></span> Приставки и комнаты</a>
                                             <ul class="dropdown-menu" role="menu">
-                                                <li><a href="#tab4primary" data-toggle="tab"><span class="fa fa-beer"></span> Добавить</a></li>
+                                                <li><a href="#tabadd" data-toggle="tab"><span class="fa fa-beer"></span> Добавить</a></li>
                                                 <li><a href="#tabremove" data-toggle="tab"><span class="fa fa-beer"></span> Удалить</a></li>
                                             </ul>
                                         </li>
@@ -276,7 +276,7 @@
                                         </div>
                                         <div class="tab-pane fade" id="tab3primary">Primary 3</div>
                                         <div class="tab-pane fade" id="tabremove"><remove-cmp :rooms = "$store.state.rooms" @deleteRoom = "deleteRoom"></remove-cmp></div>
-                                        <div class="tab-pane fade" id="tab5primary">Primary 5</div>
+                                        <div class="tab-pane fade" id="tabadd"><add-cmp></add-cmp></div>
                                     </div>
                                 </div>
                             </div>
@@ -760,6 +760,7 @@
 
 <script>
     import Remove from './Remove.vue'
+    import Add from './Items/AddItem.vue'
     import {mapGetters} from 'vuex'
     import {mapActions} from 'vuex'
     export default {
@@ -769,7 +770,8 @@
             }
         },
         components: {
-            removeCmp: Remove
+            removeCmp: Remove,
+            addCmp: Add
         },
         methods: {
             deleteRoom(index){

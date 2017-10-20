@@ -1,7 +1,9 @@
+
 <template>
     <div class="prices">
         <router-link to="/">Back</router-link>
         <p>{{$store.state.slider[0]}}</p>
+        <p>{{firstSlider}}</p>
         <div class="textpad">
             <h2>Кухня</h2>
         </div>
@@ -176,13 +178,13 @@
                 <div class="carousel-inner">
                     <div class="item active">
                         <ul class="thumbnails">
-                            <li v-for="(item,index) in 4" class="col-sm-3">
+                            <li v-for="(item,index) in firstSlider" class="col-sm-3">
                                 <div class="fff">
                                     <div class="thumbnail">
-                                        <router-link :to="'vip/' + (parseInt(index+1))"><img :src="getImgUrl('vip' + (parseInt(index+1)) + '.png')" alt="" style="height: 170px; width: 360px"></router-link>
+                                        <router-link :to="'vip/' + (parseInt(index + 1))"><img :src="getImgUrl($store.state.rooms[index].img)" alt="" style="height: 170px; width: 360px"></router-link>
                                     </div>
                                     <div class="caption">
-                                        <h4>VIP {{index + 1}}</h4>
+                                        <h4>VIP {{$store.state.rooms[index].id}}</h4>
                                         <p>{{$store.state.rooms[index].description}}</p>
                                         <a class="btn btn-mini" :href="'vip/' + item">» Узнать больше</a>
                                     </div>
@@ -403,7 +405,8 @@
             return {
                 url: 'vip/1/',
                 rLength: 0,
-                roomsInSlider: []
+                roomsInSlider: [],
+                firstSliderLength: 0
             }
         },
         computed: {
@@ -414,6 +417,9 @@
                return {
                    index: this.roomsInSlider[id]
                }
+            },
+            firstSlider(){
+                return this.firstSliderLength = this.$store.state.rooms.length >= 4 ? 4: this.$store.state.rooms.length
             }
         },
         methods: {

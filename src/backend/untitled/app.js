@@ -14,6 +14,7 @@ var router = express.Router();
 var app = express();
 var config = require('config');
 var mongoose = require('mongoose');
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

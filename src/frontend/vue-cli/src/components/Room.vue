@@ -2,8 +2,8 @@
     <div class="room-main">
         <router-link to="/prices">Back</router-link>
         <div class="room">
-            <h1>{{ 'VIP ' + index }}</h1>
-            <img :src="getImgUrl('vip' + index + '.png')"/>
+            <h1>VIP  {{ $store.state.rooms[$route.params.id - 1].id }}</h1>
+            <img :src="getImgUrl($store.state.rooms[$route.params.id - 1].img)"/>
         </div>
         <table class="table_dark">
             <tr>
@@ -14,11 +14,11 @@
                 <th>Дата открытия</th>
             </tr>
             <tr>
-                <td> <p>{{ room.capacity }}</p> </td>
-                <td><p>{{ room.price }}</p></td>
-                <td><p>{{ games }}</p></td>
-                <td> <p>{{ room.type }}</p></td>
-                <td><p>{{ room.date }}</p></td>
+                <td> <p>{{ $store.state.rooms[$route.params.id - 1].capacity }}</p> </td>
+                <td><p>{{ $store.state.rooms[$route.params.id - 1].price }}</p></td>
+                <td><p>{{ $store.state.rooms[$route.params.id - 1].games.join() }}</p></td>
+                <td> <p>{{ $store.state.rooms[$route.params.id - 1].type }}</p></td>
+                <td><p>{{ $store.state.rooms[$route.params.id - 1].date }}</p></td>
             </tr>
 
         </table>
@@ -80,12 +80,13 @@
     }
 </style>
 <script>
+    import {mapActions} from 'vuex'
     export default {
         data(){
             return {
                 index: this.$route.params.id,
                 room: this.$store.state.rooms[this.$route.params.id - 1],
-                games: ''
+                games: ' '
             }
         },
         methods: {
@@ -101,19 +102,17 @@
                     this.room.capacity = '';
                 }
             },
-            returnGames(){
-                let games = '';
-                for(let game in this.room.games){
-                    this.games + this.room[game] + ' ';
-                }
-                return games;
-            }
+            ...mapActions([
+                'getRooms',
+                'getArray'
+            ]),
         },
         computed: {
         },
          created(){
             let count = this.room.games.length;
             this.games = this.room.games.join();
+             console.log('activated');
             /*for(let prop in this.room){
                 for(let i in count){
                     if(i !== 0){
@@ -121,6 +120,16 @@
                     }
                 }
             }*/
-         }
+         },
+        returnGames(){
+            let games = '';
+            for(let game in this.$store.state.rooms[this.$route.params.id - 1].games){
+                this.games += this.$store.state.rooms[this.$route.params.id - 1][game] + ' ';
+            }
+            return games;
+        },
+        activated(){
+            this.getRooms();
+        }
     }
 </script>

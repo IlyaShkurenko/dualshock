@@ -1,8 +1,9 @@
 
 <template>
 <div>
-   <!-- <div class="image-uploader__input-wrapper">
+   <div class="image-uploader__input-wrapper">
         <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+        <input id="myName" name="name" value="John">
         <input type="file" class="image-uploader__input" @change="sync" accept="image/*">
     </div>
 
@@ -13,9 +14,9 @@
                 v-show="!isEmpty && !isLoading"
                 class="image-uploader__image"
                 ref="img"
-                :src="src"
+                src="https://firebasestorage.googleapis.com/v0/b/vue-app-75351.appspot.com/o/vip2.png?alt=media&token=8a686319-504e-407e-8222-bddc8f78013f"
         >
-    </div>-->
+    </div>
     <div class="enter">
         <router-link to="/admin">
             <div class="buttom  login hvr-grow hvr-icon-up">Войти</div>
@@ -55,7 +56,7 @@
     </div>
     <div class="main-img">
         <img src="../images/main.jpg" style="width: 100%" class="image-opacity">
-            <event-component v-for="(image, index) in $store.state.rooms.length" :rooms="$store.state.rooms" :index="index"></event-component>
+            <event-component v-for="(image, index) in event.images" :event="event" :index="index"></event-component>
     </div>
     </div>
 </template>
@@ -63,13 +64,21 @@
     //import 'hover.css/css/hover.css'
     import Event from './Event.vue';
     import axios from 'axios'
+    import dataURLtoBlob from 'blueimp-canvas-to-blob';
+    import Vue from 'vue'
     export default {
       data(){
           return {
-
-              imageSrc: 'http://nahmdong.com/vitalhill/img/default.png',
-              success: null,
-              message: '',
+              event:{
+                  images: ['fifa17.png', 'fifa17.png', 'hookah2.png'],
+                  names:['FIFA 17', 'MORTAL XL', 'HOOKAH'],
+                  description:['Надоело смотреть футбол по телевизору? тогда тебе к нам.',
+                  'Любите файтинги? тогда этот турнир специально для вас',
+                  ' Устали от трудного дня? Тогда вам к нам']
+              },
+                  imageSrc: 'http://nahmdong.com/vitalhill/img/default.png',
+                  success: null,
+                  message: '',
               image: {},
               srcPrefix: '/vue/image-uploader/assets/img/',
               content: null,
@@ -87,7 +96,7 @@
             selectImage (file) {
                 let data = new FormData();
                 data.append('image', file);
-
+                data.append("username", "Groucho");
                 this.$http.post('rooms', data).then(
                     response => {
                         console.log('Success! Response: ', response.body);
@@ -112,6 +121,18 @@
 
         },
         created(){
+            Vue.http.get('base')
+                .then(response => {
+                    return response.body
+                })
+                .then(data => {
+                    this.file = data;
+                    console.log(window.btoa(unescape(encodeURIComponent(this.file))));
+                    let reader = new FileReader();
+                    reader.onload = this.onImageLoad;
+                    reader.readAsDataURL(this.file);
+                    }
+                )
         },
         computed: {
             src () {

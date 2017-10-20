@@ -5,7 +5,8 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
    state: {
        slider: [],
-       rooms: []
+       rooms: [],
+       games: ' '
    },
     actions: {
         getRooms({commit}) {
@@ -75,6 +76,14 @@ export const store = new Vuex.Store({
         },
         sliders(state){
             return state.slider
+        },
+        returnGames(state){
+            let games = '';
+            let room = state.rooms[0];
+            for(let game in room.games){
+                state.games += room[game] + ' ';
+            }
+            return state.games;
         }
     }
 });

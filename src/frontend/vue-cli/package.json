@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
+    "blueimp-canvas-to-blob": "^3.14.0",
     "bootstrap": "^3.3.7",
     "fs": "0.0.1-security",
     "hover.css": "^2.2.1",

@@ -2,11 +2,11 @@
 <div class="well">
     <div class="media">
         <a class="pull-left" href="#">
-            <img class="media-object" :src="getImgUrl(rooms[index-1].img)">
+            <img class="media-object" :src="getImgUrl(room.img)">
         </a>
         <div class="media-body">
-            <h4 class="media-heading">VIP {{rooms[index-1].id}}</h4>
-            <p>{{rooms[index-1].description}}</p>
+            <h4 class="media-heading">VIP {{room.id}}</h4>
+            <p>{{room.description}}</p>
             <ul class="list-inline list-unstyled">
                 <li><span><i class="glyphicon glyphicon-calendar"></i> 1 days, 8 hours </span></li>
                 <li>|</li>
@@ -34,7 +34,7 @@
 <script>
     export default {
         props: {
-            rooms: Array,
+            room: Object,
             index: Number
         },
         methods: {
