@@ -181,7 +181,7 @@
                             <li v-for="(item,index) in firstSlider" class="col-sm-3">
                                 <div class="fff">
                                     <div class="thumbnail">
-                                        <router-link :to="'vip/' + (parseInt(index + 1))"><img :src="getImgUrl($store.state.rooms[index].img)" alt="" style="height: 170px; width: 360px"></router-link>
+                                        <router-link :to="'vip/' + (parseInt(index + 1))"><img :src="$store.state.rooms[index].img" alt="" style="height: 170px; width: 360px"></router-link>
                                     </div>
                                     <div class="caption">
                                         <h4>VIP {{$store.state.rooms[index].id}}</h4>

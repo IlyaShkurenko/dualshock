@@ -3,11 +3,12 @@
         <router-link to="/prices">Back</router-link>
         <div class="room">
             <h1>VIP  {{ $store.state.rooms[$route.params.id - 1].id }}</h1>
-            <img :src="getImgUrl($store.state.rooms[$route.params.id - 1].img)"/>
+            <img :src="$store.state.rooms[$route.params.id - 1].img"/>
         </div>
         <table class="table_dark">
             <tr>
                 <th>Вместимость(чел)</th>
+
                 <th>Цена за час(грн)</th>
                 <th>Игры на приставке</th>
                 <th>Тип</th>

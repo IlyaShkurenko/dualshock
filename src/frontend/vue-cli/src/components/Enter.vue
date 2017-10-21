@@ -1,7 +1,7 @@
 
 <template>
 <div>
-   <div class="image-uploader__input-wrapper">
+   <!--<div class="image-uploader__input-wrapper">
         <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
         <input id="myName" name="name" value="John">
         <input type="file" class="image-uploader__input" @change="sync" accept="image/*">
@@ -16,7 +16,7 @@
                 ref="img"
                 src="https://firebasestorage.googleapis.com/v0/b/vue-app-75351.appspot.com/o/vip2.png?alt=media&token=8a686319-504e-407e-8222-bddc8f78013f"
         >
-    </div>
+    </div>-->
     <div class="enter">
         <router-link to="/admin">
             <div class="buttom  login hvr-grow hvr-icon-up">Войти</div>
