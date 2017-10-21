@@ -1,9 +1,6 @@
 
 <template>
     <div class="prices">
-        <router-link to="/">Back</router-link>
-        <p>{{$store.state.slider[0]}}</p>
-        <p>{{firstSlider}}</p>
         <div class="textpad">
             <h2>Кухня</h2>
         </div>
@@ -197,12 +194,12 @@
                             <li v-for="item in $store.state.slider[index]" class="col-sm-3">
                                 <div class="fff">
                                     <div class="thumbnail">
-                                        <a href="buy.html"><img src="../images/vip1.png" alt=""></a>
+                                        <router-link :to="'vip/' + (parseInt(index + 5))"><img :src="$store.state.rooms[index + 4].img" alt=""></router-link>
                                     </div>
                                     <div class="caption">
-                                        <h4>Praesent commodo</h4>
-                                        <p>Nullam Condimentum Nibh Etiam Sem</p>
-                                        <a class="btn btn-mini" href="#">» Read More</a>
+                                        <h4>VIP {{$store.state.rooms[index + 4].id}}</h4>
+                                        <p>{{$store.state.rooms[index + 4].description}}</p>
+                                        <a class="btn btn-mini" :href="'vip/' + (parseInt(index + 5))">» Узнать больше</a>
                                     </div>
                                 </div>
                             </li>
@@ -251,7 +248,7 @@
         margin-right: 95px;
     }
     .prices{
-        background-image: url("../images/zel.jpg");
+
     }
 
     /* Global */

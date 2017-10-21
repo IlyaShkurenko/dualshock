@@ -4,7 +4,6 @@
             <img :src = "getImgUrl(event.images[index])" style="width: 330px; height: 225px;">
             <p>{{event.names[index]}}</p>
             {{event.description[index]}}
-        <p>{{link}}</p>
         </div>
 </template>
 <script>

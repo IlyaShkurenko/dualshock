@@ -61,7 +61,7 @@
                             <!-- Button -->
                             <center>
                                 <div class="col-sm-12 controls">
-                                    <a id="btn-login" @click="submit" class="btn btn-success">Добавить  </a>
+                                    <a href="/admin" id="btn-login" @click="submit" class="btn btn-success">Добавить  </a>
                                 </div>
                             </center>
                             <br>
@@ -96,7 +96,8 @@
                 file: null,
                 isLoading: false,
                 isDragging: false,
-                data: {}
+                data: {},
+                isEmpty: false
             }
         },
         computed: {

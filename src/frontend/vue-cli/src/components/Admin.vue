@@ -777,6 +777,7 @@
             deleteRoom(index){
                 this.$store.state.rooms.splice(index,1);
                 this.delRooms();
+                //this.getRooms()
             },
         ...mapActions([
             'getRooms',

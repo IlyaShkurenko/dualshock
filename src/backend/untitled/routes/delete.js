@@ -6,7 +6,7 @@ router.options('*', cors());
 router.post('/room', async (req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');
-    await file.toFile(req.body);
+    file.toFile(req.body);
     res.send('deleted')
 });
 module.exports = router;

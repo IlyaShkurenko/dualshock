@@ -121,18 +121,6 @@
 
         },
         created(){
-            Vue.http.get('base')
-                .then(response => {
-                    return response.body
-                })
-                .then(data => {
-                    this.file = data;
-                    console.log(window.btoa(unescape(encodeURIComponent(this.file))));
-                    let reader = new FileReader();
-                    reader.onload = this.onImageLoad;
-                    reader.readAsDataURL(this.file);
-                    }
-                )
         },
         computed: {
             src () {
