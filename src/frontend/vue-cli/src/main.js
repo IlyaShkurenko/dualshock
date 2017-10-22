@@ -13,7 +13,7 @@ const router = new VueRouter({
 const proxy = "http://localhost:5000/";
 Vue.http.options.root = proxy;
 
-new Vue({
+var vm = new Vue({
   el: '#app',
   store,
   router,

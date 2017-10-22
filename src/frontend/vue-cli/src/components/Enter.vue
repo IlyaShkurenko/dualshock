@@ -85,7 +85,7 @@
               // New image's File object
               file: null,
               isLoading: false,
-              isDragging: false
+              isDragging: false,
           }
       },
         methods: {
@@ -117,8 +117,7 @@
                 this.$emit('input', filename);
                 // Dispatch new event with image content
                 this.$emit('image-changed', this.content);
-            },
-
+            }
         },
         created(){
         },

@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import ch from  'lodash'
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
@@ -72,7 +73,7 @@ export const store = new Vuex.Store({
     },
     getters: {
         rooms(state) {
-            return state.rooms
+            return ch.chunk(state.rooms,2)
         },
         sliders(state){
             return state.slider
