@@ -194,12 +194,12 @@
                             <li v-for="item in $store.state.slider[index]" class="col-sm-3">
                                 <div class="fff">
                                     <div class="thumbnail">
-                                        <router-link :to="'vip/' + (parseInt(index + 5))"><img :src="$store.state.rooms[index + 4].img" alt=""></router-link>
+                                        <router-link :to="'vip/' + (parseInt((item - 1) + 5))"><img :src="$store.state.rooms[(item - 1) + 4].img" alt=""></router-link>
                                     </div>
                                     <div class="caption">
-                                        <h4>VIP {{$store.state.rooms[index + 4].id}}</h4>
-                                        <p>{{$store.state.rooms[index + 4].description}}</p>
-                                        <a class="btn btn-mini" :href="'vip/' + (parseInt(index + 5))">» Узнать больше</a>
+                                        <h4>VIP {{$store.state.rooms[(item - 1) + 4].id}}</h4>
+                                        <p>{{$store.state.rooms[(item - 1) + 4].description}}</p>
+                                        <a class="btn btn-mini" :href="'vip/' + (parseInt((item - 1) + 5))">» Узнать больше</a>
                                     </div>
                                 </div>
                             </li>
@@ -224,6 +224,9 @@
     </div>
 </template>
 <style>
+    .thumbnail img{
+        max-height: 250px;
+    }
     H2 {
         text-shadow: 1px 1px 0 orange,
         1px -1px 0 orange,
@@ -374,7 +377,7 @@
 
     }
     .owl-carousel img{
-        width: 200px;
+        max-width: 200px;
         height: 250px;
     }
     img { max-width:100%; }

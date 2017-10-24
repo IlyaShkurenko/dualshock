@@ -61,7 +61,7 @@
                             <!-- Button -->
                             <center>
                                 <div class="col-sm-12 controls">
-                                    <a href="/admin" id="btn-login" @click="submit" class="btn btn-success">Добавить  </a>
+                                    <a id="btn-login" @click="submit" class="btn btn-success">Добавить  </a>
                                 </div>
                             </center>
                             <br>
@@ -125,6 +125,7 @@
                         // error callback
                     }
                 );
+                this.$emit('addRoom')
             },
             sync (e) {
                 e.preventDefault();

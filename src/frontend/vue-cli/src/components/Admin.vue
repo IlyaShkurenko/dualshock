@@ -276,7 +276,7 @@
                                         </div>
                                         <div class="tab-pane fade" id="tab3primary">Primary 3</div>
                                         <div class="tab-pane fade" id="tabremove"><remove-cmp :rooms = "$store.getters.rooms" @deleteRoom = "deleteRoom"></remove-cmp></div>
-                                        <div class="tab-pane fade" id="tabadd"><add-cmp></add-cmp></div>
+                                        <div class="tab-pane fade" id="tabadd"><add-cmp @addRoom = "added"></add-cmp></div>
                                     </div>
                                 </div>
                             </div>
@@ -774,10 +774,18 @@
             addCmp: Add
         },
         methods: {
-            deleteRoom(index){
+            deleteRoom(room){
+                let index = this.$store.state.rooms.indexOf(room);
+                console.log(index);
                 this.$store.state.rooms.splice(index,1);
                 this.delRooms();
                 //this.getRooms()
+            },
+            added(){
+                setTimeout(function () {
+                    location.reload();
+                    this.getRooms()
+                }, 3000)
             },
         ...mapActions([
             'getRooms',

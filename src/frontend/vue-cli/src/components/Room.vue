@@ -41,7 +41,7 @@
     .room img{
         border: 2px solid white;
         width: 75%;
-        height: 600px;
+        max-height: 600px;
     }
     .table_dark {
         font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;

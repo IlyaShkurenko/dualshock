@@ -19,7 +19,7 @@ router.get('/',async function (req, res, next) {
 router.post('/', async (req, res) => {
     let newRoom = {};
     let path = '';
-    let array = await ref.getAll();
+    let array = await ref.refuge();
     const UUID = require("uuid-v4");
     const fbId = "vue-app-75351";
     const fbKeyFile = "vue-app-75351-firebase-adminsdk-9pkad-49d805f90e.json";
@@ -78,6 +78,7 @@ router.post('/', async (req, res) => {
                 let file = data[0];
                 newRoom.img = "https://firebasestorage.googleapis.com/v0/b/" + bucket.name + "/o/" + encodeURIComponent(file.name) + "?alt=media&token=" + uuid;
                 array.push(newRoom);
+                console.log(array);
                 fileWrite.toFile(array);
                 return Promise.resolve("https://firebasestorage.googleapis.com/v0/b/" + bucket.name + "/o/" + encodeURIComponent(file.name) + "?alt=media&token=" + uuid);
             });

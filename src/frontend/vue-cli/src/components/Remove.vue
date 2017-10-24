@@ -34,10 +34,8 @@ import ch from  'lodash'
     },
         methods:{
          deleteRoom(index){
-
-             this.rooms[this.page-1].splice(index,1);
-             this.$emit('deleteRoom', index);
-             this.vm.$forceUpdate();
+             let room = this.rooms[this.page - 1][index];
+             this.$emit('deleteRoom',room);
          }
 
     },
