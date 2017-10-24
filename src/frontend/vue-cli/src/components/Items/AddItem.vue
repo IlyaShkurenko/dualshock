@@ -61,7 +61,7 @@
                             <!-- Button -->
                             <center>
                                 <div class="col-sm-12 controls">
-                                    <a id="btn-login" @click="submit" class="btn btn-success">Добавить  </a>
+                                    <button  @click = "submit" type="button" class="btn btn-success" id="load" ><i :class="{'fa fa-spinner fa-spin': isActive}"></i>{{buttonValue}}</button>
                                 </div>
                             </center>
                             <br>
@@ -69,7 +69,6 @@
                             <br>
                             <br>
                         </div>
-
                     </form>
                 </div>
             </div>
@@ -97,7 +96,9 @@
                 isLoading: false,
                 isDragging: false,
                 data: {},
-                isEmpty: false
+                isEmpty: false,
+                isActive: false,
+                buttonValue: 'Добавить'
             }
         },
         computed: {
@@ -113,6 +114,8 @@
         },
         methods: {
             submit(){
+                this.buttonValue = 'Обрабатывается';
+                this.isActive = true;
                 this.$http.post('rooms', this.data, {
                     headers: {
                         'Content-Type': 'multipart/form-data; charset=UTF-8'
@@ -149,7 +152,7 @@
                 this.$emit('input', filename);
                 // Dispatch new event with image content
                 this.$emit('image-changed', this.content);
-            },
+            }
         }
     }
 </script>
