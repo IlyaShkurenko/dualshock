@@ -52,9 +52,7 @@ router.post('/', async (req, res) => {
             }
         })
         .on('end', function() {
-            console.log('-> post done');
             res.writeHead(200, {'content-type': 'text/plain'});
-            res.end('received fields:\n\n '+util.inspect(fields));
         });
     form.parse(req);
     //send image to firebase
@@ -79,6 +77,8 @@ router.post('/', async (req, res) => {
                 newRoom.img = "https://firebasestorage.googleapis.com/v0/b/" + bucket.name + "/o/" + encodeURIComponent(file.name) + "?alt=media&token=" + uuid;
                 array.push(newRoom);
                 console.log(array);
+                console.log('-> post done');
+                res.end('received fields:\n\n '+util.inspect(fields));
                 fileWrite.toFile(array);
                 return Promise.resolve("https://firebasestorage.googleapis.com/v0/b/" + bucket.name + "/o/" + encodeURIComponent(file.name) + "?alt=media&token=" + uuid);
             });

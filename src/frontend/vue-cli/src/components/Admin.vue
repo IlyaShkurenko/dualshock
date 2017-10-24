@@ -782,10 +782,8 @@
                 //this.getRooms()
             },
             added(){
-                setTimeout(function () {
-                    location.reload();
-                    this.getRooms()
-                }, 3000)
+                this.$router.go(this.$router.currentRoute);
+                this.getRooms()
             },
         ...mapActions([
             'getRooms',

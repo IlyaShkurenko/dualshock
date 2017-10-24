@@ -120,12 +120,12 @@
                 }).then(
                     response => {
                         console.log('Success! Response: ', response.body);
+                        this.$emit('addRoom')
                     },
                     response => {
                         // error callback
                     }
                 );
-                this.$emit('addRoom')
             },
             sync (e) {
                 e.preventDefault();
