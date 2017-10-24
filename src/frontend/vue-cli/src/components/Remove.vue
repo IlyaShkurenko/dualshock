@@ -13,7 +13,8 @@
             <input type="text" v-model="filteredText" class="form-control" name="q" placeholder="Search.." id="search_key" value="">
         </div>
         <item-cmp v-for="(item, index) in filteredRooms" :room = "item" :index = "index" @click.native = "deleteRoom(index)"> </item-cmp>
-        <a v-for="index in rooms.length" @click = "page = index">{{index}} </a>
+        <a @click = "prevPage">Prev</a>
+        <a @click = "nextPage">Next</a>
     </div>
 </template>
 <script>
@@ -36,6 +37,16 @@ import ch from  'lodash'
          deleteRoom(index){
              let room = this.rooms[this.page - 1][index];
              this.$emit('deleteRoom',room);
+         },
+         nextPage(){
+             if(this.page < this.rooms.length){
+                 this.page++
+             }
+         },
+         prevPage(){
+             if(this.page - 1 !== 0){
+                 this.page--
+             }
          }
 
     },
