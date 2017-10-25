@@ -13,7 +13,8 @@ router.options('*', cors());
 router.get('/',async function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');
-    let rooms = await ref.refuge();
+    let rooms = await ref.getAll();
+    console.log(rooms);
     res.json(rooms);
 });
 router.post('/', async (req, res) => {

@@ -27,7 +27,8 @@ import ch from  'lodash'
             selected: 'Id',
             fields: ['Id', 'Description', 'Games', 'Capacity', 'Price'],
             dash: [],
-            page: 1
+            page: 1,
+            arrayRomms: []
         }
     },
     components: {
@@ -50,6 +51,9 @@ import ch from  'lodash'
          }
 
     },
+        beforeCreate(){
+         this.arrayRooms = this.$store.getters.rooms
+        },
         props: {
           rooms: Array
         },
@@ -59,6 +63,9 @@ import ch from  'lodash'
                 return this.rooms[this.page - 1].filter(post => {
                     if(this.selected.toLowerCase() === 'games'){
                         return post.games.join().toLowerCase().includes(this.filteredText.toLowerCase())
+                    }
+                    else if(this.selected.toLowerCase() === 'id'){
+                        return post.id.toString().toLowerCase().includes(this.filteredText.toLowerCase())
                     }
                     else return post[(this.selected).toLowerCase()].toLowerCase().includes(this.filteredText.toLowerCase())
                 })

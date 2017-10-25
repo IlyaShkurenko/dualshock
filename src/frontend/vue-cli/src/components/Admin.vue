@@ -3,7 +3,6 @@
         <div id="throbber" style="display:none; min-height:120px;"></div>
         <div id="noty-holder"></div>
         <div id="wrapper">
-            <p>{{$store.state.rooms.length}}</p>
         <router-view></router-view>
             <!-- Navigation -->
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">

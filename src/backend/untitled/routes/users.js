@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET users listing. */
 
-var User = require('../models/user').User;
+var User = require('../models/room').User;
 router.get('/',function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');

@@ -1,5 +1,6 @@
 let rooms = [];
 let fs = require("fs");
+var Room = require('./models/room').Room;
 
 let readFromFile = function(fileName) {
     let json = fs.readFileSync(fileName, 'utf8');
@@ -37,11 +38,14 @@ let update = async(room, id) => {
 };
 
 let getAll = async() => {
-    let jsonArray = [];
-    for (let x in array) {
-        jsonArray.push(array[x]);
-    }
-    return jsonArray;
+    let roomMap = {};
+    await Room.find({},function(err, rooms) {
+
+        rooms.forEach(function(room) {
+            roomMap[room._id] = room;
+        });
+    });
+    return roomMap
 };
 
 let getById = async(index) => {
