@@ -23,11 +23,14 @@ let remove = async(index) => {
     Room.find({ id:index }).remove().exec()
 
 };
-let create = async(room) => {
-    array.push(room);
-    toJson(array);
+let create = async(roomTodb) => {
+    let room = new Room(roomTodb);
+    room.save(function (err, user, affected) {
+        if (err) throw err;
+    })
 
 };
+
 
 let update = async(room, id) => {
     let index = await find(id);

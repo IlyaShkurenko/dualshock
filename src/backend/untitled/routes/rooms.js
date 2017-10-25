@@ -71,12 +71,11 @@ router.post('/', async (req, res) => {
                 }
             }
         })
-            .then((data) => {
+            .then(async (data) => {
 
                 let file = data[0];
                 newRoom.img = "https://firebasestorage.googleapis.com/v0/b/" + bucket.name + "/o/" + encodeURIComponent(file.name) + "?alt=media&token=" + uuid;
-                array.push(newRoom);
-                console.log(array);
+                await ref.create(newRoom);
                 console.log('-> post done');
                 res.end('received fields:\n\n '+util.inspect(fields));
                 fileWrite.toFile(array);
