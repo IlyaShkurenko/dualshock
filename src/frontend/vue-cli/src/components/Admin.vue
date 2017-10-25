@@ -777,7 +777,7 @@
                 let index = this.$store.state.rooms.indexOf(room);
                 console.log(index);
                 this.$store.state.rooms.splice(index,1);
-                this.delRooms();
+                this.delRooms(room);
                 //this.getRooms()
             },
             added(){

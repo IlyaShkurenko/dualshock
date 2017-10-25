@@ -13,8 +13,8 @@ export const store = new Vuex.Store({
         getRooms({commit}) {
             commit('GET_ROOM')
         },
-        delRooms({commit}) {
-            commit('DEL_ROOM')
+        delRooms({commit}, room) {
+            commit('DEL_ROOM', room)
         },
         getArray({commit}) {
             commit('GET_ARRAY')
@@ -45,12 +45,12 @@ export const store = new Vuex.Store({
                     state.slider[count] = length;
                 })
         },
-        DEL_ROOM(state) {
+        DEL_ROOM(state,room) {
             let data = new FormData();
             for (var i = 0; i < state.rooms.length; i++) {
                 data.append('arr[]', state.rooms[i]);
             }
-            Vue.http.post('delete/room', JSON.stringify(state.rooms )).then(
+            Vue.http.post('delete/room', JSON.stringify(room)).then(
                 response => {
                     console.log('Success! Response: ', response.body);
                 },

@@ -19,10 +19,8 @@ let array = [];
 let init = async() => {
     array = await refuge();
 };
-let remove = async(id) => {
-    let index = await find(id);
-    array.splice(index, 1);
-    toJson(array);
+let remove = async(index) => {
+    Room.find({ id:index }).remove().exec()
 
 };
 let create = async(room) => {

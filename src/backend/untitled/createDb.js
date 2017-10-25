@@ -18,6 +18,9 @@ async.series([
 ],function (err) {
     console.log(arguments);
 });*/
+function remove(callback) {
+  Room.find({ id:3 }).remove().exec()
+}
 function open(callback) {
     mongoose.connection.on('open',callback);
 }
