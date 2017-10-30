@@ -47,8 +47,18 @@ export default {
 
     // To log out, we just need to remove the token
     logout() {
-        localStorage.removeItem('id_token');
-        localStorage.removeItem('access_token');
+        localStorage.removeItem('id_token')
+        localStorage.removeItem('access_token')
         this.user.authenticated = false
+    },
+
+    checkAuth() {
+        var jwt = localStorage.getItem('id_token')
+        if(jwt) {
+            this.user.authenticated = true
+        }
+        else {
+            this.user.authenticated = false
+        }
     }
 }
