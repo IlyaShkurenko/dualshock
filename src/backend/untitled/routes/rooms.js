@@ -78,7 +78,6 @@ router.post('/', async (req, res) => {
                 await ref.create(newRoom);
                 console.log('-> post done');
                 res.end('received fields:\n\n '+util.inspect(fields));
-                fileWrite.toFile(array);
                 return Promise.resolve("https://firebasestorage.googleapis.com/v0/b/" + bucket.name + "/o/" + encodeURIComponent(file.name) + "?alt=media&token=" + uuid);
             });
     };

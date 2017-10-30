@@ -1,14 +1,134 @@
-var express = require('express');
+var express = require('express'),
+    _       = require('lodash'),
+    config  = require('../config/config.json'),
+    jwt     = require('jsonwebtoken');
 var router = express.Router();
+var formidable = require('formidable');
+// XXX: This should be a database of users :).
+var users = [{
+    id: 1,
+    username: 'gonto',
+    password: 'gonto'
+}];
 
-/* GET users listing. */
+function createIdToken(user) {
+    return jwt.sign(_.omit(user, 'password'), config.secret, { expiresIn: 60*60*5 });
+}
 
-var User = require('../models/room').User;
-router.get('/',function (req, res, next) {
+function createAccessToken() {
+    return jwt.sign({
+        iss: config.issuer,
+        aud: config.audience,
+        exp: Math.floor(Date.now() / 1000) + (60 * 60),
+        scope: 'full_access',
+        sub: "lalaland|gonto",
+        jti: genJti(), // unique identifier for the token
+        alg: 'HS256'
+    }, config.secret);
+}
+
+// Generate Unique Identifier for the access token
+function genJti() {
+    let jti = '';
+    let possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    for (let i = 0; i < 16; i++) {
+        jti += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+
+    return jti;
+}
+
+function getUserScheme(req) {
+
+    var username;
+    var type;
+    var userSearch = {};
+
+    // The POST contains a username and not an email
+    if(req.body.username) {
+        username = req.body.username;
+        type = 'username';
+        userSearch = { username: username };
+    }
+    // The POST contains an email and not an username
+    else if(req.body.email) {
+        username = req.body.email;
+        type = 'email';
+        userSearch = { email: username };
+    }
+
+    return {
+        username: username,
+        type: type,
+        userSearch: userSearch
+    }
+}
+
+router.post('/', function(req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');
-    console.log(req);
-    res.end();
+    var form = new formidable.IncomingForm(),
+        fields = {};
+    form
+        .on('error', function(err) {
+            res.writeHead(500, {'content-type': 'text/plain'});
+            res.end('error:\n\n'+util.inspect(err));
+            console.error(err);
+        })
+        .on('field', function(name, value) {
+            console.log(name,value);
+        })
+        .on('end', function() {
+            res.writeHead(200, {'content-type': 'text/plain'});
+            res.end('good')
+        });
+    form.parse(req);
+    /*var userScheme = getUserScheme(req);
+
+    if (!userScheme.username || !req.body.password) {
+        return res.status(400).send("You must send the username and the password");
+    }
+
+    if (_.find(users, userScheme.userSearch)) {
+        return res.status(400).send("A user with that username already exists");
+    }
+
+    var profile = _.pick(req.body, userScheme.type, 'password', 'extra');
+    profile.id = _.max(users, 'id').id + 1;
+
+    users.push(profile);
+
+    res.status(201).send({
+        id_token: createIdToken(profile),
+        access_token: createAccessToken()
+    });*/
 });
 
+router.post('/sessions/create', function(req, res) {
+    console.log('asdad')
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');
+
+    var userScheme = getUserScheme(req);
+
+    if (!userScheme.username || !req.body.password) {
+        return res.status(400).send("You must send the username and the password");
+    }
+
+    var user = _.find(users, userScheme.userSearch);
+
+    if (!user) {
+        return res.status(401).send("The username or password don't match");
+    }
+
+    if (user.password !== req.body.password) {
+        return res.status(401).send("The username or password don't match");
+    }
+
+    res.status(201).send({
+        id_token: createIdToken(user),
+        access_token: createAccessToken()
+    });
+    res.end();
+});
 module.exports = router;

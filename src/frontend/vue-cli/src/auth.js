@@ -1,9 +1,6 @@
-import {router} from 'vue-router'
-
-// URL and endpoint constants
-const API_URL = 'http://localhost:5000/';
-const LOGIN_URL = API_URL + 'sessions/create/';
-const SIGNUP_URL = API_URL + 'users/';
+const LOGIN_URL = 'sessions/create';
+const SIGNUP_URL = 'users';
+import {router} from './main'
 export default {
 
     // User object will let us check authentication status
@@ -13,36 +10,35 @@ export default {
 
     // Send a request to the login URL and save the returned JWT
     login(context, creds, redirect) {
-        context.$http.post(LOGIN_URL, creds, (data) => {
+        context.$http.post(LOGIN_URL, creds).then(data => {
             localStorage.setItem('id_token', data.id_token);
             localStorage.setItem('access_token', data.access_token);
 
-            this.user.authenticated = true
+            this.user.authenticated = true;
 
-            // Redirect to a specified route
             if(redirect) {
-                router.go(redirect)
+                router.push(redirect)
             }
-
-        }).error((err) => {
-            context.error = err
         })
+
     },
 
     signup(context, creds, redirect) {
-        context.$http.post(SIGNUP_URL, creds, (data) => {
-            localStorage.setItem('id_token', data.id_token)
-            localStorage.setItem('access_token', data.access_token)
+        let data = new FormData();
+        for(let field in creds){
+            data.append(field,creds[field]);
+        }
+        context.$http.post(SIGNUP_URL, creds).then(data => {
+                localStorage.setItem('id_token', data.id_token);
+                localStorage.setItem('access_token', data.access_token);
 
-            this.user.authenticated = true
+                this.user.authenticated = true;
 
-            if(redirect) {
-                router.go(redirect)
+                if(redirect) {
+                    router.push(redirect)
+                }
             }
-
-        }).error((err) => {
-            context.error = err
-        })
+        )
     },
 
     // To log out, we just need to remove the token
@@ -56,9 +52,17 @@ export default {
         var jwt = localStorage.getItem('id_token')
         if(jwt) {
             this.user.authenticated = true
+
         }
         else {
             this.user.authenticated = false
+        }
+    },
+
+    // The object to be passed as a header for authenticated requests
+    getAuthHeader() {
+        return {
+            'Authorization': 'Bearer ' + localStorage.getItem('access_token')
         }
     }
 }

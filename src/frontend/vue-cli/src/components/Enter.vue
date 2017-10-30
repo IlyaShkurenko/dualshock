@@ -1,6 +1,7 @@
 
 <template>
 <div>
+    <p>{{$store.state.authenticated}}</p>
    <!--<div class="image-uploader__input-wrapper">
         <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
         <input id="myName" name="name" value="John">
@@ -18,7 +19,7 @@
         >
     </div>-->
     <div class="enter">
-        <router-link to="/admin">
+        <router-link to="/login">
             <div class="buttom  login hvr-grow hvr-icon-up">Войти</div>
             <div class="rectangle-big">
                 <div class="rectangle" style="margin-right: 0.6vw; width: 6.3vw">
@@ -29,7 +30,8 @@
                 </div>
             </div>
         </router-link>
-        <div class="buttom register hvr-grow hvr-icon-up">Регистрация</div>
+        <div v-if="!logined" class="buttom register hvr-grow hvr-icon-up" @click="signup">Регистрация</div>
+        <div class="buttom register hvr-grow hvr-icon-up" @click="logout" v-else>Выйти</div>
         <div class="rectangle-big">
             <div class="rectangle" style="margin-right: 8vw;">
                 <div class="rectangle-small">
@@ -64,6 +66,7 @@
     //import 'hover.css/css/hover.css'
     import Event from './Event.vue';
     import axios from 'axios'
+    import auth from '../auth'
     import dataURLtoBlob from 'blueimp-canvas-to-blob';
     import Vue from 'vue'
     export default {
@@ -117,6 +120,16 @@
                 this.$emit('input', filename);
                 // Dispatch new event with image content
                 this.$emit('image-changed', this.content);
+            },
+            logout(){
+                auth.logout();
+                console.log('log out')
+                this.$router.go(this.$router.currentRoute);
+                this.$store.dispatch('logout');
+            },
+            signup(){
+                this.$router.push('signup')
+                this.$store.dispatch('login');
             }
         },
         created(){
@@ -127,6 +140,9 @@
                     return this.content;
                 }
                 return this.isEmpty ? '' : this.srcPrefix + this.value;
+            },
+            logined(){
+               return this.$store.state.authenticated;
             }
         },
       components: {

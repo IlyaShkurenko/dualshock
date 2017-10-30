@@ -7,7 +7,8 @@ export const store = new Vuex.Store({
    state: {
        slider: [],
        rooms: [],
-       games: ' '
+       games: ' ',
+       authenticated: false,
    },
     actions: {
         getRooms({commit}) {
@@ -18,6 +19,15 @@ export const store = new Vuex.Store({
         },
         getArray({commit}) {
             commit('GET_ARRAY')
+        },
+        signUp({commit}, creds,redirect){
+            commit('SIGN_UP', creds, redirect)
+        },
+        login({commit}){
+            commit('LOGIN')
+        },
+        logout({commit}){
+            commit('LOG_OUT')
         }
     },
     mutations: {
@@ -68,6 +78,26 @@ export const store = new Vuex.Store({
                 length-=4;
             }
             state.slider[count] = length;
+        },
+        SIGN_UP(state, creds, redirect) {
+            Vue.http.post('users', JSON.stringify(creds)).then(data => {
+                    localStorage.setItem('id_token', data.id_token);
+                    localStorage.setItem('access_token', data.access_token);
+
+                    state.authenticated = true;
+
+                    if(redirect) {
+                        this.$router.go(redirect)
+                    }
+            }
+            )
+
+        },
+        LOGIN(state){
+            state.authenticated = true;
+        },
+        LOG_OUT(state){
+            state.authenticated = false
         }
 
     },

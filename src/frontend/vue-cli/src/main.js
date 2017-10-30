@@ -6,13 +6,12 @@ import {routes} from './routes'
 import {store} from './store/store'
 Vue.use(VueRouter);
 Vue.use(VueResource);
-const router = new VueRouter({
+export const router = new VueRouter({
     routes,
     mode: 'history'
 });
-const proxy = "http://localhost:5000/";
+const proxy = "http://localhost:3001/";
 Vue.http.options.root = proxy;
-
 var vm = new Vue({
   el: '#app',
   store,
