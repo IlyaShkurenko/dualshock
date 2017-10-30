@@ -43,5 +43,12 @@ export default {
         }).error((err) => {
             context.error = err
         })
+    },
+
+    // To log out, we just need to remove the token
+    logout() {
+        localStorage.removeItem('id_token');
+        localStorage.removeItem('access_token');
+        this.user.authenticated = false
     }
 }
