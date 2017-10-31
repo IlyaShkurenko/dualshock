@@ -1,7 +1,6 @@
 
 <template>
 <div>
-    <p>{{$store.state.authenticated}}</p>
    <!--<div class="image-uploader__input-wrapper">
         <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
         <input id="myName" name="name" value="John">
@@ -125,14 +124,25 @@
                 auth.logout();
                 console.log('log out')
                 this.$router.go(this.$router.currentRoute);
-                this.$store.dispatch('logout');
             },
             signup(){
                 this.$router.push('signup')
-                this.$store.dispatch('login');
             }
         },
         created(){
+        },
+        beforeCreate(){
+            auth.checkAuth()
+            var jwt = localStorage.getItem('id_token')
+            if(jwt) {
+                auth.user.authenticated = true;
+                this.$store.dispatch('login');
+
+            }
+            else {
+                this.$store.dispatch('logout');
+                auth.user.authenticated = false
+            }
         },
         computed: {
             src () {
