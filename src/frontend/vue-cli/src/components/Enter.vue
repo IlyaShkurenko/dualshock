@@ -18,8 +18,8 @@
         >
     </div>-->
     <div class="enter">
-        <router-link to="/login">
-            <div class="buttom  login hvr-grow hvr-icon-up">Войти</div>
+       <div v-if="!logined" class="buttom login hvr-grow hvr-icon-up" @click="login">Войти</div>
+        <div class="buttom  login hvr-grow hvr-icon-pulse" @click="home" v-else>Домой</div>
             <div class="rectangle-big">
                 <div class="rectangle" style="margin-right: 0.6vw; width: 6.3vw">
                     <div class="rectangle-small" style="width: 5vw">
@@ -28,9 +28,8 @@
                     </div>
                 </div>
             </div>
-        </router-link>
         <div v-if="!logined" class="buttom register hvr-grow hvr-icon-up" @click="signup">Регистрация</div>
-        <div class="buttom register hvr-grow hvr-icon-up" @click="logout" v-else>Выйти</div>
+        <div class="buttom register hvr-grow hvr-icon-up" @click="logout" v-else>Выйти c игры</div>
         <div class="rectangle-big">
             <div class="rectangle" style="margin-right: 8vw;">
                 <div class="rectangle-small">
@@ -122,8 +121,13 @@
             },
             logout(){
                 auth.logout();
-                console.log('log out')
                 this.$router.go(this.$router.currentRoute);
+            },
+            login(){
+                this.$router.push('login');
+            },
+            home(){
+                this.$router.push('admin');
             },
             signup(){
                 this.$router.push('signup')
@@ -132,8 +136,8 @@
         created(){
         },
         beforeCreate(){
-            auth.checkAuth()
-            var jwt = localStorage.getItem('id_token')
+            auth.checkAuth();
+            var jwt = localStorage.getItem('id_token');
             if(jwt) {
                 auth.user.authenticated = true;
                 this.$store.dispatch('login');
@@ -279,9 +283,21 @@
         margin-top: -50px;
     }
 
-    .hvr-icon-up{
+    .hvr-icon-up,
+    .hvr-icon-pulse{
         color: white;
         font-weight: bold;
+    }
+    .glyphicon-home{
+        color: white;
+        font-weight: bold;
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+        box-shadow: 0 0 1px transparent;
+        position: relative;
+        padding-right: 2.2em;
     }
     .main-container .background{
         background-image: url("../images/zel3.jpg");

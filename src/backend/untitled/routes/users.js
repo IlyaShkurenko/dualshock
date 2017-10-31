@@ -64,26 +64,9 @@ function getUserScheme(req) {
     }
 }
 
-router.post('/', function(req, res) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');
-    var form = new formidable.IncomingForm(),
-        fields = {};
-    form
-        .on('error', function(err) {
-            res.writeHead(500, {'content-type': 'text/plain'});
-            res.end('error:\n\n'+util.inspect(err));
-            console.error(err);
-        })
-        .on('field', function(name, value) {
-            console.log(name,value);
-        })
-        .on('end', function() {
-            res.writeHead(200, {'content-type': 'text/plain'});
-            res.end('good')
-        });
-    form.parse(req);
-    /*var userScheme = getUserScheme(req);
+router.post('/users', function(req, res) {
+
+    var userScheme = getUserScheme(req);
 
     if (!userScheme.username || !req.body.password) {
         return res.status(400).send("You must send the username and the password");
@@ -101,13 +84,11 @@ router.post('/', function(req, res) {
     res.status(201).send({
         id_token: createIdToken(profile),
         access_token: createAccessToken()
-    });*/
+    });
 });
 
 router.post('/sessions/create', function(req, res) {
-    console.log('asdad')
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');
+    console.log(users);
 
     var userScheme = getUserScheme(req);
 
@@ -129,6 +110,5 @@ router.post('/sessions/create', function(req, res) {
         id_token: createIdToken(user),
         access_token: createAccessToken()
     });
-    res.end();
 });
 module.exports = router;
