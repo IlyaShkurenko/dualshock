@@ -21,6 +21,15 @@ let getUserByLoginAndPass = async function (name, passwordHash) {
   return user[0]
 };
 
+let create = async(newUser) => {
+    let user = new User(newUser);
+    user.save(function (err, user, affected) {
+        if (err) throw err;
+    })
+
+};
+
 module.exports = {
-    getUserByLoginAndPass
+    getUserByLoginAndPass,
+    create
 };
