@@ -1,7 +1,9 @@
 var express = require('express'),
     _       = require('lodash'),
     config  = require('../config/config.json'),
-    jwt     = require('jsonwebtoken');
+    jwt     = require('jsonwebtoken'),
+    User = require('../models/user').User,
+    db = require('../modules/db');
 var router = express.Router();
 var formidable = require('formidable');
 // XXX: This should be a database of users :).
@@ -10,7 +12,13 @@ var users = [{
     username: 'gonto',
     password: 'gonto'
 }];
+let create = async(newUser) => {
+    let user = new User(newUser);
+    user.save(function (err, user, affected) {
+        if (err) throw err;
+    })
 
+};
 function createIdToken(user) {
     return jwt.sign(_.omit(user, 'password'), config.secret, { expiresIn: 60*60*5 });
 }
@@ -87,28 +95,37 @@ router.post('/users', function(req, res) {
     });
 });
 
-router.post('/sessions/create', function(req, res) {
-    console.log(users);
+router.post('/sessions/create', async function(req, res) {
+    console.log(req.body.username, req.body.password);
+    //await create({username: 'dominolex14@gmail.com', password: 'firaxis1998', role: 'admin'});
+    /*User.remove({}, function(err, row) {
+        if (err) {
+            console.log("Collection couldn't be removed" + err);
+            return;
+        }
 
-    var userScheme = getUserScheme(req);
+        console.log("collection removed");
+    })*/
+   /* User.find({}, function(err, rooms) {
+        var userMap = {};
 
-    if (!userScheme.username || !req.body.password) {
-        return res.status(400).send("You must send the username and the password");
-    }
+        rooms.forEach(function(user) {
+            userMap[user._id] = user;
+        });
+        console.log(userMap);
+    });*/
 
-    var user = _.find(users, userScheme.userSearch);
-
-    if (!user) {
+    let user = new User({username: req.body.username, password: req.body.password, role: ''});
+    let registeredUser = await db.getUserByLoginAndPass(user.username, user.hashedPassword);
+    if (!registeredUser) {
         return res.status(401).send("The username or password don't match");
     }
-
-    if (user.password !== req.body.password) {
-        return res.status(401).send("The username or password don't match");
-    }
-
-    res.status(201).send({
-        id_token: createIdToken(user),
-        access_token: createAccessToken()
-    });
+    let jwt = {
+        id_token: createIdToken(registeredUser.toArray),
+        access_token: createAccessToken(),
+        role: registeredUser.role
+    };
+    res.status(201);
+    res.json(jwt)
 });
 module.exports = router;
