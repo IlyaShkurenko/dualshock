@@ -12,9 +12,11 @@ export default {
     login(context, creds, redirect) {
         context.$http.post(LOGIN_URL, creds).then(data => {
             console.log('data = ' + data.body.id_token);
-            localStorage.setItem('id_token', data.id_token);
-            localStorage.setItem('access_token', data.access_token);
+            console.log('username = ' + data.body.username);
+            localStorage.setItem('id_token', data.body.id_token);
+            localStorage.setItem('access_token', data.body.access_token);
             localStorage.setItem('role', data.body.role);
+            localStorage.setItem('username', data.body.username);
 
             this.user.authenticated = true;
 
@@ -31,10 +33,10 @@ export default {
             data.append(field,creds[field]);
         }
         context.$http.post(SIGNUP_URL, creds).then(data => {
-                localStorage.setItem('id_token', data.id_token);
-                localStorage.setItem('access_token', data.access_token);
+                localStorage.setItem('id_token', data.body.id_token);
+                localStorage.setItem('access_token', data.body.access_token);
                 localStorage.setItem('role', data.body.role);
-
+                localStorage.setItem('username', data.body.username);
                 this.user.authenticated = true;
 
                 if(redirect) {
@@ -49,6 +51,7 @@ export default {
         localStorage.removeItem('id_token');
         localStorage.removeItem('access_token');
         localStorage.removeItem('role');
+        localStorage.removeItem('username');
         this.user.authenticated = false
     },
 

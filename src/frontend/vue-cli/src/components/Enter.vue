@@ -127,7 +127,7 @@
                 this.$router.push('login');
             },
             home(){
-                this.$router.push('admin');
+                this.$router.push(localStorage.getItem('role'));
             },
             signup(){
                 this.$router.push('signup')

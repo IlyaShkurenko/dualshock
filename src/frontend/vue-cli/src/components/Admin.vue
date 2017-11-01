@@ -768,6 +768,11 @@
                 rm: this.$store.state.rooms
             }
         },
+        beforeCreate(){
+            if (localStorage.getItem('role') !== 'admin'){
+                this.$router.push('/');
+            }
+        },
         components: {
             removeCmp: Remove,
             addCmp: Add

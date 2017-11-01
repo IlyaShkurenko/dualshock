@@ -86,7 +86,8 @@ router.post('/users', async function(req, res) {
     let jwt = {
         id_token: createIdToken(user.toArray),
         access_token: createAccessToken(),
-        role: user.role
+        role: user.role,
+        username: user.username
     };
     res.status(201);
     res.json(jwt)
@@ -120,7 +121,8 @@ router.post('/sessions/create', async function(req, res) {
     let jwt = {
         id_token: createIdToken(registeredUser.toArray),
         access_token: createAccessToken(),
-        role: registeredUser.role
+        role: registeredUser.role,
+        username: registeredUser.username
     };
     res.status(201);
     res.json(jwt)
