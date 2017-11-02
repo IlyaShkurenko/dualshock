@@ -137,16 +137,6 @@
         },
         beforeCreate(){
             auth.checkAuth();
-            var jwt = localStorage.getItem('id_token');
-            if(jwt) {
-                auth.user.authenticated = true;
-                this.$store.dispatch('login');
-
-            }
-            else {
-                this.$store.dispatch('logout');
-                auth.user.authenticated = false
-            }
         },
         computed: {
             src () {
@@ -156,7 +146,7 @@
                 return this.isEmpty ? '' : this.srcPrefix + this.value;
             },
             logined(){
-               return this.$store.state.authenticated;
+               return auth.user.authenticated;
             }
         },
       components: {
