@@ -1,27 +1,43 @@
 <template>
-    <div class="col-sm-4 col-sm-offset-4">
-        <h2>Sign Up</h2>
-        <p>Log in to your account to get some great quotes.</p>
-        <div class="alert alert-danger" v-if="error">
-            <p>{{ error }}</p>
+    <div>
+        <header-component></header-component>
+    <section id="join-us" style="background-image: url('../../images/zel2.jpg')">
+
+        <div class="wrapper">
+            <div class="content">
+                <h2><span class='orange'>Давайте</span><span class='normal'>оставаться</span><span class='big'>на связи</span></h2>
+                <p class="p1">Присоединяйтесь к сообществу Bandai Namco</p>
+                <p class="p1">- Узнавайте эксклюзивную информацию о любимых играх</p>
+                <p class="p1">- Получайте специальные предложения и принимайте участие в конкурсах</p>
+                <p class="p1">- Узнавайте первым о новых играх</p>
+            </div>
+            <div class="form">
+                <span class="input">
+                    <input type="email" name="email" placeholder="email" v-model="credentials.username">
+                    <span></span>
+                </span>
+                    <span class="input">
+                    <input type="text" name="firstname" placeholder="имя">
+                    <span></span>
+                </span>
+                    <span class="input">
+                    <input type="text" name="name" placeholder="фамилия">
+                    <span></span>
+                </span>
+                <span>
+                    <span class="input">
+                    <input type="text" name="name" placeholder="пароль" v-model="credentials.password">
+                    <span></span>
+                </span>
+                    <div class="submit">
+                        <input value="подписаться" @click="submit()">
+                    </div>
+                </span>
+
+            </div>
         </div>
-        <div class="form-group">
-            <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Enter your username"
-                    v-model="credentials.username"
-            >
-        </div>
-        <div class="form-group">
-            <input
-                    type="password"
-                    class="form-control"
-                    placeholder="Enter your password"
-                    v-model="credentials.password"
-            >
-        </div>
-        <button class="btn btn-primary" @click="submit()">Access</button>
+    </section>
+        <footer-component></footer-component>
     </div>
 </template>
 
@@ -29,6 +45,8 @@
     import auth from '../../auth'
     import Vue from 'vue'
     import {mapActions} from 'vuex'
+    import Header from  '../Header.vue'
+    import Footer from '../Footer.vue'
     export default {
         data() {
             return {
@@ -56,7 +74,19 @@
                 'delRooms',
                 'signUp'
             ])
+        },
+        components: {
+            'header-component': Header,
+            'footer-component': Footer,
         }
 
     }
 </script>
+<style>
+    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: black;
+    }
+    #join-us{
+        padding-top: 400px;
+    }
+</style>

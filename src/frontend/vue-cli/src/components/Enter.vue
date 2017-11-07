@@ -17,55 +17,290 @@
                 src="https://firebasestorage.googleapis.com/v0/b/vue-app-75351.appspot.com/o/vip2.png?alt=media&token=8a686319-504e-407e-8222-bddc8f78013f"
         >
     </div>-->
-    <div class="enter">
-       <div v-if="!logined" class="buttom login hvr-grow hvr-icon-up" @click="login">Войти</div>
-        <div class="buttom  login hvr-grow hvr-icon-pulse" @click="home" v-else>Домой</div>
-            <div class="rectangle-big">
-                <div class="rectangle" style="margin-right: 0.6vw; width: 6.3vw">
-                    <div class="rectangle-small" style="width: 5vw">
-                        <div class="triangle_right">
+    <loginandreg></loginandreg>
+    <heder-component></heder-component>
+    <div id="bootstrap-touch-slider" class="carousel bs-slider fade  control-round indicators-line" data-ride="carousel" data-pause="hover" data-interval="5000" >
+
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#bootstrap-touch-slider" data-slide-to="0" class="active"></li>
+            <li data-target="#bootstrap-touch-slider" data-slide-to="1"></li>
+            <li data-target="#bootstrap-touch-slider" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper For Slides -->
+        <div class="carousel-inner" role="listbox">
+
+            <!-- Third Slide -->
+            <div class="item active">
+
+                <!-- Slide Background -->
+                <img src="https://images.pexels.com/photos/48726/pexels-photo-48726.jpeg?w=940&h=650&auto=compress&cs=tinysrgb" alt="Bootstrap Touch Slider"  class="slide-image"/>
+                <div class="bs-slider-overlay"></div>
+
+                <div class="container">
+                    <div class="row">
+                        <!-- Slide Text Layer -->
+                        <div class="slide-text slide_style_left">
+                            <h1 data-animation="animated zoomInRight">Bootstrap Carousel</h1>
+                            <p data-animation="animated fadeInLeft">Bootstrap carousel now touch enable slide.</p>
+                            <a href="http://bootstrapthemes.co/" target="_blank" class="btn btn-default" data-animation="animated fadeInLeft">select one</a>
+                            <a href="http://bootstrapthemes.co/" target="_blank"  class="btn btn-primary" data-animation="animated fadeInRight">select two</a>
                         </div>
                     </div>
                 </div>
             </div>
-        <div v-if="!logined" class="buttom register hvr-grow hvr-icon-up" @click="signup">Регистрация</div>
-        <div class="buttom register hvr-grow hvr-icon-up" @click="logout" v-else>Выйти c игры</div>
-        <div class="rectangle-big">
-            <div class="rectangle" style="margin-right: 8vw;">
-                <div class="rectangle-small">
-                    <div class="triangle_right">
-                    </div>
+            <!-- End of Slide -->
+
+            <!-- Second Slide -->
+            <div class="item">
+
+                <!-- Slide Background -->
+                <img src="https://images.pexels.com/photos/207990/pexels-photo-207990.jpeg?w=940&h=650&auto=compress&cs=tinysrgb" alt="Bootstrap Touch Slider"  class="slide-image"/>
+                <div class="bs-slider-overlay"></div>
+                <!-- Slide Text Layer -->
+                <div class="slide-text slide_style_center">
+                    <h1 data-animation="animated flipInX">Bootstrap touch slider</h1>
+                    <p data-animation="animated lightSpeedIn">Make Bootstrap Better together.</p>
+                    <a href="http://bootstrapthemes.co/" target="_blank" class="btn btn-default" data-animation="animated fadeInUp">select one</a>
+                    <a href="http://bootstrapthemes.co/" target="_blank"  class="btn btn-primary" data-animation="animated fadeInDown">select two</a>
                 </div>
             </div>
+            <!-- End of Slide -->
+
+            <!-- Third Slide -->
+            <div class="item">
+
+                <!-- Slide Background -->
+                <img src="https://images.pexels.com/photos/144345/pexels-photo-144345.jpeg?w=940&h=650&auto=compress&cs=tinysrgb" alt="Bootstrap Touch Slider"  class="slide-image"/>
+                <div class="bs-slider-overlay"></div>
+                <!-- Slide Text Layer -->
+                <div class="slide-text slide_style_right">
+                    <h1 data-animation="animated zoomInLeft">Beautiful Animations</h1>
+                    <p data-animation="animated fadeInRight">Lots of css3 Animations to make slide beautiful .</p>
+                    <a href="http://bootstrapthemes.co/" target="_blank" class="btn btn-default" data-animation="animated fadeInLeft">select one</a>
+                    <a href="http://bootstrapthemes.co/" target="_blank" class="btn btn-primary" data-animation="animated fadeInRight">select two</a>
+                </div>
+            </div>
+            <!-- End of Slide -->
+
+
+        </div><!-- End of Wrapper For Slides -->
+
+        <!-- Left Control -->
+        <a class="left carousel-control" href="#bootstrap-touch-slider" role="button" data-slide="prev">
+            <span class="fa fa-angle-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+
+        <!-- Right Control -->
+        <a class="right carousel-control" href="#bootstrap-touch-slider" role="button" data-slide="next">
+            <span class="fa fa-angle-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+
+    </div> <!-- End  bootstrap-touch-slider Slider -->
+
+    <section id="home-news">
+
+        <div class="wrapper">
+
+            <ul>
+                <li class="bloc-news">
+                    <article>
+                        <h1>
+                            <a href="http://www.naruto-videogames.com/ru/naruto-shippuden-ultimate-ninja-storm-legacy-and-storm-trilogy-now-available-4/" title="NARUTO SHIPPUDEN: ULTIMATE NINJA STORM LEGACY and STORM TRILOGY now available">
+                                NARUTO SHIPPUDEN: ...                                                            </a>
+                        </h1>
+
+                        <figure>
+                            <a href="http://www.naruto-videogames.com/ru/naruto-shippuden-ultimate-ninja-storm-legacy-and-storm-trilogy-now-available-4/" title="NARUTO SHIPPUDEN: ULTIMATE NINJA STORM LEGACY and STORM TRILOGY now available">
+                                <img src="../images/fifa17.png" alt="NARUTO SHIPPUDEN: ULTIMATE NINJA STORM LEGACY and STORM TRILOGY now available">
+                            </a>
+                        </figure>
+                        <div class="content">
+                            <p>BANDAI NAMCO Entertainment Europe is pleased to confirm today that NARUTO SHIPPUDEN: Ultimate Ninja STORM LEGACY and NARUTO SHIPPUDEN: Ultimate Ninja STORM TRILOGY are now available for all the fans of t...</p>
+                            <a href="http://www.naruto-videogames.com/ru/naruto-shippuden-ultimate-ninja-storm-legacy-and-storm-trilogy-now-available-4/" class="more" title="NARUTO SHIPPUDEN: ULTIMATE NINJA STORM LEGACY and STORM TRILOGY now available">читать еще</a>
+                        </div>
+                    </article>
+                </li>
+                <li class="bloc-news">
+                    <article>
+                        <h1>
+                            <a href="http://www.naruto-videogames.com/ru/create-your-own-ninja-in-naruto-to-boruto-shinobi-striker-4/" title="Create your own ninja in NARUTO TO BORUTO: SHINOBI STRIKER">
+                                Create your own ni...                                                            </a>
+                        </h1>
+
+                        <figure>
+                            <a href="http://www.naruto-videogames.com/ru/create-your-own-ninja-in-naruto-to-boruto-shinobi-striker-4/" title="Create your own ninja in NARUTO TO BORUTO: SHINOBI STRIKER">
+                                <img src="https://www.bandainamcoent.eu/static/2017/08/22/nst-200x200-gamescom-jpg?8805152e213815b849c3c9a08f8f527be495d50515033899291480adbf740a92f9ed0b00a60e1f370f&4beded212f7e30870685332f28c20e2a" alt="Create your own ninja in NARUTO TO BORUTO: SHINOBI STRIKER">
+                            </a>
+                        </figure>
+                        <div class="content">
+                            <p>NARUTO TO BORUTO: SHINOBI STRIKER is ready to be showcased at gamescom 2017! BANDAI NAMCO Entertainment Europe is excited to reveal the amazing new content about the acrobatic ninja battle action game developed by Soleil Ltd.
+                                &nbsp;
+                                For the first time in ...</p>
+                            <a href="http://www.naruto-videogames.com/ru/create-your-own-ninja-in-naruto-to-boruto-shinobi-striker-4/" class="more" title="Create your own ninja in NARUTO TO BORUTO: SHINOBI STRIKER">читать еще</a>
+                        </div>
+                    </article>
+                </li>
+                <li class="bloc-news">
+                    <article>
+                        <h1>
+                            <a href="http://www.naruto-videogames.com/ru/naruto-shippuden-ultimate-ninja-blazing-celebrates-first-anniversary-with-in-game-events-and-updates-4/" title="NARUTO SHIPPUDEN: Ultimate Ninja Blazing Celebrates First Anniversary With In Game Events and Updates">
+                                NARUTO SHIPPUDEN: ...                                                            </a>
+                        </h1>
+
+                        <figure>
+                            <a href="http://www.naruto-videogames.com/ru/naruto-shippuden-ultimate-ninja-blazing-celebrates-first-anniversary-with-in-game-events-and-updates-4/" title="NARUTO SHIPPUDEN: Ultimate Ninja Blazing Celebrates First Anniversary With In Game Events and Updates">
+                                <img src="https://www.bandainamcoent.eu/static/2017/08/04/nunb-200x200-update-jpg?58e9b2cd94e0897cf8230fa73b2a7df432b596a21501835136ace2f6023e8a815cfbdd59813b82951d&36b62b3a1039dcc24947c834e35338bd" alt="NARUTO SHIPPUDEN: Ultimate Ninja Blazing Celebrates First Anniversary With In Game Events and Updates">
+                            </a>
+                        </figure>
+                        <div class="content">
+                            <p>BANDAI NAMCO Entertainment Inc.&rsquo;s NARUTO SHIPPUDEN: Ultimate Ninja Blazing, the Ultimate Ninja series game for mobile platforms, is celebrating its first anniversary since launching on the Apple </p>
+                            <a href="http://www.naruto-videogames.com/ru/naruto-shippuden-ultimate-ninja-blazing-celebrates-first-anniversary-with-in-game-events-and-updates-4/" class="more" title="NARUTO SHIPPUDEN: Ultimate Ninja Blazing Celebrates First Anniversary With In Game Events and Updates">читать еще</a>
+                        </div>
+                    </article>
+                </li>
+            </ul>
+
+
+            <div class="news-page bottom-section">
+                <a href="http://www.naruto-videogames.com/ru/news/">
+                    <p>ЩЕЛКНИТЕ ЗДЕСЬ, ЧТОБЫ</p>
+                    ПРОСМОТРЕТЬ ВСЕ НОВОСТИ            </a>
+            </div>
+
         </div>
-    </div>
-    <div class="container-header" style="">
-        <div class="nav-header">
-          <div class="navs hvr-sweep-to-bottoms hvr-grow">Бронирование</div>
-            <a href="pages/menu.html"><div class="navs hvr-sweep-to-bottoms hvr-grow">Игротека</div></a>
-            <a href="pages/menu.html"><div class="navs hvr-sweep-to-bottoms hvr-grow">События</div></a>
-            <a href="pages/menu.html"><div class="navs hvr-sweep-to-bottoms hvr-grow">Акции и скидки</div></a>
-            <router-link to="/prices"><div class="navs hvr-sweep-to-bottoms hvr-grow">Меню и цены</div></router-link>
+
+    </section>
+    <section id="home-community">
+
+
+        <div class="wrapper">
+
+            <ul class="social-wall">
+
+                <li class="manual">
+                    <article>
+                        <h2><a href="https://www.bandainamcoent.eu/community" target="_blank">Сообщество Bandai Namco</a></h2>
+                        <p>Это место для тех, кто хочет следить за новостями о своих любимых играх и получить подарок за вступление в сообщество<br />
+                            ...</p>
+                        <a href="https://www.bandainamcoent.eu/community"  class="logo">
+                            <img src="http://static.bandainamcogames.eu/sites_products/naruto-videogames/uploads/2015/03/VIPCorner_logo_2.png" alt="" >
+                        </a>
+
+
+                        <div class="img" style="background-image: url('http://static.bandainamcogames.eu/sites_products/naruto-videogames/uploads/2015/03/Home_Socialpush_VIPCorner_2.jpg'); ">
+                            <a href="https://www.bandainamcoent.eu/community" target="_blank" data-id="manual_0"></a>
+                        </div>
+                    </article>
+
+                    <a href="https://www.bandainamcoent.eu/community" target="_blank" data-id="manual_0" class="view-more">
+                        ПРИСОЕДИНИТЬСЯ                        </a>
+                </li>
+
+
+                <li class="manual">
+                    <article>
+                        <h2><a href="http://www.storm-league.com/" target="_blank">Storm league</a></h2>
+                        <p>Присоединяйтесь к Ураганной Лиге &#8211; единственной спортивной платформе для игр во вселенной Наруто, в которой лучшие в мире игроки сражаются друг с другом, выигрывают призы и становятся чемпионами!<br />
+                            ...</p>
+                        <a href="http://www.storm-league.com/"  class="logo">
+                            <img src="http://static.bandainamcogames.eu/sites_products/naruto-videogames/uploads/2015/03/Storm-League-logo_DIPLO.png" alt="" >
+                        </a>
+
+
+                        <div class="img" style="background-image: url('http://static.bandainamcogames.eu/sites_products/naruto-videogames/uploads/2015/03/storm-league-bg.png'); ">
+                            <a href="http://www.storm-league.com/" target="_blank" data-id="manual_1"></a>
+                        </div>
+                    </article>
+
+                    <a href="http://www.storm-league.com/" target="_blank" data-id="manual_1" class="view-more">
+                        Узнать больше                        </a>
+                </li>
+
+            </ul>
+
+            <div class="community-page bottom-section black" >
+                <p >Читайте нас в</p>
+                <a href="https://twitter.com/Narutovideogame" class="twitter-link" target="_blank">Twitter</a> &amp; <a href="https://www.facebook.com/Narutogames" class="facebook-link" target="_blank">Facebook</a>
+            </div>
+
         </div>
-    </div>
-    <div class="main-container">
-        <div class="background">
+
+    </section>
+    <section id="home-videos">
+
+        <div class="wrapper">
+            <div class="ratio-iframe">
+                <iframe src="https://www.youtube.com/embed/a4qaBeR8-d0?html5=1&amp;autohide=1&amp;rel=0&amp;showinfo=0" frameborder="0"></iframe>
+            </div>
+
+            <div class="video-page bottom-section black"  >
+                <p  >Посмотреть больше на</p>
+                <a href="https://www.youtube.com/playlist?list=PL193BAFEF6BE62E9D" class="youtube-link" target="_blank">youtube</a>
+            </div>
+
         </div>
-        <img src="../images/room.jpg" style="width: 1400px;" class="room-img">
+
+    </section>
+    <section id="section-preorder" style="background-image: url('http://static.bandainamcogames.eu/sites_products/naruto-videogames/uploads/2015/03/preorder-background.jpg')">
+
+        <div class="wrapper">
+            <figure>
+                <img src="http://static.bandainamcogames.eu/sites_products/naruto-videogames/uploads/2016/12/rtb_pack_pegi.png" alt="Get it now! NARUTO SHIPPUDEN: Ultimate Ninja STORM 4 ROAD TO BORUTO - Standard Edition">
+            </figure><!--
+
+        --><div class="content">
+            <div class="text">
+                <span class="big">ПОЛУЧИТЬ</span><span class="small">сейчас!</span>                <p>NARUTO SHIPPUDEN: Ultimate Ninja STORM 4 ROAD TO BORUTO - Standard Edition</p>
+            </div>
+            <div class="platforms">
+                <p>Выберите платформу</p>
+                <ul>
+                    <li class="platform ps4">
+                        <a href="http://www.naruto-videogames.com/ru/store/?game=8291&amp;edition=8380&amp;platform=ps4">ps4</a>
+                    </li>
+                    <li class="platform pcdigital">
+                        <a href="http://www.naruto-videogames.com/ru/store/?game=8291&amp;edition=8380&amp;platform=pcdigital">pcdigital</a>
+                    </li>
+                    <li class="platform xboxone">
+                        <a href="http://www.naruto-videogames.com/ru/store/?game=8291&amp;edition=8380&amp;platform=xboxone">xboxone</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        </div>
+
+    </section>
+    <section id="home-sharing" style="background-image: url('http://static.bandainamcogames.eu/sites_products/naruto-videogames/uploads/2015/03/BG_Share_5.png')">
+
+    <div class="wrapper">
+        <h2>Поделиться в</h2>
+
+        <div class="links" dir='ltr'>
+
+            <a href="http://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.naruto-videogames.com%2Fru%2F" class="fb">Facebook</a>
+            <a href="http://twitter.com/share?text=&amp;url=http%3A%2F%2Fwww.naruto-videogames.com%2Fru%2F" class="tw">Twitter</a>
+        </div>
 
     </div>
-    <div class="main-img">
-        <img src="../images/main.jpg" style="width: 100%" class="image-opacity">
-            <event-component v-for="(image, index) in event.images" :event="event" :index="index"></event-component>
-    </div>
-    </div>
+
+</section>
+    <footer-compomemt></footer-compomemt>
+</div>
 </template>
 <script>
     //import 'hover.css/css/hover.css'
     import Event from './Event.vue';
+    import LoginAndReg from './LoginAndReg.vue'
+    import Footer from './Footer.vue';
     import axios from 'axios'
     import auth from '../auth'
     import dataURLtoBlob from 'blueimp-canvas-to-blob';
+    import Header from './Header.vue'
     import Vue from 'vue'
     export default {
       data(){
@@ -150,24 +385,31 @@
             }
         },
       components: {
-          'event-component': Event
+          'event-component': Event,
+          'heder-component': Header,
+          'footer-compomemt': Footer,
+          'loginandreg': LoginAndReg,
       }
     }
 </script>
 <style>
+
     .container-header{
         height: 50px;
         margin-top: 40px;
 
     }
-    body{
-        background-image: url("../images/zel2.jpg");
-    }
+
     .nav-header{
         width: 65%;
         margin-left: auto;
         margin-right: auto;
         padding-top: 0;
+    }
+    #home-community{
+        min-height: 650px;
+    }
+    #home-news{
     }
     /* Sweep To Bottom */
     .hvr-sweep-to-bottoms {
@@ -290,7 +532,6 @@
         padding-right: 2.2em;
     }
     .main-container .background{
-        background-image: url("../images/zel3.jpg");
         height: 590px;
         -webkit-filter: blur(5px);
         -moz-filter: blur(5px);
@@ -493,5 +734,357 @@
         cursor: pointer;
         color: #555;
     }
+
+    .bs-slider{
+        overflow: hidden;
+        max-height: 700px;
+        position: relative;
+        background: #000000;
+    }
+    .bs-slider:hover {
+        cursor: -moz-grab;
+        cursor: -webkit-grab;
+    }
+    .bs-slider:active {
+        cursor: -moz-grabbing;
+        cursor: -webkit-grabbing;
+    }
+    .bs-slider .bs-slider-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.40);
+    }
+    .bs-slider > .carousel-inner > .item > img,
+    .bs-slider > .carousel-inner > .item > a > img {
+        margin: auto;
+        width: 100% !important;
+    }
+
+    /********************
+    *****Slide effect
+    **********************/
+
+    .fade {
+        opacity: 1;
+    }
+    .fade .item {
+        top: 0;
+        z-index: 1;
+        opacity: 0;
+        width: 100%;
+        position: absolute;
+        left: 0 !important;
+        display: block !important;
+        -webkit-transition: opacity ease-in-out 1s;
+        -moz-transition: opacity ease-in-out 1s;
+        -ms-transition: opacity ease-in-out 1s;
+        -o-transition: opacity ease-in-out 1s;
+        transition: opacity ease-in-out 1s;
+    }
+    .fade .item:first-child {
+        top: auto;
+        position: relative;
+    }
+    .fade .item.active {
+        opacity: 1;
+        z-index: 2;
+        -webkit-transition: opacity ease-in-out 1s;
+        -moz-transition: opacity ease-in-out 1s;
+        -ms-transition: opacity ease-in-out 1s;
+        -o-transition: opacity ease-in-out 1s;
+        transition: opacity ease-in-out 1s;
+    }
+
+
+
+
+
+
+    /*---------- LEFT/RIGHT ROUND CONTROL ----------*/
+    .control-round .carousel-control {
+        top: 47%;
+        opacity: 0;
+        width: 45px;
+        height: 45px;
+        z-index: 100;
+        color: #ffffff;
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+        overflow: hidden;
+        line-height: 43px;
+        text-shadow: none;
+        position: absolute;
+        font-weight: normal;
+        background: transparent;
+        -webkit-border-radius: 100px;
+        border-radius: 100px;
+    }
+    .control-round:hover .carousel-control{
+        opacity: 1;
+    }
+    .control-round .carousel-control.left {
+        left: 1%;
+    }
+    .control-round .carousel-control.right {
+        right: 1%;
+    }
+    .control-round .carousel-control.left:hover,
+    .control-round .carousel-control.right:hover{
+        color: #fdfdfd;
+        background: rgba(0, 0, 0, 0.5);
+        border: 0px transparent;
+    }
+    .control-round .carousel-control.left>span:nth-child(1){
+        left: 45%;
+    }
+    .control-round .carousel-control.right>span:nth-child(1){
+        right: 45%;
+    }
+
+
+
+
+
+    /*---------- INDICATORS CONTROL ----------*/
+    .indicators-line > .carousel-indicators{
+        right: 45%;
+        bottom: 3%;
+        left: auto;
+        width: 90%;
+        height: 20px;
+        font-size: 0;
+        overflow-x: auto;
+        text-align: right;
+        overflow-y: hidden;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 1px;
+        white-space: nowrap;
+    }
+    .indicators-line > .carousel-indicators li{
+        padding: 0;
+        width: 15px;
+        height: 15px;
+        border: 1px solid rgb(158, 158, 158);
+        text-indent: 0;
+        overflow: hidden;
+        text-align: left;
+        position: relative;
+        letter-spacing: 1px;
+        background: rgb(158, 158, 158);
+        -webkit-font-smoothing: antialiased;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        margin-right: 5px;
+        -webkit-transition: all 0.5s cubic-bezier(0.22,0.81,0.01,0.99);
+        transition: all 0.5s cubic-bezier(0.22,0.81,0.01,0.99);
+        z-index: 10;
+        cursor:pointer;
+    }
+    .indicators-line > .carousel-indicators li:last-child{
+        margin-right: 0;
+    }
+    .indicators-line > .carousel-indicators .active{
+        margin: 1px 5px 1px 1px;
+        box-shadow: 0 0 0 2px #fff;
+        background-color: transparent;
+        position: relative;
+        -webkit-transition: box-shadow 0.3s ease;
+        -moz-transition: box-shadow 0.3s ease;
+        -o-transition: box-shadow 0.3s ease;
+        transition: box-shadow 0.3s ease;
+        -webkit-transition: background-color 0.3s ease;
+        -moz-transition: background-color 0.3s ease;
+        -o-transition: background-color 0.3s ease;
+        transition: background-color 0.3s ease;
+
+    }
+    .indicators-line > .carousel-indicators .active:before{
+        transform: scale(0.5);
+        background-color: #fff;
+        content:"";
+        position: absolute;
+        left:-1px;
+        top:-1px;
+        width:15px;
+        height: 15px;
+        border-radius: 50%;
+        -webkit-transition: background-color 0.3s ease;
+        -moz-transition: background-color 0.3s ease;
+        -o-transition: background-color 0.3s ease;
+        transition: background-color 0.3s ease;
+    }
+
+
+
+    /*---------- SLIDE CAPTION ----------*/
+    .slide_style_left {
+        text-align: left !important;
+    }
+    .slide_style_right {
+        text-align: right !important;
+    }
+    .slide_style_center {
+        text-align: center !important;
+    }
+
+    .slide-text {
+        left: 0;
+        top: 25%;
+        right: 0;
+        margin: auto;
+        padding: 10px;
+        position: absolute;
+        text-align: left;
+        padding: 10px 85px;
+
+    }
+
+    .slide-text > h1 {
+
+        padding: 0;
+        color: #ffffff;
+        font-size: 70px;
+        font-style: normal;
+        line-height: 84px;
+        margin-bottom: 30px;
+        letter-spacing: 1px;
+        display: inline-block;
+        -webkit-animation-delay: 0.7s;
+        animation-delay: 0.7s;
+    }
+    .slide-text > p {
+        padding: 0;
+        color: #ffffff;
+        font-size: 20px;
+        line-height: 24px;
+        font-weight: 300;
+        margin-bottom: 40px;
+        letter-spacing: 1px;
+        -webkit-animation-delay: 1.1s;
+        animation-delay: 1.1s;
+    }
+    .slide-text > a.btn-default{
+        color: #000;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 15px;
+        margin-right: 10px;
+        text-align: center;
+        padding: 17px 30px;
+        white-space: nowrap;
+        letter-spacing: 1px;
+        display: inline-block;
+        border: none;
+        text-transform: uppercase;
+        -webkit-animation-delay: 2s;
+        animation-delay: 2s;
+        -webkit-transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+        transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+
+    }
+    .slide-text > a.btn-primary{
+        color: #ffffff;
+        cursor: pointer;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 15px;
+        margin-left: 10px;
+        text-align: center;
+        padding: 17px 30px;
+        white-space: nowrap;
+        letter-spacing: 1px;
+        background: #00bfff;
+        display: inline-block;
+        text-decoration: none;
+        text-transform: uppercase;
+        border: none;
+        -webkit-animation-delay: 2s;
+        animation-delay: 2s;
+        -webkit-transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+        transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+    .slide-text > a:hover,
+    .slide-text > a:active {
+        color: #ffffff;
+        background: #222222;
+        -webkit-transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+        transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+    }
+
+
+
+
+
+
+    /*------------------------------------------------------*/
+    /* RESPONSIVE
+    /*------------------------------------------------------*/
+
+    @media (max-width: 991px) {
+        .slide-text h1 {
+            font-size: 40px;
+            line-height: 50px;
+            margin-bottom: 20px;
+        }
+        .slide-text > p {
+
+            font-size: 18px;
+        }
+    }
+
+
+    /*---------- MEDIA 480px ----------*/
+    @media  (max-width: 768px) {
+        .slide-text {
+            padding: 10px 50px;
+        }
+        .slide-text h1 {
+            font-size: 30px;
+            line-height: 40px;
+            margin-bottom: 10px;
+        }
+        .slide-text > p {
+            font-size: 14px;
+            line-height: 20px;
+            margin-bottom: 20px;
+        }
+        .control-round .carousel-control{
+            display: none;
+        }
+
+    }
+    @media  (max-width: 480px) {
+        .slide-text {
+            padding: 10px 30px;
+        }
+        .slide-text h1 {
+            font-size: 20px;
+            line-height: 25px;
+            margin-bottom: 5px;
+        }
+        .slide-text > p {
+            font-size: 12px;
+            line-height: 18px;
+            margin-bottom: 10px;
+        }
+        .slide-text > a.btn-default,
+        .slide-text > a.btn-primary {
+            font-size: 10px;
+            line-height: 10px;
+            margin-right: 10px;
+            text-align: center;
+            padding: 10px 15px;
+        }
+        .indicators-line > .carousel-indicators{
+            display: none;
+        }
+
+    }
+
 
 </style>

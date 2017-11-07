@@ -227,15 +227,16 @@
     .thumbnail img{
         max-height: 250px;
     }
-    H2 {
+   .textpad H2 {
         text-shadow: 1px 1px 0 orange,
         1px -1px 0 orange,
         -1px 1px 0 orange,
         -1px -1px 0 orange;
         color: white;
         transition: all 1s;
+       font-size: 2vw;
     }
-    H2:hover {
+   .textpad H2:hover {
         text-shadow: 1px 1px 0 yellowgreen,
         1px -1px 0 yellowgreen,
         -1px 1px 0 yellowgreen,
@@ -249,9 +250,10 @@
         width: 90%;
         margin-left: auto;
         margin-right: 95px;
+        padding-top: 20px;
     }
     .prices{
-
+        background-image: url("../images/zel2.jpg");
     }
 
     /* Global */
@@ -351,7 +353,7 @@
 
     ::selection { background: #ff5e99; color: #FFFFFF; text-shadow: 0; }
     ::-moz-selection { background: #ff5e99; color: #FFFFFF; }
-    body{
+    .prices{
         font-family: 'Open Sans', sans-serif;
         font-size: 12px;
         color: #868585;
