@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="admin">
         <div id="throbber" style="display:none; min-height:120px;"></div>
         <div id="noty-holder"></div>
         <div id="wrapper">
@@ -14,8 +14,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">
-                        <img src="/" alt="LOGO">
+                    <a class="navbar-brand" @click = "$router.push('/')">
+                        <img src='../images/DS_logo_насветломфоне2.png' style="width: 17vw; height: 6.5vw">
                     </a>
                 </div>
                 <!-- Top Menu Items -->
@@ -35,7 +35,7 @@
                 </ul>
                 <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
                 <div class="collapse navbar-collapse navbar-ex1-collapse" style="background-color: #0d3920">
-                    <ul class="nav navbar-nav side-nav" style="background-color: #0d3920">
+                    <ul class="nav navbar-nav side-nav" style="background-color: #0d3920; margin-top: 60px">
                         <li>
                             <a href="#" data-toggle="collapse" data-target="#submenu-1"><i class="fa fa-fw fa-search"></i> MENU 1 <i class="fa fa-fw fa-angle-down pull-right"></i></a>
                             <ul id="submenu-1" class="collapse">
@@ -68,7 +68,7 @@
 
 
             <div id="page-wrapper">
-                <div class="container-fluid" >
+                <div class="container-fluid" style="margin-left: 60px">
 
                     <!-- Page Heading -->
                     <!-- /.row -->
@@ -302,7 +302,7 @@
 </template>
 <style>
     @media(min-width:768px) {
-        body {
+        .admin {
             margin-top: 50px;
         }
         /*html, body, #wrapper, #page-wrapper {height: 100%; overflow: hidden;}*/
@@ -315,7 +315,7 @@
     #page-wrapper {
         width: 100%;
         padding: 0;
-        background-color: #1f5f3a;
+       // background-color: #1f5f3a;
     }
 
     @media(min-width:768px) {

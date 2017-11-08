@@ -19,7 +19,7 @@
     </div>-->
     <loginandreg></loginandreg>
     <heder-component></heder-component>
-    <div id="bootstrap-touch-slider" class="carousel bs-slider fade  control-round indicators-line" data-ride="carousel" data-pause="hover" data-interval="5000" >
+    <div id="bootstrap-touch-slider" class="carousel bs-slider fade  control-round indicators-line" data-ride="carousel" data-pause="hover" data-interval="5000">
 
         <!-- Indicators -->
         <ol class="carousel-indicators">
@@ -386,6 +386,17 @@
     }
 </script>
 <style>
+    .logo{
+        float: left;
+        height: 6.5vw;
+        width: 17vw;
+        margin-top: -3.4vw;
+        margin-left: -17vw;
+    }
+    .logo img {
+        height: 6.5vw;
+        width: 17vw;
+    }
     span.big
     {
         display:block;
@@ -449,7 +460,7 @@
     }
     .hvr-sweep-to-bottoms:hover:before, .hvr-sweep-to-bottoms:focus:before, .hvr-sweep-to-bottoms:active:before {
         -webkit-transform: scaleY(1);
-        transform: scaleY(1);
+        transform: scaleY(10);
     }
     .navs{
         padding-left: 2.5vw;

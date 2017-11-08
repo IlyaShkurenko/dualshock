@@ -1,7 +1,7 @@
 <template>
     <div>
-        <header-component></header-component>
         <loginandreg></loginandreg>
+        <header-component></header-component>
         <section id="news">
 
             <div class="wrapper">

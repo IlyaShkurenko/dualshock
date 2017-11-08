@@ -2,6 +2,9 @@
     <div>
     <div class="container-header" style="">
         <div class="nav-header">
+            <div class="logo" @click = "$router.push('/')">
+                <img src='../images/DS_logo_насветломфоне2.png'/>
+            </div>
             <div class="navs hvr-sweep-to-bottoms hvr-grow">Бронирование</div>
             <a href="pages/menu.html"><div class="navs hvr-sweep-to-bottoms hvr-grow">Игротека</div></a>
             <router-link to="/news"><div class="navs hvr-sweep-to-bottoms hvr-grow">События</div></router-link>
@@ -19,8 +22,8 @@
 
     .container-header{
         height: 50px;
-        margin-top: 40px;
-
+        margin-top: 60px;
+        margin-bottom: 35px;
     }
 
     .nav-header{
