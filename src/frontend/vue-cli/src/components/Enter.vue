@@ -35,15 +35,14 @@
             <div class="item active">
 
                 <!-- Slide Background -->
-                <img src="../images/room.jpg" alt="Bootstrap Touch Slider"  class="slide-image"/>
+                <img src="https://lh3.googleusercontent.com/-2ln-a_uJZaA/WgMzlOkrjkI/AAAAAAAAAP4/ba5ZW1HYMdkp2_yT-5Sury_qDwcnnta-wCJoC/w1060-h454-n/room.jpg" alt="Bootstrap Touch Slider"  class="slide-image"/>
                 <div class="bs-slider-overlay"></div>
 
                 <div class="container">
                     <div class="row">
                         <!-- Slide Text Layer -->
                         <div class="slide-text slide_style_left" style="font-family: 'Helvetica Narrow', sans-serif; font-size: 24px; font-family: bold;">
-                            <h1 data-animation="animated zoomInRight">Турниры</h1>
-                            <p data-animation="animated fadeInLeft">Прими участие и выиграй скидку</p>
+                            <h1 data-animation="animated zoomInRight"><span class="big">Турниры</span></h1>
                             <ul>
                                 <li class="platform">
                                     <a href="http://www.naruto-videogames.com/ru/store/?game=8291&amp;edition=8380&amp;platform=ps4">fifa</a>
@@ -252,7 +251,6 @@
 
     </section>
     <section id="section-preorder" style="background-image: url('../images/preorder-background.jpg')">
-
         <div class="wrapper">
             <figure>
                 <img src="../images/coins.png" alt="Get it now! NARUTO SHIPPUDEN: Ultimate Ninja STORM 4 ROAD TO BORUTO - Standard Edition">
@@ -281,25 +279,13 @@
         </div>
 
     </section>
-    <section id="home-sharing" style="background-image: url('http://static.bandainamcogames.eu/sites_products/naruto-videogames/uploads/2015/03/BG_Share_5.png')">
-
-    <div class="wrapper">
-        <h2>Поделиться в</h2>
-
-        <div class="links" dir='ltr'>
-
-            <a href="http://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.naruto-videogames.com%2Fru%2F" class="fb">Facebook</a>
-            <a href="http://twitter.com/share?text=&amp;url=http%3A%2F%2Fwww.naruto-videogames.com%2Fru%2F" class="tw">Twitter</a>
-        </div>
-
-    </div>
-
-</section>
+    <sharing-component></sharing-component>
     <footer-compomemt></footer-compomemt>
 </div>
 </template>
 <script>
     //import 'hover.css/css/hover.css'
+    import Sharing from './HomeSharing.vue';
     import Event from './Event.vue';
     import LoginAndReg from './LoginAndReg.vue'
     import Footer from './Footer.vue';
@@ -395,23 +381,22 @@
           'heder-component': Header,
           'footer-compomemt': Footer,
           'loginandreg': LoginAndReg,
+          'sharing-component': Sharing
       }
     }
 </script>
 <style>
-
-    .container-header{
-        height: 50px;
-        margin-top: 40px;
-
-    }
-
-    .nav-header{
-        width: 65%;
-        margin-left: auto;
-        margin-right: auto;
-        padding-top: 0;
-    }
+    span.big
+    {
+        display:block;
+        margin-left:-55px;
+        color:#FF4E00;
+        font-family:"SmudgerLET";
+        font-size:120px;
+        line-height:100px;
+        -ms-transform:rotate(-7deg);
+        -webkit-transform:rotate(-7deg);
+        transform:rotate(-7deg)}
     #home-community{
         min-height: 650px;
     }
@@ -537,210 +522,12 @@
         position: relative;
         padding-right: 2.2em;
     }
-    .main-container .background{
-        height: 590px;
-        -webkit-filter: blur(5px);
-        -moz-filter: blur(5px);
-        -o-filter: blur(5px);
-        -ms-filter: blur(5px);
-        filter: blur(5px);
-    }
-    .main-container{
-        text-align: center;
-        width: 100%;
-    }
-
-    .room-img{
-        margin-top: -600px;
-        position: relative;
-        opacity: 0.8;
-        border-radius: 5px;
-    }
-
-    .main-img{
-        text-align: center;
-    }
-
-    .image-opacity{
-        opacity: 0.25;
-        -webkit-filter: blur(5px);
-        -moz-filter: blur(5px);
-        -o-filter: blur(5px);
-        -ms-filter: blur(5px);
-        filter: blur(5px);
-    }
     .hero h1 {
         font-size: 6em;
         font-weight: bold;
         margin: 0;
         padding: 0;
     }
-
-
-    .container-header{
-        height: auto;
-        width: 100%;
-    }
-    /* Icon Up */
-    .hvr-icon-up {
-        display: inline-block;
-        vertical-align: middle;
-        -webkit-transform: perspective(1px) translateZ(0);
-        transform: perspective(1px) translateZ(0);
-        box-shadow: 0 0 1px transparent;
-        position: relative;
-        padding-right: 2.2em;
-    }
-    .hvr-icon-up:before {
-        content: "\f01b";
-        position: absolute;
-        right: 1em;
-        padding: 0 1px;
-        font-family: FontAwesome;
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
-    }
-    .hvr-icon-up:hover:before, .hvr-icon-up:focus:before, .hvr-icon-up:active:before {
-        -webkit-animation-name: hvr-icon-up;
-        animation-name: hvr-icon-up;
-        -webkit-animation-duration: 0.75s;
-        animation-duration: 0.75s;
-        -webkit-animation-timing-function: ease-out;
-        animation-timing-function: ease-out;
-    }
-    .hvr-grow {
-        display: inline-block;
-        vertical-align: middle;
-        -webkit-transform: perspective(1px) translateZ(0);
-        transform: perspective(1px) translateZ(0);
-        box-shadow: 0 0 1px transparent;
-        -webkit-transition-duration: 0.3s;
-        transition-duration: 0.3s;
-        -webkit-transition-property: transform;
-        transition-property: transform;
-    }
-    .hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
-        -webkit-transform: scale(1.1);
-        transform: scale(1.1);
-    }
-
-    .image-uploader {
-        position: relative;
-        display: flex;
-        font-size: 14px;
-        line-height: 1.42857143;
-        color: #555;
-        background-color: #fff;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-    }
-    /* Wrapper for file input */
-    .image-uploader__input-wrapper {
-        overflow: hidden;
-        position: relative;
-        border-radius: 4px;
-        float: left;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: rgba(0, 0, 0, 0.2);
-        transition: 0.4s background;
-        width: 40px;
-    }
-    .image-uploader__input-wrapper:hover {
-        background: #e0e0e0;
-    }
-    /* Hidden file input */
-    .image-uploader__input {
-        position: absolute;
-        display: block;
-        min-height: 100%;
-        opacity: 0;
-        right: 0;
-        top: 0;
-        text-align: right;
-        cursor: pointer;
-    }
-    /* Wrapper for image */
-    .image-uploader__image-wrapper {
-        height: 120px;
-        border-radius: 1px;
-        overflow-y: hidden;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        vertical-align: middle;
-        display: flex;
-        padding: 2px;
-        width: 100%;
-    }
-    /* Target image */
-    img.image-uploader__image {
-        max-height: 100%;
-        height: auto;
-        border: none;
-        margin: auto;
-        display: block;
-    }
-    /* Two settings for image width */
-    img.image-uploader__image.with-info {
-        max-width: 60%;
-    }
-    img.image-uploader__image.without-info {
-        max-width: 100%;
-    }
-    /* Wrapper for image info text */
-    .image-uploader__image-info {
-        height: 100%;
-        width: 40%;
-        text-align: left;
-        vertical-align: top;
-        font-family: monospace, Courier, Monospaced;
-        background-color: inherit;
-        border: none;
-        margin: 0;
-        padding: 0 0 0 10px;
-    }
-    /* Wrapper for screen background until drag-n-drop is active */
-    .image-loader__drag-n-drop-screen-wrapper {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 0;
-        background-color: #808080;
-        opacity: 0.2;
-    }
-    /* Wrapper for component until drag-n-drop is active */
-    .image-loader__drag-n-drop-wrapper {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        background-color: #808080;
-        opacity: 0.9;
-        border: none;
-        border-radius: 4px;
-    }
-    /* Drag-n-drop wrapper icon */
-    .image-loader__drag-n-drop-text {
-        position: relative;
-        top: 50%;
-        left: 50%;
-        margin-left: -60px;
-        margin-top: -56px;
-        font-size: 8em;
-    }
-    /* Clear image icon */
-    .image-loader__clear-icon {
-        float: right;
-        margin: 4px 4px 0 0;
-        cursor: pointer;
-        color: #555;
-    }
-
     .bs-slider{
         overflow: hidden;
         max-height: 700px;
