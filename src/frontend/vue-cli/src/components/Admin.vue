@@ -276,6 +276,9 @@
                                         <div class="tab-pane fade" id="tab3primary">Primary 3</div>
                                         <div class="tab-pane fade" id="tabremove"><remove-cmp :rooms = "$store.getters.rooms" @deleteRoom = "deleteRoom"></remove-cmp></div>
                                         <div class="tab-pane fade" id="tabadd"><add-cmp @addRoom = "added"></add-cmp></div>
+                                        <p>
+
+                                        </p>
                                     </div>
                                 </div>
                             </div>

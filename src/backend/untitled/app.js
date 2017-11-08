@@ -9,11 +9,13 @@ var session = require('express-session');
 var remove = require('./routes/delete');
 var users = require('./routes/users');
 var rooms = require('./routes/rooms');
+var index = require('./routes/index');
 var router = express.Router();
 var app = express();
-var config = require('config');
+var config = require('./config/index');
 var mongoose = require('mongoose');
 var cors = require('cors');
+var serveStatic = require('serve-static')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -44,8 +46,10 @@ app.use(function (req,res, next) {
 });*/
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'routes')));
+app.use(serveStatic(path.join(__dirname, 'dist')));
 app.use('/rooms',rooms);
 app.use('/delete',remove);
+app.use('/',index);
 app.use(users);
 
 // catch 404 and forward to error handler

@@ -35,17 +35,23 @@
             <div class="item active">
 
                 <!-- Slide Background -->
-                <img src="https://images.pexels.com/photos/48726/pexels-photo-48726.jpeg?w=940&h=650&auto=compress&cs=tinysrgb" alt="Bootstrap Touch Slider"  class="slide-image"/>
+                <img src="../images/room.jpg" alt="Bootstrap Touch Slider"  class="slide-image"/>
                 <div class="bs-slider-overlay"></div>
 
                 <div class="container">
                     <div class="row">
                         <!-- Slide Text Layer -->
-                        <div class="slide-text slide_style_left">
-                            <h1 data-animation="animated zoomInRight">Bootstrap Carousel</h1>
-                            <p data-animation="animated fadeInLeft">Bootstrap carousel now touch enable slide.</p>
-                            <a href="http://bootstrapthemes.co/" target="_blank" class="btn btn-default" data-animation="animated fadeInLeft">select one</a>
-                            <a href="http://bootstrapthemes.co/" target="_blank"  class="btn btn-primary" data-animation="animated fadeInRight">select two</a>
+                        <div class="slide-text slide_style_left" style="font-family: 'Helvetica Narrow', sans-serif; font-size: 24px; font-family: bold;">
+                            <h1 data-animation="animated zoomInRight">Турниры</h1>
+                            <p data-animation="animated fadeInLeft">Прими участие и выиграй скидку</p>
+                            <ul>
+                                <li class="platform">
+                                    <a href="http://www.naruto-videogames.com/ru/store/?game=8291&amp;edition=8380&amp;platform=ps4">fifa</a>
+                                </li>
+                                <li class="platform">
+                                    <a href="http://www.naruto-videogames.com/ru/store/?game=8291&amp;edition=8380&amp;platform=pcdigital">mortal kombat</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -110,7 +116,7 @@
                     <article>
                         <h1>
                             <a href="http://www.naruto-videogames.com/ru/naruto-shippuden-ultimate-ninja-storm-legacy-and-storm-trilogy-now-available-4/" title="NARUTO SHIPPUDEN: ULTIMATE NINJA STORM LEGACY and STORM TRILOGY now available">
-                                NARUTO SHIPPUDEN: ...                                                            </a>
+                                Турнир FIFA 17                                                            </a>
                         </h1>
 
                         <figure>
@@ -128,12 +134,12 @@
                     <article>
                         <h1>
                             <a href="http://www.naruto-videogames.com/ru/create-your-own-ninja-in-naruto-to-boruto-shinobi-striker-4/" title="Create your own ninja in NARUTO TO BORUTO: SHINOBI STRIKER">
-                                Create your own ni...                                                            </a>
+                                Турнир MORTAL KOMBAT XL                                                           </a>
                         </h1>
 
                         <figure>
                             <a href="http://www.naruto-videogames.com/ru/create-your-own-ninja-in-naruto-to-boruto-shinobi-striker-4/" title="Create your own ninja in NARUTO TO BORUTO: SHINOBI STRIKER">
-                                <img src="https://www.bandainamcoent.eu/static/2017/08/22/nst-200x200-gamescom-jpg?8805152e213815b849c3c9a08f8f527be495d50515033899291480adbf740a92f9ed0b00a60e1f370f&4beded212f7e30870685332f28c20e2a" alt="Create your own ninja in NARUTO TO BORUTO: SHINOBI STRIKER">
+                                <img src="../images/mortal.jpeg" alt="Create your own ninja in NARUTO TO BORUTO: SHINOBI STRIKER">
                             </a>
                         </figure>
                         <div class="content">
@@ -148,12 +154,12 @@
                     <article>
                         <h1>
                             <a href="http://www.naruto-videogames.com/ru/naruto-shippuden-ultimate-ninja-blazing-celebrates-first-anniversary-with-in-game-events-and-updates-4/" title="NARUTO SHIPPUDEN: Ultimate Ninja Blazing Celebrates First Anniversary With In Game Events and Updates">
-                                NARUTO SHIPPUDEN: ...                                                            </a>
+                                Кальянный вечер                                                           </a>
                         </h1>
 
                         <figure>
                             <a href="http://www.naruto-videogames.com/ru/naruto-shippuden-ultimate-ninja-blazing-celebrates-first-anniversary-with-in-game-events-and-updates-4/" title="NARUTO SHIPPUDEN: Ultimate Ninja Blazing Celebrates First Anniversary With In Game Events and Updates">
-                                <img src="https://www.bandainamcoent.eu/static/2017/08/04/nunb-200x200-update-jpg?58e9b2cd94e0897cf8230fa73b2a7df432b596a21501835136ace2f6023e8a815cfbdd59813b82951d&36b62b3a1039dcc24947c834e35338bd" alt="NARUTO SHIPPUDEN: Ultimate Ninja Blazing Celebrates First Anniversary With In Game Events and Updates">
+                                <img src="../images/hookah2.png" alt="NARUTO SHIPPUDEN: Ultimate Ninja Blazing Celebrates First Anniversary With In Game Events and Updates">
                             </a>
                         </figure>
                         <div class="content">
@@ -234,7 +240,7 @@
 
         <div class="wrapper">
             <div class="ratio-iframe">
-                <iframe src="https://www.youtube.com/embed/a4qaBeR8-d0?html5=1&amp;autohide=1&amp;rel=0&amp;showinfo=0" frameborder="0"></iframe>
+                <iframe src="https://www.youtube.com/embed/dfgI5hDbwPY" frameborder="0"></iframe>
             </div>
 
             <div class="video-page bottom-section black"  >
@@ -245,27 +251,27 @@
         </div>
 
     </section>
-    <section id="section-preorder" style="background-image: url('http://static.bandainamcogames.eu/sites_products/naruto-videogames/uploads/2015/03/preorder-background.jpg')">
+    <section id="section-preorder" style="background-image: url('../images/preorder-background.jpg')">
 
         <div class="wrapper">
             <figure>
-                <img src="http://static.bandainamcogames.eu/sites_products/naruto-videogames/uploads/2016/12/rtb_pack_pegi.png" alt="Get it now! NARUTO SHIPPUDEN: Ultimate Ninja STORM 4 ROAD TO BORUTO - Standard Edition">
+                <img src="../images/coins.png" alt="Get it now! NARUTO SHIPPUDEN: Ultimate Ninja STORM 4 ROAD TO BORUTO - Standard Edition">
             </figure><!--
 
         --><div class="content">
             <div class="text">
-                <span class="big">ПОЛУЧИТЬ</span><span class="small">сейчас!</span>                <p>NARUTO SHIPPUDEN: Ultimate Ninja STORM 4 ROAD TO BORUTO - Standard Edition</p>
+                <span class="big">Поставить</span><span class="small">сейчас!</span>                <p>Ставки на любой турнир</p>
             </div>
             <div class="platforms">
-                <p>Выберите платформу</p>
+                <p>Выберите турнир</p>
                 <ul>
-                    <li class="platform ps4">
-                        <a href="http://www.naruto-videogames.com/ru/store/?game=8291&amp;edition=8380&amp;platform=ps4">ps4</a>
+                    <li class="platform">
+                        <a href="http://www.naruto-videogames.com/ru/store/?game=8291&amp;edition=8380&amp;platform=ps4">fifa</a>
                     </li>
-                    <li class="platform pcdigital">
-                        <a href="http://www.naruto-videogames.com/ru/store/?game=8291&amp;edition=8380&amp;platform=pcdigital">pcdigital</a>
+                    <li class="platform">
+                        <a href="http://www.naruto-videogames.com/ru/store/?game=8291&amp;edition=8380&amp;platform=pcdigital">mortal kombat</a>
                     </li>
-                    <li class="platform xboxone">
+                    <li class="platform">
                         <a href="http://www.naruto-videogames.com/ru/store/?game=8291&amp;edition=8380&amp;platform=xboxone">xboxone</a>
                     </li>
                 </ul>
@@ -1085,6 +1091,5 @@
         }
 
     }
-
 
 </style>

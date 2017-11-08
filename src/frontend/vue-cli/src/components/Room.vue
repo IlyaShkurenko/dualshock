@@ -1,5 +1,6 @@
 <template>
     <div class="room-main">
+        <p></p>
         <router-link to="/prices">Back</router-link>
         <div class="room">
             <h1>VIP  {{ $store.state.rooms[$route.params.id - 1].id }}</h1>

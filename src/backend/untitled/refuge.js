@@ -24,6 +24,8 @@ let remove = async(index) => {
 
 };
 let create = async(roomTodb) => {
+    console.log('room = ' + roomTodb.img)
+    console.log('room id = ' + roomTodb.id)
     let room = new Room(roomTodb);
     room.save(function (err, user, affected) {
         if (err) throw err;

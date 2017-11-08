@@ -40,9 +40,11 @@
                             <input v-model="room.price" id="price" type="text" class="form-control" name="password" placeholder="Цена">
                         </div>
 
+
+
                         <div class="image-uploader__input-wrapper">
                             <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
-                            <input type="file" class="image-uploader__input" @change="sync" accept="image/*">
+                            <input id="illya" type="file" class="image-uploader__input" @change="sync" accept="image/*" style="margin-left: -30px">
                         </div>
 
                         <div class="image-uploader__image-wrapper">

@@ -5,7 +5,7 @@
 
         <div class="wrapper">
             <div class="content">
-                <h2><span class='orange'>Давайте</span><span class='normal'>оставаться</span><span class='big'>на связи</span></h2>
+                <h2><span class='orange'>Будем</span><span class='normal'>всегда</span><span class='big'>на связи</span></h2>
                 <p class="p1">Присоединяйтесь к сообществу Bandai Namco</p>
                 <p class="p1">- Узнавайте эксклюзивную информацию о любимых играх</p>
                 <p class="p1">- Получайте специальные предложения и принимайте участие в конкурсах</p>
@@ -85,8 +85,5 @@
 <style>
     ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
         color: black;
-    }
-    #join-us{
-        padding-top: 400px;
     }
 </style>
