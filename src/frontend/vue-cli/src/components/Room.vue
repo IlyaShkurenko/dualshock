@@ -29,7 +29,7 @@
 
 <style>
     .room-main{
-        height: 60vw;
+        height: 100%;
         background-image: url("../images/blue.jpg");
     }
 

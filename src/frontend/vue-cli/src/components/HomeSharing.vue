@@ -1,5 +1,5 @@
 <template>
-    <section id="home-sharing" style="background-image: url('http://static.bandainamcogames.eu/sites_products/naruto-videogames/uploads/2015/03/BG_Share_5.png')">
+    <section id="home-sharing" style="background-image: url('http://static.bandainamcogames.eu/sites_products/naruto-videogames/uploads/2015/03/BG_Share_5.png'); z-index:2;">
 
         <div class="wrapper">
             <h2>Поделиться в</h2>

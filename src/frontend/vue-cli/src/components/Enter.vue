@@ -17,8 +17,8 @@
                 src="https://firebasestorage.googleapis.com/v0/b/vue-app-75351.appspot.com/o/vip2.png?alt=media&token=8a686319-504e-407e-8222-bddc8f78013f"
         >
     </div>-->
-    <loginandreg></loginandreg>
     <heder-component></heder-component>
+    <loginandreg></loginandreg>
     <div id="bootstrap-touch-slider" class="carousel bs-slider fade  control-round indicators-line" data-ride="carousel" data-pause="hover" data-interval="5000">
 
         <!-- Indicators -->
@@ -91,7 +91,6 @@
 
 
         </div><!-- End of Wrapper For Slides -->
-
         <!-- Left Control -->
         <a class="left carousel-control" href="#bootstrap-touch-slider" role="button" data-slide="prev">
             <span class="fa fa-angle-left" aria-hidden="true"></span>
@@ -105,8 +104,10 @@
         </a>
 
     </div> <!-- End  bootstrap-touch-slider Slider -->
-
-    <section id="home-news">
+    <div class="logo" @click = "$router.push('/')">
+        <img src='../images/DS_logo_насветломфоне2.png'/>
+    </div>
+    <section id="home-news" style="z-index: 2">
 
         <div class="wrapper">
 
@@ -179,7 +180,7 @@
         </div>
 
     </section>
-    <section id="home-community">
+    <section id="home-community" style="z-index: 2">
 
 
         <div class="wrapper">
@@ -235,7 +236,7 @@
         </div>
 
     </section>
-    <section id="home-videos">
+    <section id="home-videos" style="z-index: 2">
 
         <div class="wrapper">
             <div class="ratio-iframe">
@@ -250,7 +251,7 @@
         </div>
 
     </section>
-    <section id="section-preorder" style="background-image: url('../images/preorder-background.jpg')">
+    <section id="section-preorder" style="background-image: url('../images/preorder-background.jpg'); z-index: 0">
         <div class="wrapper">
             <figure>
                 <img src="../images/coins.png" alt="Get it now! NARUTO SHIPPUDEN: Ultimate Ninja STORM 4 ROAD TO BORUTO - Standard Edition">
@@ -390,8 +391,9 @@
         float: left;
         height: 6.5vw;
         width: 17vw;
-        margin-top: -3.4vw;
-        margin-left: -17vw;
+        top: 0;
+        z-index: 3;
+        position: fixed;
     }
     .logo img {
         height: 6.5vw;
@@ -400,10 +402,11 @@
     span.big
     {
         display:block;
-        margin-left:-55px;
+        margin-left:-30px;
+        margin-top: -60px;
         color:#FF4E00;
         font-family:"SmudgerLET";
-        font-size:120px;
+        font-size:100px;
         line-height:100px;
         -ms-transform:rotate(-7deg);
         -webkit-transform:rotate(-7deg);
@@ -475,6 +478,7 @@
     .login{
         float: right;
         margin-top: -35px;
+        top: 5%;
         font-size: 1vw;
     }
 
