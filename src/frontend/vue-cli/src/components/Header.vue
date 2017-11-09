@@ -2,7 +2,7 @@
     <div>
     <div class="container-header" style="">
         <div class="nav-header">
-            <div class="navs hvr-sweep-to-bottoms hvr-grow">Бронирование</div>
+            <router-link to="/reservation"><div class="navs hvr-sweep-to-bottoms hvr-grow">Бронирование</div></router-link>
             <a href="pages/menu.html"><div class="navs hvr-sweep-to-bottoms hvr-grow">Игротека</div></a>
             <router-link to="/news"><div class="navs hvr-sweep-to-bottoms hvr-grow">События</div></router-link>
             <a href="pages/menu.html"><div class="navs hvr-sweep-to-bottoms hvr-grow">Акции и скидки</div></a>
@@ -68,7 +68,7 @@
     }
     .hvr-sweep-to-bottoms:hover:before, .hvr-sweep-to-bottoms:focus:before, .hvr-sweep-to-bottoms:active:before {
         -webkit-transform: scaleY(1);
-        transform: scaleY(1);
+        transform: scaleY(1.2);
     }
     .navs{
         padding-left: 2.5vw;

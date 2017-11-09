@@ -1,30 +1,19 @@
 
 <template>
-    <div class="prices">
-        <div class="textpad">
-            <h2>Кухня</h2>
-        </div>
-        <div class="container">
-            <div class="col-xs-12">
-                <div class="carousel slide" id="myCarousel">
-                    <div class="carousel-inner">
-                        <div class="item active"><ul class="thumbnails">
-                            <li v-for="item in 4" class="col-sm-3">
-                                <div class="fff">
-                                    <div class="thumbnail">
-                                        <a href="buy.html"><img src="http://placehold.it/360x240" alt=""></a>
-                                    </div>
-                                    <div class="caption">
-                                        <h4>Praesent commodo</h4>
-                                        <p>Nullam Condimentum Nibh Etiam Sem</p>
-                                        <a class="btn btn-mini" href="#">» Read More</a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                        </div><!-- /Slide1 -->
-                        <div v-for="item in 3" class="item">
-                            <ul class="thumbnails">
+    <div>
+    <div class="body-prices">
+        <header-component></header-component>
+        <loginandreg></loginandreg>
+    </div>
+        <div class="prices">
+            <div class="textpad">
+                <h2>Кухня</h2>
+            </div>
+            <div class="container">
+                <div class="col-xs-12">
+                    <div class="carousel slide" id="myCarousel">
+                        <div class="carousel-inner">
+                            <div class="item active"><ul class="thumbnails">
                                 <li v-for="item in 4" class="col-sm-3">
                                     <div class="fff">
                                         <div class="thumbnail">
@@ -38,14 +27,197 @@
                                     </div>
                                 </li>
                             </ul>
+                            </div><!-- /Slide1 -->
+                            <div v-for="item in 3" class="item">
+                                <ul class="thumbnails">
+                                    <li v-for="item in 4" class="col-sm-3">
+                                        <div class="fff">
+                                            <div class="thumbnail">
+                                                <a href="buy.html"><img src="http://placehold.it/360x240" alt=""></a>
+                                            </div>
+                                            <div class="caption">
+                                                <h4>Praesent commodo</h4>
+                                                <p>Nullam Condimentum Nibh Etiam Sem</p>
+                                                <a class="btn btn-mini" href="#">» Read More</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div><!-- /Slide3 -->
+                        </div>
+
+
+                        <nav>
+                            <ul class="control-box pager">
+                                <li><a data-slide="prev" href="#myCarousel" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
+                                <li><a data-slide="next" href="#myCarousel" class=""><i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                            </ul>
+                        </nav>
+                        <!-- /.control-box -->
+
+                    </div><!-- /#myCarousel -->
+
+                </div><!-- /.col-xs-12 -->
+
+            </div><!-- /.container -->
+            <!-- /.navbar-collapse --
+            <!-- /.container-fluid -->
+            <div class="textpad">
+                <h2>Бар</h2>
+            </div>
+            <div class="container">
+                <div class="col-xs-12">
+                    <div class="carousel slide" id="myCarousel2">
+                        <div class="carousel-inner">
+                            <div class="item active"><ul class="thumbnails">
+                                <li v-for="item in 4" class="col-sm-3">
+                                    <div class="fff">
+                                        <div class="thumbnail">
+                                            <a href="buy.html"><img src="http://placehold.it/360x240" alt=""></a>
+                                        </div>
+                                        <div class="caption">
+                                            <h4>Praesent commodo</h4>
+                                            <p>Nullam Condimentum Nibh Etiam Sem</p>
+                                            <a class="btn btn-mini" href="#">» Read More</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            </div><!-- /Slide1 -->
+                            <div v-for="item in 3" class="item">
+                                <ul class="thumbnails">
+                                    <li v-for="item in 4" class="col-sm-3">
+                                        <div class="fff">
+                                            <div class="thumbnail">
+                                                <a href="buy.html"><img src="http://placehold.it/360x240" alt=""></a>
+                                            </div>
+                                            <div class="caption">
+                                                <h4>Praesent commodo</h4>
+                                                <p>Nullam Condimentum Nibh Etiam Sem</p>
+                                                <a class="btn btn-mini" href="#">» Read More</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div><!-- /Slide3 -->
+                        </div>
+
+
+                        <nav>
+                            <ul class="control-box pager">
+                                <li><a data-slide="prev" href="#myCarousel2" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
+                                <li><a data-slide="next" href="#myCarousel2" class=""><i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                            </ul>
+                        </nav>
+                        <!-- /.control-box -->
+
+                    </div><!-- /#myCarousel -->
+
+                </div><!-- /.col-xs-12 -->
+
+            </div>
+            <div class="textpad">
+                <h2>Кальян</h2>
+            </div>
+            <div class="container">
+                <div class="col-xs-12">
+                    <div class="carousel slide" id="myCarousel3">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <ul class="thumbnails">
+                                    <li v-for="item in 4" class="col-sm-3">
+                                        <div class="fff">
+                                            <div class="thumbnail">
+                                                <a href="buy.html"><img src="http://placehold.it/360x240" alt=""></a>
+                                            </div>
+                                            <div class="caption">
+                                                <h4>Praesent commodo</h4>
+                                                <p>Nullam Condimentum Nibh Etiam Sem</p>
+                                                <a class="btn btn-mini" href="#">» Read More</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div><!-- /Slide1 -->
+                            <div v-for="item in 3" class="item">
+                                <ul class="thumbnails">
+                                    <li v-for="item in 4" class="col-sm-3">
+                                        <div class="fff">
+                                            <div class="thumbnail">
+                                                <a href="buy.html"><img src="http://placehold.it/360x240" alt=""></a>
+                                            </div>
+                                            <div class="caption">
+                                                <h4>Praesent commodo</h4>
+                                                <p>Nullam Condimentum Nibh Etiam Sem</p>
+                                                <a class="btn btn-mini" href="#">» Read More</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div><!-- /Slide3 -->
+                        </div>
+
+
+                        <nav>
+                            <ul class="control-box pager">
+                                <li><a data-slide="prev" href="#myCarousel3" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
+                                <li><a data-slide="next" href="#myCarousel3" class=""><i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                            </ul>
+                        </nav>
+                        <!-- /.control-box -->
+
+                    </div><!-- /#myCarousel -->
+
+                </div><!-- /.col-xs-12 -->
+
+            </div>
+            <div class="textpad">
+                <h2>Приставки и комнаты</h2>
+            </div>
+            <div class="container">
+                <div class="col-xs-12">
+                    <div class="carousel slide" id="myCarousel4">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <ul class="thumbnails">
+                                    <li v-for="(item,index) in firstSlider" class="col-sm-3">
+                                        <div class="fff">
+                                            <div class="thumbnail">
+                                                <router-link :to="'vip/' + (parseInt(index + 1))"><img :src="$store.state.rooms[index].img" alt="" style="height: 170px; width: 360px"></router-link>
+                                            </div>
+                                            <div class="caption">
+                                                <h4>VIP {{$store.state.rooms[index].id}}</h4>
+                                                <p>{{$store.state.rooms[index].description}}</p>
+                                                <a class="btn btn-mini" :href="'vip/' + item">» Узнать больше</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div v-for="(item,index) in roomsLength" class="item">
+                                <ul class="thumbnails">
+                                    <li v-for="item in $store.state.slider[index]" class="col-sm-3">
+                                        <div class="fff">
+                                            <div class="thumbnail">
+                                                <router-link :to="'vip/' + (parseInt((item - 1) + 5))"><img :src="$store.state.rooms[(item - 1) + 4].img" alt=""></router-link>
+                                            </div>
+                                            <div class="caption">
+                                                <h4>VIP {{$store.state.rooms[(item - 1) + 4].id}}</h4>
+                                                <p>{{$store.state.rooms[(item - 1) + 4].description}}</p>
+                                                <a class="btn btn-mini" :href="'vip/' + (parseInt((item - 1) + 5))">» Узнать больше</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
                         </div><!-- /Slide3 -->
                     </div>
 
 
                     <nav>
                         <ul class="control-box pager">
-                            <li><a data-slide="prev" href="#myCarousel" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
-                            <li><a data-slide="next" href="#myCarousel" class=""><i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                            <li><a data-slide="prev" href="#myCarousel4" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
+                            <li><a data-slide="next" href="#myCarousel4" class=""><i class="glyphicon glyphicon-chevron-right"></i></a></li>
                         </ul>
                     </nav>
                     <!-- /.control-box -->
@@ -54,176 +226,12 @@
 
             </div><!-- /.col-xs-12 -->
 
-        </div><!-- /.container -->
-    <!-- /.navbar-collapse --
-    <!-- /.container-fluid -->
-    <div class="textpad">
-        <h2>Бар</h2>
-    </div>
-    <div class="container">
-        <div class="col-xs-12">
-            <div class="carousel slide" id="myCarousel2">
-                <div class="carousel-inner">
-                    <div class="item active"><ul class="thumbnails">
-                        <li v-for="item in 4" class="col-sm-3">
-                            <div class="fff">
-                                <div class="thumbnail">
-                                    <a href="buy.html"><img src="http://placehold.it/360x240" alt=""></a>
-                                </div>
-                                <div class="caption">
-                                    <h4>Praesent commodo</h4>
-                                    <p>Nullam Condimentum Nibh Etiam Sem</p>
-                                    <a class="btn btn-mini" href="#">» Read More</a>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                    </div><!-- /Slide1 -->
-                    <div v-for="item in 3" class="item">
-                        <ul class="thumbnails">
-                            <li v-for="item in 4" class="col-sm-3">
-                                <div class="fff">
-                                    <div class="thumbnail">
-                                        <a href="buy.html"><img src="http://placehold.it/360x240" alt=""></a>
-                                    </div>
-                                    <div class="caption">
-                                        <h4>Praesent commodo</h4>
-                                        <p>Nullam Condimentum Nibh Etiam Sem</p>
-                                        <a class="btn btn-mini" href="#">» Read More</a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div><!-- /Slide3 -->
-                </div>
-
-
-                <nav>
-                    <ul class="control-box pager">
-                        <li><a data-slide="prev" href="#myCarousel2" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
-                        <li><a data-slide="next" href="#myCarousel2" class=""><i class="glyphicon glyphicon-chevron-right"></i></a></li>
-                    </ul>
-                </nav>
-                <!-- /.control-box -->
-
-            </div><!-- /#myCarousel -->
-
-        </div><!-- /.col-xs-12 -->
-
-    </div>
-    <div class="textpad">
-        <h2>Кальян</h2>
-    </div>
-    <div class="container">
-        <div class="col-xs-12">
-            <div class="carousel slide" id="myCarousel3">
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <ul class="thumbnails">
-                        <li v-for="item in 4" class="col-sm-3">
-                            <div class="fff">
-                                <div class="thumbnail">
-                                    <a href="buy.html"><img src="http://placehold.it/360x240" alt=""></a>
-                                </div>
-                                <div class="caption">
-                                    <h4>Praesent commodo</h4>
-                                    <p>Nullam Condimentum Nibh Etiam Sem</p>
-                                    <a class="btn btn-mini" href="#">» Read More</a>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                    </div><!-- /Slide1 -->
-                    <div v-for="item in 3" class="item">
-                        <ul class="thumbnails">
-                            <li v-for="item in 4" class="col-sm-3">
-                                <div class="fff">
-                                    <div class="thumbnail">
-                                        <a href="buy.html"><img src="http://placehold.it/360x240" alt=""></a>
-                                    </div>
-                                    <div class="caption">
-                                        <h4>Praesent commodo</h4>
-                                        <p>Nullam Condimentum Nibh Etiam Sem</p>
-                                        <a class="btn btn-mini" href="#">» Read More</a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div><!-- /Slide3 -->
-                </div>
-
-
-                <nav>
-                    <ul class="control-box pager">
-                        <li><a data-slide="prev" href="#myCarousel3" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
-                        <li><a data-slide="next" href="#myCarousel3" class=""><i class="glyphicon glyphicon-chevron-right"></i></a></li>
-                    </ul>
-                </nav>
-                <!-- /.control-box -->
-
-            </div><!-- /#myCarousel -->
-
-        </div><!-- /.col-xs-12 -->
-
-    </div>
-    <div class="textpad">
-        <h2>Приставки и комнаты</h2>
-    </div>
-    <div class="container">
-        <div class="col-xs-12">
-            <div class="carousel slide" id="myCarousel4">
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <ul class="thumbnails">
-                            <li v-for="(item,index) in firstSlider" class="col-sm-3">
-                                <div class="fff">
-                                    <div class="thumbnail">
-                                        <router-link :to="'vip/' + (parseInt(index + 1))"><img :src="$store.state.rooms[index].img" alt="" style="height: 170px; width: 360px"></router-link>
-                                    </div>
-                                    <div class="caption">
-                                        <h4>VIP {{$store.state.rooms[index].id}}</h4>
-                                        <p>{{$store.state.rooms[index].description}}</p>
-                                        <a class="btn btn-mini" :href="'vip/' + item">» Узнать больше</a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div v-for="(item,index) in roomsLength" class="item">
-                        <ul class="thumbnails">
-                            <li v-for="item in $store.state.slider[index]" class="col-sm-3">
-                                <div class="fff">
-                                    <div class="thumbnail">
-                                        <router-link :to="'vip/' + (parseInt((item - 1) + 5))"><img :src="$store.state.rooms[(item - 1) + 4].img" alt=""></router-link>
-                                    </div>
-                                    <div class="caption">
-                                        <h4>VIP {{$store.state.rooms[(item - 1) + 4].id}}</h4>
-                                        <p>{{$store.state.rooms[(item - 1) + 4].description}}</p>
-                                        <a class="btn btn-mini" :href="'vip/' + (parseInt((item - 1) + 5))">» Узнать больше</a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    </div><!-- /Slide3 -->
-                </div>
-
-
-                <nav>
-                    <ul class="control-box pager">
-                        <li><a data-slide="prev" href="#myCarousel4" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
-                        <li><a data-slide="next" href="#myCarousel4" class=""><i class="glyphicon glyphicon-chevron-right"></i></a></li>
-                    </ul>
-                </nav>
-                <!-- /.control-box -->
-
-            </div><!-- /#myCarousel -->
-
-        </div><!-- /.col-xs-12 -->
-
+        </div>
+        <logo-component></logo-component>
+        <footer-component></footer-component>
     </div>
 </template>
-<style>
+<style scoped>
     .thumbnail img{
         max-height: 250px;
     }
@@ -251,9 +259,6 @@
         margin-left: auto;
         margin-right: 95px;
         padding-top: 20px;
-    }
-    .prices{
-        background-image: url("../images/zel2.jpg");
     }
 
     /* Global */
@@ -398,10 +403,21 @@
         opacity: 0.6;
         text-decoration: none;
     }
+    .body-prices{
+        height: 80px;
+        background-color: #23b08e;
+    }
+    .prices{
+        margin-top: -10px;
+    }
 
 </style>
 <script>
     import {mapActions} from 'vuex'
+    import Logo from './Items/Logo.vue'
+    import Header from './Header.vue'
+    import Footer from './Footer.vue'
+    import LoginAndReg from './LoginAndReg.vue'
     export default {
         data(){
             return {
@@ -410,6 +426,12 @@
                 roomsInSlider: [],
                 firstSliderLength: 0
             }
+        },
+        components: {
+            'header-component': Header,
+            'footer-component': Footer,
+            'logo-component': Logo,
+            'loginandreg': LoginAndReg
         },
         computed: {
            roomsLength(){

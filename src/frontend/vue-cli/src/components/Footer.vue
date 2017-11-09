@@ -35,3 +35,45 @@
         </div>
     </footer>
 </template>
+<style>
+    #footer{
+        background-size: 100%;
+        height: 100%;
+    }
+    #footer {
+        background: black;
+        padding-top: 30px;
+        padding-bottom: 20px;
+        text-align: center;
+        color: white;
+        position: relative
+    }
+
+    #footer img {
+        max-height: 56px;
+        max-width: 100px;
+        margin: 0 10px 10px
+    }
+
+    #footer p {
+        width: 600px;
+        margin: 20px auto
+    }
+
+    #footer p img {
+        margin: 0
+    }
+
+    #footer .legals {
+        margin: 10px 0
+    }
+
+    #footer .platforms {
+        margin: 10px 0
+    }
+
+    #footer .platforms p {
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+        opacity: 0.5
+    }
+</style>

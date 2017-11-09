@@ -27,10 +27,12 @@
     </div>
 </template>
 
-<style>
+<style scoped>
+    body{
+        background-image: url("../images/blue.jpg");
+    }
     .room-main{
         height: 100%;
-        background-image: url("../images/blue.jpg");
     }
 
     .room{

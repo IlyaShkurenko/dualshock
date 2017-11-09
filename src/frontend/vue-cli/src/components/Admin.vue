@@ -15,7 +15,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" @click = "$router.push('/')">
-                        <img src='../images/DS_logo_насветломфоне2.png' style="width: 17vw; height: 6.5vw">
+                        <img src='../images/DS_logo_насветломфоне2a.png' style="width: 17vw; height: 6.5vw">
                     </a>
                 </div>
                 <!-- Top Menu Items -->
@@ -42,14 +42,6 @@
                                 <li><a href="#"><i class="fa fa-angle-double-right"></i> SUBMENU 1.1</a></li>
                                 <li><a href="#"><i class="fa fa-angle-double-right"></i> SUBMENU 1.2</a></li>
                                 <li><a href="#"><i class="fa fa-angle-double-right"></i> SUBMENU 1.3</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-fw fa-star"></i>  MENU 2 <i class="fa fa-fw fa-angle-down pull-right"></i></a>
-                            <ul id="submenu-2" class="collapse">
-                                <li><a href="#"><i class="fa fa-angle-double-right"></i> SUBMENU 2.1</a></li>
-                                <li><a href="#"><i class="fa fa-angle-double-right"></i> SUBMENU 2.2</a></li>
-                                <li><a href="#"><i class="fa fa-angle-double-right"></i> SUBMENU 2.3</a></li>
                             </ul>
                         </li>
                         <li>
@@ -300,7 +292,7 @@
 
     </div>
 </template>
-<style>
+<style scoped>
     @media(min-width:768px) {
         .admin {
             margin-top: 50px;
