@@ -2,7 +2,7 @@
 <div class="well">
     <div class="media">
         <a class="pull-left" href="#">
-            <img class="media-object" :src="room.img">
+            <img class="media-object" :src="room.img" style="width: 300px; height: 150px">
         </a>
         <div class="media-body">
             <h4 class="media-heading">VIP {{room.id}}</h4>
@@ -45,3 +45,6 @@
         }
     }
 </script>
+<style>
+
+</style>
