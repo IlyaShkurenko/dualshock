@@ -13,6 +13,7 @@ router.options('*', cors());
 router.get('/',async function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');
+    await ref.remove(null)
     let rooms = await ref.getAll();
     res.json(rooms);
 });
@@ -49,6 +50,7 @@ router.post('/', async (req, res) => {
             }
             else {
                 newRoom[name] = value;
+                console.log(newRoom[name], value)
             }
         })
         .on('end', function() {
@@ -75,6 +77,7 @@ router.post('/', async (req, res) => {
 
                 let file = data[0];
                 newRoom.img = "https://firebasestorage.googleapis.com/v0/b/" + bucket.name + "/o/" + encodeURIComponent(file.name) + "?alt=media&token=" + uuid;
+                console.log(newRoom.description);
                 await ref.create(newRoom);
                 console.log('-> post done');
                 res.end('received fields:\n\n '+util.inspect(fields));

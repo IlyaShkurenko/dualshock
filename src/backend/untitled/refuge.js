@@ -26,6 +26,9 @@ let remove = async(index) => {
 let create = async(roomTodb) => {
     console.log('room = ' + roomTodb.img)
     console.log('room id = ' + roomTodb.id)
+    console.log(roomTodb.description);
+    console.log(roomTodb.games);
+    console.log(roomTodb.price);
     let room = new Room(roomTodb);
     room.save(function (err, user, affected) {
         if (err) throw err;
@@ -48,6 +51,7 @@ let getAll = async() => {
             roomMap[room._id] = room;
         });
     });
+    console.log(roomMap);
     return roomMap
 };
 

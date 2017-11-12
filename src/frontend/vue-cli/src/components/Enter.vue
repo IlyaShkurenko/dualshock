@@ -20,7 +20,7 @@
             <heder-component></heder-component>
             <loginandreg></loginandreg>
         </div>
-        <div id="bootstrap-touch-slider" class="carousel bs-slider fade  control-round indicators-line"
+        <div id="bootstrap-touch-slider"  style="margin-top: -20px" class="carousel bs-slider fade  control-round indicators-line"
              data-ride="carousel" data-pause="hover" data-interval="5000">
 
             <!-- Indicators -->
@@ -403,6 +403,7 @@
             }
         },
         created() {
+           // this.getRooms()
         },
         beforeCreate() {
             auth.checkAuth();

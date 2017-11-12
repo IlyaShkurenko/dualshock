@@ -81,4 +81,7 @@
     }
 </script>
 <style>
+    .enter{
+        margin-bottom: 100px;
+    }
 </style>

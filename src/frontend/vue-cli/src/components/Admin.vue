@@ -74,6 +74,7 @@
                                         <li><a href="#tab2primary" data-toggle="tab"><span class="glyphicon glyphicon-cutlery"></span> Eда и напитки</a></li>
                                         <li><a href="#tab3primary" data-toggle="tab"><span class="glyphicon glyphicon-cloud"></span> Кальяны</a></li>
                                         <li><a href="#tab3primary" data-toggle="tab"><span class="fa fa-beer"></span> Бар</a></li>
+                                        <li><a href="#tabusers" data-toggle="tab"><span class="glyphicon glyphicon-user"></span> Пользователи</a></li>
                                         <li class="dropdown">
                                             <a href="#" data-toggle="dropdown"><span class="fa fa-gamepad"></span> Приставки и комнаты</a>
                                             <ul class="dropdown-menu" role="menu">
@@ -268,6 +269,7 @@
                                         <div class="tab-pane fade" id="tab3primary">Primary 3</div>
                                         <div class="tab-pane fade" id="tabremove"><remove-cmp :rooms = "$store.getters.rooms" @deleteRoom = "deleteRoom"></remove-cmp></div>
                                         <div class="tab-pane fade" id="tabadd"><add-cmp @addRoom = "added"></add-cmp></div>
+                                        <div class="tab-pane fade" id="tabusers"><user-list-cmp :users = "$store.getters.users" @toProfile = "toProfile"></user-list-cmp></div>
                                         <p>
 
                                         </p>
@@ -755,6 +757,7 @@
 <script>
     import Remove from './Remove.vue'
     import Add from './Items/AddItem.vue'
+    import UserList from './UserList.vue'
     import {mapGetters} from 'vuex'
     import {mapActions} from 'vuex'
     export default {
@@ -770,7 +773,8 @@
         },
         components: {
             removeCmp: Remove,
-            addCmp: Add
+            addCmp: Add,
+            userListCmp: UserList
         },
         methods: {
             deleteRoom(room){
@@ -778,21 +782,27 @@
                 console.log(index);
                 this.$store.state.rooms.splice(index,1);
                 this.delRooms(room);
+                location.reload();
                 //this.getRooms()
             },
             added(){
                 this.$router.go(this.$router.currentRoute);
                 this.getRooms()
             },
+            toProfile(index){
+
+            },
         ...mapActions([
             'getRooms',
-            'delRooms'
+            'delRooms',
+            'getUsers'
         ])
         },
         computed: {
             ...mapGetters([
-                           'rooms'
-                       ])
+                'rooms',
+                'users'
+            ])
         }
     }
 </script>

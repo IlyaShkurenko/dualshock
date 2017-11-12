@@ -1,4 +1,5 @@
 <template>
+    <div>
     <div class="profile-page">
         <div class="w960" style="overflow: hidden;">
             <div class="nav"  style="font-family: 'Helvetica Narrow', sans-serif; font-weight: bold">
@@ -275,6 +276,7 @@
         </div>
         <footer-component></footer-component>
     </div>
+    </div>
 </template>
 <script>
     import auth from '../auth'
@@ -332,7 +334,9 @@
     ol, ul {
         list-style: none
     }
-
+    .enter{
+        margin-top: 20px;
+    }
     blockquote, q {
         quotes: none
     }

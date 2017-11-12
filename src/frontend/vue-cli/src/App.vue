@@ -12,11 +12,13 @@ export default {
     methods:{
         ...mapActions([
             'getRooms',
-            'getArray'
+            'getArray',
+            'getUsers'
         ])
     },
     created(){
-        this.getRooms()
+        this.getRooms();
+        this.getUsers();
     }
 
 }

@@ -7,12 +7,16 @@ export const store = new Vuex.Store({
    state: {
        slider: [],
        rooms: [],
+       users: [],
        games: ' ',
        authenticated: false,
    },
     actions: {
         getRooms({commit}) {
             commit('GET_ROOM')
+        },
+        getUsers({commit}) {
+            commit('GET_USER')
         },
         delRooms({commit}, room) {
             commit('DEL_ROOM', room)
@@ -53,6 +57,20 @@ export const store = new Vuex.Store({
                         length-=4;
                     }
                     state.slider[count] = length;
+                })
+        },
+        GET_USER(state) {
+            Vue.http.get('users')
+                .then(response => {
+                    return response.json();
+                })
+                .then(data => {
+                    const result = [];
+                    for(let key in data){
+                        result.push(data[key]);
+                    }
+                    state.users = result;
+                    return state.users
                 })
         },
         DEL_ROOM(state,room) {
@@ -104,6 +122,9 @@ export const store = new Vuex.Store({
     getters: {
         rooms(state) {
             return ch.chunk(state.rooms,2)
+        },
+        users(state) {
+            return ch.chunk(state.users,2)
         },
         sliders(state){
             return state.slider

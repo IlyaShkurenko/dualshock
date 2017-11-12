@@ -4,7 +4,7 @@
   "audience": "nodejs-jwt-auth",
   "issuer": "https://gonto.com",
   "mongoose": {
-    "uri":"mongodb://admin:admin@ds257245.mlab.com:57245/heroku_d5qjzhz4",
+    "uri":"mongodb://localhost/untitled",
     "options": {
       "socketOptions":{
         "keepAlive": 1

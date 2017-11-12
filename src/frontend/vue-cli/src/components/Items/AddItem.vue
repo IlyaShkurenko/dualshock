@@ -140,6 +140,7 @@
                 this.data = new FormData();
                 this.data.append('image', file);
                 for(let field in this.room){
+                    console.log(field, this.room[field])
                     this.data.append(field,this.room[field]);
                 }
                 this.file = file;
