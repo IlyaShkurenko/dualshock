@@ -36,8 +36,10 @@
         },
         methods:{
             toProfile(index){
-                let room = this.rooms[this.page - 1][index];
-                this.$emit('toProfile',index);
+                console.log('index = ' + index);
+                let user = this.users[this.page - 1][index];
+                console.log(user);
+                this.$emit('toProfile',user);
             },
             nextPage(){
                 if(this.page < this.rooms.length){

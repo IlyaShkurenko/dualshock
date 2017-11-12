@@ -789,8 +789,9 @@
                 this.$router.go(this.$router.currentRoute);
                 this.getRooms()
             },
-            toProfile(index){
-
+            toProfile(user){
+                let index = this.$store.state.users.indexOf(user);
+                this.$router.push('user/' + index);
             },
         ...mapActions([
             'getRooms',

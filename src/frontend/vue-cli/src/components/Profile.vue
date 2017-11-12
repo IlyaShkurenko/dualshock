@@ -32,8 +32,8 @@
                     <div id="infoBox">
                         <div id="title">
                             <img src="https://binarybeast.com/img/Icons/flagicons/ua.png" alt="Ukraine"/>
-                            <h2 style="font-family: 'Helvetica Narrow', sans-serif; font-weight: bold"><span id="alias">NSF-HulK</span></h2>
-                            <p id="id">id: 168251</p>
+                            <h2 style="font-family: 'Helvetica Narrow', sans-serif; font-weight: bold"><span id="alias">{{$store.state.users[$route.params.id].username}}</span></h2>
+                            <p id="id">id: {{$store.state.users[$route.params.id]._id}}</p>
                         </div>
                         <div id="infoStats">
                             <div id="info">
@@ -300,11 +300,8 @@
         },
         beforeCreate() {
             auth.checkAuth();
-            if (localStorage.getItem('role') === 'admin') {
-                this.$router.push('admin')
-            }
-            else if (!auth.user.authenticated) {
-                this.$router.push('login')
+            if (!auth.user.authenticated) {
+                this.$router.push('/login')
             }
         }
     }

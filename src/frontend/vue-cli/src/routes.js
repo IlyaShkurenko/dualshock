@@ -16,7 +16,7 @@ export const routes = [
     {path: '/vip/:id', component: Room},
     {path: '/login', component: Login},
     {path: '/signup', component: SignUp},
-    {path: '/user', component: Profile,
+    {path: '/user/:id', component: Profile,
         meta: {
             permission: 'user',
             fail: '/error-public'
