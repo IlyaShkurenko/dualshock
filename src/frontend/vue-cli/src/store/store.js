@@ -126,6 +126,15 @@ export const store = new Vuex.Store({
         users(state) {
             return ch.chunk(state.users,2)
         },
+        async indexByLogin(state){
+            await state.users.forEach(function(item, i, arr) {
+                if(item.username === 'ilya-shkurenko@mail.ru'){
+                    console.log('index = ', i)
+                    return i
+                }
+                else return -1;
+            });
+        },
         sliders(state){
             return state.slider
         },

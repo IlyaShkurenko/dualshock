@@ -404,7 +404,7 @@
         text-decoration: none;
     }
     .body-prices{
-        height: 80px;
+        height: 55px;
         background-color: #23b08e;
     }
     .prices{

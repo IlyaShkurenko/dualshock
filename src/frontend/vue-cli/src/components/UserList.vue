@@ -42,7 +42,7 @@
                 this.$emit('toProfile',user);
             },
             nextPage(){
-                if(this.page < this.rooms.length){
+                if(this.page < this.users.length){
                     this.page++
                 }
             },

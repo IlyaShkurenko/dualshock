@@ -20,7 +20,7 @@
             <heder-component></heder-component>
             <loginandreg></loginandreg>
         </div>
-        <div id="bootstrap-touch-slider"  style="margin-top: -20px" class="carousel bs-slider fade  control-round indicators-line"
+        <div id="bootstrap-touch-slider"  style="margin-top: -25px" class="carousel bs-slider fade  control-round indicators-line"
              data-ride="carousel" data-pause="hover" data-interval="5000">
 
             <!-- Indicators -->
@@ -65,8 +65,6 @@
                 <div class="item">
 
                     <!-- Slide Background -->
-                    <img src="https://images.pexels.com/photos/207990/pexels-photo-207990.jpeg?w=940&h=650&auto=compress&cs=tinysrgb"
-                         alt="Bootstrap Touch Slider" class="slide-image"/>
                     <div class="bs-slider-overlay"></div>
                     <!-- Slide Text Layer -->
                     <div class="slide-text slide_style_center">
@@ -84,8 +82,6 @@
                 <div class="item">
 
                     <!-- Slide Background -->
-                    <img src="https://images.pexels.com/photos/144345/pexels-photo-144345.jpeg?w=940&h=650&auto=compress&cs=tinysrgb"
-                         alt="Bootstrap Touch Slider" class="slide-image"/>
                     <div class="bs-slider-overlay"></div>
                     <!-- Slide Text Layer -->
                     <div class="slide-text slide_style_right">
@@ -287,7 +283,7 @@
             </div>
 
         </section>
-        <section id="section-preorder" style="background-image: url('../images/preorder-background.jpg'); z-index: 0">
+        <section id="section-preorder" style="z-index: 0">
             <div class="wrapperstart">
                 <figure>
                     <img src="../images/coins.png"

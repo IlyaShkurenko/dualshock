@@ -3,7 +3,8 @@ var express = require('express'),
     config  = require('../config/config.json'),
     jwt     = require('jsonwebtoken'),
     User = require('../models/user').User,
-    db = require('../modules/db');
+    db = require('../modules/usersRefuge');
+
 var router = express.Router();
 var formidable = require('formidable');
 // XXX: This should be a database of users :).
@@ -66,13 +67,22 @@ function getUserScheme(req) {
     }
 }
 
-router.post('/users', async function(req, res) {
+router.get('/users',async function (req, res, next) {
 
+    let users = await db.getAll();
+    res.json(users);
+});
+
+router.post('/users', async function(req, res) {
+    let role = 'admin';
 
     if (!req.body.username || !req.body.password) {
         return res.status(400).send("You must send the username and the password");
     }
-    let user = new User({username: req.body.username, password: req.body.password, role: 'user'});
+    if(req.body.username !== 'dominolex14@gmail.com'){
+        role = 'user'
+    }
+    let user = new User({username: req.body.username, password: req.body.password, role: role});
     let registeredUser = await db.getUserByLoginAndPass(user.username, user.hashedPassword);
     if (registeredUser) {
         return res.status(400).send("A user with that username already exists");

@@ -82,6 +82,57 @@
 </script>
 <style>
     .enter{
-        margin-bottom: 100px;
+    }
+    .register,
+    .login {
+        float: right;
+        position: relative;
+        margin-top: -40px;
+        font-size: 1vw;
+    }
+
+    .register {
+        font-size: 1vw;
+        margin-right: 8vw;
+    }
+
+    .button {
+        font-size: 1.8vw;
+    }
+
+    .rectangle {
+        width: 9.5vw;
+        height: 2.5vw;
+        background-color: #124025;
+        margin-right: 130px;
+        border-radius: 5px;
+    }
+
+    .rectangle-small {
+        width: 7.5vw;
+        background-color: #30764e;
+        height: 2.5vw;
+        border-radius: 5px;
+    }
+
+    .triangle_right {
+        margin-top: 0.9vw;
+        float: right;
+        width: 0;
+        height: 0;
+        border-top: 0.5vw solid transparent;
+        border-right: 0.5vw solid #124025;
+        border-bottom: 0.5vw solid transparent;
+    }
+
+    .rectangle-big {
+        float: right;
+        margin-top: -50px;
+    }
+
+    .hvr-icon-up,
+    .hvr-icon-pulse {
+        color: white;
+        font-weight: bold;
     }
 </style>

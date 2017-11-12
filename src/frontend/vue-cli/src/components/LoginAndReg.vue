@@ -1,5 +1,5 @@
 <template>
-    <div class="enter" style="font-family: 'Helvetica Narrow', sans-serif;">
+    <div class="enter" style="font-family: 'Helvetica Narrow', sans-serif">
         <div v-if="!logined" class="buttom login hvr-grow hvr-icon-up" @click="login">Войти</div>
         <div class="buttom  login hvr-grow hvr-icon-pulse" @click="home" v-else>Домой</div>
         <div class="rectangle-big">
@@ -57,13 +57,25 @@
                 this.$router.go(this.$router.currentRoute);
             },
             login(){
-                this.$router.push('login');
+                this.$router.push('/login');
             },
             home(){
-                this.$router.push(localStorage.getItem('role'));
+                let role = localStorage.getItem('role');
+                let index = -1;
+                this.$store.state.users.forEach(function(item, i, arr) {
+                    if(item.username === 'ilya-shkurenko@mail.ru'){
+                       index = i;
+                    }
+                });
+                if(role === 'user'){
+                    this.$router.push('/user/'+index);
+                }
+                else {
+                    this.$router.push('/admin');
+                }
             },
             signup(){
-                this.$router.push('signup')
+                this.$router.push('/signup')
             }
         },
         beforeCreate(){
@@ -83,7 +95,6 @@
     }
 </script>
 <style>
-
     .register,
     .login {
         float: right;

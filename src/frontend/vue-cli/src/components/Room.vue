@@ -1,7 +1,9 @@
 <template>
     <div class="room-main">
+        <header-cmp></header-cmp>
+        <loginandreg-cmp></loginandreg-cmp>
+        <logo-cmp></logo-cmp>
         <p></p>
-        <router-link to="/prices">Back</router-link>
         <div class="room">
             <h1>VIP  {{ $store.state.rooms[$route.params.id - 1].id }}</h1>
             <img :src="$store.state.rooms[$route.params.id - 1].img"/>
@@ -32,7 +34,7 @@
         background-image: url("../images/blue.jpg");
     }
     .room-main{
-        height: 100%;
+        background-size: 100%;
     }
 
     .room{
@@ -85,6 +87,9 @@
 </style>
 <script>
     import {mapActions} from 'vuex'
+    import Header from './Header.vue';
+    import LoginAndReg from './LoginAndReg.vue'
+    import Logo from './Items/Logo.vue'
     export default {
         data(){
             return {
@@ -92,6 +97,11 @@
                 room: this.$store.state.rooms[this.$route.params.id - 1],
                 games: ' '
             }
+        },
+        components:{
+            loginandregCmp: LoginAndReg,
+            headerCmp: Header,
+            logoCmp: Logo
         },
         methods: {
             getImgUrl(img) {

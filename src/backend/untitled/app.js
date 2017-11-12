@@ -15,14 +15,17 @@ var app = express();
 var config = require('./config/index');
 var mongoose = require('mongoose');
 var cors = require('cors');
-var serveStatic = require('serve-static')
-
+var serveStatic = require('serve-static');
+var history = require('connect-history-api-fallback');
+require('dotenv').config();
+var connect = require('connect');
+const PORT = process.env.PORT || 5000;
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-let port = 5000;
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(history());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -49,7 +52,6 @@ app.use(express.static(path.join(__dirname, 'routes')));
 app.use(serveStatic(path.join(__dirname, 'dist')));
 app.use('/rooms',rooms);
 app.use('/delete',remove);
-app.use('/',index);
 app.use(users);
 
 // catch 404 and forward to error handler
@@ -68,6 +70,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-http.createServer(app).listen(port, () =>{
-  console.log("Server is listening on port: " +port)
+http.createServer(app).listen(PORT, () =>{
+  console.log("Server is listening on port: " +PORT)
 });

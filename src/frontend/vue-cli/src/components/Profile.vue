@@ -1,5 +1,7 @@
 <template>
     <div>
+        <loginandreg></loginandreg>
+        <logo-component></logo-component>
     <div class="profile-page">
         <div class="w960" style="overflow: hidden;">
             <div class="nav"  style="font-family: 'Helvetica Narrow', sans-serif; font-weight: bold">
@@ -15,7 +17,6 @@
                     </li>
                 </ul>
             </div>
-            <loginandreg></loginandreg>
             <div id="Breadcrumbs">
                 <a href="/" class="Last"><span>DualShock</span></a>
             </div>
@@ -282,6 +283,8 @@
     import auth from '../auth'
     import Loggined from './LogginedHeader.vue';
     import Footer from './Footer.vue';
+    import Header from './Header.vue';
+    import Logo from './Items/Logo.vue';
 
     export default {
         data() {
@@ -291,7 +294,9 @@
         },
         components: {
             'loginandreg': Loggined,
-            'footer-component': Footer
+            'footer-component': Footer,
+            'header-component': Header,
+            'logo-component': Logo
         },
         computed: {
             getRole() {
@@ -332,7 +337,7 @@
         list-style: none
     }
     .enter{
-        margin-top: 20px;
+        margin-top: 60px;
     }
     blockquote, q {
         quotes: none
@@ -1634,124 +1639,5 @@
 
     #tournies .tourney h2 img {
         margin: -3px 10px 0 0;
-    }
-    .hvr-sweep-to-bottoms {
-        display: inline-block;
-        vertical-align: middle;
-        -webkit-transform: perspective(1px) translateZ(0);
-        transform: perspective(1px) translateZ(0);
-        box-shadow: 0 0 1px transparent;
-        position: relative;
-        -webkit-transition-property: color;
-        transition-property: color;
-        -webkit-transition-duration: 0.3s;
-        transition-duration: 0.3s;
-    }
-    .info-block{
-        width: 400px;
-        height: 400px;
-        background-color: black;
-        margin-top: -1000px;
-        float: left;
-    }
-
-    .hvr-sweep-to-bottoms:before {
-        content: "";
-        position: absolute;
-        z-index: -1;
-        top: -8ch;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: #1e5736;
-        -webkit-transform: scaleY(0.5);
-        transform: scaleY(0);
-        -webkit-transform-origin: 50% 0;
-        transform-origin: 50% 0;
-        -webkit-transition-property: transform;
-        transition-property: transform;
-        -webkit-transition-duration: 0.5s;
-        transition-duration: 0.5s;
-        -webkit-transition-timing-function: ease-out;
-        transition-timing-function: ease-out;
-    }
-    .hvr-sweep-to-bottoms:hover, .hvr-sweep-to-bottoms:focus, .hvr-sweep-to-bottoms:active {
-        color: white;
-        text-shadow: 1px 1px black;
-    }
-    .hvr-sweep-to-bottoms:hover:before, .hvr-sweep-to-bottoms:focus:before, .hvr-sweep-to-bottoms:active:before {
-        -webkit-transform: scaleY(1);
-        transform: scaleY(1);
-    }
-    .navs{
-        padding-left: 2.5vw;
-        padding-right: 2.5vw;
-        font-family: 'Helvetica Narrow', sans-serif;
-        font-size: 1.2vw;
-        color: white;
-        font-weight: bold;
-        text-align: center;
-    }
-    .register,
-    .login{
-        float: right;
-        margin-top: -35px;
-        font-size: 1vw;
-    }
-
-    .register{
-        font-size: 1vw;
-        margin-right: 8vw;
-    }
-
-    .button{
-        font-size: 1.8vw;
-    }
-
-    .rectangle {
-        width: 9.5vw;
-        height: 2.5vw;
-        background-color: #124025;
-        margin-right: 130px;
-        border-radius: 5px;
-    }
-
-    .rectangle-small{
-        width: 7.5vw;
-        background-color: #30764e;
-        height: 2.5vw;
-        border-radius: 5px;
-    }
-
-    .triangle_right {
-        margin-top: 1.2vw;
-        float: right;
-        width: 0;
-        height: 0;
-        border-top: 0.5vw solid transparent;
-        border-right: 0.5vw solid #124025;
-        border-bottom: 0.5vw solid transparent;
-    }
-
-    .rectangle-big{
-        float: right;
-        margin-top: -50px;
-    }
-
-    .hvr-icon-up,
-    .hvr-icon-pulse{
-        color: white;
-        font-weight: bold;
-    }
-    .glyphicon-home{
-        color: white;
-        font-weight: bold;
-        display: inline-block;
-        vertical-align: middle;
-        -webkit-transform: perspective(1px) translateZ(0);
-        transform: perspective(1px) translateZ(0);
-        box-shadow: 0 0 1px transparent;
-        position: relative;
-        padding-right: 2.2em;
     }
 </style>

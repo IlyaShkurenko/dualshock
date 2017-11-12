@@ -29,7 +29,12 @@ let create = async(newUser) => {
 
 };
 
+let getAll = async() =>{
+    return await User.find()
+};
+
 module.exports = {
     getUserByLoginAndPass,
-    create
+    create,
+    getAll
 };
