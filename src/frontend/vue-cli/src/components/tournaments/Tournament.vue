@@ -15,7 +15,7 @@
             </ul>
         </div>
         <div id="Breadcrumbs">
-            <a href="/" class=""><span>DualShock</span></a><a href="/tourney" class="previous"><span>Турниры</span></a><a href="/xCSGO1710032" class="Last"><span>FIFA18 | Турнир открытие </span></a>
+            <a href="/" class=""><span>DualShock</span></a><a href="/tourney" class="previous"><span>Турниры</span></a><a href="/xCSGO1710032" class="Last"><span>FIFA18 | Турнир открытие</span></a>
         </div>
         <div id="BreadcrumbsFiller">&nbsp;</div>
         <div class="adWide top">
@@ -39,66 +39,11 @@
         </div></div><div id="tourneyContent"><div class="w960">
         <div id="toolsContainer">
             <div id="toolsNav">
-                <a href="#" class="current">Детали</a>
-                <a href="#" id="referencesLink">Сетка</a>
+                <a href="#table" class="current" @click="brackets = !brackets">Детали</a>
+                <a href="#brackets" class="current" @click="brackets = !brackets">Сетка</a>
             </div>
-            <div class="tools current">
-                <table class="toolsTable">
-                    <tr>
-                        <th>Статус</th>
-                        <td>Набор участников</td>
-                    </tr>
-                    <tr>
-                        <th>Игра</th>
-                        <td><img src="../../images/fifa.jpeg" alt="Counter-Strike: Global Offensive"  style="width: 30px; height: 30px"/><a href="/game/load/CSGO">FIFA 18</a></td>
-                    </tr>
-                    <tr>
-                        <th>Максимум игроков</th>
-                        <td>16</td>
-                    </tr>
-                    <tr>
-                        <th>Зарегистрировано</th>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <th>Принято</th>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <th>Мод</th>
-                        <td>1v1</td>
-                    </tr>
-                    <tr>
-                        <th>Правила</th>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <th>Дата начала</th>
-                        <td>День Месяц Число, Год</td>
-                    </tr>
-                    <tr>
-                        <th>Просмотры турнира</th>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <th>Денежный сбор</th>
-                        <td>100 грн</td>
-                    </tr>
-                    <tr>
-                        <th>Призовой фонд</th>
-                        <td>1000 грн</td>
-                    </tr>
-                    <tr>
-                        <th>Дополнительный приз</th>
-                        <td>Скидка 5%</td>
-                    </tr>
-                </table>
-                <div id="details">
-                    <h2>Описание</h2>
-                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-                </div>
-            </div>
-            <div class="tools" id="references"></div>
+            <table-cmp v-if="!brackets"></table-cmp>
+            <brackets-cmp v-else></brackets-cmp>
         </div>
        </div></div><div class="w960"></div>
     <div class="adWide bottom">
@@ -106,7 +51,6 @@
     <div id="sponsorLogos">
     </div>
     <logo-cmp></logo-cmp>
-
     </body>
     </div>
 </template>
@@ -1168,18 +1112,28 @@
     .leaderboard table tr.playoff:hover td, .match p.viewer:hover span, .match p.viewer.hover span {
         background: rgba(255, 155, 0, 0.50)
     }
+
 </style>
 <script>
     import Header from '../Header.vue';
     import Footer from '../Footer.vue';
     import Logo from '../Items/Logo.vue'
     import LoginAndReg from '../LoginAndReg.vue'
+    import Table from './Table.vue'
+    import Brackets from './Brackets.vue'
     export default {
+        data(){
+            return{
+                brackets: false
+            }
+        },
         components: {
             headerCmp: Header,
             logoCmp: Logo,
             footerCmp: Footer,
-            loginandreg: LoginAndReg
+            loginandreg: LoginAndReg,
+            tableCmp: Table,
+            bracketsCmp: Brackets
         }
     }
 </script>

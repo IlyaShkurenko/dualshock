@@ -415,6 +415,9 @@
     }
 </script>
 <style scoped>
+    body{
+        background-image: url("../images/look.com.ua-110011.jpg");
+    }
     .body-main{
         height: 80px;
         background-color: #004739;
