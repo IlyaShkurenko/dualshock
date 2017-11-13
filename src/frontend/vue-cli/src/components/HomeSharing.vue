@@ -88,7 +88,7 @@
     }
 
     #home-sharing .tw {
-        background-image: url("http://static.bandainamcogames.eu/sites_products/naruto-videogames/assets/img/pictos/twitter-white.svg");
+        background-image: url("https://tvigi.com/landing/img/icons/instagram.svg");
         background-size: 27px 21px
     }
 

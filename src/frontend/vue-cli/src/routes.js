@@ -8,6 +8,7 @@ import SignUp from './components/autorization/Register.vue'
 import Profile from './components/Profile.vue'
 import News from  './components/News.vue'
 import Book from './components/Booking.vue'
+import Tournament from './components/tournaments/Tournament.vue'
 export const routes = [
     {path: '/prices', component: Event},
     {path: '/news', component: News},
@@ -16,6 +17,7 @@ export const routes = [
     {path: '/vip/:id', component: Room},
     {path: '/login', component: Login},
     {path: '/signup', component: SignUp},
+    {path: '/tournament/:id', component: Tournament},
     {path: '/user/:id', component: Profile,
         meta: {
             permission: 'user',

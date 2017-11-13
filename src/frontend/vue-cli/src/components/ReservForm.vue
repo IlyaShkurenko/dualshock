@@ -1,39 +1,309 @@
 <template>
-
-    <div class="booking">
-        <header-component></header-component>
-        <loginandreg></loginandreg>
-        <div id="wrapper" class="page-content">
-            <section class="white" style="margin: 0">
-                <div id="block-r" class="display">
-                    <img alt="Driving hall" class="hall"
-                         src="http://gameinn.com.ua/wp-content/themes/game/img/driving2.png"/>
-                    <div v-for="i in 23" :id="'n' + i" class="icon" :data-for="'popap-' + i">
-                        <img :alt="i" class="hover"
-                             src="http://gameinn.com.ua/wp-content/themes/game/img/n.bkg.hover.png"/>
-                        <img :alt="i" class="h" src="http://gameinn.com.ua/wp-content/themes/game/img/n.bkg.png"/>
-                        <span>{{i}}</span>
+    <div id="block-p">
+        <div>
+            <span id="closep">close</span>
+            <h3>Супер! Теперь уточните пожалуйста дату, время :)</h3>
+            <div id="form-b"><div class="wpcf7" id="wpcf7-f202-p203-o1" lang="ru-RU" dir="ltr">
+                <div class="screen-reader-response"></div>
+                <form action="/bronirovanie/#wpcf7-f202-p203-o1" method="post" class="wpcf7-form" novalidate="novalidate">
+                    <div style="display: none;">
+                        <input type="hidden" name="_wpcf7" value="202" />
+                        <input type="hidden" name="_wpcf7_version" value="3.9" />
+                        <input type="hidden" name="_wpcf7_locale" value="ru_RU" />
+                        <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f202-p203-o1" />
+                        <input type="hidden" name="_wpnonce" value="6fc919f8a0" />
                     </div>
-                </div>
-                <section id="dicons">
-                    <input class="on" type="button" value="Скрыть места"/>
-                </section>
-                <section id="dtext">
-                    <p>
-                        Пожалуйста, выберите себе уютное место на плане. Вы можете скрыть номера, чтобы рассмотреть места подробнее.</p>
-                </section>
-
-                <div id="mblock-r">
-                    <div v-for="i in 23" :id="'mn2'" class="micon" :data-for="'popap-' + i" :data-title="'Стол' + i">
-                        <img :alt="i" class="h" src="http://gameinn.com.ua/wp-content/themes/game/img/n.bkg.png"/>
-                        <span>{{i}}</span>
+                    <div class="control-group">
+                        <div class="controls">
+                            <label for="seat-number">Забронировать: </label><br />
+                            <span class="wpcf7-form-control-wrap seat-number"><input type="text" name="seat-number" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" id="seat-number" aria-required="true" aria-invalid="false" /></span>
+                        </div>
                     </div>
-                </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <label for="date">На дату: </label><br />
+                            <span class="wpcf7-form-control-wrap date"><input type="text" name="date" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" id="date" aria-required="true" aria-invalid="false" /></span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <label for="hstart">Время пребывания: </label><br />
+                            <span class="wpcf7-form-control-wrap hstart"><select name="hstart" class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required form-control mini" id="hstart" aria-required="true" aria-invalid="false"><option value="12:00">12:00</option><option value="12:30">12:30</option><option value="13:00">13:00</option><option value="13:30">13:30</option><option value="14:00">14:00</option><option value="14:30">14:30</option><option value="15:00">15:00</option><option value="15:30">15:30</option><option value="16:00">16:00</option><option value="16:30">16:30</option><option value="17:00">17:00</option><option value="17:30">17:30</option><option value="18:00">18:00</option><option value="18:30">18:30</option><option value="19:00">19:00</option><option value="19:30">19:30</option><option value="20:00">20:00</option><option value="20:30">20:30</option><option value="21:00">21:00</option><option value="21:30">21:30</option><option value="22:00">22:00</option><option value="22:30">22:30</option><option value="23:00">23:00</option><option value="23:30">23:30</option><option value="00:00">00:00</option><option value="00:30">00:30</option><option value="01:00">01:00</option><option value="01:30">01:30</option><option value="02:00">02:00</option><option value="02:30">02:30</option><option value="03:00">03:00</option><option value="03:30">03:30</option><option value="04:00">04:00</option><option value="04:30">04:30</option><option value="05:00">05:00</option><option value="05:30">05:30</option></select></span> до <span class="wpcf7-form-control-wrap hfinish"><select name="hfinish" class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required form-control mini" id="hfinish" aria-required="true" aria-invalid="false"><option value="12:30">12:30</option><option value="13:00">13:00</option><option value="13:30">13:30</option><option value="14:00">14:00</option><option value="14:30">14:30</option><option value="15:00">15:00</option><option value="15:30">15:30</option><option value="16:00">16:00</option><option value="16:30">16:30</option><option value="17:00">17:00</option><option value="17:30">17:30</option><option value="18:00">18:00</option><option value="18:30">18:30</option><option value="19:00">19:00</option><option value="19:30">19:30</option><option value="20:00">20:00</option><option value="20:30">20:30</option><option value="21:00">21:00</option><option value="21:30">21:30</option><option value="22:00">22:00</option><option value="22:30">22:30</option><option value="23:00">23:00</option><option value="23:30">23:30</option><option value="00:00">00:00</option><option value="00:30">00:30</option><option value="01:00">01:00</option><option value="01:30">01:30</option><option value="02:00">02:00</option><option value="02:30">02:30</option><option value="03:00">03:00</option><option value="03:30">03:30</option><option value="04:00">04:00</option><option value="04:30">04:30</option><option value="05:00">05:00</option><option value="05:30">05:30</option></select></span> на <span class="wpcf7-form-control-wrap count"><select name="count" class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required form-control mini" id="count" aria-required="true" aria-invalid="false"><option value="1">1</option><option value="2-4">2-4</option><option value="5-6">5-6</option><option value="7-8">7-8</option></select></span> чел.
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <label for="client">Ваше имя: </label><br />
+                            <span class="wpcf7-form-control-wrap client"><input type="text" name="client" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" id="client" aria-required="true" aria-invalid="false" placeholder="Представьтесь пожайлуста" /></span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <label for="phone">Ваш номер телефона: </label><br />
+                            <span class="wpcf7-form-control-wrap phone"><input type="tel" name="phone" size="40" class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel form-control" id="phone" aria-required="true" aria-invalid="false" /></span>
+                        </div>
+                    </div>
+                    <div id="success"></div>
+                    <p><input type="submit" value="Отправить" class="wpcf7-form-control wpcf7-submit btn btn-primary pull-right" /></p>
+                    <div class="wpcf7-response-output wpcf7-display-none"></div></form></div></div>
+            <div id="popap-1" class="block-p" >
+                <h2>Стол 1</h2>
+                <p></p>
+                <p>Приставки:<br/><span>Настольные игры: Алиас Вечеринка, Монополия, Эволюция, Уно</span></p>
+                <p>Настольные игры бесплатны при депозите с компании, который можно потратить на любой ассортимент клуба.</p>
+                <p><span class="price">Депозит 400 грн.</span></p><br/>
+                <p class="ws">Просто забронировать по телефону
+                    <span>+38 (096) 328-23-23</span></p>					</div>
+            <div id="popap-2" class="block-p" >
+                <h2>Стол 2</h2>
+                <p></p>
+                <p>Приставки:<br/><span>Настольные игры: Алиас Вечеринка, Монополия, Эволюция, Уно</span></p>
+                <p>Настольные игры бесплатны при депозите с компании, который можно потратить на любой ассортимент клуба.</p>
+                <p><span class="price">Депозит 400 грн.</span></p><br/>
+                <p class="ws">Просто забронировать по телефону
+                    <span>+38 (096) 328-23-23</span></p>					</div>
+            <div id="popap-3" class="block-p" >
+                <h2>Стол 3</h2>
+                <p></p>
+                <p>Приставки:<br/><span>Настольные игры: Алиас Вечеринка, Монополия, Эволюция, Уно</span></p>
+                <p>Настольные игры бесплатны при депозите с компании, который можно потратить на любой ассортимент клуба.</p>
+                <p><span class="price">Депозит 400 грн.</span></p><br/>
+                <p class="ws">Просто забронировать по телефону
+                    <span>+38 (096) 328-23-23</span></p>					</div>
+            <div id="popap-4" class="block-p" >
+                <h2>Консоль в зале 4</h2>
+                <p></p>
+                <p>Приставки:<br/><span>XBOX360</span></p>
+                <p>Стоимость аренды зависит от дня недели.</p>
+                <p><span class="price">1 час ПН-ЧТ
 
-            </section>
+12:00  — 06:00..........57 грн
+23:00 — 06:00.........198 грн (вся ночь)
 
+1 час ПТ-ВС
+
+12:00 — 06:00..........67 грн
+23:00 — 06:00.........230 грн (вся ночь)</span></p><br/>
+                <p class="ws">Просто забронировать по телефону
+                    <span>+38 (096) 328-23-23</span></p>					</div>
+            <div id="popap-5" class="block-p" >
+                <h2>Консоль в зале 5</h2>
+                <p></p>
+                <p>Приставки:<br/><span>XBOX360</span></p>
+                <p>Стоимость аренды зависит от дня недели.</p>
+                <p><span class="price">1 час ПН-ЧТ
+
+12:00  — 06:00..........57 грн
+23:00 — 06:00.........198 грн (вся ночь)
+
+1 час ПТ-ВС
+
+12:00 — 06:00..........67 грн
+23:00 — 06:00.........230 грн (вся ночь)</span></p><br/>
+                <p class="ws">Просто забронировать по телефону
+                    <span>+38 (096) 328-23-23</span></p>					</div>
+            <div id="popap-7" class="block-p" >
+                <h2>Консоль в зале 7</h2>
+                <p></p>
+                <p>Приставки:<br/><span>PS4</span></p>
+                <p>Стоимость аренды зависит от дня недели.</p>
+                <p><span class="price">1 час ПН-ЧТ
+
+12:00 — 06:00..........81 грн
+23:00 — 06:00.........338 грн (вся ночь)
+
+1 час ПТ-ВС
+
+12:00 — 06:00..........87 грн
+23:00 — 06:00.........365 грн (вся ночь)</span></p><br/>
+                <p class="ws">Просто забронировать по телефону
+                    <span>+38 (096) 328-23-23</span></p>					</div>
+            <div id="popap-8" class="block-p" >
+                <h2>Консоль в зале 8</h2>
+                <p></p>
+                <p>Приставки:<br/><span>PS4</span></p>
+                <p>Стоимость аренды зависит от дня недели.</p>
+                <p><span class="price">1 час ПН-ЧТ
+
+12:00 — 06:00..........81 грн
+23:00 — 06:00.........338 грн (вся ночь)
+
+1 час ПТ-ВС
+
+12:00 — 06:00..........87 грн
+23:00 — 06:00.........365 грн (вся ночь)</span></p><br/>
+                <p class="ws">Просто забронировать по телефону
+                    <span>+38 (096) 328-23-23</span></p>					</div>
+            <div id="popap-9" class="block-p" >
+                <h2>Консоль в зале 9</h2>
+                <p></p>
+                <p>Приставки:<br/><span>PS3</span></p>
+                <p>Стоимость аренды зависит от дня недели.</p>
+                <p><span class="price">1 час ПН-ЧТ
+
+12:00  — 06:00..........57 грн
+23:00 — 06:00.........198 грн (вся ночь)
+
+1 час ПТ-ВС
+
+12:00 — 06:00..........67 грн
+23:00 — 06:00.........230 грн (вся ночь)</span></p><br/>
+                <p class="ws">Просто забронировать по телефону
+                    <span>+38 (096) 328-23-23</span></p>					</div>
+            <div id="popap-10" class="block-p" >
+                <h2>Консоль в зале 10</h2>
+                <p></p>
+                <p>Приставки:<br/><span>PS4</span></p>
+                <p>Стоимость аренды зависит от дня недели.</p>
+                <p><span class="price">1 час ПН-ЧТ
+
+12:00 — 06:00..........81 грн
+23:00 — 06:00.........338 грн (вся ночь)
+
+1 час ПТ-ВС
+
+12:00 — 06:00..........87 грн
+23:00 — 06:00.........365 грн (вся ночь)</span></p><br/>
+                <p class="ws">Просто забронировать по телефону
+                    <span>+38 (096) 328-23-23</span></p>					</div>
+            <div id="popap-11" class="block-p" >
+                <h2>Консоль в зале 11</h2>
+                <p></p>
+                <p>Приставки:<br/><span>PS4</span></p>
+                <p>Стоимость аренды зависит от дня недели.</p>
+                <p><span class="price">1 час ПН-ЧТ
+
+12:00 — 06:00..........81 грн
+23:00 — 06:00.........338 грн (вся ночь)
+
+1 час ПТ-ВС
+
+12:00 — 06:00..........87 грн
+23:00 — 06:00.........365 грн (вся ночь)</span></p><br/>
+                <p class="ws">Просто забронировать по телефону
+                    <span>+38 (096) 328-23-23</span></p>					</div>
+            <div id="popap-12" class="block-p" >
+                <h2>Консоль в зале 12</h2>
+                <p></p>
+                <p>Приставки:<br/><span>PS4</span></p>
+                <p>Стоимость аренды зависит от дня недели.</p>
+                <p><span class="price">1 час ПН-ЧТ
+
+12:00 — 06:00..........81 грн
+23:00 — 06:00.........338 грн (вся ночь)
+
+1 час ПТ-ВС
+
+12:00 — 06:00..........87 грн
+23:00 — 06:00.........365 грн (вся ночь)</span></p><br/>
+                <p class="ws">Просто забронировать по телефону
+                    <span>+38 (096) 328-23-23</span></p>					</div>
+            <div id="popap-14" class="block-p" >
+                <h2>Консоль в зале 14</h2>
+                <p></p>
+                <p>Приставки:<br/><span>PS4</span></p>
+                <p>Стоимость аренды зависит от дня недели.</p>
+                <p><span class="price">1 час ПН-ЧТ
+
+12:00 — 06:00..........81 грн
+23:00 — 06:00.........338 грн (вся ночь)
+
+1 час ПТ-ВС
+
+12:00 — 06:00..........87 грн
+23:00 — 06:00.........365 грн (вся ночь)</span></p><br/>
+                <p class="ws">Просто забронировать по телефону
+                    <span>+38 (096) 328-23-23</span></p>					</div>
+            <div id="popap-15" class="block-p" >
+                <h2>Консоль в зале 15</h2>
+                <p></p>
+                <p>Приставки:<br/><span>PS4</span></p>
+                <p>Стоимость аренды зависит от дня недели.</p>
+                <p><span class="price">1 час ПН-ЧТ
+
+12:00 — 06:00..........81 грн
+23:00 — 06:00.........338 грн (вся ночь)
+
+1 час ПТ-ВС
+
+12:00 — 06:00..........87 грн
+23:00 — 06:00.........365 грн (вся ночь)</span></p><br/>
+                <p class="ws">Просто забронировать по телефону
+                    <span>+38 (096) 328-23-23</span></p>					</div>
+            <div id="popap-20" class="block-p" >
+                <h2>Комната LUX</h2>
+                <p>Настольные игры: Алиас Вечеринка, Монополия, Эволюция, Уно</p>
+                <p>Приставки:<br/><span>PS3, PS4, Xbox360, XboxOne, сенсор Kinect, набор RockBand</span></p>
+                <p>Стоимость аренды зависит от дня недели.</p>
+                <p><span class="price">1 час ПН-ЧТ
+
+12:00 —	06:00..........500 грн
+23:00 — 05:30..........1750 грн (вся ночь)
+Playstation VR ........100 грн час
+
+1 час ПТ-ВС
+
+12:00 — 06:00..........600 грн
+23:00 — 05:30..........1990 грн (вся ночь)
+Playstation VR ........100 грн час</span></p><br/>
+                <p class="ws">Просто забронировать по телефону
+                    <span>+38 (096) 328-23-23</span></p>					</div>
+            <div id="popap-21" class="block-p" >
+                <h2>Комната 21</h2>
+                <p>Настольные игры: Алиас Вечеринка, Монополия, Эволюция, Уно</p>
+                <p>Приставки:<br/><span>PS3, PS4, PS4 VR, Xbox360, XboxOne, сенсор Kinect, набор RockBand</span></p>
+                <p>Стоимость аренды зависит от дня недели.</p>
+                <p><span class="price">1 час ПН-ЧТ
+
+12:00 —	06:00..........280 грн
+23:00 — 05:30..........980 грн (вся ночь)
+Playstation VR ........100 грн час
+
+1 час ПТ-ВС
+
+12:00 — 06:00..........320 грн
+23:00 — 05:30..........1120 грн (вся ночь)
+Playstation VR ........100 грн час</span></p><br/>
+                <p class="ws">Просто забронировать по телефону
+                    <span>+38 (096) 328-23-23</span></p>					</div>
+            <div id="popap-22" class="block-p" >
+                <h2>Комната 22</h2>
+                <p>Настольные игры: Алиас Вечеринка, Монополия, Эволюция, Уно</p>
+                <p>Приставки:<br/><span>PS3, PS4, PS4 VR, Xbox360, XboxOne, сенсор Kinect, набор RockBand</span></p>
+                <p>Стоимость аренды зависит от дня недели.</p>
+                <p><span class="price">1 час ПН-ЧТ
+
+12:00 —	06:00..........280 грн
+23:00 — 05:30..........980 грн (вся ночь)
+Playstation VR ........100 грн час
+
+1 час ПТ-ВС
+
+12:00 — 06:00..........320 грн
+23:00 — 05:30..........1120 грн (вся ночь)
+Playstation VR ........100 грн час</span></p><br/>
+                <p class="ws">Просто забронировать по телефону
+                    <span>+38 (096) 328-23-23</span></p>					</div>
+            <div id="popap-23" class="block-p" >
+                <h2>Комната 23</h2>
+                <p>Настольные игры: Алиас Вечеринка, Монополия, Эволюция, Уно</p>
+                <p>Приставки:<br/><span>PS3, PS4, PS4 VR, Xbox360, XboxOne, сенсор Kinect, набор RockBand,</span></p>
+                <p>Стоимость аренды зависит от дня недели.</p>
+                <p><span class="price">1 час ПН-ЧТ
+
+12:00 —	06:00..........280 грн
+23:00 — 05:30..........980 грн (вся ночь)
+Playstation VR ........100 грн час
+
+1 час ПТ-ВС
+
+12:00 — 06:00..........320 грн
+23:00 — 05:30..........1120 грн (вся ночь)
+Playstation VR ........100 грн час</span></p><br/>
+                <p class="ws">Просто забронировать по телефону
+                    <span>+38 (096) 328-23-23</span></p>					</div>
+            <div style="clear:both;"></div>
         </div>
-        <logo-component></logo-component>
     </div>
 </template>
 <style scoped>
@@ -6345,20 +6615,3 @@
         font-size: 16px
     }
 </style>
-<script>
-    import Header from './Header.vue';
-    import Footer from './Footer.vue';
-    import Login from './LoginAndReg.vue';
-    import Logo from './Items/Logo.vue';
-    import Form from './ReservForm.vue';
-
-    export default {
-        components: {
-            'header-component': Header,
-            'footer-component': Footer,
-            'loginandreg': Login,
-            'logo-component': Logo,
-            'form-component': Form
-        }
-    }
-</script>

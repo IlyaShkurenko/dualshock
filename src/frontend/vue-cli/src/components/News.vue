@@ -30,17 +30,17 @@
                             <article>
                                 <figure>
                                     <a href="http://www.naruto-videogames.com/ru/naruto-shippuden-ultimate-ninja-storm-legacy-and-storm-trilogy-now-available-4/">
-                                        <img src="http://www.bandainamcoent.eu/static/2017/08/16/nsl-nst-200x200-launch-jpg?c870d0980eb2dbea088e51bb7e639048864b9486150286949809e8fa89a4cf7579a7a0b698c74125f1&83984d3be9ea8c5b937b9525828e6fad"
-                                             alt="NARUTO SHIPPUDEN: ULTIMATE NINJA STORM LEGACY and STORM TRILOGY now available">
+                                        <img src="../images/fifa.jpeg"
+                                             alt="FIFA 18 турнир открытие">
                                         <img src="" alt="">
                                     </a>
                                 </figure>
                                 <div class="content">
                                     <h3>
-                                        <a href="http://www.naruto-videogames.com/ru/naruto-shippuden-ultimate-ninja-storm-legacy-and-storm-trilogy-now-available-4/">NARUTO SHIPPUDEN: ULTIMATE NINJA STORM LEGACY and ...</a>
+                                        <router-link to="/tournament/1">FIFA 18 Турнир открытие</router-link>
                                     </h3>
                                     <p>
-                                        BANDAI NAMCO Entertainment Europe is pleased to confirm today that NARUTO SHIPPUDEN: Ultimate Ninja STORM LEGACY an...</p>
+                                        ...</p>
                                     <a href="http://www.naruto-videogames.com/ru/naruto-shippuden-ultimate-ninja-storm-legacy-and-storm-trilogy-now-available-4/"
                                        class="more">читать еще</a>
                                 </div>

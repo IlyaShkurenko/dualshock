@@ -10,7 +10,7 @@
         height: 6.5vw;
         width: 17vw;
         top: 0;
-        z-index: 3;
+        z-index: 10;
         position: fixed;
     }
 

@@ -133,7 +133,7 @@
                             </figure>
                             <div class="content">
                                 <p>
-                                    BANDAI NAMCO Entertainment Europe is pleased to confirm today that NARUTO SHIPPUDEN: Ultimate Ninja STORM LEGACY and NARUTO SHIPPUDEN: Ultimate Ninja STORM TRILOGY are now available for all the fans of t...</p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                                 <a href="http://www.naruto-videogames.com/ru/naruto-shippuden-ultimate-ninja-storm-legacy-and-storm-trilogy-now-available-4/"
                                    class="more"
                                    title="NARUTO SHIPPUDEN: ULTIMATE NINJA STORM LEGACY and STORM TRILOGY now available">читать еще</a>
@@ -157,7 +157,7 @@
                             </figure>
                             <div class="content">
                                 <p>
-                                    NARUTO TO BORUTO: SHINOBI STRIKER is ready to be showcased at gamescom 2017! BANDAI NAMCO Entertainment Europe is excited to reveal the amazing new content about the acrobatic ninja battle action game developed by Soleil Ltd.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
                                     &nbsp;
                                     For the first time in ...</p>
                                 <a href="http://www.naruto-videogames.com/ru/create-your-own-ninja-in-naruto-to-boruto-shinobi-striker-4/"
@@ -182,7 +182,7 @@
                             </figure>
                             <div class="content">
                                 <p>
-                                    BANDAI NAMCO Entertainment Inc.&rsquo;s NARUTO SHIPPUDEN: Ultimate Ninja Blazing, the Ultimate Ninja series game for mobile platforms, is celebrating its first anniversary since launching on the Apple </p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
                                 <a href="http://www.naruto-videogames.com/ru/naruto-shippuden-ultimate-ninja-blazing-celebrates-first-anniversary-with-in-game-events-and-updates-4/"
                                    class="more"
                                    title="NARUTO SHIPPUDEN: Ultimate Ninja Blazing Celebrates First Anniversary With In Game Events and Updates">читать еще</a>
@@ -190,6 +190,7 @@
                         </article>
                     </li>
                 </ul>
+
 
 
                 <div class="news-page bottom-section">
@@ -210,57 +211,48 @@
 
                     <li class="manual">
                         <article>
-                            <h2><a href="https://www.bandainamcoent.eu/community" target="_blank">Сообщество Bandai Namco</a>
+                            <h2><a href="#" target="_blank">Кальяны</a>
                             </h2>
                             <p>
-                                Это место для тех, кто хочет следить за новостями о своих любимых играх и получить подарок за вступление в сообщество<br/>
-                                ...</p>
-                            <a href="https://www.bandainamcoent.eu/community" class="logo">
-                                <img src="http://static.bandainamcogames.eu/sites_products/naruto-videogames/uploads/2015/03/VIPCorner_logo_2.png"
-                                     alt="">
-                            </a>
+                                Любишь вкусный кальян? выбери какой тебе нравится<br/>
+                            </p>
 
 
                             <div class="img"
-                                 style="background-image: url('http://static.bandainamcogames.eu/sites_products/naruto-videogames/uploads/2015/03/Home_Socialpush_VIPCorner_2.jpg'); ">
-                                <a href="https://www.bandainamcoent.eu/community" target="_blank"
+                                 style="background-image: url('https://artfiles.alphacoders.com/778/77803.jpg'); ">
+                                <a href="№" target="_blank"
                                    data-id="manual_0"></a>
                             </div>
                         </article>
 
-                        <a href="https://www.bandainamcoent.eu/community" target="_blank" data-id="manual_0"
+                        <a href="№" target="_blank" data-id="manual_0"
                            class="view-more">
-                            ПРИСОЕДИНИТЬСЯ                        </a>
+                            Узнать больше                        </a>
                     </li>
 
 
                     <li class="manual">
                         <article>
-                            <h2><a href="http://www.storm-league.com/" target="_blank">Storm league</a></h2>
+                            <h2><a href="#" target="_blank">Игры</a></h2>
                             <p>
-                                Присоединяйтесь к Ураганной Лиге &#8211; единственной спортивной платформе для игр во вселенной Наруто, в которой лучшие в мире игроки сражаются друг с другом, выигрывают призы и становятся чемпионами!<br/>
-                                ...</p>
-                            <a href="http://www.storm-league.com/" class="logo">
-                                <img src="http://static.bandainamcogames.eu/sites_products/naruto-videogames/uploads/2015/03/Storm-League-logo_DIPLO.png"
-                                     alt="">
-                            </a>
-
+                                Следи за последними обновлениями игротеки<br/></p>
 
                             <div class="img"
-                                 style="background-image: url('http://static.bandainamcogames.eu/sites_products/naruto-videogames/uploads/2015/03/storm-league-bg.png'); ">
+                                 style="background-image: url('https://firebasestorage.googleapis.com/v0/b/vue-app-75351.appspot.com/o/games.png?alt=media&token=a392cb05-8789-438e-baf2-060f6f46c0fb'); ">
                                 <a href="http://www.storm-league.com/" target="_blank" data-id="manual_1"></a>
                             </div>
                         </article>
 
-                        <a href="http://www.storm-league.com/" target="_blank" data-id="manual_1" class="view-more">
+                        <a href="#" target="_blank" data-id="manual_1" class="view-more">
                             Узнать больше                        </a>
                     </li>
 
                 </ul>
 
+
                 <div class="community-page bottom-section black">
                     <p>Читайте нас в</p>
-                    <a href="https://twitter.com/Narutovideogame" class="twitter-link" target="_blank">Twitter</a> &amp;
+                    <a href="https://twitter.com/Narutovideogame" class="twitter-link" target="_blank">Instagram</a> &amp;
                     <a href="https://www.facebook.com/Narutogames" class="facebook-link" target="_blank">Facebook</a>
                 </div>
 
@@ -293,20 +285,17 @@
         -->
                 <div class="content">
                     <div class="text">
-                        <span class="big">Поставить</span><span class="small">сейчас!</span>
-                        <p>Ставки на любой турнир</p>
+                        <span class="big">Сыграй</span><span class="small">сейчас!</span>
+                        <p>Получи приз</p>
                     </div>
                     <div class="platforms">
-                        <p>Выберите турнир</p>
+                        <p>Выбери тему</p>
                         <ul>
                             <li class="platform">
                                 <a href="http://www.naruto-videogames.com/ru/store/?game=8291&amp;edition=8380&amp;platform=ps4">fifa</a>
                             </li>
                             <li class="platform">
                                 <a href="http://www.naruto-videogames.com/ru/store/?game=8291&amp;edition=8380&amp;platform=pcdigital">mortal kombat</a>
-                            </li>
-                            <li class="platform">
-                                <a href="http://www.naruto-videogames.com/ru/store/?game=8291&amp;edition=8380&amp;platform=xboxone">xboxone</a>
                             </li>
                         </ul>
                     </div>
@@ -428,7 +417,7 @@
 <style scoped>
     .body-main{
         height: 80px;
-        background-color: #3caa36;
+        background-color: #004739;
     }
 
     span.big {
@@ -1827,7 +1816,7 @@
 
     #home-community a.twitter-link {
         margin: 0 10px;
-        color: #2AA9E0;
+        color: #d51058;
         display: inline-block;
         height: 60px;
         line-height: 60px;
@@ -1835,7 +1824,7 @@
     }
 
     #home-community a.twitter-link::after, #home-community a.twitter-link::before {
-        background-color: #2AA9E0
+        background-color: #d51058;
     }
 
     #home-community a.facebook-link {

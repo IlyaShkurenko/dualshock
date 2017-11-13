@@ -1,5 +1,5 @@
 <template>
-    <div class="room-main">
+    <body class="room-main">
         <header-cmp></header-cmp>
         <loginandreg-cmp></loginandreg-cmp>
         <logo-cmp></logo-cmp>
@@ -26,15 +26,11 @@
             </tr>
 
         </table>
-    </div>
+    </body>
 </template>
 
 <style scoped>
-    body{
-        background-image: url("../images/blue.jpg");
-    }
     .room-main{
-        background-size: 100%;
     }
 
     .room{
