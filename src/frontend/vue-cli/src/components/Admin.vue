@@ -301,7 +301,9 @@
         }
         /*html, body, #wrapper, #page-wrapper {height: 100%; overflow: hidden;}*/
     }
-
+    body{
+        background-image: url("../images/look.com.ua-110011.jpg");
+    }
     #wrapper {
         padding-left: 0;
     }

@@ -25,11 +25,10 @@
         <div id="ajaxNav">
             <div id="ajaxLoading">
             </div>
-            <a href="#participants">Teams</a>
-            <a href="#streams">Streams</a>
-            <a href="#info" class="current">Info</a>
+            <a href="#streams">Трансляции</a>
+            <a href="#info" class="current">Информация</a>
         </div>
-        <a href="/xCSGO1710032/join" class="join">Join this Tournament</a>
+        <a href="/xCSGO1710032/join" class="join">Присоединится</a>
 
     </div>
         <div id="tourneyBannerContainer" style="height: 27vw; width: 80vw">
@@ -39,11 +38,13 @@
         </div></div><div id="tourneyContent"><div class="w960">
         <div id="toolsContainer">
             <div id="toolsNav">
-                <a href="#table" class="current" @click="brackets = !brackets">Детали</a>
-                <a href="#brackets" class="current" @click="brackets = !brackets">Сетка</a>
+                <a href="#table" class="current" @click="brackets = 1">Детали</a>
+                <a href="#brackets" class="current" @click="brackets = 2">Сетка</a>
+                <a href="#brackets" class="current" @click="brackets = 3">Игроки</a>
             </div>
-            <table-cmp v-if="!brackets"></table-cmp>
-            <brackets-cmp v-else></brackets-cmp>
+            <table-cmp v-if="brackets === 1"></table-cmp>
+            <brackets-cmp v-else-if="brackets === 2"></brackets-cmp>
+            <participants-cmp v-else></participants-cmp>
         </div>
        </div></div><div class="w960"></div>
     <div class="adWide bottom">
@@ -1121,10 +1122,11 @@
     import LoginAndReg from '../LoginAndReg.vue'
     import Table from './Table.vue'
     import Brackets from './Brackets.vue'
+    import Participants from './Participants.vue';
     export default {
         data(){
             return{
-                brackets: false
+                brackets: 1
             }
         },
         components: {
@@ -1133,7 +1135,8 @@
             footerCmp: Footer,
             loginandreg: LoginAndReg,
             tableCmp: Table,
-            bracketsCmp: Brackets
+            bracketsCmp: Brackets,
+            participantsCmp: Participants
         }
     }
 </script>
