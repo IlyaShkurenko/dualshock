@@ -5,7 +5,7 @@
             <router-link to="/reservation"><div class="navs hvr-sweep-to-bottoms hvr-grow">Бронирование</div></router-link>
             <a href="pages/menu.html"><div class="navs hvr-sweep-to-bottoms hvr-grow">Игротека</div></a>
             <router-link to="/news"><div class="navs hvr-sweep-to-bottoms hvr-grow">События</div></router-link>
-            <a href="pages/menu.html"><div class="navs hvr-sweep-to-bottoms hvr-grow">Акции и скидки</div></a>
+            <router-link to="/sale"><div class="navs hvr-sweep-to-bottoms hvr-grow">Акции и скидки</div></router-link>
             <router-link to="/prices"><div class="navs hvr-sweep-to-bottoms hvr-grow">Меню и цены</div></router-link>
         </div>
     </div>

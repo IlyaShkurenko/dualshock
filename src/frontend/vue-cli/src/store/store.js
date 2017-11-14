@@ -7,6 +7,7 @@ export const store = new Vuex.Store({
    state: {
        slider: [],
        rooms: [],
+       roomsForSave: [],
        users: [],
        games: ' ',
        authenticated: false,
@@ -45,7 +46,13 @@ export const store = new Vuex.Store({
                     for(let key in data){
                         result.push(data[key]);
                     }
-                    state.rooms = result;
+                    state.roomsForSave = result;
+                    console.log('room for save = ', state.roomsForSave[0]);
+                    if(state.roomsForSave.length > 0){
+                        state.rooms = state.roomsForSave;
+                        console.log('state = ', state.rooms[0])
+                    }
+                    console.log('state = ', state.rooms[0])
                     return state.rooms
                 })
                 .then(result => {

@@ -210,8 +210,8 @@
                 <ul class="social-wall">
 
                     <li class="manual">
-                        <article>
-                            <h2><a href="#" target="_blank">Кальяны</a>
+                        <router-link to="/prices"><article>
+                            <h2> <h2><a>Кальяны</a></h2>
                             </h2>
                             <p>
                                 Любишь вкусный кальян? выбери какой тебе нравится<br/>
@@ -224,6 +224,7 @@
                                    data-id="manual_0"></a>
                             </div>
                         </article>
+                        </router-link>
 
                         <a href="№" target="_blank" data-id="manual_0"
                            class="view-more">
@@ -285,7 +286,7 @@
         -->
                 <div class="content">
                     <div class="text">
-                        <span class="big">Сыграй</span><span class="small">сейчас!</span>
+                        <span class="big" style="font-size: 8vw">Сыграй</span><span class="small" style="font-size: 4vw">сейчас!</span>
                         <p>Получи приз</p>
                     </div>
                     <div class="platforms">
@@ -429,7 +430,7 @@
         margin-top: -60px;
         color: #FF4E00;
         font-family: "SmudgerLET";
-        font-size: 100px;
+        font-size: 8vw;
         line-height: 100px;
         -ms-transform: rotate(-7deg);
         -webkit-transform: rotate(-7deg);
