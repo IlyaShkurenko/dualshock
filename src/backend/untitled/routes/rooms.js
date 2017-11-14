@@ -6,6 +6,7 @@ var path = require('path');
 var multer  = require('multer');
 var formidable = require('formidable');
 var fileWrite = require('../src/file');
+var Room = require('../models/room').Room;
 var cors = require('cors');
 router.options('*', cors());
     util = require('util');
@@ -13,14 +14,12 @@ router.options('*', cors());
 router.get('/',async function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');
-    let rooms = await ref.getAll();
-    console.log(rooms);
-    res.json(rooms);
+    await ref.getAll(req,res);
 });
 router.post('/', async (req, res) => {
     let newRoom = {};
     let path = '';
-    let array = await ref.refuge();
+    let array = await ref.getAll();
     const UUID = require("uuid-v4");
     const fbId = "vue-app-75351";
     const fbKeyFile = "vue-app-75351-firebase-adminsdk-9pkad-49d805f90e.json";
