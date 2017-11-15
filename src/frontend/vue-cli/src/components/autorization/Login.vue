@@ -10,6 +10,10 @@
                     <h2><span class='orange'>Остался</span><span class='normal'>последний</span><span class='big'>шаг</span></h2>
                 </div>
                 <div class="form">
+                    <transition name="bounce">
+                        <div class="alert alert-warning" v-if="warning">Ваш логин или пароль неверные, попробуйте еще раз или зарегистрируйтесь</div>
+                        <div class="alert alert-danger" v-if="!validation.email">Введите корректный логин</div>
+                    </transition>
                 <span class="input">
                     <input type="email" name="email" placeholder="email" v-model="credentials.username">
                     <span></span>
@@ -19,8 +23,10 @@
                     <input type="password" name="name" placeholder="пароль" v-model="credentials.password">
                     <span></span>
                 </span>
-                    <div class="submit" style="font-family: 'Helvetica Narrow', sans-serif; font-weight: bold; color: white;">
-                        <input value="        войти в игру" @click="submit()" style="margin-top: -5px">
+                    <div class="submit" style="font-family: 'Helvetica Narrow', sans-serif; font-weight: bold; color: white; margin-right: 180px">
+                        <input value="        ВОЙТИ В ИГРУ" @click="submit()" style="margin-top: -5px">
+                    </div> <div class="submit" style="font-family: 'Helvetica Narrow', sans-serif; font-weight: bold; color: white; margin-top: -50px; margin-right: -50px">
+                        <input value="        РЕГИСТРАЦИЯ" @click="$router.push('/signup')" style="margin-top: -5px">
                     </div>
                 </span>
 
@@ -41,6 +47,7 @@
     import Footer from '../Footer.vue'
     import  Sharing from '../HomeSharing.vue'
     import Logo from '../Items/Logo.vue'
+    var emailRE = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     export default {
         data() {
             return {
@@ -50,19 +57,42 @@
                     username: '',
                     password: ''
                 },
-                error: ''
+                error: '',
+                warning: false
             }
         },
+       computed: {
+        validation: function () {
+            return {
+                email: emailRE.test(this.credentials.username)
+            }
+        },
+        isValid: function () {
+            var validation = this.validation
+            return Object.keys(validation).every(function (key) {
+                return validation[key]
+            })
+        }
+    },
         methods: {
-            submit() {
+           async submit() {
                 var credentials = {
                     username: this.credentials.username,
                     password: this.credentials.password
                 }
                 // We need to pass the component's this context
                 // to properly make use of http in the auth service
-                auth.login(this, credentials, '/')
-                this.$store.dispatch('login');
+               if(this.isValid){
+                   this.$store.dispatch('login');
+                   try{
+                       await auth.login(this, credentials, '/')
+                   }
+                   catch(error){
+                       if(error.message == 401){
+                           this.warning = true;
+                       }
+                   }
+               }
             },
             ...mapActions([
                 'getRooms',
@@ -80,6 +110,23 @@
     }
 </script>
 <style>
+    .bounce-enter-active {
+        animation: bounce-in .5s;
+    }
+    .bounce-leave-active {
+        animation: bounce-in .5s reverse;
+    }
+    @keyframes bounce-in {
+        0% {
+            transform: scale(0);
+        }
+        50% {
+            transform: scale(1.5);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
     .submit{
      font-family: 'Helvetica Narrow', sans-serif; font-weight: bold;
     }
@@ -89,6 +136,8 @@
     }
     ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
         color: black;
+        font-weight: bold;
+        font-size: 12px;
     }
 </style>
 <style scoped>

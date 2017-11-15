@@ -63,7 +63,7 @@
                 let role = localStorage.getItem('role');
                 let index = -1;
                 this.$store.state.users.forEach(function(item, i, arr) {
-                    if(item.username === 'ilya-shkurenko@mail.ru'){
+                    if(item.username === localStorage.getItem('username')){
                        index = i;
                     }
                 });

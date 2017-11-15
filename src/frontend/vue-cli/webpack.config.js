@@ -3,7 +3,7 @@ var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-    entry: './src/main.js',
+    entry: ['babel-polyfill', './src/main.js'],
     output: {
         path: path.resolve(__dirname, './dist'),
         publicPath: '/dist/',
@@ -33,6 +33,9 @@ module.exports = {
                 }
             },
         ],
+        loaders: [
+            { test: /\.jsx?$/, loader: 'babel', }
+        ]
     },
     node: {
         fs: "empty"

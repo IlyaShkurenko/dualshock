@@ -4,6 +4,8 @@ import VueResource from 'vue-resource'
 import VueRouter from 'vue-router'
 import {routes} from './routes'
 import {store} from './store/store'
+import VeeValidate from 'vee-validate';
+Vue.use(VeeValidate);
 Vue.use(VueRouter);
 Vue.use(VueResource);
 export const router = new VueRouter({

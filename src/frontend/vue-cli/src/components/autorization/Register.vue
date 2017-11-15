@@ -10,8 +10,12 @@
                 <h2><span class='orange'>Будем</span><span class='normal'>всегда</span><span class='big'>на связи</span></h2>
             </div>
             <div class="form">
+                <transition name="bounce">
+                    <div class="alert alert-warning" v-if="warning">Пользователь с данным логином уже существует</div>
+                    <div class="alert alert-danger" v-if="!validation.email && credentials.username.length > 0">Введите корректный логин</div>
+                </transition>
                 <span class="input">
-                    <input type="email" name="email" placeholder="email" v-model="credentials.username">
+                    <input v-validate="email" data-rules="required|email" type="email" name="email" placeholder="email" v-model="credentials.username">
                     <span></span>
                 </span>
                     <span class="input">
@@ -28,7 +32,7 @@
                     <span></span>
                 </span>
                      <div class="submit" style="font-family: 'Helvetica Narrow', sans-serif; font-weight: bold; color: white;">
-                        <input value="        подписаться" @click="submit()" style="margin-top: -5px">
+                        <input value="   подписаться" @click="submit()" style="margin-top: -5px">
                     </div>
                 </span>
 
@@ -49,6 +53,8 @@
     import Footer from '../Footer.vue'
     import  Sharing from '../HomeSharing.vue'
     import Logo from '../Items/Logo.vue'
+    var emailRE = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
     export default {
         data() {
             return {
@@ -56,20 +62,45 @@
                 // properties that will be used in it
                 credentials: {
                     username: '',
-                    password: ''
+                    password: '',
+                    name:''
                 },
-                error: ''
+                error: '',
+                warning: false,
+                show: true
+            }
+        },
+        computed: {
+            validation: function () {
+                return {
+                    name: !!this.credentials.name.trim(),
+                    email: emailRE.test(this.credentials.username)
+                }
+            },
+            isValid: function () {
+                var validation = this.validation
+                return Object.keys(validation).every(function (key) {
+                    return validation[key]
+                })
             }
         },
         methods: {
-            submit() {
+            async submit() {
                 var credentials = {
                     username: this.credentials.username,
                     password: this.credentials.password
                 };
                 // We need to pass the component's this context
                 // to properly make use of http in the auth service
-                auth.signup(this,credentials,'/');
+                if(this.isValid){
+                    try{
+                        await auth.signup(this,credentials,'/');
+                    }catch(error){
+                        if(error.message == 400){
+                            this.warning = true;
+                        }
+                    }
+                }
             },
             ...mapActions([
                 'getRooms',
@@ -87,6 +118,26 @@
     }
 </script>
 <style>
+    .errors {
+        color: #f00;
+    }
+    .bounce-enter-active {
+        animation: bounce-in .5s;
+    }
+    .bounce-leave-active {
+        animation: bounce-in .5s reverse;
+    }
+    @keyframes bounce-in {
+        0% {
+            transform: scale(0);
+        }
+        50% {
+            transform: scale(1.5);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
     .body-reg{
         height: 80px;
         background-color: #FF4E00;
