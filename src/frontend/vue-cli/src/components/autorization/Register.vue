@@ -8,10 +8,6 @@
         <div class="wrapper">
             <div class="content">
                 <h2><span class='orange'>Будем</span><span class='normal'>всегда</span><span class='big'>на связи</span></h2>
-                <p class="p1">Присоединяйтесь к сообществу Bandai Namco</p>
-                <p class="p1">- Узнавайте эксклюзивную информацию о любимых играх</p>
-                <p class="p1">- Получайте специальные предложения и принимайте участие в конкурсах</p>
-                <p class="p1">- Узнавайте первым о новых играх</p>
             </div>
             <div class="form">
                 <span class="input">
@@ -31,8 +27,8 @@
                     <input type="text" name="name" placeholder="пароль" v-model="credentials.password">
                     <span></span>
                 </span>
-                    <div class="submit">
-                        <input value="подписаться" @click="submit()">
+                     <div class="submit" style="font-family: 'Helvetica Narrow', sans-serif; font-weight: bold; color: white;">
+                        <input value="        подписаться" @click="submit()" style="margin-top: -5px">
                     </div>
                 </span>
 
@@ -97,6 +93,8 @@
     }
     ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
         color: black;
+        font-weight: bold;
+        font-size: 12px;
     }
 </style>
 <style scoped>

@@ -1,11 +1,17 @@
-.body-news{
-    height: 55px;
-    background-color: #FF4E00;
+
+img.wp-smiley,
+img.emoji {
+    display: inline !important;
+    border: none !important;
+    box-shadow: none !important;
+    height: 1em !important;
+    width: 1em !important;
+    margin: 0 .07em !important;
+    vertical-align: -0.1em !important;
+    background: none !important;
+    padding: 0 !important;
 }
-.body-sale{
-    height: 55px;
-    background-color: #122d4f;
-}
+
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
     margin: 0;
     padding: 0;
@@ -1541,24 +1547,10 @@ li.platform a {
     text-transform: uppercase;
     -ms-transform: rotate(-10deg);
     -webkit-transform: rotate(-10deg);
-    transform: rotate(-10deg);
-    text-shadow: 1px 1px 2px black, 0 0 1em red;
+    transform: rotate(-10deg)
 }
 
-.sale-title .main-title {
-    font-family: "SmudgerLET";
-    color: #244368;
-    font-size: 8vw;
-    line-height: 80px;
-    width: auto;
-    display: inline-block;
-    text-transform: uppercase;
-    -ms-transform: rotate(-10deg);
-    -webkit-transform: rotate(-10deg);
-    transform: rotate(-10deg);
-    text-shadow: 1px 1px 2px black, 0 0 0.5em #38659e;
-}
-.news-title, .sub-title {
+.news-title .sub-title {
     position: relative;
     z-index: 2;
     font-size: 44px;
@@ -1569,7 +1561,7 @@ li.platform a {
     padding-left: 75px
 }
 
-.news-title, .sub-title span {
+.news-title .sub-title span {
     display: block;
     margin-bottom: 10px;
     line-height: 20px;
@@ -1577,7 +1569,7 @@ li.platform a {
     font-family: "Lovelo"
 }
 
-.news-title, .title {
+.news-title .title {
     display: inline-block;
     width: 20%;
     min-width: 270px;
@@ -1617,7 +1609,7 @@ li.platform a {
 }
 
 #single-news .article-container::before {
-    left: 15px
+    left: 15px;
 }
 
 #single-news .article-container::after {
@@ -1751,7 +1743,7 @@ li.platform a {
 }
 
 #single-news .slideshow .next {
-    right: -15px
+    right: -45px
 }
 
 #single-news .slideshow .prev {
@@ -3335,17 +3327,7 @@ li.platform:hover::after, li.platform.current::after {
     font-size: 11px;
     line-height: 14px
 }
-.sale
-.more {
-    display: inline-block;
-    text-transform: uppercase;
-    width: auto;
-    color: #38659e;
-    border-bottom: 2px solid #38659e;
-    font-family: "Lovelo";
-    font-size: 11px;
-    line-height: 14px
-}
+
 .plus {
     display: block;
     width: 30px;
@@ -4323,237 +4305,4 @@ a.link::after, li.edition::after, li.platform::after {
 :lang(ru) li.edition a {
     letter-spacing: 0;
     font-size: 14px
-}
-
-.hvr-sweep-to-bottoms {
-    display: inline-block;
-    vertical-align: middle;
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px transparent;
-    position: relative;
-    -webkit-transition-property: color;
-    transition-property: color;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-}
-.info-block {
-    width: 400px;
-    height: 400px;
-    background-color: black;
-    margin-top: -1000px;
-    float: left;
-}
-
-.hvr-sweep-to-bottoms:before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: -8ch;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #1e5736;
-    -webkit-transform: scaleY(0.5);
-    transform: scaleY(0);
-    -webkit-transform-origin: 50% 0;
-    transform-origin: 50% 0;
-    -webkit-transition-property: transform;
-    transition-property: transform;
-    -webkit-transition-duration: 0.5s;
-    transition-duration: 0.5s;
-    -webkit-transition-timing-function: ease-out;
-    transition-timing-function: ease-out;
-}
-
-.hvr-sweep-to-bottoms:hover, .hvr-sweep-to-bottoms:focus, .hvr-sweep-to-bottoms:active {
-    color: white;
-    text-shadow: 1px 1px black;
-}
-
-.hvr-sweep-to-bottoms:hover:before, .hvr-sweep-to-bottoms:focus:before, .hvr-sweep-to-bottoms:active:before {
-    -webkit-transform: scaleY(1);
-    transform: scaleY(1);
-}
-
-.navs {
-    padding-left: 2.5vw;
-    padding-right: 2.5vw;
-    font-family: 'Helvetica Narrow', sans-serif;
-    font-size: 1.2vw;
-    color: white;
-    font-weight: bold;
-    text-align: center;
-}
-
-.register,
-.login {
-    float: right;
-    margin-top: -35px;
-    font-size: 1vw;
-}
-
-.register {
-    font-size: 1vw;
-    margin-right: 8vw;
-}
-
-.button {
-    font-size: 1.8vw;
-}
-
-.rectangle {
-    width: 9.5vw;
-    height: 2.5vw;
-    background-color: #124025;
-    margin-right: 130px;
-    border-radius: 5px;
-}
-
-.rectangle-small {
-    width: 7.5vw;
-    background-color: #30764e;
-    height: 2.5vw;
-    border-radius: 5px;
-}
-
-.triangle_right {
-    margin-top: 1.2vw;
-    float: right;
-    width: 0;
-    height: 0;
-    border-top: 0.5vw solid transparent;
-    border-right: 0.5vw solid #124025;
-    border-bottom: 0.5vw solid transparent;
-}
-
-.rectangle-big {
-    float: right;
-    margin-top: -50px;
-}
-
-.hvr-icon-up,
-.hvr-icon-pulse {
-    color: white;
-    font-weight: bold;
-}
-
-.glyphicon-home {
-    color: white;
-    font-weight: bold;
-    display: inline-block;
-    vertical-align: middle;
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px transparent;
-    position: relative;
-    padding-right: 2.2em;
-}
-
-img.wp-smiley,
-img.emoji {
-    display: inline !important;
-    border: none !important;
-    box-shadow: none !important;
-    height: 1em !important;
-    width: 1em !important;
-    margin: 0 .07em !important;
-    vertical-align: -0.1em !important;
-    background: none !important;
-    padding: 0 !important;
-}
-
-.dropbtn {
-    background-color: #FF4E00;
-    color: white;
-    padding: 10px;
-    margin-left: -80px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-    color: black;
-    padding: 15px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {
-    background-color: #f1f1f1
-}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {
-    background-color: #FF4E00;
-}
-
-.logo {
-    float: left;
-    height: 6.5vw;
-    width: 17vw;
-    top: 0;
-    z-index: 3;
-    position: fixed;
-}
-
-.logo img {
-    height: 6.5vw;
-    width: 17vw;
-}
-
-.body-news span.big {
-    display: block;
-    margin-left: 300px;
-    margin-top: -60px;
-    color: #FF4E00;
-    font-family: "SmudgerLET";
-    font-size: 100px;
-    line-height: 100px;
-    -ms-transform: rotate(-7deg);
-    -webkit-transform: rotate(-7deg);
-    transform: rotate(-7deg)
-}
-.body-sale span.big {
-    display: block;
-    margin-left: 300px;
-    margin-top: -60px;
-    color: #FF4E00;
-    font-family: "SmudgerLET";
-    font-size: 100px;
-    line-height: 100px;
-    -ms-transform: rotate(-7deg);
-    -webkit-transform: rotate(-7deg);
-    transform: rotate(-7deg)
-}
-
-#home-community {
-    min-height: 650px;
-}
-
-#home-news {
 }

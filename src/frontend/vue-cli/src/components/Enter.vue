@@ -48,11 +48,11 @@
                                  style="font-family: 'Helvetica Narrow', sans-serif; font-size: 24px; font-family: bold;">
                                 <h1 data-animation="animated zoomInRight"><span class="big">Турниры</span></h1>
                                 <ul>
-                                    <li class="platform">
-                                        <a href="http://www.naruto-videogames.com/ru/store/?game=8291&amp;edition=8380&amp;platform=ps4">fifa</a>
+                                    <li class="platform ps4">
+                                        <a href="http://www.naruto-videogames.com/ru/store/?game=8291&amp;edition=8380&amp;platform=ps4">ps4</a>
                                     </li>
-                                    <li class="platform">
-                                        <a href="http://www.naruto-videogames.com/ru/store/?game=8291&amp;edition=8380&amp;platform=pcdigital">mortal kombat</a>
+                                    <li class="platform xboxone">
+                                        <a href="http://www.naruto-videogames.com/ru/store/?game=8291&amp;edition=8380&amp;platform=xboxone">xboxone</a>
                                     </li>
                                 </ul>
                             </div>
@@ -117,35 +117,36 @@
 
                 <ul>
                     <li class="bloc-news">
-                        <article>
-                            <h1>
-                                <a href="http://www.naruto-videogames.com/ru/naruto-shippuden-ultimate-ninja-storm-legacy-and-storm-trilogy-now-available-4/"
+                        <router-link to="/tournament/1"><article>
+                            <h1 style="font-family: 'Helvetica Narrow', sans-serif; font-weight: bold">
+                                <a href=""
                                    title="NARUTO SHIPPUDEN: ULTIMATE NINJA STORM LEGACY and STORM TRILOGY now available">
-                                    Турнир FIFA 17                                                            </a>
+                                    Турнир FIFA 18                                                            </a>
                             </h1>
 
                             <figure>
-                                <a href="http://www.naruto-videogames.com/ru/naruto-shippuden-ultimate-ninja-storm-legacy-and-storm-trilogy-now-available-4/"
+                                <a href=""
                                    title="NARUTO SHIPPUDEN: ULTIMATE NINJA STORM LEGACY and STORM TRILOGY now available">
-                                    <img src="../images/fifa17.png"
+                                    <img src="../images/fifa.jpeg"
                                          alt="NARUTO SHIPPUDEN: ULTIMATE NINJA STORM LEGACY and STORM TRILOGY now available">
                                 </a>
                             </figure>
                             <div class="content">
                                 <p>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                <a href="http://www.naruto-videogames.com/ru/naruto-shippuden-ultimate-ninja-storm-legacy-and-storm-trilogy-now-available-4/"
+                                <a href=""
                                    class="more"
                                    title="NARUTO SHIPPUDEN: ULTIMATE NINJA STORM LEGACY and STORM TRILOGY now available">читать еще</a>
                             </div>
                         </article>
+                        </router-link>
                     </li>
                     <li class="bloc-news">
                         <article>
-                            <h1>
+                            <h1 style="font-family: 'Helvetica Narrow', sans-serif; font-weight: bold">
                                 <a href="http://www.naruto-videogames.com/ru/create-your-own-ninja-in-naruto-to-boruto-shinobi-striker-4/"
                                    title="Create your own ninja in NARUTO TO BORUTO: SHINOBI STRIKER">
-                                    Турнир MORTAL KOMBAT XL                                                           </a>
+                                          Турнир MK XL</a>
                             </h1>
 
                             <figure>
@@ -167,7 +168,7 @@
                     </li>
                     <li class="bloc-news">
                         <article>
-                            <h1>
+                            <h1 style="font-family: 'Helvetica Narrow', sans-serif; font-weight: bold">
                                 <a href="http://www.naruto-videogames.com/ru/naruto-shippuden-ultimate-ninja-blazing-celebrates-first-anniversary-with-in-game-events-and-updates-4/"
                                    title="NARUTO SHIPPUDEN: Ultimate Ninja Blazing Celebrates First Anniversary With In Game Events and Updates">
                                     Кальянный вечер                                                           </a>
@@ -193,11 +194,12 @@
 
 
 
-                <div class="news-page bottom-section">
-                    <a href="http://www.naruto-videogames.com/ru/news/">
+                <router-link to="/news"><div class="news-page bottom-section">
+                    <a href="">
                         <p>ЩЕЛКНИТЕ ЗДЕСЬ, ЧТОБЫ</p>
                         ПРОСМОТРЕТЬ ВСЕ НОВОСТИ            </a>
                 </div>
+                </router-link>
 
             </div>
 
@@ -292,11 +294,11 @@
                     <div class="platforms">
                         <p>Выбери тему</p>
                         <ul>
-                            <li class="platform">
-                                <a href="http://www.naruto-videogames.com/ru/store/?game=8291&amp;edition=8380&amp;platform=ps4">fifa</a>
+                            <li class="platform ps4">
+                                <a href="http://www.naruto-videogames.com/ru/store/?game=8291&amp;edition=8380&amp;platform=ps4">ps4</a>
                             </li>
-                            <li class="platform">
-                                <a href="http://www.naruto-videogames.com/ru/store/?game=8291&amp;edition=8380&amp;platform=pcdigital">mortal kombat</a>
+                            <li class="platform xboxone">
+                                <a href="http://www.naruto-videogames.com/ru/store/?game=8291&amp;edition=8380&amp;platform=xboxone">xboxone</a>
                             </li>
                         </ul>
                     </div>
@@ -816,7 +818,7 @@
         }
 
     }
-    
+
     html {
         line-height: 1
     }
@@ -3040,7 +3042,7 @@
         text-align: center;
         z-index: 3
     }
-    
+
     #game span.getit::after, #game span.getit::before {
         content: "";
         display: block;
@@ -3071,7 +3073,7 @@
         z-index: 2;
         vertical-align: middle
     }
-    
+
 
     #game h1 {
         padding-left: 300px;
@@ -4037,7 +4039,7 @@
         background-position: left center;
         background-repeat: no-repeat
     }
-    
+
 
     a.link:hover::before, a.link.current::before {
         filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
@@ -4163,7 +4165,7 @@
         z-index: 1;
         cursor: pointer
     }
-    
+
 
     #header .lang {
         line-height: 45px;

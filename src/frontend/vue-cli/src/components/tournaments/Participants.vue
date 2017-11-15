@@ -32,7 +32,7 @@
 <style scoped>
     table {
         font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-        font-size: 10px;
+        font-size: 12px;
         text-align: center;
         border-collapse: separate;
         border-spacing: 1px;
@@ -66,7 +66,7 @@
     background-color: rgba(0, 0, 0, 0.5);
     }
     #participantsTable .status {
-        width: 100px
+        width: 120px
     }
     td:nth-child(2):hover{
         color: #F70;

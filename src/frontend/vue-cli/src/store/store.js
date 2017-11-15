@@ -11,6 +11,11 @@ export const store = new Vuex.Store({
        users: [],
        games: ' ',
        authenticated: false,
+       sale:{
+           img:['saleweek.jpg', 'twicesale.jpg','5.jpg', '10.jpg'],
+           title:['Выгодное и интересное предложение для каждого клиента', 'Скидки доступные лишь за особые заслуги',
+               'Скидка 5% на весь чек в заведении', 'Скидка 10% на весь чек в заведении']
+       }
    },
     actions: {
         getRooms({commit}) {

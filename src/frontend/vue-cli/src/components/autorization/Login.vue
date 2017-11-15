@@ -8,10 +8,6 @@
             <div class="wrapper">
                 <div class="content">
                     <h2><span class='orange'>Остался</span><span class='normal'>последний</span><span class='big'>шаг</span></h2>
-                    <p class="p1">Присоединяйтесь к сообществу Bandai Namco</p>
-                    <p class="p1">- Узнавайте эксклюзивную информацию о любимых играх</p>
-                    <p class="p1">- Получайте специальные предложения и принимайте участие в конкурсах</p>
-                    <p class="p1">- Узнавайте первым о новых играх</p>
                 </div>
                 <div class="form">
                 <span class="input">
@@ -23,8 +19,8 @@
                     <input type="password" name="name" placeholder="пароль" v-model="credentials.password">
                     <span></span>
                 </span>
-                    <div class="submit">
-                        <input value="     войти в игру" @click="submit()">
+                    <div class="submit" style="font-family: 'Helvetica Narrow', sans-serif; font-weight: bold; color: white;">
+                        <input value="        войти в игру" @click="submit()" style="margin-top: -5px">
                     </div>
                 </span>
 
@@ -84,6 +80,9 @@
     }
 </script>
 <style>
+    .submit{
+     font-family: 'Helvetica Narrow', sans-serif; font-weight: bold;
+    }
     .body-reg{
         height: 80px;
         background-color: #FF4E00;

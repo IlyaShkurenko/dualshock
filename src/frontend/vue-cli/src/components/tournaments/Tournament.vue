@@ -77,7 +77,7 @@
         line-height: 1.5;
         position: relative;
         z-index: 1;
-        background-image: url("../../images/look.com.ua-110011.jpg");
+        background-size: 100%;
         border: 0;
         color: #FFF;
         font-family: 'Helvetica Narrow', sans-serif; font-weight: bold;
