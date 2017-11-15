@@ -127,7 +127,7 @@
                             <figure>
                                 <a href=""
                                    title="NARUTO SHIPPUDEN: ULTIMATE NINJA STORM LEGACY and STORM TRILOGY now available">
-                                    <img src="../images/fifa.jpeg"
+                                    <img src="fifa.jpeg"
                                          alt="NARUTO SHIPPUDEN: ULTIMATE NINJA STORM LEGACY and STORM TRILOGY now available">
                                 </a>
                             </figure>
@@ -144,15 +144,15 @@
                     <li class="bloc-news">
                         <article>
                             <h1 style="font-family: 'Helvetica Narrow', sans-serif; font-weight: bold">
-                                <a href="http://www.naruto-videogames.com/ru/create-your-own-ninja-in-naruto-to-boruto-shinobi-striker-4/"
+                                <a href=""
                                    title="Create your own ninja in NARUTO TO BORUTO: SHINOBI STRIKER">
                                           Турнир MK XL</a>
                             </h1>
 
                             <figure>
-                                <a href="http://www.naruto-videogames.com/ru/create-your-own-ninja-in-naruto-to-boruto-shinobi-striker-4/"
+                                <a href=""
                                    title="Create your own ninja in NARUTO TO BORUTO: SHINOBI STRIKER">
-                                    <img src="../images/mortal.jpeg"
+                                    <img src="mortal.jpeg"
                                          alt="Create your own ninja in NARUTO TO BORUTO: SHINOBI STRIKER">
                                 </a>
                             </figure>
@@ -161,7 +161,7 @@
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
                                     &nbsp;
                                     For the first time in ...</p>
-                                <a href="http://www.naruto-videogames.com/ru/create-your-own-ninja-in-naruto-to-boruto-shinobi-striker-4/"
+                                <a href=""
                                    class="more" title="Create your own ninja in NARUTO TO BORUTO: SHINOBI STRIKER">читать еще</a>
                             </div>
                         </article>
@@ -169,22 +169,22 @@
                     <li class="bloc-news">
                         <article>
                             <h1 style="font-family: 'Helvetica Narrow', sans-serif; font-weight: bold">
-                                <a href="http://www.naruto-videogames.com/ru/naruto-shippuden-ultimate-ninja-blazing-celebrates-first-anniversary-with-in-game-events-and-updates-4/"
+                                <a href=""
                                    title="NARUTO SHIPPUDEN: Ultimate Ninja Blazing Celebrates First Anniversary With In Game Events and Updates">
                                     Кальянный вечер                                                           </a>
                             </h1>
 
                             <figure>
-                                <a href="http://www.naruto-videogames.com/ru/naruto-shippuden-ultimate-ninja-blazing-celebrates-first-anniversary-with-in-game-events-and-updates-4/"
+                                <a href=""
                                    title="NARUTO SHIPPUDEN: Ultimate Ninja Blazing Celebrates First Anniversary With In Game Events and Updates">
-                                    <img src="../images/hookah2.png"
+                                    <img src="hookah2.png"
                                          alt="NARUTO SHIPPUDEN: Ultimate Ninja Blazing Celebrates First Anniversary With In Game Events and Updates">
                                 </a>
                             </figure>
                             <div class="content">
                                 <p>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                                <a href="http://www.naruto-videogames.com/ru/naruto-shippuden-ultimate-ninja-blazing-celebrates-first-anniversary-with-in-game-events-and-updates-4/"
+                                <a href=""
                                    class="more"
                                    title="NARUTO SHIPPUDEN: Ultimate Ninja Blazing Celebrates First Anniversary With In Game Events and Updates">читать еще</a>
                             </div>
@@ -222,7 +222,7 @@
 
                             <div class="img"
                                  style="background-image: url('https://artfiles.alphacoders.com/778/77803.jpg'); ">
-                                <a href="№" target="_blank"
+                                <a href="" target="_blank"
                                    data-id="manual_0"></a>
                             </div>
                         </article>
@@ -242,7 +242,7 @@
 
                             <div class="img"
                                  style="background-image: url('https://firebasestorage.googleapis.com/v0/b/vue-app-75351.appspot.com/o/games.png?alt=media&token=a392cb05-8789-438e-baf2-060f6f46c0fb'); ">
-                                <a href="http://www.storm-league.com/" target="_blank" data-id="manual_1"></a>
+                                <a href="" target="_blank" data-id="manual_1"></a>
                             </div>
                         </article>
 
@@ -255,8 +255,8 @@
 
                 <div class="community-page bottom-section black">
                     <p>Читайте нас в</p>
-                    <a href="https://twitter.com/Narutovideogame" class="twitter-link" target="_blank">Instagram</a> &amp;
-                    <a href="https://www.facebook.com/Narutogames" class="facebook-link" target="_blank">Facebook</a>
+                    <a href="" class="twitter-link" target="_blank">Instagram</a> &amp;
+                    <a href="" class="facebook-link" target="_blank">Facebook</a>
                 </div>
 
             </div>
@@ -281,7 +281,7 @@
         <section id="section-preorder" style="z-index: 0">
             <div class="wrapperstart">
                 <figure>
-                    <img src="../images/coins.png"
+                    <img src="coins.png"
                          alt="Get it now! NARUTO SHIPPUDEN: Ultimate Ninja STORM 4 ROAD TO BORUTO - Standard Edition">
                 </figure><!--
 
@@ -295,10 +295,10 @@
                         <p>Выбери тему</p>
                         <ul>
                             <li class="platform ps4">
-                                <a href="http://www.naruto-videogames.com/ru/store/?game=8291&amp;edition=8380&amp;platform=ps4">ps4</a>
+                                <a href="">ps4</a>
                             </li>
                             <li class="platform xboxone">
-                                <a href="http://www.naruto-videogames.com/ru/store/?game=8291&amp;edition=8380&amp;platform=xboxone">xboxone</a>
+                                <a href="">xboxone</a>
                             </li>
                         </ul>
                     </div>

@@ -15,7 +15,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" @click = "$router.push('/')">
-                        <img src='../images/DS_logo_насветломфоне2a.png' style="width: 17vw; height: 6.5vw">
+                        <img src='DS_logo_насветломфоне2a.png' style="width: 17vw; height: 6.5vw">
                     </a>
                 </div>
                 <!-- Top Menu Items -->

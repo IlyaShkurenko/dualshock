@@ -7,7 +7,7 @@
             </tr>
             <tr>
                 <th>Игра</th>
-                <td><img src="../../images/fifa.jpeg" alt="Counter-Strike: Global Offensive"  style="width: 30px; height: 30px"/><a href="/game/load/CSGO">FIFA 18</a></td>
+                <td><img src="https://firebasestorage.googleapis.com/v0/b/vue-app-75351.appspot.com/o/fifa-iloveimg-compressed.jpeg?alt=media&token=57a9fe4c-3d08-447e-9030-ffdc0ff47c29" alt="Counter-Strike: Global Offensive"  style="width: 30px; height: 30px"/><a href="/game/load/CSGO">FIFA 18</a></td>
             </tr>
             <tr>
                 <th>Максимум игроков</th>

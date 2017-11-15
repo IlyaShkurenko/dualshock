@@ -29,8 +29,8 @@
                         <li class="news">
                             <article>
                                 <figure>
-                                    <a href="http://www.naruto-videogames.com/ru/naruto-shippuden-ultimate-ninja-storm-legacy-and-storm-trilogy-now-available-4/">
-                                        <img src="../images/fifa.jpeg"
+                                    <a href="">
+                                        <img src="fifa.jpeg"
                                              alt="FIFA 18 турнир открытие">
                                         <img src="" alt="">
                                     </a>
@@ -41,15 +41,15 @@
                                     </h3>
                                     <p>
                                         ...</p>
-                                    <a href="http://www.naruto-videogames.com/ru/naruto-shippuden-ultimate-ninja-storm-legacy-and-storm-trilogy-now-available-4/"
-                                       class="more">читать еще</a>
+                                    <router-link to="/tournament/1"><a
+                                       class="more">читать еще</a></router-link>
                                 </div>
                             </article>
                         </li>
                         <li class="news">
                             <article>
                                 <figure>
-                                    <a href="http://www.naruto-videogames.com/ru/create-your-own-ninja-in-naruto-to-boruto-shinobi-striker-4/">
+                                    <a href="">
                                         <img src="https://www.bandainamcoent.eu/static/2017/08/22/nst-200x200-gamescom-jpg?8805152e213815b849c3c9a08f8f527be495d50515033899291480adbf740a92f9ed0b00a60e1f370f&4beded212f7e30870685332f28c20e2a"
                                              alt="Create your own ninja in NARUTO TO BORUTO: SHINOBI STRIKER">
                                         <img src="" alt="">
@@ -57,7 +57,7 @@
                                 </figure>
                                 <div class="content">
                                     <h3>
-                                        <a href="http://www.naruto-videogames.com/ru/create-your-own-ninja-in-naruto-to-boruto-shinobi-striker-4/">Create your own ninja in NARUTO TO BORUTO: SHINOBI...</a>
+                                        <a href="">Create your own ninja in NARUTO TO BORUTO: SHINOBI...</a>
                                     </h3>
                                     <p>
                                         NARUTO TO BORUTO: SHINOBI STRIKER is ready to be showcased at gamescom 2017! BANDAI NAMCO Entertainment Europe is excited to reveal...</p>
@@ -69,7 +69,7 @@
                         <li class="news">
                             <article>
                                 <figure>
-                                    <a href="http://www.naruto-videogames.com/ru/naruto-shippuden-ultimate-ninja-blazing-celebrates-first-anniversary-with-in-game-events-and-updates-4/">
+                                    <a href="">
                                         <img src="https://www.bandainamcoent.eu/static/2017/08/04/nunb-200x200-update-jpg?58e9b2cd94e0897cf8230fa73b2a7df432b596a21501835136ace2f6023e8a815cfbdd59813b82951d&36b62b3a1039dcc24947c834e35338bd"
                                              alt="NARUTO SHIPPUDEN: Ultimate Ninja Blazing Celebrates First Anniversary With In Game Events and Updates">
                                         <img src="" alt="">
@@ -77,7 +77,7 @@
                                 </figure>
                                 <div class="content">
                                     <h3>
-                                        <a href="http://www.naruto-videogames.com/ru/naruto-shippuden-ultimate-ninja-blazing-celebrates-first-anniversary-with-in-game-events-and-updates-4/">NARUTO SHIPPUDEN: Ultimate Ninja Blazing Celebrate...</a>
+                                        <a href="">NARUTO SHIPPUDEN: Ultimate Ninja Blazing Celebrate...</a>
                                     </h3>
                                     <p>
                                         BANDAI NAMCO Entertainment Inc.&rsquo;s NARUTO SHIPPUDEN: Ultimate Ninja Blazing, the Ultimate Ninja series game for mobile platfor...</p>
@@ -89,7 +89,7 @@
                         <li class="news">
                             <article>
                                 <figure>
-                                    <a href="http://www.naruto-videogames.com/ru/naruto-shippuden-ultimate-ninja-storm-legacy-and-naruto-shippuden-ultimate-ninja-storm-trilogy-available-on-august-25th-8/">
+                                    <a href="">
                                         <img src="https://www.bandainamcoent.eu/static/2017/07/04/nsl-nst-200x200-release-date-jpg?1fb0b47d59305e623f6d19270ce072f654eaadc114991610847cffa739710eb400425071686818bc47&13c3b991fd1dc970f17c5dfdb616adc6"
                                              alt="NARUTO SHIPPUDEN: ULTIMATE NINJA STORM LEGACY and NARUTO SHIPPUDEN: ULTIMATE NINJA STORM TRILOGY available on August 25th">
                                         <img src="" alt="">
@@ -97,11 +97,11 @@
                                 </figure>
                                 <div class="content">
                                     <h3>
-                                        <a href="http://www.naruto-videogames.com/ru/naruto-shippuden-ultimate-ninja-storm-legacy-and-naruto-shippuden-ultimate-ninja-storm-trilogy-available-on-august-25th-8/">NARUTO SHIPPUDEN: ULTIMATE NINJA STORM LEGACY and ...</a>
+                                        <a href="">NARUTO SHIPPUDEN: ULTIMATE NINJA STORM LEGACY and ...</a>
                                     </h3>
                                     <p>
                                         All the NARUTO SHIPPUDEN Ultimate Ninja Storm published titles are included in one edition, NARUTO SHIPPUDEN: Ultimate Ninja STOR...</p>
-                                    <a href="http://www.naruto-videogames.com/ru/naruto-shippuden-ultimate-ninja-storm-legacy-and-naruto-shippuden-ultimate-ninja-storm-trilogy-available-on-august-25th-8/"
+                                    <a href=""
                                        class="more">читать еще</a>
                                 </div>
                             </article>

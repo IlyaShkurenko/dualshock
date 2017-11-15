@@ -12,7 +12,10 @@ export const store = new Vuex.Store({
        games: ' ',
        authenticated: false,
        sale:{
-           img:['saleweek.jpg', 'twicesale.jpg','5.jpg', '10.jpg'],
+           img:['https://firebasestorage.googleapis.com/v0/b/vue-app-75351.appspot.com/o/saleweek.jpg?alt=media&token=9e61f883-9750-4985-81a1-8d2e0e9b5544',
+               'https://firebasestorage.googleapis.com/v0/b/vue-app-75351.appspot.com/o/twicesale.jpg?alt=media&token=245143cf-b030-441e-9787-2fc2e56f37e8',
+               'https://firebasestorage.googleapis.com/v0/b/vue-app-75351.appspot.com/o/5.jpg?alt=media&token=8e2606eb-5218-47f0-977f-73ab226e9fed',
+               'https://firebasestorage.googleapis.com/v0/b/vue-app-75351.appspot.com/o/10.jpg?alt=media&token=b6eeb6ac-4301-4104-904e-528e07b6d92a'],
            title:['Выгодное и интересное предложение для каждого клиента', 'Скидки доступные лишь за особые заслуги',
                'Скидка 5% на весь чек в заведении', 'Скидка 10% на весь чек в заведении']
        }

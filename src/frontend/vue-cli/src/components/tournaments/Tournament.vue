@@ -21,7 +21,7 @@
         <div class="adWide top">
         </div><div id="Error"><img src="" alt="" /><span></span></div><div id="Message"><img src="" alt="" /><span></span></div><div id="tourneyTitleBar">
         <h2>
-            <img src="../../images/fifa.jpeg" alt="FIFA 18" style="height: 30px; width: 30px; margin-top: 10px"/>FIFA18 | Турнир открытие </h2>
+            <img src="https://firebasestorage.googleapis.com/v0/b/vue-app-75351.appspot.com/o/fifa-iloveimg-compressed.jpeg?alt=media&token=57a9fe4c-3d08-447e-9030-ffdc0ff47c29" alt="FIFA 18" style="height: 30px; width: 30px; margin-top: 10px"/>FIFA18 | Турнир открытие </h2>
         <div id="ajaxNav">
             <div id="ajaxLoading">
             </div>

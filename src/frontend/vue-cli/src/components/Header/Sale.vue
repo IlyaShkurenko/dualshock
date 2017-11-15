@@ -22,7 +22,7 @@
                                 <article>
                                     <figure>
                                         <a href="">
-                                            <img :src="getImgUrl(sale.img[index-1])" style="width: 100%"
+                                            <img :src="sale.img[index-1]" style="width: 100%"
                                                  alt="FIFA 18 турнир открытие">
                                             <img src="" alt="">
                                         </a>
@@ -68,8 +68,8 @@
         },
         methods: {
             getImgUrl(img) {
-                var images = require.context('../../images/', false, /\.jpg$/);
-                return images('./' + img)
+                var images = require.context('', false, /\.jpg$/);
+                return images('' + img)
             }
         },
         components: {

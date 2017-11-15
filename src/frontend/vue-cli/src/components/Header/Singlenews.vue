@@ -23,7 +23,7 @@
                         <h1 style="font-family: 'Helvetica Narrow', sans-serif; font-weight: bold">{{sale.title[id - 1]}}</h1>
 
                         <figure>
-                            <img :src=" getImgUrl(sale.img[id - 1])" style="width: 100%"
+                            <img :src="sale.img[id - 1]" style="width: 100%"
                                  alt="NARUTO SHIPPUDEN: ULTIMATE NINJA STORM LEGACY and STORM TRILOGY now available">
                         </figure>
 
@@ -35,7 +35,7 @@
                             <p class="Normal1"><strong><em>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em></strong>
                                </p>
                             <p>
-                               <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h2>
+                            <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h2>
                             </p>
                             <p><span style="text-decoration: underline">Join the full NARUTO STORM experience on</span>:
                             </p>
@@ -86,8 +86,8 @@
         },
         methods: {
             getImgUrl(img) {
-                var images = require.context('../../images/', false, /\.jpg$/);
-                return images('./' + img)
+                var images = require.context('', false, /\.jpg$/);
+                return images('' + img)
             },
             next(id){
                 id++;

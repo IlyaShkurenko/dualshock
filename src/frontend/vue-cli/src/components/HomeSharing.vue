@@ -6,8 +6,8 @@
 
             <div class="links" dir='ltr'>
 
-                <a href="http://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.naruto-videogames.com%2Fru%2F" class="fb">Facebook</a>
-                <a href="http://twitter.com/share?text=&amp;url=http%3A%2F%2Fwww.naruto-videogames.com%2Fru%2F" class="tw">Twitter</a>
+                <a href="" class="fb">Facebook</a>
+                <a href="" class="tw">Twitter</a>
             </div>
 
         </div>
