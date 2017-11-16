@@ -89,16 +89,34 @@ export const store = new Vuex.Store({
                 })
         },
         DEL_ROOM(state,room) {
-            let data = new FormData();
+           /* let data = new FormData();
             for (var i = 0; i < state.rooms.length; i++) {
                 data.append('arr[]', state.rooms[i]);
-            }
-            Vue.http.post('delete/room', JSON.stringify(room)).then(
+            }*/
+
+          /* Vue.http.post('delete/room', room, {
+
+               headers:{
+                   'Content-Type': 'application/json; charset=UTF-8'
+               }
+
+        }).then(
                 response => {
                     console.log('Success! Response: ', response.body);
                 },
                 response => {
                     // error callback
+                }
+            );*/
+            var data = new FormData();
+            data.append( "id", room.id );
+            Vue.http.post('delete/room', data, {
+                headers: {
+                    'Content-Type': 'multipart/form-data; charset=UTF-8'
+                }
+            }).then(
+                response => {
+                    console.log('Success! Response: ', response.body);
                 }
             );
         },

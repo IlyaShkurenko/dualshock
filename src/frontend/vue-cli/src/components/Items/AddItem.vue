@@ -9,6 +9,9 @@
 
                     <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
                     <form id="registerform" class="form-horizontal" role="form">
+                        <transition name="bounce">
+                            <div class="alert alert-warning" v-if="!validation.index">Id обязательное поле для ввода</div>
+                        </transition>
 
                         <div style="margin-bottom: 25px" class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -112,25 +115,38 @@
                     return this.content;
                 }
                 return this.isEmpty ? '' : this.srcPrefix + this.value;
+            },
+            validation: function () {
+                return {
+                    index: this.room.id.length > 0
+                }
+            },
+            isValid(){
+                var validation = this.validation
+                return Object.keys(validation).every(function (key) {
+                    return validation[key]
+                })
             }
         },
         methods: {
             submit(){
-                this.buttonValue = 'Обрабатывается';
-                this.isActive = true;
-                this.$http.post('rooms', this.data, {
-                    headers: {
-                        'Content-Type': 'multipart/form-data; charset=UTF-8'
-                    }
-                }).then(
-                    response => {
-                        console.log('Success! Response: ', response.body);
-                        this.$emit('addRoom')
-                    },
-                    response => {
-                        // error callback
-                    }
-                );
+                if(this.isValid){
+                    this.buttonValue = 'Обрабатывается';
+                    this.isActive = true;
+                    this.$http.post('rooms', this.data, {
+                        headers: {
+                            'Content-Type': 'multipart/form-data; charset=UTF-8'
+                        }
+                    }).then(
+                        response => {
+                            console.log('Success! Response: ', response.body);
+                            this.$emit('addRoom')
+                        },
+                        response => {
+                            // error callback
+                        }
+                    );
+                }
             },
             sync (e) {
                 e.preventDefault();
@@ -160,6 +176,23 @@
     }
 </script>
 <style>
+    .bounce-enter-active {
+        animation: bounce-in .5s;
+    }
+    .bounce-leave-active {
+        animation: bounce-in .5s reverse;
+    }
+    @keyframes bounce-in {
+        0% {
+            transform: scale(0);
+        }
+        50% {
+            transform: scale(1.5);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
     .image-uploader {
         position: relative;
         display: flex;
