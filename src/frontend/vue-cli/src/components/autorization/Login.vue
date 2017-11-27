@@ -24,9 +24,9 @@
                     <span></span>
                 </span>
                     <div class="submit" style="font-family: 'Helvetica Narrow', sans-serif; font-weight: bold; color: white; margin-right: 180px">
-                        <input value="        ВОЙТИ В ИГРУ" @click="submit()" style="margin-top: -5px">
+                        <input value="     ВОЙТИ В ИГРУ" @click="submit()" style="margin-top: -5px">
                     </div> <div class="submit" style="font-family: 'Helvetica Narrow', sans-serif; font-weight: bold; color: white; margin-top: -50px; margin-right: -50px">
-                        <input value="        РЕГИСТРАЦИЯ" @click="$router.push('/signup')" style="margin-top: -5px">
+                        <input value="     РЕГИСТРАЦИЯ" @click="$router.push('/signup')" style="margin-top: -5px">
                     </div>
                 </span>
 

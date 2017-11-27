@@ -96,32 +96,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     display: block
 }
 
-@font-face {
-    font-family: 'BebasNeue';
-    src: url("http://static.bandainamcogames.eu/sites_products/naruto-videogames/assets/fonts/BebasNeue.eot");
-    src: url("http://static.bandainamcogames.eu/sites_products/naruto-videogames/assets/fonts/BebasNeue.eot?#iefix") format("embedded-opentype"), url("http://static.bandainamcogames.eu/sites_products/naruto-videogames/assets/fonts/BebasNeue.woff") format("woff"), url("http://static.bandainamcogames.eu/sites_products/naruto-videogames/assets/fonts/BebasNeue.ttf") format("truetype"), url("http://static.bandainamcogames.eu/sites_products/naruto-videogames/assets/fonts/BebasNeue.svg#BebasNeue") format("svg");
-    font-style: normal;
-    font-weight: normal;
-    text-rendering: optimizeLegibility
-}
-
-@font-face {
-    font-family: 'Lovelo';
-    src: url("http://static.bandainamcogames.eu/sites_products/naruto-videogames/assets/fonts/Lovelo-Black.eot");
-    src: url("http://static.bandainamcogames.eu/sites_products/naruto-videogames/assets/fonts/Lovelo-Black.eot?#iefix") format("embedded-opentype"), url("http://static.bandainamcogames.eu/sites_products/naruto-videogames/assets/fonts/Lovelo-Black.woff") format("woff"), url("http://static.bandainamcogames.eu/sites_products/naruto-videogames/assets/fonts/Lovelo-Black.ttf") format("truetype"), url("http://static.bandainamcogames.eu/sites_products/naruto-videogames/assets/fonts/Lovelo-Black.svg#Lovelo-Black") format("svg");
-    font-style: normal;
-    font-weight: normal;
-    text-rendering: optimizeLegibility
-}
-
-@font-face {
-    font-family: 'SmudgerLET';
-    src: url("http://static.bandainamcogames.eu/sites_products/naruto-videogames/assets/fonts/SmudgerLetPlain.eot");
-    src: url("http://static.bandainamcogames.eu/sites_products/naruto-videogames/assets/fonts/SmudgerLetPlain.eot?#iefix") format("embedded-opentype"), url("http://static.bandainamcogames.eu/sites_products/naruto-videogames/assets/fonts/SmudgerLetPlain.woff") format("woff"), url("http://static.bandainamcogames.eu/sites_products/naruto-videogames/assets/fonts/SmudgerLetPlain.ttf") format("truetype"), url("http://static.bandainamcogames.eu/sites_products/naruto-videogames/assets/fonts/SmudgerLetPlain.svg#SmudgerLetPlain") format("svg");
-    font-style: normal;
-    font-weight: normal;
-    text-rendering: optimizeLegibility
-}
 
 html, body {
     height: 100%;

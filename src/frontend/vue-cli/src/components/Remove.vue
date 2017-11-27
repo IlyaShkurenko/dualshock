@@ -1,5 +1,6 @@
 <template>
     <div>
+        <div class="alert alert-info">Чтоб удалить сущность - просто нажмите на нее</div>
         <div class="input-group" style="margin-bottom: 10px">
             <div class="input-group-btn search-panel">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">

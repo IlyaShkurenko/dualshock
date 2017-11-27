@@ -21,7 +21,7 @@ export const routes = [
     {path: '/signup', component: SignUp},
     {path: '/tournament/:id', component: Tournament},
     {path: '/sale', component: Sale},
-    {path: '/sale/:id', component: SingleNews},
+    {path: '/single/:id', component: SingleNews},
     {path: '/user/:id', component: Profile,
         meta: {
             permission: 'user',

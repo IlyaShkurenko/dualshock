@@ -50,7 +50,7 @@
                             <article>
                                 <figure>
                                     <a href="">
-                                        <img src="https://www.bandainamcoent.eu/static/2017/08/22/nst-200x200-gamescom-jpg?8805152e213815b849c3c9a08f8f527be495d50515033899291480adbf740a92f9ed0b00a60e1f370f&4beded212f7e30870685332f28c20e2a"
+                                        <img src="https://firebasestorage.googleapis.com/v0/b/vue-app-75351.appspot.com/o/The-best-top-hd-desktop-naruto-shippuden-wallpaper-naruto-shippuden-wallpapers-hd-11.jpg?alt=media&token=cda6ba1b-3498-4a3b-8aca-ce1a4b1ac128"
                                              alt="Create your own ninja in NARUTO TO BORUTO: SHINOBI STRIKER">
                                         <img src="" alt="">
                                     </a>
@@ -61,7 +61,7 @@
                                     </h3>
                                     <p>
                                         NARUTO TO BORUTO: SHINOBI STRIKER is ready to be showcased at gamescom 2017! BANDAI NAMCO Entertainment Europe is excited to reveal...</p>
-                                    <a href="http://www.naruto-videogames.com/ru/create-your-own-ninja-in-naruto-to-boruto-shinobi-striker-4/"
+                                    <a href=""
                                        class="more">читать еще</a>
                                 </div>
                             </article>
@@ -70,7 +70,7 @@
                             <article>
                                 <figure>
                                     <a href="">
-                                        <img src="https://www.bandainamcoent.eu/static/2017/08/04/nunb-200x200-update-jpg?58e9b2cd94e0897cf8230fa73b2a7df432b596a21501835136ace2f6023e8a815cfbdd59813b82951d&36b62b3a1039dcc24947c834e35338bd"
+                                        <img src="mortal.jpeg"
                                              alt="NARUTO SHIPPUDEN: Ultimate Ninja Blazing Celebrates First Anniversary With In Game Events and Updates">
                                         <img src="" alt="">
                                     </a>
@@ -81,7 +81,7 @@
                                     </h3>
                                     <p>
                                         BANDAI NAMCO Entertainment Inc.&rsquo;s NARUTO SHIPPUDEN: Ultimate Ninja Blazing, the Ultimate Ninja series game for mobile platfor...</p>
-                                    <a href="http://www.naruto-videogames.com/ru/naruto-shippuden-ultimate-ninja-blazing-celebrates-first-anniversary-with-in-game-events-and-updates-4/"
+                                    <a href=""
                                        class="more">читать еще</a>
                                 </div>
                             </article>
@@ -90,7 +90,7 @@
                             <article>
                                 <figure>
                                     <a href="">
-                                        <img src="https://www.bandainamcoent.eu/static/2017/07/04/nsl-nst-200x200-release-date-jpg?1fb0b47d59305e623f6d19270ce072f654eaadc114991610847cffa739710eb400425071686818bc47&13c3b991fd1dc970f17c5dfdb616adc6"
+                                        <img src="https://firebasestorage.googleapis.com/v0/b/vue-app-75351.appspot.com/o/The-best-top-hd-desktop-naruto-shippuden-wallpaper-naruto-shippuden-wallpapers-hd-11.jpg?alt=media&token=cda6ba1b-3498-4a3b-8aca-ce1a4b1ac128"
                                              alt="NARUTO SHIPPUDEN: ULTIMATE NINJA STORM LEGACY and NARUTO SHIPPUDEN: ULTIMATE NINJA STORM TRILOGY available on August 25th">
                                         <img src="" alt="">
                                     </a>

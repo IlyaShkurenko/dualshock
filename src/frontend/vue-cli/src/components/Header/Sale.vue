@@ -33,7 +33,7 @@
                                         </h3>
                                         <p>
                                             Cамые разные предложения каждую неделю</p>
-                                        <router-link :to="'/sale/' + index"><a class="more">читать еще</a></router-link>
+                                        <router-link :to="'/single/' + index"><a class="more">читать еще</a></router-link>
                                     </div>
                                 </article>
                             </li>
