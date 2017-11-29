@@ -1,6 +1,6 @@
 <template>
-
-    <div class="booking">
+    <form-component></form-component>
+    <!--<div class="booking">
         <header-component></header-component>
         <loginandreg></loginandreg>
         <div id="wrapper" class="page-content">
@@ -34,7 +34,7 @@
 
         </div>
         <logo-component></logo-component>
-    </div>
+    </div>-->
 </template>
 <style scoped>
     .booking {
