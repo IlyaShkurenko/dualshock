@@ -7,13 +7,14 @@
   ****************************************
 -->
 
-    <div id="contact-form">
+    <div id="contact-form" style="z-index: 20">
         <div>
             <h3 style="color: #991D57">Заполните контактную информацию</h3>
         </div>
         <p id="failure">Oopsie...message not sent.</p>
         <p id="success">Your message was sent successfully. Thank you!</p>
-
+        <span style="color: #3caa36; font-size: 24px">Место - {{place}}</span>
+        <span style="color: #3caa36; font-size: 24px">Цена - 100</span>
         <form method="post" action="/">
             <div>
                 <label for="name">
@@ -53,12 +54,6 @@
     </div>
 </template>
 <style scoped>
-    html{
-        background:url(http://phutora.com/img/friends3.jpg) no-repeat;
-        background-size: cover;
-        height:100%;
-        background-color: #000;
-    }
     * {
         box-sizing:border-box;
         -webkit-box-sizing:border-box;
@@ -69,11 +64,6 @@
         font-smoothing:antialiased;
         text-rendering:optimizeLegibility;
     }
-    body {
-        color: #C0C0C0;
-        font-family: Arial, san-serif;
-    }
-
 
     /* Contact Form Styles */
     h1 {
@@ -83,12 +73,13 @@
         margin: 0 0 20px 0;
     }
     #contact-form {
+        position: fixed;
         background-color:rgba(82,72,82,0.7);
         padding: 10px 20px 30px 20px;
-        max-width:100%;
+        width: 30vw;
         float: left;
-        left: 50%;
-        position: absolute;
+        top: 50%;
+        left: 15%;
         margin-top:30px;
         margin-left: -260px;
         border-radius:7px;
@@ -122,7 +113,6 @@
     }
     #contact-form textarea {
         width:100%;
-        height: 150px;
     }
     #contact-form button[type="submit"] {
         cursor:pointer;
@@ -181,3 +171,10 @@
         width: 1000px;
     }
 </style>
+<script>
+    export default {
+        props: {
+            place: Number
+        }
+    }
+</script>

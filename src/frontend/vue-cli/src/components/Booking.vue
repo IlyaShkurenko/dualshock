@@ -1,6 +1,5 @@
 <template>
-    <form-component></form-component>
-    <!--<div class="booking">
+    <div class="booking" style="z-index: 3">
         <header-component></header-component>
         <loginandreg></loginandreg>
         <div id="wrapper" class="page-content">
@@ -8,7 +7,7 @@
                 <div id="block-r" class="display">
                     <img alt="Driving hall" class="hall"
                          src="http://gameinn.com.ua/wp-content/themes/game/img/driving2.png"/>
-                    <div v-for="i in 23" :id="'n' + i" class="icon" :data-for="'popap-' + i">
+                    <div v-for="i in 23" :id="'n' + i" class="icon" :data-for="'popap-' + i" @click="book = true; place = i">
                         <img :alt="i" class="hover"
                              src="http://gameinn.com.ua/wp-content/themes/game/img/n.bkg.hover.png"/>
                         <img :alt="i" class="h" src="http://gameinn.com.ua/wp-content/themes/game/img/n.bkg.png"/>
@@ -29,12 +28,11 @@
                         <span>{{i}}</span>
                     </div>
                 </div>
-
             </section>
-
+            <form-component v-if="book" :place="place"></form-component>
         </div>
         <logo-component></logo-component>
-    </div>-->
+    </div>
 </template>
 <style scoped>
     .booking {
@@ -6353,6 +6351,12 @@
     import Form from './ReservForm.vue';
 
     export default {
+        data(){
+            return{
+               book: false,
+               place: -1
+            }
+        },
         components: {
             'header-component': Header,
             'footer-component': Footer,
