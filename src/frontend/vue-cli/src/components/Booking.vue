@@ -7,7 +7,7 @@
                 <div id="block-r" class="display">
                     <img alt="Driving hall" class="hall"
                          src="http://gameinn.com.ua/wp-content/themes/game/img/driving2.png"/>
-                    <div v-for="i in 23" :id="'n' + i" class="icon" :data-for="'popap-' + i" @click="$store.state.booked = true; place.number = i">
+                    <div v-for="i in 23"  :id="'n' + i" class="icon" :data-for="'popap-' + i" @click="$store.state.booked = true; place.number = i">
                         <img :alt="i" class="hover"
                              src="http://gameinn.com.ua/wp-content/themes/game/img/n.bkg.hover.png"/>
                         <img :alt="i" class="h" src="http://gameinn.com.ua/wp-content/themes/game/img/n.bkg.png"/>
@@ -16,6 +16,18 @@
                 </div>
                 <section id="dicons">
                     <input class="on" type="button" value="Скрыть места"/>
+                    <div>
+                        <label for="before">
+                            <span>Время от: </span>
+                            <select v-model="place.timeBefore" id="before" name="subject" tabindex="4">
+                                <option value="12:00">12:00</option><option value="12:30">12:30</option><option value="13:00">13:00</option><option value="13:30">13:30</option><option value="14:00">14:00</option><option value="14:30">14:30</option><option value="15:00">15:00</option><option value="15:30">15:30</option><option value="16:00">16:00</option><option value="16:30">16:30</option><option value="17:00">17:00</option><option value="17:30">17:30</option><option value="18:00">18:00</option><option value="18:30">18:30</option><option value="19:00">19:00</option><option value="19:30">19:30</option><option value="20:00">20:00</option><option value="20:30">20:30</option><option value="21:00">21:00</option><option value="21:30">21:30</option><option value="22:00">22:00</option><option value="22:30">22:30</option><option value="23:00">23:00</option><option value="23:30">23:30</option><option value="00:00">00:00</option><option value="00:30">00:30</option><option value="01:00">01:00</option><option value="01:30">01:30</option><option value="02:00">02:00</option><option value="02:30">02:30</option><option value="03:00">03:00</option><option value="03:30">03:30</option><option value="04:00">04:00</option><option value="04:30">04:30</option><option value="05:00">05:00</option><option value="05:30">05:30</option></select>
+                        </label>
+                        <label for="after">
+                            <span>Время до: </span>
+                            <select  v-model="place.timeAfter" id="after" name="subject" tabindex="4">
+                                <option value="12:00">12:00</option><option value="12:30">12:30</option><option value="13:00">13:00</option><option value="13:30">13:30</option><option value="14:00">14:00</option><option value="14:30">14:30</option><option value="15:00">15:00</option><option value="15:30">15:30</option><option value="16:00">16:00</option><option value="16:30">16:30</option><option value="17:00">17:00</option><option value="17:30">17:30</option><option value="18:00">18:00</option><option value="18:30">18:30</option><option value="19:00">19:00</option><option value="19:30">19:30</option><option value="20:00">20:00</option><option value="20:30">20:30</option><option value="21:00">21:00</option><option value="21:30">21:30</option><option value="22:00">22:00</option><option value="22:30">22:30</option><option value="23:00">23:00</option><option value="23:30">23:30</option><option value="00:00">00:00</option><option value="00:30">00:30</option><option value="01:00">01:00</option><option value="01:30">01:30</option><option value="02:00">02:00</option><option value="02:30">02:30</option><option value="03:00">03:00</option><option value="03:30">03:30</option><option value="04:00">04:00</option><option value="04:30">04:30</option><option value="05:00">05:00</option><option value="05:30">05:30</option></select>
+                        </label>
+                    </div>
                 </section>
                 <section id="dtext">
                     <p>
@@ -105,6 +117,17 @@
         color: #777;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale
+    }
+    .icon2  img.h {
+        opacity: 0;
+        width: 120%;
+        max-width: 120%
+    }
+
+    .icon2  img.hover {
+        opacity: 1;
+        width: 120%;
+        max-width: 120%
     }
     .hblock + .bkg, .hblock + a .bkg {
         width: 100%;
@@ -6361,6 +6384,12 @@
         },
         beforeCreate(){
            this.book = this.$store.state.booked;
+           this.$store.dispatch('getPlaces')
+        },
+        created(){
+            var currentdate = new Date()
+            var datetime = parseInt(currentdate.getHours() + '' + currentdate.getMinutes())
+            console.log(datetime)
         },
         components: {
             'header-component': Header,

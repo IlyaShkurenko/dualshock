@@ -20,4 +20,10 @@ router.post('/', async (req, res, next) => {
     //await console.log(reserve.getAll());
     res.end('success')
 });
+router.get('/',async function (req, res, next) {
+    let places = await reserve.getAll();
+    console.log(places)
+    res.json(places);
+    res.end();
+});
 module.exports = router;

@@ -10,6 +10,7 @@ export const store = new Vuex.Store({
         roomsForSave: [],
         users: [],
         games: ' ',
+        places: [],
         authenticated: false,
         booked: false,
         sale:{
@@ -27,6 +28,9 @@ export const store = new Vuex.Store({
         },
         getUsers({commit}) {
             commit('GET_USER')
+        },
+        getPlaces({commit}) {
+            commit('GET_PLACE')
         },
         delRooms({commit}, room) {
             commit('DEL_ROOM', room)
@@ -87,6 +91,21 @@ export const store = new Vuex.Store({
                     }
                     state.users = result;
                     return state.users
+                })
+        },
+        GET_PLACE(state) {
+            Vue.http.get('reserve')
+                .then(response => {
+                    return response.json();
+                })
+                .then(data => {
+                    const result = [];
+                    for(let key in data){
+                        result.push(data[key]);
+                    }
+                    state.places = result;
+                    console.log(state.places)
+                    return state.places
                 })
         },
         DEL_ROOM(state,room) {
