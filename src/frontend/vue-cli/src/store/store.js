@@ -11,6 +11,7 @@ export const store = new Vuex.Store({
         users: [],
         games: ' ',
         authenticated: false,
+        booked: false,
         sale:{
             img:['https://firebasestorage.googleapis.com/v0/b/vue-app-75351.appspot.com/o/saleweek.jpg?alt=media&token=0237c4c2-382e-49a2-ad9b-178adadda1c9',
                 'https://firebasestorage.googleapis.com/v0/b/vue-app-75351.appspot.com/o/twicesale.jpg?alt=media&token=245143cf-b030-441e-9787-2fc2e56f37e8',

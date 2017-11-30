@@ -7,7 +7,7 @@
                 <div id="block-r" class="display">
                     <img alt="Driving hall" class="hall"
                          src="http://gameinn.com.ua/wp-content/themes/game/img/driving2.png"/>
-                    <div v-for="i in 23" :id="'n' + i" class="icon" :data-for="'popap-' + i" @click="book = true; place = i">
+                    <div v-for="i in 23" :id="'n' + i" class="icon" :data-for="'popap-' + i" @click="$store.state.booked = true; place.number = i">
                         <img :alt="i" class="hover"
                              src="http://gameinn.com.ua/wp-content/themes/game/img/n.bkg.hover.png"/>
                         <img :alt="i" class="h" src="http://gameinn.com.ua/wp-content/themes/game/img/n.bkg.png"/>
@@ -29,7 +29,7 @@
                     </div>
                 </div>
             </section>
-            <form-component v-if="book" :place="place"></form-component>
+            <form-component v-if="$store.state.booked" :placeNumber="place.number"></form-component>
         </div>
         <logo-component></logo-component>
     </div>
@@ -6354,8 +6354,13 @@
         data(){
             return{
                book: false,
-               place: -1
+               place: {
+                   number: -1,
+               }
             }
+        },
+        beforeCreate(){
+           this.book = this.$store.state.booked;
         },
         components: {
             'header-component': Header,

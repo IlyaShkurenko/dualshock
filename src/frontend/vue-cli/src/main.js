@@ -10,7 +10,8 @@ export const router = new VueRouter({
     routes,
     mode: 'history'
 });
-const proxy = "https://lab6progbase-server.herokuapp.com/";
+//const proxy = "https://lab6progbase-server.herokuapp.com/";
+const proxy = "http://localhost:5000/";
 Vue.http.options.root = proxy;
 var vm = new Vue({
   el: '#app',

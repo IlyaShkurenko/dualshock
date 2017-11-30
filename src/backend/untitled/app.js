@@ -10,6 +10,7 @@ var remove = require('./routes/delete');
 var users = require('./routes/users');
 var rooms = require('./routes/rooms');
 var index = require('./routes/index');
+var reserve = require('./routes/reserve');
 var router = express.Router();
 var app = express();
 var config = require('./config/index');
@@ -53,6 +54,7 @@ app.use(serveStatic(path.join(__dirname, 'dist')));
 app.use('/rooms',rooms);
 app.use('/delete',remove);
 app.use(users);
+app.use('/reserve',reserve);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

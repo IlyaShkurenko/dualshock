@@ -16,16 +16,15 @@ let create = async(roomTodb) => {
 
 };
 
-let getAll = async(req, res) => {
-    Room.find({}, function(err, users) {
-        var userMap = {};
+let getAll = async() => {
+    let roomMap = {};
+    await Room.find({},function(err, rooms) {
 
-        users.forEach(function(user) {
-            userMap[user._id] = user;
+        rooms.forEach(function(room) {
+            roomMap[room._id] = room;
         });
-
-        res.send(userMap);
     });
+    return roomMap
 };
 
 module.exports = {

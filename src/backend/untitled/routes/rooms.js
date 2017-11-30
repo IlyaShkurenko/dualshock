@@ -14,10 +14,27 @@ router.options('*', cors());
 router.get('/',async function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');
-    await ref.getAll(req,res);
+    var userMap = {};
+    await Room.find({}, function(err, users) {
+
+        users.forEach(function(user) {
+            userMap[user._id] = user;
+        });
+        res.json(userMap);
+    });
 });
 router.post('/', async (req, res) => {
     let newRoom = {};
+    let index;
+    Room
+        .find()
+        .sort('id')  // give me the max
+        .exec(function (err, member) {
+
+            index = member[member.length - 1].id
+            index++;
+
+        });
     let path = '';
     let array = await ref.getAll();
     const UUID = require("uuid-v4");
@@ -46,6 +63,10 @@ router.post('/', async (req, res) => {
             if(name === 'games'){
                 let gamesArray = value.split(',')
                 newRoom['games'] = gamesArray;
+            }
+            else if(name === 'id' && value.length < 1){
+                console.log('yes')
+                newRoom['id'] = index;
             }
             else {
                 newRoom[name] = value;
