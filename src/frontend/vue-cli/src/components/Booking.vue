@@ -16,16 +16,12 @@
                 </div>
                 <section id="dicons">
                     <input class="on" type="button" value="Скрыть места"/>
+                    <p>time + {{returnTime}}</p>
                     <div>
-                        <label for="before">
-                            <span>Время от: </span>
-                            <select v-model="place.timeBefore" id="before" name="subject" tabindex="4">
-                                <option value="12:00">12:00</option><option value="12:30">12:30</option><option value="13:00">13:00</option><option value="13:30">13:30</option><option value="14:00">14:00</option><option value="14:30">14:30</option><option value="15:00">15:00</option><option value="15:30">15:30</option><option value="16:00">16:00</option><option value="16:30">16:30</option><option value="17:00">17:00</option><option value="17:30">17:30</option><option value="18:00">18:00</option><option value="18:30">18:30</option><option value="19:00">19:00</option><option value="19:30">19:30</option><option value="20:00">20:00</option><option value="20:30">20:30</option><option value="21:00">21:00</option><option value="21:30">21:30</option><option value="22:00">22:00</option><option value="22:30">22:30</option><option value="23:00">23:00</option><option value="23:30">23:30</option><option value="00:00">00:00</option><option value="00:30">00:30</option><option value="01:00">01:00</option><option value="01:30">01:30</option><option value="02:00">02:00</option><option value="02:30">02:30</option><option value="03:00">03:00</option><option value="03:30">03:30</option><option value="04:00">04:00</option><option value="04:30">04:30</option><option value="05:00">05:00</option><option value="05:30">05:30</option></select>
-                        </label>
-                        <label for="after">
-                            <span>Время до: </span>
-                            <select  v-model="place.timeAfter" id="after" name="subject" tabindex="4">
-                                <option value="12:00">12:00</option><option value="12:30">12:30</option><option value="13:00">13:00</option><option value="13:30">13:30</option><option value="14:00">14:00</option><option value="14:30">14:30</option><option value="15:00">15:00</option><option value="15:30">15:30</option><option value="16:00">16:00</option><option value="16:30">16:30</option><option value="17:00">17:00</option><option value="17:30">17:30</option><option value="18:00">18:00</option><option value="18:30">18:30</option><option value="19:00">19:00</option><option value="19:30">19:30</option><option value="20:00">20:00</option><option value="20:30">20:30</option><option value="21:00">21:00</option><option value="21:30">21:30</option><option value="22:00">22:00</option><option value="22:30">22:30</option><option value="23:00">23:00</option><option value="23:30">23:30</option><option value="00:00">00:00</option><option value="00:30">00:30</option><option value="01:00">01:00</option><option value="01:30">01:30</option><option value="02:00">02:00</option><option value="02:30">02:30</option><option value="03:00">03:00</option><option value="03:30">03:30</option><option value="04:00">04:00</option><option value="04:30">04:30</option><option value="05:00">05:00</option><option value="05:30">05:30</option></select>
+                        <label for="time">
+                            <span>Выберите время: </span>
+                            <select v-model="selectedTime" id="time" name="subject" tabindex="4">
+                                <option value="Сейчас">Сейчас</option> <option value="12:00">12:00</option><option value="12:30">12:30</option><option value="13:00">13:00</option><option value="13:30">13:30</option><option value="14:00">14:00</option><option value="14:30">14:30</option><option value="15:00">15:00</option><option value="15:30">15:30</option><option value="16:00">16:00</option><option value="16:30">16:30</option><option value="17:00">17:00</option><option value="17:30">17:30</option><option value="18:00">18:00</option><option value="18:30">18:30</option><option value="19:00">19:00</option><option value="19:30">19:30</option><option value="20:00">20:00</option><option value="20:30">20:30</option><option value="21:00">21:00</option><option value="21:30">21:30</option><option value="22:00">22:00</option><option value="22:30">22:30</option><option value="23:00">23:00</option><option value="23:30">23:30</option><option value="00:00">00:00</option><option value="00:30">00:30</option><option value="01:00">01:00</option><option value="01:30">01:30</option><option value="02:00">02:00</option><option value="02:30">02:30</option><option value="03:00">03:00</option><option value="03:30">03:30</option><option value="04:00">04:00</option><option value="04:30">04:30</option><option value="05:00">05:00</option><option value="05:30">05:30</option></select>
                         </label>
                     </div>
                 </section>
@@ -6377,8 +6373,14 @@
         data(){
             return{
                book: false,
+               selectedTime: '15:00',
+               freePlaces:[],
                place: {
                    number: -1,
+                   timeBefore:[],
+                   timeAfter:[],
+                   placeNumbers:[],
+                   time: 'На данный момент'
                }
             }
         },
@@ -6386,10 +6388,67 @@
            this.book = this.$store.state.booked;
            this.$store.dispatch('getPlaces')
         },
-        created(){
-            var currentdate = new Date()
-            var datetime = parseInt(currentdate.getHours() + '' + currentdate.getMinutes())
-            console.log(datetime)
+        updated(){
+        },
+        asyncComputed:{
+          timeArray(){
+              this.$store.state.places.forEach(function (item, i) {
+                  console.log(item['timeBefore'], item['timeAfter'])
+                  for(let i = 0; i < item.name.length; i++){
+                      // console.log(parseInt(item['timeAfter'][i].replace(':','')))
+                     if((this.returnTime > parseInt(item['timeBefore'][i].replace(':',''))) && (this.returnTime < parseInt(item['timeAfter'][i].replace(':','')))){
+                          console.log('yes')
+                          return item.name[i]
+                      }
+                  else {
+                          console.log('no')
+                      }
+                      //console.log(parseInt(item['timeBefore'][i].replace(':','')))
+                  }
+              })
+          },
+          async returnTime(){
+              let time;
+              let free = [];
+              if(this.selectedTime === 'Сейчас'){
+                  let currentdate = new Date()
+                  let datetime = parseInt(currentdate.getHours() + '' + currentdate.getMinutes())
+                  time = datetime
+              }
+              else {
+                  time =  parseInt(this.selectedTime.replace(':',''))
+              }
+             await this.$store.state.places.forEach(function (item, i) {
+                  console.log(item['timeBefore'], item['timeAfter'])
+                  for(let i = 0; i < item.name.length; i++){
+                      // console.log(parseInt(item['timeAfter'][i].replace(':','')))
+                      if((time >= parseInt(item['timeBefore'][i].replace(':',''))) && (time <= parseInt(item['timeAfter'][i].replace(':','')))){
+                          console.log('yes')
+                          console.log(item.name[i])
+                          free.push(item.name[i]);
+                      }
+                      else {
+                          console.log(parseInt(item['timeBefore'][i].replace(':','')))
+                          console.log('no')
+                      }
+                      console.log(free)
+                      //console.log(parseInt(item['timeBefore'][i].replace(':','')))
+                  }
+              });
+              return free
+          }
+        },
+        methods:{
+            getCurrentTime(){
+                if(this.selectedTime === 'Сейчас'){
+                    let currentdate = new Date()
+                    let datetime = parseInt(currentdate.getHours() + '' + currentdate.getMinutes())
+                    return datetime
+                }
+                else {
+                    return parseInt(this.selectedTime.replace(':',''))
+                }
+            }
         },
         components: {
             'header-component': Header,

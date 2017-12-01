@@ -104,7 +104,6 @@ export const store = new Vuex.Store({
                         result.push(data[key]);
                     }
                     state.places = result;
-                    console.log(state.places)
                     return state.places
                 })
         },

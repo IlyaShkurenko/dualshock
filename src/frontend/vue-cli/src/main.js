@@ -4,8 +4,10 @@ import VueResource from 'vue-resource'
 import VueRouter from 'vue-router'
 import {routes} from './routes'
 import {store} from './store/store'
+import AsyncComputed from 'vue-async-computed'
 Vue.use(VueRouter);
 Vue.use(VueResource);
+Vue.use(AsyncComputed);
 export const router = new VueRouter({
     routes,
     mode: 'history'
