@@ -4,10 +4,20 @@
         <loginandreg></loginandreg>
         <div id="wrapper" class="page-content">
             <section class="white" style="margin: 0">
-                <div id="block-r" class="display">
+                <div id="block-r" class="display" v-if="showAll">
                     <img alt="Driving hall" class="hall"
                          src="http://gameinn.com.ua/wp-content/themes/game/img/driving2.png"/>
-                    <div v-for="i in 23"  :id="'n' + i" class="icon" :data-for="'popap-' + i" @click="$store.state.booked = true; place.number = i">
+                    <div v-for="i in 23"  :id="'n' + i" class="icon" :data-for="'popap-' + i">
+                        <img :alt="i" class="hover2"
+                             src="http://gameinn.com.ua/wp-content/themes/game/img/n.bkg.hover.png"/>
+                        <img :alt="i" class="h2" src="http://gameinn.com.ua/wp-content/themes/game/img/n.bkg.png"/>
+                        <span>{{i}}</span>
+                    </div>
+                </div>
+                <div id="block-r" class="display" v-else>
+                    <img alt="Driving hall" class="hall"
+                         src="http://gameinn.com.ua/wp-content/themes/game/img/driving2.png"/>
+                    <div v-for="i in returnTime"  :id="'n' + i" class="icon" :data-for="'popap-' + i" @click="$store.state.booked = true; place.number = i">
                         <img :alt="i" class="hover"
                              src="http://gameinn.com.ua/wp-content/themes/game/img/n.bkg.hover.png"/>
                         <img :alt="i" class="h" src="http://gameinn.com.ua/wp-content/themes/game/img/n.bkg.png"/>
@@ -15,8 +25,10 @@
                     </div>
                 </div>
                 <section id="dicons">
-                    <input class="on" type="button" value="Скрыть места"/>
-                    <p>time + {{returnTime}}</p>
+                    <input class="on" type="button" value="Все места" @click="showAll = !showAll" style="display: inline"/>
+                    <p>
+                    </p>
+                    <input class="on" type="button" value="Cвободные" @click="showAll = !showAll" style="display: inline"/>
                     <div>
                         <label for="time">
                             <span>Выберите время: </span>
@@ -114,13 +126,13 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale
     }
-    .icon2  img.h {
+    .icon  img.h2 {
         opacity: 0;
         width: 120%;
         max-width: 120%
     }
 
-    .icon2  img.hover {
+    .icon  img.hover2 {
         opacity: 1;
         width: 120%;
         max-width: 120%
@@ -5470,7 +5482,7 @@
         line-height: 16px
     }
 
-    #block-r .icon > img.h {
+    #block-r .icon > img.h, img.h2 {
         display: block;
         width: 100%;
         height: auto;
@@ -5480,7 +5492,7 @@
         transition: all .2s ease-out 0
     }
 
-    #block-r .icon > img.hover {
+    #block-r .icon > img.hover, img.hover2 {
         display: block;
         opacity: 0;
         width: 100%;
@@ -6373,8 +6385,9 @@
         data(){
             return{
                book: false,
-               selectedTime: '15:00',
-               freePlaces:[],
+               selectedTime: 'Сейчас',
+               allPlaces:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],
+                showAll: true,
                place: {
                    number: -1,
                    timeBefore:[],
@@ -6409,6 +6422,7 @@
           },
           async returnTime(){
               let time;
+              let booked = [];
               let free = [];
               if(this.selectedTime === 'Сейчас'){
                   let currentdate = new Date()
@@ -6425,14 +6439,19 @@
                       if((time >= parseInt(item['timeBefore'][i].replace(':',''))) && (time <= parseInt(item['timeAfter'][i].replace(':','')))){
                           console.log('yes')
                           console.log(item.name[i])
-                          free.push(item.name[i]);
+                          booked.push(item.number);
                       }
                       else {
                           console.log(parseInt(item['timeBefore'][i].replace(':','')))
                           console.log('no')
                       }
-                      console.log(free)
+                      console.log(booked)
                       //console.log(parseInt(item['timeBefore'][i].replace(':','')))
+                  }
+              });
+              this.allPlaces.forEach(function (item, i) {
+                  if(booked.indexOf(item) === -1) {
+                      free.push(item)
                   }
               });
               return free
