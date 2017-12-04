@@ -81,7 +81,7 @@
         width: 30vw;
         float: left;
         top: 50%;
-        left: 15%;
+        left: 260px;
         margin-top:30px;
         margin-left: -260px;
         border-radius:7px;

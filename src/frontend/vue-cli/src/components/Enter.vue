@@ -228,7 +228,7 @@
                         </article>
                         </router-link>
 
-                        <a href="№" target="_blank" data-id="manual_0"
+                        <a href="#" target="_blank" data-id="manual_0"
                            class="view-more">
                             Узнать больше                        </a>
                     </li>
@@ -236,7 +236,7 @@
 
                     <li class="manual">
                         <article>
-                            <h2><a href="#" target="_blank">Игры</a></h2>
+                            <h2><router-link to="/games"><a target="_blank">Игры</a></router-link></h2>
                             <p>
                                 Следи за последними обновлениями игротеки<br/></p>
 
@@ -246,8 +246,8 @@
                             </div>
                         </article>
 
-                        <a href="#" target="_blank" data-id="manual_1" class="view-more">
-                            Узнать больше                        </a>
+                        <router-link to="/games"><a target="_blank" data-id="manual_1" class="view-more">
+                            Узнать больше                        </a></router-link>
                     </li>
 
                 </ul>
@@ -431,7 +431,7 @@
         margin-left: -30px;
         margin-top: -60px;
         color: #FF4E00;
-        font-family: "SmudgerLET";
+
         font-size: 8vw;
         line-height: 100px;
         -ms-transform: rotate(-7deg);
@@ -900,32 +900,6 @@
         display: block
     }
 
-    @font-face {
-        font-family: 'BebasNeue';
-        src: url("http://static.bandainamcogames.eu/sites_products/naruto-videogames/assets/fonts/BebasNeue.eot");
-        src: url("http://static.bandainamcogames.eu/sites_products/naruto-videogames/assets/fonts/BebasNeue.eot?#iefix") format("embedded-opentype"), url("http://static.bandainamcogames.eu/sites_products/naruto-videogames/assets/fonts/BebasNeue.woff") format("woff"), url("http://static.bandainamcogames.eu/sites_products/naruto-videogames/assets/fonts/BebasNeue.ttf") format("truetype"), url("http://static.bandainamcogames.eu/sites_products/naruto-videogames/assets/fonts/BebasNeue.svg#BebasNeue") format("svg");
-        font-style: normal;
-        font-weight: normal;
-        text-rendering: optimizeLegibility
-    }
-
-    @font-face {
-        font-family: 'Lovelo';
-        src: url("http://static.bandainamcogames.eu/sites_products/naruto-videogames/assets/fonts/Lovelo-Black.eot");
-        src: url("http://static.bandainamcogames.eu/sites_products/naruto-videogames/assets/fonts/Lovelo-Black.eot?#iefix") format("embedded-opentype"), url("http://static.bandainamcogames.eu/sites_products/naruto-videogames/assets/fonts/Lovelo-Black.woff") format("woff"), url("http://static.bandainamcogames.eu/sites_products/naruto-videogames/assets/fonts/Lovelo-Black.ttf") format("truetype"), url("http://static.bandainamcogames.eu/sites_products/naruto-videogames/assets/fonts/Lovelo-Black.svg#Lovelo-Black") format("svg");
-        font-style: normal;
-        font-weight: normal;
-        text-rendering: optimizeLegibility
-    }
-
-    @font-face {
-        font-family: 'SmudgerLET';
-        src: url("http://static.bandainamcogames.eu/sites_products/naruto-videogames/assets/fonts/SmudgerLetPlain.eot");
-        src: url("http://static.bandainamcogames.eu/sites_products/naruto-videogames/assets/fonts/SmudgerLetPlain.eot?#iefix") format("embedded-opentype"), url("http://static.bandainamcogames.eu/sites_products/naruto-videogames/assets/fonts/SmudgerLetPlain.woff") format("woff"), url("http://static.bandainamcogames.eu/sites_products/naruto-videogames/assets/fonts/SmudgerLetPlain.ttf") format("truetype"), url("http://static.bandainamcogames.eu/sites_products/naruto-videogames/assets/fonts/SmudgerLetPlain.svg#SmudgerLetPlain") format("svg");
-        font-style: normal;
-        font-weight: normal;
-        text-rendering: optimizeLegibility
-    }
 
     html, body {
         height: 100%;
@@ -1021,7 +995,7 @@
     }
 
     h1 {
-        font-family: "Lovelo";
+
         font-size: 22px
     }
 
@@ -1029,20 +1003,20 @@
         text-transform: uppercase;
         text-align: center;
         margin-top: 40px;
-        font-family: "BebasNeue";
+
         font-size: 37px;
         position: relative
     }
 
     .bottom-section p {
-        font-family: "Lovelo";
+
         font-size: 12px;
         margin-bottom: 10px;
         color: white
     }
 
     .bottom-section a {
-        font-family: "BebasNeue";
+
         font-size: 37px;
         color: white;
         position: relative
@@ -1096,7 +1070,7 @@
     }
 
     #header nav > ul > li a {
-        font-family: "Lovelo";
+
         font-size: 14px;
         color: white;
         text-transform: uppercase;
@@ -1153,7 +1127,7 @@
         text-transform: uppercase;
         text-align: center;
         line-height: 51px;
-        font-family: "Lovelo";
+
         font-size: 13px;
         background: url("http://static.bandainamcogames.eu/sites_products/naruto-videogames/assets/img/layouts/bg-shop.png") center center no-repeat;
         background-size: 100% 37px
@@ -1302,7 +1276,7 @@
 
     #home-banner .line1 {
         color: #FF4E00;
-        font-family: "SmudgerLET";
+
         font-size: 150px;
         line-height: 100px;
         -ms-transform: rotate(-7deg);
@@ -1312,7 +1286,7 @@
 
     #home-banner .line2 {
         color: white;
-        font-family: "Lovelo";
+
         font-size: 20px;
         line-height: 30px;
         margin-top: -5px
@@ -1320,14 +1294,14 @@
 
     #home-banner .line3 {
         color: white;
-        font-family: "BebasNeue";
+
         font-size: 67px;
         line-height: 75px
     }
 
     #home-banner .line4 {
         color: white;
-        font-family: "Lovelo";
+
         font-size: 13px;
         margin-top: -5px
     }
@@ -1498,7 +1472,7 @@
     #home-banner .push span, #home-banner .push p {
         display: block;
         color: white;
-        font-family: "Lovelo";
+
         text-transform: uppercase;
         font-size: 13px
     }
@@ -1739,7 +1713,6 @@
     }
 
     #home-community li h2 {
-        font-family: "Lovelo";
         font-size: 16px;
         text-transform: uppercase;
         margin-bottom: 10px
@@ -1924,7 +1897,6 @@
     #section-preorder .content .text {
         font-size: 64px;
         line-height: 64px;
-        font-family: "BebasNeue";
         text-align: left;
         padding-left: 50px
     }
@@ -1933,7 +1905,6 @@
         display: block;
         margin-left: -55px;
         color: #FF4E00;
-        font-family: "SmudgerLET";
         font-size: 150px;
         line-height: 100px;
         -ms-transform: rotate(-7deg);
@@ -1949,7 +1920,6 @@
     }
 
     #section-preorder .content p {
-        font-family: "Lovelo";
         font-size: 12px;
         line-height: 12px
     }
@@ -2060,7 +2030,6 @@
         display: inline-block;
         width: auto;
         margin-bottom: 10px;
-        font-family: "Lovelo";
         font-size: 19px;
         color: black;
         text-transform: uppercase;
@@ -2074,7 +2043,6 @@
 
     #join-us h2 .orange {
         display: block;
-        font-family: "SmudgerLET";
         font-weight: bold;
         font-size: 95px;
         line-height: 60px;
@@ -2088,7 +2056,6 @@
 
     #join-us h2 .big {
         display: block;
-        font-family: "BebasNeue";
         font-size: 60px;
         line-height: 60px
     }
@@ -2182,7 +2149,6 @@
 
     #news h3 {
         font-size: 22px;
-        font-family: "Lovelo";
         margin-bottom: 5px
     }
 
@@ -2194,7 +2160,6 @@
         display: inline-block;
         width: auto;
         margin: 20px auto;
-        font-family: "BebasNeue";
         font-size: 37px;
         text-transform: uppercase;
         text-align: center;
@@ -2207,7 +2172,6 @@
 
     #news a.more-news span {
         display: block;
-        font-family: "Lovelo";
         font-size: 12px
     }
 
@@ -2254,7 +2218,7 @@
     }
 
     .news-title .main-title {
-        font-family: "SmudgerLET";
+
         color: #FF4E00;
         font-size: 120px;
         line-height: 80px;
@@ -2270,7 +2234,7 @@
         position: relative;
         z-index: 2;
         font-size: 44px;
-        font-family: "BebasNeue";
+
         width: auto;
         color: white;
         text-shadow: 2px 2px 0px #000;
@@ -2282,7 +2246,7 @@
         margin-bottom: 10px;
         line-height: 20px;
         font-size: 14px;
-        font-family: "Lovelo"
+
     }
 
     .news-title .title {
@@ -2570,7 +2534,7 @@
         display: inline-block;
         width: auto;
         color: white;
-        font-family: "BebasNeue";
+
         font-size: 15px;
         line-height: 15px;
         vertical-align: middle;
@@ -2646,7 +2610,7 @@
     }
 
     #game-editions h2 {
-        font-family: "Lovelo";
+
         font-size: 16px;
         color: black;
         text-transform: uppercase;
@@ -2683,7 +2647,7 @@
         margin: 0 10px 10px 0;
         text-transform: uppercase;
         position: relative;
-        font-family: "BebasNeue";
+
         font-size: 18px;
         text-align: center
     }
@@ -2893,7 +2857,7 @@
 
     .digital-content h3 {
         display: block;
-        font-family: "Lovelo";
+
         font-size: 32px;
         line-height: normal;
         margin-bottom: 10px
@@ -3010,7 +2974,7 @@
     }
 
     #game h1, #game h2, #game h3 {
-        font-family: Lovelo;
+
         text-transform: uppercase
     }
 
@@ -3037,7 +3001,7 @@
         padding-left: 45px;
         padding-right: 45px;
         text-transform: uppercase;
-        font-family: "BebasNeue";
+
         font-size: 18px;
         text-align: center;
         z-index: 3
@@ -3079,13 +3043,13 @@
         padding-left: 300px;
         color: white;
         font-size: 44px;
-        font-family: BebasNeue;
+
         line-height: 64px
     }
 
     #game h1 span {
         display: block;
-        font-family: Lovelo;
+
         font-size: 13px;
         line-height: 13px
     }
@@ -3120,7 +3084,6 @@
     }
 
     #game .infos li span.label {
-        font-family: Lovelo;
         text-transform: uppercase;
         float: left;
         min-width: 120px
@@ -3311,7 +3274,7 @@
 
     .page-template-page-stormleague section.header .wrapperstart .title .main-title {
         display: block;
-        font-family: "SmudgerLET";
+
         color: #FF4E00;
         font-size: 120px;
         line-height: 92px;
@@ -3332,14 +3295,14 @@
         margin-bottom: -5px;
         margin-left: 15px;
         font-size: 44px;
-        font-family: "BebasNeue"
+
     }
 
     .page-template-page-stormleague section.header .wrapperstart .title .sub-title {
         margin-left: 5px;
         font-size: 16px;
         line-height: 40px;
-        font-family: "Lovelo";
+
         letter-spacing: 2px;
         text-transform: uppercase
     }
@@ -3359,7 +3322,7 @@
 
     .page-template-page-stormleague section.what-is .wrapperstart h2 {
         font-size: 70px;
-        font-family: "BebasNeue";
+
         margin-bottom: 30px
     }
 
@@ -3426,7 +3389,7 @@
         margin-top: 4px;
         color: white;
         font-size: 24px;
-        font-family: "BebasNeue";
+
         position: relative;
         z-index: 2;
         vertical-align: middle
@@ -3448,7 +3411,7 @@
 
     .page-template-page-stormleague section.how-to .main-title {
         display: block;
-        font-family: "SmudgerLET";
+
         color: #FF4E00;
         font-size: 141px;
         line-height: 96px;
@@ -3465,7 +3428,7 @@
         color: black;
         font-size: 80px;
         line-height: 50px;
-        font-family: "BebasNeue";
+
         text-transform: uppercase
     }
 
@@ -3473,7 +3436,7 @@
         display: inline-block;
         font-size: 36px;
         line-height: normal;
-        font-family: "BebasNeue";
+
         color: white;
         padding: 17px 24px 5px;
         margin-bottom: 16px;
@@ -3516,7 +3479,7 @@
     }
 
     .page-template-page-stormleague section.how-to .line .content_wrapperstart .info h3 {
-        font-family: "Lovelo";
+
         font-size: 21px;
         margin-bottom: 20px
     }
@@ -3572,7 +3535,7 @@
 
     .page-template-page-stormleague section.tournament .main-title {
         display: block;
-        font-family: "SmudgerLET";
+
         color: #FF4E00;
         font-size: 80px;
         line-height: 75px;
@@ -3589,7 +3552,7 @@
         color: black;
         font-size: 80px;
         line-height: 50px;
-        font-family: "BebasNeue";
+
         text-transform: uppercase
     }
 
@@ -3645,7 +3608,7 @@
         margin-top: 4px;
         color: white;
         font-size: 24px;
-        font-family: "BebasNeue";
+
         position: relative;
         z-index: 2;
         vertical-align: middle
@@ -3672,7 +3635,7 @@
 
     .page-template-page-community section.header .wrapperstart .title .main-title {
         display: block;
-        font-family: "SmudgerLET";
+
         color: #FF4E00;
         font-size: 120px;
         line-height: 92px;
@@ -3694,14 +3657,14 @@
         margin-bottom: -5px;
         margin-left: 15px;
         font-size: 44px;
-        font-family: "BebasNeue"
+
     }
 
     .page-template-page-community section.header .wrapperstart .title .sub-title {
         margin-left: 5px;
         font-size: 16px;
         line-height: 40px;
-        font-family: "Lovelo";
+
         letter-spacing: 2px;
         text-transform: uppercase
     }
@@ -3764,7 +3727,7 @@
         z-index: 2;
         vertical-align: middle;
         color: white;
-        font-family: "BebasNeue";
+
         font-size: 53px;
         line-height: 40px;
         text-transform: uppercase;
@@ -3773,7 +3736,7 @@
 
     .page-template-page-community section.header span.getit a span {
         display: block;
-        font-family: "Lovelo";
+
         font-size: 19px;
         letter-spacing: 5px
     }
@@ -3791,7 +3754,7 @@
     }
 
     .page-template-page-community section.community .wrapperstart .social-count span {
-        font-family: "SmudgerLET";
+
         color: #FF4E00;
         font-size: 180px;
         line-height: 120px;
@@ -3803,7 +3766,7 @@
 
     .page-template-page-community section.community .wrapperstart .social-count p {
         font-size: 44px;
-        font-family: "BebasNeue";
+
         text-transform: uppercase
     }
 
@@ -3939,7 +3902,7 @@
         width: auto;
         color: #FF4E00;
         border-bottom: 2px solid #FF4E00;
-        font-family: "Lovelo";
+
         font-size: 11px;
         line-height: 14px
     }
@@ -3974,7 +3937,7 @@
         left: 50%;
         color: white;
         text-transform: uppercase;
-        font-family: "BebasNeue";
+
         letter-spacing: 2px;
         font-size: 14px;
         line-height: 31px;
@@ -4013,7 +3976,7 @@
         margin: 10px auto;
         text-transform: uppercase;
         position: relative;
-        font-family: "BebasNeue";
+
         font-size: 18px;
         text-align: center
     }
@@ -4063,7 +4026,7 @@
         padding: 15px;
         border: none;
         background: rgba(255, 255, 255, 0.5);
-        font-family: "Lovelo";
+
         font-size: 12px;
         border: 1px solid rgba(255, 255, 255, 0.2);
         position: relative;
@@ -4158,7 +4121,7 @@
         border-radius: 0;
         background: none;
         border: none;
-        font-family: "Lovelo";
+
         font-size: 12px;
         text-transform: uppercase;
         position: relative;
@@ -4177,7 +4140,7 @@
         top: 0;
         right: 0;
         text-transform: uppercase;
-        font-family: "Lovelo";
+
         font-size: 13px;
         cursor: pointer
     }
@@ -4590,7 +4553,7 @@
         margin: 10px auto;
         text-transform: uppercase;
         position: relative;
-        font-family: "BebasNeue";
+
         font-size: 18px;
         text-align: center
     }

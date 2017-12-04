@@ -66,13 +66,6 @@
     @import "http://gameinn.com.ua/wp-content/themes/game/fonts/furore.css";
     @import "http://gameinn.com.ua/wp-content/themes/game/fonts/open.sans.css";
     @import "http://gameinn.com.ua/wp-content/themes/game/fonts/roboto.condensed.css";
-    @font-face {
-        font-family: 'PressStart2P';
-        src: url(http://gameinn.com.ua/wp-content/themes/game/fonts/PressStart2P.eot);
-        src: url(http://gameinn.com.ua/wp-content/themes/game/fonts/PressStart2P.eot?#iefix) format("embedded-opentype"), url(http://gameinn.com.ua/wp-content/themes/game/fonts/PressStart2P.woff2) format("woff2"), url(http://gameinn.com.ua/wp-content/themes/game/fonts/PressStart2P.woff) format("woff"), url(http://gameinn.com.ua/wp-content/themes/game/fonts/PressStart2P.ttf) format("truetype"), url(http://gameinn.com.ua/wp-content/themes/game/fonts/PressStart2P.svg#PressStart2P) format("svg");
-        font-weight: 400;
-        font-style: normal
-    }
 
     html {
         width: auto;
@@ -6404,22 +6397,6 @@
         updated(){
         },
         asyncComputed:{
-          timeArray(){
-              this.$store.state.places.forEach(function (item, i) {
-                  console.log(item['timeBefore'], item['timeAfter'])
-                  for(let i = 0; i < item.name.length; i++){
-                      // console.log(parseInt(item['timeAfter'][i].replace(':','')))
-                     if((this.returnTime > parseInt(item['timeBefore'][i].replace(':',''))) && (this.returnTime < parseInt(item['timeAfter'][i].replace(':','')))){
-                          console.log('yes')
-                          return item.name[i]
-                      }
-                  else {
-                          console.log('no')
-                      }
-                      //console.log(parseInt(item['timeBefore'][i].replace(':','')))
-                  }
-              })
-          },
           async returnTime(){
               let time;
               let booked = [];
@@ -6435,6 +6412,7 @@
              await this.$store.state.places.forEach(function (item, i) {
                   console.log(item['timeBefore'], item['timeAfter'])
                   for(let i = 0; i < item.name.length; i++){
+                      console.log(time)
                       // console.log(parseInt(item['timeAfter'][i].replace(':','')))
                       if((time >= parseInt(item['timeBefore'][i].replace(':',''))) && (time <= parseInt(item['timeAfter'][i].replace(':','')))){
                           console.log('yes')

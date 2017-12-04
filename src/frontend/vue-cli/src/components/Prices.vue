@@ -188,7 +188,7 @@
                                             <div class="caption">
                                                 <h4>VIP {{$store.state.rooms[index].id}}</h4>
                                                 <p>{{$store.state.rooms[index].description}}</p>
-                                                <a class="btn btn-mini" :href="'vip/' + item">» Узнать больше</a>
+                                                <router-link :to="'vip/' + item"><a class="btn btn-mini">» Узнать больше</a></router-link>
                                             </div>
                                         </div>
                                     </li>
@@ -204,7 +204,7 @@
                                             <div class="caption">
                                                 <h4>VIP {{$store.state.rooms[(item - 1) + 4].id}}</h4>
                                                 <p>{{$store.state.rooms[(item - 1) + 4].description}}</p>
-                                                <a class="btn btn-mini" :href="'vip/' + (parseInt((item - 1) + 5))">» Узнать больше</a>
+                                                <router-link :to="'vip/' + (parseInt((item - 1) + 5))"><a class="btn btn-mini">» Узнать больше</a></router-link>
                                             </div>
                                         </div>
                                     </li>
