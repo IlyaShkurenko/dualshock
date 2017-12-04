@@ -1,9 +1,9 @@
 <template>
     <div>
-    <div class="container-header" style="">
+    <div class="container-header" style="z-index: 100">
         <div class="nav-header">
             <router-link to="/reservation"><div class="navs hvr-sweep-to-bottoms hvr-grow">Бронирование</div></router-link>
-            <a href="pages/menu.html"><div class="navs hvr-sweep-to-bottoms hvr-grow">Игротека</div></a>
+            <router-link to="/games"><div class="navs hvr-sweep-to-bottoms hvr-grow">Игротека</div></router-link>
             <router-link to="/news"><div class="navs hvr-sweep-to-bottoms hvr-grow">События</div></router-link>
             <router-link to="/sale"><div class="navs hvr-sweep-to-bottoms hvr-grow">Акции и скидки</div></router-link>
             <router-link to="/prices"><div class="navs hvr-sweep-to-bottoms hvr-grow">Меню и цены</div></router-link>
@@ -46,7 +46,7 @@
         content: "";
         position: absolute;
         z-index: -1;
-        top: -8ch;
+        top: -3ch;
         left: 0;
         right: 0;
         bottom: 0;
