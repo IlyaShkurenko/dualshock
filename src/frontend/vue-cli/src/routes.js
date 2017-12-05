@@ -12,6 +12,7 @@ import Tournament from './components/tournaments/Tournament.vue'
 import Sale from './components/Header/Sale.vue';
 import SingleNews from './components/Header/Singlenews.vue'
 import Games from './components/Games.vue'
+import Settings from './components/Settings.vue'
 export const routes = [
     {path: '/prices', component: Event},
     {path: '/news', component: News},
@@ -20,6 +21,7 @@ export const routes = [
     {path: '/vip/:id', component: Room},
     {path: '/login', component: Login},
     {path: '/signup', component: SignUp},
+    {path: '/settings', component: Settings},
     {path: '/tournament/:id', component: Tournament},
     {path: '/games', component: Games},
     {path: '/sale', component: Sale},

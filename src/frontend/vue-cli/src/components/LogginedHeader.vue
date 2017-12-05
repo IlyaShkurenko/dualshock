@@ -9,7 +9,7 @@
                 </div>
             </div>
         </div>
-        <div class="buttom register hvr-grow hvr-icon-up" @click="logout">Настройки</div>
+        <div class="buttom register hvr-grow hvr-icon-up" @click="settings">Настройки</div>
         <div class="rectangle-big">
             <div class="rectangle" style="margin-right: 8vw;">
                 <div class="rectangle-small">
@@ -60,8 +60,8 @@
             home(){
                 this.$router.push(localStorage.getItem('role'));
             },
-            signup(){
-                this.$router.push('signup')
+            settings(){
+                this.$router.push('/settings')
             }
         },
         beforeCreate(){

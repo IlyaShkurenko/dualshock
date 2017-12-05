@@ -332,7 +332,10 @@
         font-size: 12px;
         text-align: left
     }
-
+    .profile{
+        height: 55px;
+        background-color: #23b08e;
+    }
     ol, ul {
         list-style: none
     }
