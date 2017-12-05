@@ -2,7 +2,7 @@
     <div class="well">
         <div class="media">
             <a class="pull-left" href="#">
-                <img class="media-object" src="https://binarybeast.com/img/avatar/200.png" style="width: 150px; height: 150px">
+                <img class="media-object" :src="user.img" style="width: 150px; height: 150px">
             </a>
             <div class="media-body">
                 <h4 class="media-heading">User {{user._id}}</h4>

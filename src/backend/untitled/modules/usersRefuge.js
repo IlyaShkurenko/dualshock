@@ -20,7 +20,6 @@ let getUserByLoginAndPass = async function (name, passwordHash) {
   let user = await User.find({ username: name, hashedPassword: passwordHash });
   return user[0]
 };
-
 let create = async(newUser) => {
     let user = new User(newUser);
     user.save(function (err, user, affected) {

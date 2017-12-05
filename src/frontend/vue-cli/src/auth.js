@@ -13,10 +13,15 @@ export default {
         await context.$http.post(LOGIN_URL, creds).then(data => {
             console.log('data = ' + data.body.id_token);
             console.log('username = ' + data.body.username);
-            localStorage.setItem('id_token', data.body.id_token);
+            /*localStorage.setItem('id_token', data.body.id_token);
             localStorage.setItem('access_token', data.body.access_token);
             localStorage.setItem('role', data.body.role);
             localStorage.setItem('username', data.body.username);
+            localStorage.setItem('nickname', data.body.nickname)*/
+            for(let prop in data.body){
+                localStorage.setItem(prop, data.body[prop])
+                console.log(data.body[prop])
+            }
 
             this.user.authenticated = true;
 
@@ -32,18 +37,24 @@ export default {
 
    async signup(context, creds, redirect) {
         let data = new FormData();
+        console.log(creds)
         for(let field in creds){
             data.append(field,creds[field]);
         }
         await context.$http.post(SIGNUP_URL, creds).then(data => {
-                localStorage.setItem('id_token', data.body.id_token);
+               /* localStorage.setItem('id_token', data.body.id_token);
                 localStorage.setItem('access_token', data.body.access_token);
                 localStorage.setItem('role', data.body.role);
                 localStorage.setItem('username', data.body.username);
+                localStorage.setItem('nickname', data.body.nickname)*/
+            for(let prop in data.body){
+                localStorage.setItem(prop, data.body[prop])
+            }
                 this.user.authenticated = true;
 
                 if(redirect) {
                     router.push(redirect)
+                    location.reload();
                 }
             })
             .catch((error)=>{

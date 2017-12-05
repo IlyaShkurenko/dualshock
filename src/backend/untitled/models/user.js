@@ -19,7 +19,28 @@ var schema = mongoose.Schema({
        type: String,
        required: true
    },
-   salt: {
+   name:{
+        type: String,
+        required: true
+    },
+    surname:{
+        type: String,
+        required: false
+    },
+    telegram:{
+        type: String,
+        required: false
+    },
+    nickname:{
+        type: String,
+        required: true
+    },
+    img:{
+        type: String,
+        required: false
+    },
+
+    salt: {
        type: String,
        required: true
    },

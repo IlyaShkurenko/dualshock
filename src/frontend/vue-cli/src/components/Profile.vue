@@ -28,12 +28,12 @@
             <div id="profile" style="font-family: 'Helvetica Narrow', sans-serif; font-weight: bold">
                 <div id="details">
                     <div id="portrait">
-                        <img src="https://binarybeast.com/img/avatar/200.png" alt="#"/>
+                        <img :src="$store.state.users[$route.params.id].img" alt="#" style="width: 100%"/>
                     </div>
                     <div id="infoBox">
                         <div id="title">
                             <img src="https://binarybeast.com/img/Icons/flagicons/ua.png" alt="Ukraine"/>
-                            <h2 style="font-family: 'Helvetica Narrow', sans-serif; font-weight: bold"><span id="alias">{{$store.state.users[$route.params.id].username}}</span></h2>
+                            <h2 style="font-family: 'Helvetica Narrow', sans-serif; font-weight: bold"><span id="alias">{{$store.state.users[$route.params.id].nickname}}</span></h2>
                             <p id="id">id: {{$store.state.users[$route.params.id]._id}}</p>
                         </div>
                         <div id="infoStats">
@@ -301,6 +301,10 @@
         computed: {
             getRole() {
                 return localStorage.getItem('username')
+            },
+            src(){
+                console.log(localStorage.getItem('nickname'))
+                return localStorage.getItem('img')
             }
         },
         beforeCreate() {

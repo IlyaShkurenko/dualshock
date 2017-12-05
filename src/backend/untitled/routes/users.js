@@ -74,6 +74,7 @@ router.get('/users',async function (req, res, next) {
 });
 
 router.post('/users', async function(req, res) {
+    console.log(req.body)
     let role = 'admin';
 
     if (!req.body.username || !req.body.password) {
@@ -82,7 +83,7 @@ router.post('/users', async function(req, res) {
     if(req.body.username !== 'dominolex14@gmail.com'){
         role = 'user'
     }
-    let user = new User({username: req.body.username, password: req.body.password, role: role});
+    let user = new User({username: req.body.username, password: req.body.password, role: role, name: req.body.name, nickname: req.body.nickname, img: '//binarybeast.com/img/avatar/200.png'});
     let registeredUser = await db.getUserByLoginAndPass(user.username, user.hashedPassword);
     if (registeredUser) {
         return res.status(400).send("A user with that username already exists");
@@ -102,7 +103,88 @@ router.post('/users', async function(req, res) {
     res.status(201);
     res.json(jwt)
 });
+router.post('/users/update', async (req, res) => {
+    let newRoom = {};
+    let index;
+    let path = '';
+    const UUID = require("uuid-v4");
+    const fbId = "vue-app-75351";
+    const fbKeyFile = "vue-app-75351-firebase-adminsdk-9pkad-49d805f90e.json";
+    //parse form
+    var form = new formidable.IncomingForm(),
+        fields = {};
+    form
+        .on('error', function(err) {
+            res.writeHead(500, {'content-type': 'text/plain'});
+            res.end('error:\n\n'+util.inspect(err));
+            console.error(err);
+        })
+        .on('file', function(field, value) {
+            upload(value.path, value.name).then( downloadURL => {
+                path = downloadURL;
+                console.log(downloadURL);
+            });
+            console.log(field,value);
+            fields[field] = value;
+        })
+        .on('field', function(name, value) {
+            if(name === 'games'){
+                let gamesArray = value.split(',')
+                newRoom['games'] = gamesArray;
+            }
+            else {
+                newRoom[name] = value;
+            }
+        })
 
+    form.parse(req);
+    //send image to firebase
+    const gcs = require('@google-cloud/storage')({keyFilename: fbKeyFile});
+    const bucket = gcs.bucket(`${fbId}.appspot.com`);
+    var upload = async (localFile, remoteFile) => {
+        let uuid = UUID();
+
+        return bucket.upload(localFile, {
+            destination: remoteFile,
+            uploadType: "media",
+            metadata: {
+                metadata: {
+                    contentType: 'image/png',
+                    firebaseStorageDownloadTokens: uuid
+                }
+            }
+        })
+            .then(async (data) => {
+
+
+                let file = data[0];
+                newRoom.img = "https://firebasestorage.googleapis.com/v0/b/" + bucket.name + "/o/" + encodeURIComponent(file.name) + "?alt=media&token=" + uuid;
+                User.findOne({username: newRoom.email}, function (err, room) {
+                    if (!room) {
+                        let error = {
+                            status: 404,
+                            message: 'Incorrect id'
+                        }
+                        res.json(error)
+                    }
+                    else {
+                        for (let prop in newRoom) {
+                            if ((prop !== '_id' || prop !== '__v') && newRoom[prop].length > 0) {
+                                room[prop] = newRoom[prop];
+                            }
+                        }
+                        room.save(function (err, updatedTank) {
+                            if (err) throw err;
+                            res.json(updatedTank);
+                        });
+                        console.log('-> post done');
+                    }
+                    console.log(room)
+                });
+                return Promise.resolve("https://firebasestorage.googleapis.com/v0/b/" + bucket.name + "/o/" + encodeURIComponent(file.name) + "?alt=media&token=" + uuid);
+            });
+    };
+});
 router.post('/sessions/create', async function(req, res) {
     console.log(req.body.username, req.body.password);
     //await create({username: 'dominolex14@gmail.com', password: 'firaxis1998', role: 'admin'});

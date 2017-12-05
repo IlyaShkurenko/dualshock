@@ -15,15 +15,15 @@
                     <div class="alert alert-danger" v-if="!validation.email && credentials.username.length > 0">Введите корректный логин</div>
                 </transition>
                 <span class="input">
-                    <input v-validate="email" data-rules="required|email" type="email" name="email" placeholder="email" v-model="credentials.username">
+                    <input  type="email" name="email" placeholder="email" v-model="credentials.username">
                     <span></span>
                 </span>
                     <span class="input">
-                    <input type="text" name="firstname" placeholder="имя">
+                    <input type="text" name="firstname" placeholder="имя" v-model="credentials.name">
                     <span></span>
                 </span>
                     <span class="input">
-                    <input type="text" name="name" placeholder="фамилия">
+                    <input type="text" name="nickname" placeholder="никнейм" v-model="credentials.nickname">
                     <span></span>
                 </span>
                 <span>
@@ -63,7 +63,8 @@
                 credentials: {
                     username: '',
                     password: '',
-                    name:''
+                    name:'',
+                    nickname: ''
                 },
                 error: '',
                 warning: false,
@@ -73,7 +74,6 @@
         computed: {
             validation: function () {
                 return {
-                    name: !!this.credentials.name.trim(),
                     email: emailRE.test(this.credentials.username)
                 }
             },
@@ -88,13 +88,17 @@
             async submit() {
                 var credentials = {
                     username: this.credentials.username,
-                    password: this.credentials.password
+                    password: this.credentials.password,
+                    name: this.credentials.name,
+                    nickname: this.credentials.nickname
                 };
                 // We need to pass the component's this context
                 // to properly make use of http in the auth service
+                console.log(this.validation.email)
                 if(this.isValid){
                     try{
                         await auth.signup(this,credentials,'/');
+
                     }catch(error){
                         if(error.message == 400){
                             this.warning = true;

@@ -48,7 +48,7 @@
                             <a href="investigaciones/favoritas"><i class="fa fa-fw fa-user-plus"></i>  MENU 3</a>
                         </li>
                         <li>
-                            <a @click="$router.push('user/0')"><i class="fa fa-fw fa-paper-plane-o" @click="$router.push('user/0')"></i> Персональная страница</a>
+                            <a @click="home"><i class="fa fa-fw fa-paper-plane-o" @click="home"></i> Персональная страница</a>
                         </li>
                         <li>
                             <a href="faq"><i class="fa fa-fw fa fa-question-circle"></i> MENU 5</a>
@@ -794,6 +794,19 @@
             toProfile(user){
                 let index = this.$store.state.users.indexOf(user);
                 this.$router.push('user/' + index);
+            },
+            home(){
+                let role = localStorage.getItem('role');
+                let index = -1;
+                console.log(localStorage.getItem('username'))
+                this.$store.state.users.forEach(function(item, i, arr) {
+                    if(item.username === localStorage.getItem('username')){
+                        index = i;
+                    }
+                });
+                if(role === 'admin'){
+                    this.$router.push('/user/'+index);
+                }
             },
         ...mapActions([
             'getRooms',

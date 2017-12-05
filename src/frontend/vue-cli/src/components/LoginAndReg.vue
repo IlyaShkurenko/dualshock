@@ -62,6 +62,7 @@
             home(){
                 let role = localStorage.getItem('role');
                 let index = -1;
+                console.log(localStorage.getItem('username'))
                 this.$store.state.users.forEach(function(item, i, arr) {
                     if(item.username === localStorage.getItem('username')){
                        index = i;

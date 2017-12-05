@@ -178,9 +178,9 @@ export const store = new Vuex.Store({
         users(state) {
             return ch.chunk(state.users,2)
         },
-        async indexByLogin(state){
-            await state.users.forEach(function(item, i, arr) {
-                if(item.username === 'ilya-shkurenko@mail.ru'){
+        indexByLogin(state){
+            state.users.forEach(function(item, i, arr) {
+                if(item.username === localStorage.getItem('username')){
                     console.log('index = ', i)
                     return i
                 }
