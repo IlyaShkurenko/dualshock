@@ -48,7 +48,7 @@
                             <a href="investigaciones/favoritas"><i class="fa fa-fw fa-user-plus"></i>  MENU 3</a>
                         </li>
                         <li>
-                            <a href="sugerencias"><i class="fa fa-fw fa-paper-plane-o"></i> MENU 4</a>
+                            <a @click="$router.push('user/0')"><i class="fa fa-fw fa-paper-plane-o" @click="$router.push('user/0')"></i> Персональная страница</a>
                         </li>
                         <li>
                             <a href="faq"><i class="fa fa-fw fa fa-question-circle"></i> MENU 5</a>
