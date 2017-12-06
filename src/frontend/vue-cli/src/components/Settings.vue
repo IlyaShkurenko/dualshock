@@ -137,44 +137,31 @@
                     <input type="hidden" name="BBFormKey" id="BBFormKey" value="5a2623562a715" />
                     <div class="tabContent">
                         <fieldset>
-                            <div class="h125">
-                                <div class="leftCentered">
-                                    <label for="CurrentPassword">Текущий пароль</label>
-                                    <div class="PaddedInput">
-                                        <input type="password" id="CurrentPassword" name="CurrentPassword" />
-                                    </div>
-                                </div>
-                                <div class="rightCentered">
-                                    <p>
-<span>
-Чтобы ваша учетная запись была защищена, мы просим вас повторно аутентифицироваться перед изменением пароля </span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="h125">
+                            <div class="alert alert-warning" v-if="!compare">Пароли не совпадают</div>
+                            <div class="h125" style="margin-top: 20px">
                                 <div class="leftCentered">
                                     <label for="NewPassword">Новый пароль</label>
                                     <div class="PaddedInput">
-                                        <input type="password" id="NewPassword" name="NewPassword" />
+                                        <input v-model="firstPassword" type="password" id="NewPassword" name="NewPassword" />
                                     </div>
                                 </div>
-                                <div class="rightCentered">
+                                <div class="rightCentered" style="margin-top: 30px; margin-bottom: -70px">
                                     <p>
 <span>
 Ограничения: вы не можете использовать специальные символы, такие как апострофы: <b class = 'Highlight'> '</b> и цитаты: <b class =' Highlight '> "</b> </span>
                                     </p>
                                 </div>
                             </div>
-                            <div class="h125">
+                            <div class="h125" style="margin-top: -50px">
                                 <div class="leftCentered">
                                     <label for="ConfirmPassword">Подтвердите пароль</label>
                                     <div class="PaddedInput">
-                                        <input type="password" id="ConfirmPassword" name="ConfirmPassword" />
+                                        <input v-model="secondPassword" type="password" id="ConfirmPassword" name="ConfirmPassword" />
                                     </div>
                                 </div>
                             </div>
                         </fieldset>
-                        <button type="submit" class="PaddedButton Green" style="float:left;margin-right:10px;margin-left:10px;">Сбросить ваш пароль</button>
+                        <button  @click="resetPassword" type="button" class="PaddedButton Green" id="load" style="float:left;margin-right:10px;margin-left:10px;" ><i :class="{'fa fa-spinner fa-spin': isActive}"></i>{{buttonPassword}}</button>
                         <a href="#" class="PaddedButton Red" style="float:left;">Отмена</a>
                     </div>
                 </div></div>
@@ -217,7 +204,10 @@
                 data: {},
                 isEmpty: false,
                 isActive: false,
-                buttonValue: 'Подтвердить изменения'
+                buttonValue: 'Подтвердить изменения',
+                buttonPassword: 'Сбросить пароль',
+                firstPassword: '',
+                secondPassword: ''
             }
         },
         components:{
@@ -246,19 +236,26 @@
                 return Object.keys(validation).every(function (key) {
                     return validation[key]
                 })
+            },
+            compare(){
+                    if(this.firstPassword === this.secondPassword){
+                        return true
+                    }
+                    return false
             }
         },
         methods: {
             async submit(){
+                if(!this.file){
+                    let file = new File([""], 'https/binarybeast.com/img/avatar/200.png');
+                    await this.selectImage(file);
+                }
                 if(this.isValid){
                     await this.returnData()
                     console.log(this.data)
                     this.buttonValue = 'Обрабатывается';
                     this.isActive = true;
                     this.$http.post('users/update', this.data, {
-                        headers: {
-                            'Content-Type': 'multipart/form-data; charset=UTF-8'
-                        }
                     }).then(
                         response => {
                             console.log('Success! Response: ', response.body);
@@ -271,8 +268,29 @@
                     );
                 }
             },
+            resetPassword() {
+                if (this.compare) {
+                    this.buttonPassword = 'Обрабатывается'
+                    this.data = new FormData();
+                    this.data.append('username', this.user.email);
+                    this.data.append('password', this.secondPassword);
+                    this.$http.post('users/reset', this.data, {
+                    }).then(
+                        response => {
+                            console.log('Success! Response: ', response.body);
+                            this.$router.push('/')
+                            location.reload();
+                        },
+                        response => {
+                            // error callback
+                        }
+                    );
+                }
+
+            },
             sync (e) {
                 e.preventDefault();
+                console.log(e.target.files[0])
                 this.selectImage(e.target.files[0]);
             },
             selectImage (file) {

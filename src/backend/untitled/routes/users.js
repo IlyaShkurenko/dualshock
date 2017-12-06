@@ -105,6 +105,7 @@ router.post('/users', async function(req, res) {
 });
 router.post('/users/update', async (req, res) => {
     let newRoom = {};
+    let fileUploaded = false;
     let index;
     let path = '';
     const UUID = require("uuid-v4");
@@ -124,8 +125,11 @@ router.post('/users/update', async (req, res) => {
                 path = downloadURL;
                 console.log(downloadURL);
             });
-            console.log(field,value);
-            fields[field] = value;
+            console.log(field,value)
+            if(value.size > 0){
+                fileUploaded = true;
+                fields[field] = value;
+            }
         })
         .on('field', function(name, value) {
             if(name === 'games'){
@@ -158,7 +162,9 @@ router.post('/users/update', async (req, res) => {
 
 
                 let file = data[0];
-                newRoom.img = "https://firebasestorage.googleapis.com/v0/b/" + bucket.name + "/o/" + encodeURIComponent(file.name) + "?alt=media&token=" + uuid;
+                if(fileUploaded){
+                    newRoom.img = "https://firebasestorage.googleapis.com/v0/b/" + bucket.name + "/o/" + encodeURIComponent(file.name) + "?alt=media&token=" + uuid;
+                }
                 User.findOne({username: newRoom.email}, function (err, room) {
                     if (!room) {
                         let error = {
@@ -168,9 +174,11 @@ router.post('/users/update', async (req, res) => {
                         res.json(error)
                     }
                     else {
+                        console.log(room)
                         for (let prop in newRoom) {
                             if ((prop !== '_id' || prop !== '__v') && newRoom[prop].length > 0) {
                                 room[prop] = newRoom[prop];
+                                console.log(prop,newRoom[prop])
                             }
                         }
                         room.save(function (err, updatedTank) {
@@ -184,6 +192,36 @@ router.post('/users/update', async (req, res) => {
                 return Promise.resolve("https://firebasestorage.googleapis.com/v0/b/" + bucket.name + "/o/" + encodeURIComponent(file.name) + "?alt=media&token=" + uuid);
             });
     };
+});
+router.post('/users/reset', async (req, res) => {
+    let newRoom = {};
+    //parse form
+    var form = new formidable.IncomingForm(),
+        fields = {};
+    await form
+        .on('error', function(err) {
+            res.writeHead(500, {'content-type': 'text/plain'});
+            res.end('error:\n\n'+util.inspect(err));
+            console.error(err);
+        })
+        .on('field', function(name, value) {
+                newRoom[name] = value;
+        })
+        .on('end', function () {
+            User.findOne({username: newRoom.username}, function (err, room) {
+                console.log('before = ' + room.hashedPassword)
+                if (room) {
+                    room.hashedPassword = room.encryptPassword(newRoom.password)
+                    console.log('after = ' + room.hashedPassword)
+                    room.save(function (err, updatedTank) {
+                        if (err) throw err;
+                    });
+                }
+            });
+        })
+    form.parse(req);
+    res.end()
+    //send image to firebase
 });
 router.post('/sessions/create', async function(req, res) {
     console.log(req.body.username, req.body.password);
