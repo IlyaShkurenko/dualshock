@@ -78,8 +78,15 @@
                                         <li class="dropdown">
                                             <a href="#" data-toggle="dropdown"><span class="fa fa-gamepad"></span> Приставки и комнаты</a>
                                             <ul class="dropdown-menu" role="menu">
-                                                <li><a href="#tabadd" data-toggle="tab"><span class="fa fa-beer"></span> Добавить</a></li>
-                                                <li><a href="#tabremove" data-toggle="tab"><span class="fa fa-beer"></span> Удалить</a></li>
+                                                <li><a href="#tabadd" data-toggle="tab"><span class="fa fa-gamepad"></span> Добавить</a></li>
+                                                <li><a href="#tabremove" data-toggle="tab"><span class="fa fa-gamepad"></span> Удалить</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" data-toggle="dropdown"><span class="fa fa-gamepad"></span> События</a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="#tabadd_event" data-toggle="tab"><span class="fa fa-gamepad"></span> Добавить</a></li>
+                                                <li><a href="#tabremove_event" data-toggle="tab"><span class="fa fa-gamepad"></span> Удалить</a></li>
                                             </ul>
                                         </li>
                                     </ul>
@@ -268,6 +275,8 @@
                                         </div>
                                         <div class="tab-pane fade" id="tab3primary">Primary 3</div>
                                         <div class="tab-pane fade" id="tabremove"><remove-cmp :rooms = "$store.getters.rooms" @deleteRoom = "deleteRoom"></remove-cmp></div>
+                                        <div class="tab-pane fade" id="tabremove_event"><remove-cmp :rooms = "$store.getters.rooms" @deleteRoom = "deleteRoom"></remove-cmp></div>
+                                        <div class="tab-pane fade" id="tabadd_event"><add-event @addEvent = "added"></add-event></div>
                                         <div class="tab-pane fade" id="tabadd"><add-cmp @addRoom = "added"></add-cmp></div>
                                         <div class="tab-pane fade" id="tabusers"><user-list-cmp :users = "$store.getters.users" @toProfile = "toProfile"></user-list-cmp></div>
                                         <p>
@@ -759,6 +768,7 @@
 <script>
     import Remove from './Remove.vue'
     import Add from './Items/AddItem.vue'
+    import AddEvent from './Items/AddEvent.vue'
     import UserList from './UserList.vue'
     import {mapGetters} from 'vuex'
     import {mapActions} from 'vuex'
@@ -776,7 +786,8 @@
         components: {
             removeCmp: Remove,
             addCmp: Add,
-            userListCmp: UserList
+            userListCmp: UserList,
+            addEvent: AddEvent
         },
         methods: {
             deleteRoom(room){

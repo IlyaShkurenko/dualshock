@@ -1,10 +1,30 @@
 <template>
-    <div :class="'info-block block' + (parseInt(index) + 1)" style="color: white">
+    <div><router-link to="/tournament/1">
+    <article>
+        <h1 style="font-family: 'Helvetica Narrow', sans-serif; font-weight: bold">
+            <a href=""
+               title="Create your own ninja in NARUTO TO BORUTO: SHINOBI STRIKER">
+                Турнир MK XL</a>
+        </h1>
 
-            <img :src = "getImgUrl(event.images[index])" style="width: 330px; height: 225px;">
-            <p>{{event.names[index]}}</p>
-            {{event.description[index]}}
+        <figure>
+            <a href=""
+               title="Create your own ninja in NARUTO TO BORUTO: SHINOBI STRIKER">
+                <img src="../images/mortal.jpeg"
+                     alt="Create your own ninja in NARUTO TO BORUTO: SHINOBI STRIKER">
+            </a>
+        </figure>
+        <div class="content">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+                &nbsp;
+                For the first time in ...</p>
+            <a href=""
+               class="more" title="Create your own ninja in NARUTO TO BORUTO: SHINOBI STRIKER">читать еще</a>
         </div>
+    </article>
+    </router-link>
+    </div>
 </template>
 <script>
     export default {
@@ -25,25 +45,8 @@
         }
     }
 </script>
-<style>
-    .info-block{
-        width: 400px;
-        height: 400px;
-        background-color: black;
-        margin-top: -1000px;
-        float: left;
-    }
-    .block1{
-        float: left;
-    }
-    .block2{
-        float: left;
-        margin-left: 620px;
+<style src='../../styles/main.css' scoped>
 
-    }
-    .block3{
-        float: right;
-    }
 </style>
 <!--<div class="info-block block2" style="color: white;">
     <img src="../images/mortal.jpeg" style="width: 280px; height: 225px;">

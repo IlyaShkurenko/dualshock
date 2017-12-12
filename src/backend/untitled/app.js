@@ -10,6 +10,7 @@ var remove = require('./routes/delete');
 var users = require('./routes/users');
 var rooms = require('./routes/rooms');
 var index = require('./routes/index');
+var event = require('./routes/event');
 var reserve = require('./routes/reserve');
 var router = express.Router();
 var app = express();
@@ -33,22 +34,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 app.use(cookieParser());
 app.use(cors());
-var MongoStore = require('connect-mongo')(session);
-/*app.use(session({
-  secret: config.get('session:secret'),
-  key: config.get('session:key'),
-  cookie: config.get('session:cookie'),
-  store: new MongoStore({
-      host: '127.0.0.1',
-      port: '27017',
-      db: 'session',
-      url: config.get('mongoose:uri')
-  })
-}));
-app.use(function (req,res, next) {
-   req.session.numberOfVisits = req.session.numberOfVisits +1 || 1;
-   res.send("Visits " + req.session.numberOfVisits);
-});*/
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'routes')));
 app.use(serveStatic(path.join(__dirname, 'dist')));
@@ -56,6 +41,7 @@ app.use('/rooms',rooms);
 app.use('/delete',remove);
 app.use(users);
 app.use('/reserve',reserve);
+app.use('/event',event);
 app.use(ignoreFavicon);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

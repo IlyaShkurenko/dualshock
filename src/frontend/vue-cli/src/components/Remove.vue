@@ -13,65 +13,71 @@
             <input type="hidden" name="search_param" value="name" id="search_param">
             <input type="text" v-model="filteredText" class="form-control" name="q" placeholder="Search.." id="search_key" value="">
         </div>
-        <item-cmp v-for="(item, index) in filteredRooms" :room = "item" :index = "index" @click.native = "deleteRoom(index)"> </item-cmp>
+        <item-cmp v-for="(item, index) in filteredRooms[page-1]" :room = "item" :index = "index" @click.native = "deleteRoom(item)"> </item-cmp>
         <a @click = "prevPage">Prev</a>
         <a @click = "nextPage">Next</a>
     </div>
 </template>
 <script>
-import Item from './Items/RemoveItem.vue'
-import ch from  'lodash'
+    import Item from './Items/RemoveItem.vue'
+    import ch from  'lodash'
     export default {
-    data(){
-        return {
-            filteredText: '',
-            selected: 'Id',
-            fields: ['Id', 'Description', 'Games', 'Capacity', 'Price'],
-            dash: [],
-            page: 1,
-            arrayRomms: []
-        }
-    },
-    components: {
-        itemCmp: Item,
-    },
+        data(){
+            return {
+                filteredText: '',
+                selected: 'Id',
+                fields: ['Id', 'Description', 'Games', 'Capacity', 'Price'],
+                dash: [],
+                page: 1,
+                arrayRomms: []
+            }
+        },
+        components: {
+            itemCmp: Item,
+        },
         methods:{
-         deleteRoom(index){
-             let room = this.rooms[this.page - 1][index];
-             this.$emit('deleteRoom',room);
-         },
-         nextPage(){
-             if(this.page < this.rooms.length){
-                 this.page++
-             }
-         },
-         prevPage(){
-             if(this.page - 1 !== 0){
-                 this.page--
-             }
-         }
+            deleteRoom(item){
+                this.$emit('deleteRoom',item);
+            },
+            nextPage(){
+                if(this.page < this.rooms.length){
+                    this.page++
+                }
+            },
+            prevPage(){
+                if(this.page - 1 !== 0){
+                    this.page--
+                }
+            }
 
-    },
+        },
         beforeCreate(){
-         this.arrayRooms = this.$store.getters.rooms
+            this.arrayRooms = this.$store.getters.rooms
         },
         props: {
-          rooms: Array
+            rooms: Array
         },
-        computed: {
-        filteredRooms(){
-            if(this.rooms.length > 0){
-                return this.rooms[this.page - 1].filter(post => {
-                    if(this.selected.toLowerCase() === 'games'){
-                        return post.games.join().toLowerCase().includes(this.filteredText.toLowerCase())
-                    }
-                    else if(this.selected.toLowerCase() === 'id'){
-                        return post.id.toString().toLowerCase().includes(this.filteredText.toLowerCase())
-                    }
-                    else return post[(this.selected).toLowerCase()].toLowerCase().includes(this.filteredText.toLowerCase())
-                })
+        asyncComputed: {
+            async filteredRooms() {
+                let array = await this.returnArray;
+                let newArray = ch.chunk(array,2);
+                return newArray
             }
-        }
+        },
+        computed:{
+            returnArray(){
+                if(this.rooms.length > 0){
+                    return this.$store.state.rooms.filter(post => {
+                        if(this.selected.toLowerCase() === 'games'){
+                            return post.games.join().toLowerCase().includes(this.filteredText.toLowerCase())
+                        }
+                        else if(this.selected.toLowerCase() === 'id'){
+                            return post.id.toString().toLowerCase().includes(this.filteredText.toLowerCase())
+                        }
+                        else return post[(this.selected).toLowerCase()].toLowerCase().includes(this.filteredText.toLowerCase())
+                    })
+                }
+            }
         }
     }
 </script>

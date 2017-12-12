@@ -116,7 +116,7 @@
             <div class="wrapperstart">
 
                 <ul>
-                    <li class="bloc-news">
+                    <!--<li class="bloc-news">
                         <router-link to="/tournament/1"><article>
                             <h1 style="font-family: 'Helvetica Narrow', sans-serif; font-weight: bold">
                                 <a href=""
@@ -140,33 +140,11 @@
                             </div>
                         </article>
                         </router-link>
+                    </li>-->
+                    <li  v-for="item in 3" class="bloc-news">
+                        <event-component></event-component>
                     </li>
-                    <li class="bloc-news">
-                        <article>
-                            <h1 style="font-family: 'Helvetica Narrow', sans-serif; font-weight: bold">
-                                <a href=""
-                                   title="Create your own ninja in NARUTO TO BORUTO: SHINOBI STRIKER">
-                                          Турнир MK XL</a>
-                            </h1>
-
-                            <figure>
-                                <a href=""
-                                   title="Create your own ninja in NARUTO TO BORUTO: SHINOBI STRIKER">
-                                    <img src="mortal.jpeg"
-                                         alt="Create your own ninja in NARUTO TO BORUTO: SHINOBI STRIKER">
-                                </a>
-                            </figure>
-                            <div class="content">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-                                    &nbsp;
-                                    For the first time in ...</p>
-                                <a href=""
-                                   class="more" title="Create your own ninja in NARUTO TO BORUTO: SHINOBI STRIKER">читать еще</a>
-                            </div>
-                        </article>
-                    </li>
-                    <li class="bloc-news">
+                   <!-- <li class="bloc-news">
                         <article>
                             <h1 style="font-family: 'Helvetica Narrow', sans-serif; font-weight: bold">
                                 <a href=""
@@ -189,7 +167,7 @@
                                    title="NARUTO SHIPPUDEN: Ultimate Ninja Blazing Celebrates First Anniversary With In Game Events and Updates">читать еще</a>
                             </div>
                         </article>
-                    </li>
+                    </li>-->
                 </ul>
 
 
