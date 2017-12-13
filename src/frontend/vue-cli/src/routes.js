@@ -22,7 +22,7 @@ export const routes = [
     {path: '/login', component: Login},
     {path: '/signup', component: SignUp},
     {path: '/settings', component: Settings},
-    {path: '/tournament/:id', component: Tournament},
+    {path: '/tournament', component: Tournament},
     {path: '/games', component: Games},
     {path: '/sale', component: Sale},
     {path: '/single/:id', component: SingleNews},

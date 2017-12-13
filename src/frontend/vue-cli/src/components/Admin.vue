@@ -275,7 +275,7 @@
                                         </div>
                                         <div class="tab-pane fade" id="tab3primary">Primary 3</div>
                                         <div class="tab-pane fade" id="tabremove"><remove-cmp :rooms = "$store.getters.rooms" @deleteRoom = "deleteRoom"></remove-cmp></div>
-                                        <div class="tab-pane fade" id="tabremove_event"><remove-cmp :rooms = "$store.getters.rooms" @deleteRoom = "deleteRoom"></remove-cmp></div>
+                                        <div class="tab-pane fade" id="tabremove_event"><removeevent-cmp :events = "$store.getters.events" @deleteEvent = "deleteEvent"></removeevent-cmp></div>
                                         <div class="tab-pane fade" id="tabadd_event"><add-event @addEvent = "added"></add-event></div>
                                         <div class="tab-pane fade" id="tabadd"><add-cmp @addRoom = "added"></add-cmp></div>
                                         <div class="tab-pane fade" id="tabusers"><user-list-cmp :users = "$store.getters.users" @toProfile = "toProfile"></user-list-cmp></div>
@@ -767,6 +767,7 @@
 
 <script>
     import Remove from './Remove.vue'
+    import RemoveEvent from './RemoveEvent.vue'
     import Add from './Items/AddItem.vue'
     import AddEvent from './Items/AddEvent.vue'
     import UserList from './UserList.vue'
@@ -775,7 +776,8 @@
     export default {
         data(){
             return{
-                rm: this.$store.state.rooms
+                rm: this.$store.state.rooms,
+                ev: this.$store.state.events
             }
         },
         beforeCreate(){
@@ -785,6 +787,7 @@
         },
         components: {
             removeCmp: Remove,
+            removeeventCmp: RemoveEvent,
             addCmp: Add,
             userListCmp: UserList,
             addEvent: AddEvent
@@ -792,9 +795,15 @@
         methods: {
             deleteRoom(room){
                 let index = this.$store.state.rooms.indexOf(room);
-                console.log(index);
                 this.$store.state.rooms.splice(index,1);
                 this.delRooms(room);
+                location.reload();
+                //this.getRooms()
+            },
+            deleteEvent(event){
+                let index = this.$store.state.events.indexOf(event);
+                this.$store.state.events.splice(index,1);
+                this.delEvent(event);
                 location.reload();
                 //this.getRooms()
             },
@@ -822,7 +831,8 @@
         ...mapActions([
             'getRooms',
             'delRooms',
-            'getUsers'
+            'getUsers',
+            'delEvent',
         ])
         },
         computed: {

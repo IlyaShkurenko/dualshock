@@ -12,8 +12,6 @@ router.options('*', cors());
 util = require('util');
 /* GET home page. */
 router.get('/',async function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');
     var userMap = {};
     await Room.find({}, function(err, users) {
 
@@ -23,6 +21,23 @@ router.get('/',async function (req, res, next) {
         res.json(userMap);
     });
 });
+router.post('/remove',async function (req, res, next) {
+    let index;
+    var form = new formidable.IncomingForm(),
+        fields = {};
+    form
+        .on('error', function(err) {
+            res.writeHead(500, {'content-type': 'text/plain'});
+            res.end('error:\n\n'+util.inspect(err));
+            console.error(err);
+        })
+        .on('field', function(name, value) {
+            index = value;
+            ref.remove(value);
+            res.send('deleted')
+        });
+    form.parse(req);
+});
 router.post('/', async (req, res) => {
     let newRoom = {};
     let index;
@@ -31,7 +46,7 @@ router.post('/', async (req, res) => {
         .sort('id')  // give me the max
         .exec(function (err, member) {
             if(err){
-                console.log('errorr')
+                console.log('error')
                 index = 1
             }
             else {

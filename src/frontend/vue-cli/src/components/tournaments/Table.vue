@@ -3,15 +3,15 @@
         <table class="toolsTable">
             <tr>
                 <th>Статус</th>
-                <td>Набор участников</td>
+                <td>{{getStatus()}}</td>
             </tr>
             <tr>
                 <th>Игра</th>
-                <td><img src="https://firebasestorage.googleapis.com/v0/b/vue-app-75351.appspot.com/o/fifa-iloveimg-compressed.jpeg?alt=media&token=57a9fe4c-3d08-447e-9030-ffdc0ff47c29" alt="Counter-Strike: Global Offensive"  style="width: 30px; height: 30px"/><a href="/game/load/CSGO">FIFA 18</a></td>
+                <td><img :src="tournament.img" alt="Counter-Strike: Global Offensive"  style="width: 30px; height: 30px"/><a href="/game/load/CSGO">FIFA 18</a></td>
             </tr>
             <tr>
                 <th>Максимум игроков</th>
-                <td>16</td>
+                <td>{{tournament.max}}</td>
             </tr>
             <tr>
                 <th>Зарегистрировано</th>
@@ -23,15 +23,15 @@
             </tr>
             <tr>
                 <th>Мод</th>
-                <td>1v1</td>
+                <td>{{tournament.mod}}</td>
             </tr>
             <tr>
                 <th>Правила</th>
-                <td>-</td>
+                <td>{{tournament.rules}}</td>
             </tr>
             <tr>
                 <th>Дата начала</th>
-                <td>День Месяц Число, Год</td>
+                <td>{{tournament.date}}</td>
             </tr>
             <tr>
                 <th>Просмотры турнира</th>
@@ -39,15 +39,15 @@
             </tr>
             <tr>
                 <th>Денежный сбор</th>
-                <td>100 грн</td>
+                <td>{{tournament.picking}}</td>
             </tr>
             <tr>
                 <th>Призовой фонд</th>
-                <td>1000 грн</td>
+                <td>{{tournament.prize}}</td>
             </tr>
             <tr>
                 <th>Дополнительный приз</th>
-                <td>Скидка 5%</td>
+                <td>{{tournament.additional}}</td>
             </tr>
         </table>
         <div id="details">
@@ -255,3 +255,23 @@
 
 
 </style>
+<script>
+    export default {
+        data(){
+          return{
+              status: this.tournament.status
+        }
+        },
+        props:{
+            tournament: Object
+        },
+        methods:{
+            getStatus(){
+                if(this.status){
+                    return 'Начался'
+                }
+                else return 'Набор участников'
+            }
+        }
+    }
+</script>

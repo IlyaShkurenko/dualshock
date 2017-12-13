@@ -141,8 +141,8 @@
                         </article>
                         </router-link>
                     </li>-->
-                    <li  v-for="item in 3" class="bloc-news">
-                        <event-component></event-component>
+                    <li  v-for="item in $store.state.events" class="bloc-news">
+                        <event-component :event="item"></event-component>
                     </li>
                    <!-- <li class="bloc-news">
                         <article>

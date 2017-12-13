@@ -7,6 +7,7 @@ export const store = new Vuex.Store({
     state: {
         slider: [],
         rooms: [],
+        events: [],
         roomsForSave: [],
         users: [],
         games: ' ',
@@ -26,6 +27,9 @@ export const store = new Vuex.Store({
         getRooms({commit}) {
             commit('GET_ROOM')
         },
+        getEvents({commit}) {
+            commit('GET_EVENT')
+        },
         getUsers({commit}) {
             commit('GET_USER')
         },
@@ -34,6 +38,9 @@ export const store = new Vuex.Store({
         },
         delRooms({commit}, room) {
             commit('DEL_ROOM', room)
+        },
+        delEvent({commit}, event) {
+            commit('DEL_EVENT', event)
         },
         getArray({commit}) {
             commit('GET_ARRAY')
@@ -77,6 +84,21 @@ export const store = new Vuex.Store({
                         length-=4;
                     }
                     state.slider[count] = length;
+                })
+        },
+        GET_EVENT(state) {
+            Vue.http.get('event')
+                .then(response => {
+                    return response.json();
+                })
+                .then(data => {
+                    const result = [];
+                    for(let key in data){
+                        result.push(data[key]);
+                    }
+                    state.events = result
+
+                    return state.events
                 })
         },
         GET_USER(state) {
@@ -139,6 +161,20 @@ export const store = new Vuex.Store({
                 }
             );
         },
+        DEL_EVENT(state,room) {
+            var data = new FormData();
+            data.append( "id", room.id );
+            console.log(room.id);
+            Vue.http.post('event/remove', data, {
+                headers: {
+                    'Content-Type': 'multipart/form-data; charset=UTF-8'
+                }
+            }).then(
+                response => {
+                    console.log('Success! Response: ', response.body);
+                }
+            );
+        },
         GET_ARRAY(state) {
             let count = 0;
             let length = state.rooms.length - 4;
@@ -174,6 +210,9 @@ export const store = new Vuex.Store({
     getters: {
         rooms(state) {
             return ch.chunk(state.rooms,2)
+        },
+        events(state) {
+            return ch.chunk(state.events,2)
         },
         users(state) {
             return ch.chunk(state.users,2)

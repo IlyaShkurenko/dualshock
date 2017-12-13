@@ -42,21 +42,12 @@ app.use('/delete',remove);
 app.use(users);
 app.use('/reserve',reserve);
 app.use('/event',event);
-app.use(ignoreFavicon);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
-function ignoreFavicon(req, res, next) {
-    if (req.url === '/favicon.ico') {
-        res.writeHead(200, {'Content-Type': 'image/x-icon'} );
-        res.end();
-        console.log('favicon requested');
-        return;
-    }
-}
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development

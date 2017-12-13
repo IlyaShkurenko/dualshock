@@ -15,13 +15,13 @@
             </ul>
         </div>
         <div id="Breadcrumbs">
-            <a href="/" class=""><span>DualShock</span></a><a href="/tourney" class="previous"><span>Турниры</span></a><a href="/xCSGO1710032" class="Last"><span>FIFA18 | Турнир открытие</span></a>
+            <a href="/" class=""><span>Dualshock</span></a><a href="/tourney" class="previous"><span>Турниры</span></a><a href="/xCSGO1710032" class="Last"><span>FIFA18 | Турнир открытие</span></a>
         </div>
         <div id="BreadcrumbsFiller">&nbsp;</div>
         <div class="adWide top">
         </div><div id="Error"><img src="" alt="" /><span></span></div><div id="Message"><img src="" alt="" /><span></span></div><div id="tourneyTitleBar">
         <h2>
-            <img src="https://firebasestorage.googleapis.com/v0/b/vue-app-75351.appspot.com/o/fifa-iloveimg-compressed.jpeg?alt=media&token=57a9fe4c-3d08-447e-9030-ffdc0ff47c29" alt="FIFA 18" style="height: 30px; width: 30px; margin-top: 10px"/>FIFA18 | Турнир открытие </h2>
+            <img :src="$store.state.events[$route.query.id - 1].img" :alt="$store.state.events[$route.query.id - 1].title" style="height: 30px; width: 30px; margin-top: 10px"/>{{$store.state.events[$route.query.id - 1].title}}</h2>
         <div id="ajaxNav">
             <div id="ajaxLoading">
             </div>
@@ -31,7 +31,7 @@
         <a href="/xCSGO1710032/join" class="join">Присоединится</a>
 
     </div>
-        <div id="tourneyBannerContainer" style="height: 27vw; width: 80vw">
+        <div id="tourneyBannerContainer" style="height: 27vw; width: 80vw" v-bind:style="{ backgroundImage: 'url(' + $store.state.events[$route.query.id - 1].img + ')' }">
             <div id="tourneyBanner" style="height: 99%; width: 100%"></div>
         </div>
         <div id="socialButtons">
@@ -42,7 +42,7 @@
                 <a href="#brackets" class="current" @click="brackets = 2">Сетка</a>
                 <a href="#brackets" class="current" @click="brackets = 3">Игроки</a>
             </div>
-            <table-cmp v-if="brackets === 1"></table-cmp>
+            <table-cmp :tournament="$store.state.events[$route.query.id - 1]" v-if="brackets === 1"></table-cmp>
             <brackets-cmp v-else-if="brackets === 2"></brackets-cmp>
             <participants-cmp v-else></participants-cmp>
         </div>
@@ -66,7 +66,7 @@
         padding: 0
     }
     #tourneyBanner{
-        background-image: url("http://static.mvideo.ru/media/Promotions/Promo_Page/2017/June/fifa-18/fifa-18-top1-d.png");
+
         background-size: 100%  100%;
 
     }
@@ -1126,7 +1126,9 @@
     export default {
         data(){
             return{
-                brackets: 1
+                brackets: 1,
+                index: this.$route.params.id,
+                event: {},
             }
         },
         components: {
@@ -1137,6 +1139,45 @@
             tableCmp: Table,
             bracketsCmp: Brackets,
             participantsCmp: Participants
+        },
+        methods:{
+            async setEvent(){
+               let ev = {}
+               await this.$store.state.events.forEach(function(item, i, arr)
+                {
+                    if(item.id == this.$route.params.id){
+                        ev = item
+                    }
+                });
+                return ev;
+            },
+             getParameterByName(name, url) {
+                 if (!url) url = window.location.href;
+                 console.log('url = ', url)
+             }
+        },
+        async created(){
+            console.log('params = ', this.$route.query.id)
+            this.$store.state.events.forEach(function(item, i, arr)
+            {
+                if(item.id == this.$route.params.id){
+                    this.event = item
+                }
+            });
+            this.setEvent();
+        },
+        asyncComputed:{
+            async getEvent(){
+                let event;
+                await this.$store.state.events.forEach(function(item, i, arr)
+                {
+                    if(item.id == 2){
+                       // console.log('params = ', this.$route.query.id)
+                        event = item
+                    }
+                });
+                return event;
+            }
         }
     }
 </script>

@@ -1,16 +1,16 @@
 <template>
-    <div><router-link to="/tournament/1">
+    <div>
     <article>
         <h1 style="font-family: 'Helvetica Narrow', sans-serif; font-weight: bold">
             <a href=""
                title="Create your own ninja in NARUTO TO BORUTO: SHINOBI STRIKER">
-                Турнир MK XL</a>
+                {{event.title}}</a>
         </h1>
 
         <figure>
             <a href=""
                title="Create your own ninja in NARUTO TO BORUTO: SHINOBI STRIKER">
-                <img src="../images/mortal.jpeg"
+                <img :src="event.img"
                      alt="Create your own ninja in NARUTO TO BORUTO: SHINOBI STRIKER">
             </a>
         </figure>
@@ -19,11 +19,10 @@
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
                 &nbsp;
                 For the first time in ...</p>
-            <a href=""
-               class="more" title="Create your own ninja in NARUTO TO BORUTO: SHINOBI STRIKER">читать еще</a>
+            <a
+               class="more" :title="event.title" @click="toEvent">читать еще</a>
         </div>
     </article>
-    </router-link>
     </div>
 </template>
 <script>
@@ -41,6 +40,11 @@
             getImgUrl(img) {
                 var images = require.context('../images/', false, /\.png$/);
                 return images('./' + img)
+            },
+            toEvent(){
+                if(this.event.category === 'Турнир'){
+                    this.$router.push({ path: 'tournament', query: { id: this.event.id }})
+                }
             }
         }
     }
