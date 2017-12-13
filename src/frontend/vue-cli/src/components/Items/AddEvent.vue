@@ -89,6 +89,7 @@
                                     class="image-uploader__image"
                                     ref="img"
                                     :src="src"
+                                    style="width: 100%"
                             >
                         </div>
 

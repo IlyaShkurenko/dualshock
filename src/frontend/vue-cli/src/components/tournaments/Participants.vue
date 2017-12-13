@@ -1,4 +1,5 @@
 <template>
+    <div>
     <div class="tools current" id="#table">
     <table id="participantsTable">
         <tr>
@@ -11,7 +12,7 @@
         </tr>
         <tr v-for="(item,index) in statusArray">
             <td><img src="https://binarybeast.com/img/avatar/200.png" style="width: 25px; height: 25px"></td>
-            <td>User {{index + 1}}</td>
+            <td>{{tournament.participants[index].part}}</td>
             <td class="status">{{item}}</td>
             <td><img src="//binarybeast.com/img/Icons/flagicons/ua.png" alt="Russian Federation" title="Russian Federation"/></td>
             <td>0</td>
@@ -23,10 +24,20 @@
                     :value="true"
                     type="checkbox"
                     :checked="active[index]"
+                    v-if="admin"
             />
             <label :for="'checkbox' + index + 1" @click="changeStatus(index)"></label>
         </tr>
     </table>
+        <div v-if="admin" class="row">
+            <div class="col-md-1">
+                <button  @click = "confirmChanges" type="button" class="PaddedButton Green" id="load" ><i :class="{'fa fa-spinner fa-spin': isActiveConfirm}"></i>{{buttonConfirm}}</button>
+            </div>
+            <div v-if="enought" class="col-md-3">
+                <button  @click = "begin" type="button" class="PaddedButton Orange" id="load" ><i :class="{'fa fa-spinner fa-spin': isActiveBegin}"></i>{{buttonBegin}}</button>
+            </div>
+        </div>
+    </div>
     </div>
 </template>
 <style scoped>
@@ -183,7 +194,33 @@
 
 
 
+    .PaddedButton {
+        display: block;
+        clear: none;
+        line-height: 25px;
+        background: rgba(0, 0, 0, 0.25);
+        border: none;
+        color: #0AF;
+        text-shadow: 1px 1px 0 #000;
+        font-family: Cuprum;
+        font-size: 1.4em;
+        text-align: center;
+        margin: 10px auto;
+        padding: 3px 10px
+    }
 
+    .PaddedButton.Green {
+        color: #6FAF1E
+    }
+    .PaddedButton.Green:hover, .PaddedButton.Green:focus {
+        background: #6FAF1E;
+        color: #FFF
+    }
+
+    .PaddedButton.Orange:hover, .PaddedButton.Orange:focus {
+        background: #D86F13;
+        color: #FFF
+    }
 </style>
 <script>
     export default {
@@ -191,18 +228,29 @@
             return{
                 status: [],
                 send:[],
-                length: 10,
-                active: []
+                length: this.tournament.participants.length,
+                active: [],
+                isActiveConfirm: false,
+                isActiveBegin: false,
+                buttonConfirm: 'Подтвердить',
+                buttonBegin: 'Начать турнир',
             }
         },
         created(){
            for(let i = 0; i < this.length; i++){
-               this.status[i] = 'Не подтвержден';
-               this.active[i] = false
+               if(this.tournament.participants[i].status === 'true'){
+                   this.status[i] = 'Принят';
+                   this.active[i] = true;
+               }
+               else{
+                   this.status[i] = 'Не подтвержден';
+                   this.active[i] = false;
+               }
            }
-           this.status[2] = 'Принят';
-           this.active[2] = true;
 
+        },
+        props:{
+            tournament: Object
         },
         methods:{
             changeStatus(index){
@@ -215,12 +263,51 @@
                     this.status[index] = 'Принят';
                     this.active[index] = true
                 }
+            },
+            confirmChanges(){
+                this.buttonConfirm = 'Обрабатывается';
+                this.isActiveConfirm = true;
+                let confirmed = [];
+                this.active.forEach(function (item,i) {
+                    if(item){
+                        confirmed.push(i)
+                    }
+                })
+                var data = new FormData();
+                data.append("confirmed", this.active);
+                data.append("id", this.$route.query.id);
+                console.log(this.active)
+                this.$http.post('event/confirm', data, {}).then(
+                    response => {
+                        this.$store.dispatch('getEvents')
+                        console.log(response.ok)
+                        this.$router.go(this.$router.currentRoute);
+                    }
+                );
             }
         },
         computed: {
             statusArray(){
                 return this.status;
             },
+            admin(){
+                return localStorage.getItem('role') === 'admin'
+            },
+            enought(){
+                return this.tournament.participants.length === this.tournament.max
+            }
+        },
+        asyncComputed:{
+        async changed(){
+            let change = false
+            await this.active.forEach(function (item, i, arr) {
+                if(item) {
+                    console.log('item = ', item)
+                    change = true
+                }
+            });
+            return change
+        }
         }
     }
 </script>

@@ -1,58 +1,71 @@
 <template>
     <div>
-    <body class="logged  xCSGO1710032">
-    <header-cmp></header-cmp>
-    <loginandreg></loginandreg>
-    <div class="w960" style="overflow: hidden; margin-top: 50px">
-        <div class="nav">
-            <ul>
-                <li>
-                    <a href="/" class="home "><span></span></a>
-                </li>
-                <li>
-                    <a href="/tourney/list/public" class="current">Турниры</a>
-                </li>
-            </ul>
-        </div>
-        <div id="Breadcrumbs">
-            <a href="/" class=""><span>Dualshock</span></a><a href="/tourney" class="previous"><span>Турниры</span></a><a href="/xCSGO1710032" class="Last"><span>FIFA18 | Турнир открытие</span></a>
-        </div>
-        <div id="BreadcrumbsFiller">&nbsp;</div>
-        <div class="adWide top">
-        </div><div id="Error"><img src="" alt="" /><span></span></div><div id="Message"><img src="" alt="" /><span></span></div><div id="tourneyTitleBar">
-        <h2>
-            <img :src="$store.state.events[$route.query.id - 1].img" :alt="$store.state.events[$route.query.id - 1].title" style="height: 30px; width: 30px; margin-top: 10px"/>{{$store.state.events[$route.query.id - 1].title}}</h2>
-        <div id="ajaxNav">
-            <div id="ajaxLoading">
+        <body class="logged  xCSGO1710032">
+        <header-cmp></header-cmp>
+        <loginandreg></loginandreg>
+        <div class="w960" style="overflow: hidden; margin-top: 50px">
+            <div class="nav">
+                <ul>
+                    <li>
+                        <a href="/" class="home "><span></span></a>
+                    </li>
+                    <li>
+                        <a href="/tourney/list/public" class="current">Турниры</a>
+                    </li>
+                </ul>
             </div>
-            <a href="#streams">Трансляции</a>
-            <a href="#info" class="current">Информация</a>
-        </div>
-        <a href="/xCSGO1710032/join" class="join">Присоединится</a>
+            <div id="Breadcrumbs">
+                <a href="/" class=""><span>Dualshock</span></a><a href="/tourney" class="previous"><span>Турниры</span></a><a
+                    href="/xCSGO1710032" class="Last"><span>FIFA18 | Турнир открытие</span></a>
+            </div>
+            <div id="BreadcrumbsFiller">&nbsp;</div>
+            <div class="adWide top">
+            </div>
+            <div id="Error"><img src="" alt=""/><span></span></div>
+            <div id="Message"><img src="" alt=""/><span></span></div>
+            <div id="tourneyTitleBar">
+                <h2>
+                    <img :src="$store.state.events[$route.query.id - 1].img"
+                         :alt="$store.state.events[$route.query.id - 1].title"
+                         style="height: 30px; width: 30px; margin-top: 10px"/>{{$store.state.events[$route.query.id - 1].title}}
+                </h2>
+                <div id="ajaxNav">
+                    <div id="ajaxLoading">
+                    </div>
+                    <a href="#streams">Трансляции</a>
+                    <a href="#info" class="current">Информация</a>
+                </div>
+                <a class="join" @click="join">{{getButton}}</a>
 
-    </div>
-        <div id="tourneyBannerContainer" style="height: 27vw; width: 80vw" v-bind:style="{ backgroundImage: 'url(' + $store.state.events[$route.query.id - 1].img + ')' }">
-            <div id="tourneyBanner" style="height: 99%; width: 100%"></div>
-        </div>
-        <div id="socialButtons">
-        </div></div><div id="tourneyContent"><div class="w960">
-        <div id="toolsContainer">
-            <div id="toolsNav">
-                <a href="#table" class="current" @click="brackets = 1">Детали</a>
-                <a href="#brackets" class="current" @click="brackets = 2">Сетка</a>
-                <a href="#brackets" class="current" @click="brackets = 3">Игроки</a>
             </div>
-            <table-cmp :tournament="$store.state.events[$route.query.id - 1]" v-if="brackets === 1"></table-cmp>
-            <brackets-cmp v-else-if="brackets === 2"></brackets-cmp>
-            <participants-cmp v-else></participants-cmp>
+            <div id="tourneyBannerContainer" style="height: 23vw; width: 80vw; background-size: 100%"
+                 v-bind:style="{ backgroundImage: 'url(' + $store.state.events[$route.query.id - 1].img + ')' }">
+                <div id="tourneyBanner" style="height: 99%; width: 100%"></div>
+            </div>
+            <div id="socialButtons">
+            </div>
         </div>
-       </div></div><div class="w960"></div>
-    <div class="adWide bottom">
-      </div>
-    <div id="sponsorLogos">
-    </div>
-    <logo-cmp></logo-cmp>
-    </body>
+        <div id="tourneyContent">
+            <div class="w960">
+                <div id="toolsContainer">
+                    <div id="toolsNav">
+                        <a href="#table" class="current" @click="brackets = 1">Детали</a>
+                        <a href="#brackets" class="current" @click="brackets = 2">Сетка</a>
+                        <a href="#brackets" class="current" @click="brackets = 3">Игроки</a>
+                    </div>
+                    <table-cmp :tournament="$store.state.events[$route.query.id - 1]" v-if="brackets === 1"></table-cmp>
+                    <brackets-cmp v-else-if="brackets === 2"></brackets-cmp>
+                    <participants-cmp :tournament="$store.state.events[$route.query.id - 1]" v-else></participants-cmp>
+                </div>
+            </div>
+        </div>
+        <div class="w960"></div>
+        <div class="adWide bottom">
+        </div>
+        <div id="sponsorLogos">
+        </div>
+        <logo-cmp></logo-cmp>
+        </body>
     </div>
 </template>
 <style scoped>
@@ -65,14 +78,17 @@
         margin: 0;
         padding: 0
     }
-    #tourneyBanner{
 
-        background-size: 100%  100%;
+    #tourneyBanner {
+
+        background-size: 100% 100%;
 
     }
-    #tourneyBanner img{
+
+    #tourneyBanner img {
         height: 10px;
     }
+
     body {
         line-height: 1.5;
         position: relative;
@@ -80,7 +96,8 @@
         background-size: 100%;
         border: 0;
         color: #FFF;
-        font-family: 'Helvetica Narrow', sans-serif; font-weight: bold;
+        font-family: 'Helvetica Narrow', sans-serif;
+        font-weight: bold;
         font-size: 12px;
         text-align: left
     }
@@ -131,11 +148,9 @@
         margin: 0 auto
     }
 
-
     hr {
         border: 1px solid #333
     }
-
 
     a {
         color: #0AF;
@@ -363,6 +378,7 @@
         background: rgba(0, 0, 0, 0.25);
         margin: -40px 0 10px
     }
+
     button img {
         vertical-align: bottom
     }
@@ -410,7 +426,6 @@
         cursor: pointer
     }
 
-
     .listTable table tr th {
         background: rgba(0, 0, 0, 0.50);
         color: #0AF;
@@ -432,7 +447,6 @@
         background: rgba(0, 0, 0, 0.30)
     }
 
-
     .listControls p {
         color: #888;
         display: block;
@@ -443,6 +457,7 @@
         padding-left: 10px;
         text-shadow: 1px 1px 0 #000
     }
+
     .listControls .buttons button {
         display: inline-block;
         float: left;
@@ -551,6 +566,7 @@
         vertical-align: middle;
         padding: 0 2px 0 0
     }
+
     .terminal .terminal-output div {
         display: block
     }
@@ -574,7 +590,6 @@
     .positioner a {
         z-index: 2 !important
     }
-
 
     ul#bracketNav li a.current {
         border-right: 1px solid #484848 !important;
@@ -885,7 +900,8 @@
         height: 35px;
         line-height: 25px;
         background: rgba(0, 0, 0, 0.25);
-        font-family: 'Helvetica Narrow', sans-serif; font-weight: bold;
+        font-family: 'Helvetica Narrow', sans-serif;
+        font-weight: bold;
         font-size: 12pt;
         color: #0AF;
         margin-bottom: 1px;
@@ -1029,7 +1045,8 @@
         display: block;
         height: 35px;
         line-height: 35px;
-        font-family: 'Helvetica Narrow', sans-serif; font-weight: bold;
+        font-family: 'Helvetica Narrow', sans-serif;
+        font-weight: bold;
         font-size: 1.4em;
         text-shadow: 1px 1px 0 #000;
         color: #0AF;
@@ -1123,12 +1140,15 @@
     import Table from './Table.vue'
     import Brackets from './Brackets.vue'
     import Participants from './Participants.vue';
+    import auth from '../../auth'
+
     export default {
-        data(){
-            return{
+        data() {
+            return {
                 brackets: 1,
                 index: this.$route.params.id,
                 event: {},
+                joinButton: ''
             }
         },
         components: {
@@ -1140,43 +1160,91 @@
             bracketsCmp: Brackets,
             participantsCmp: Participants
         },
-        methods:{
-            async setEvent(){
-               let ev = {}
-               await this.$store.state.events.forEach(function(item, i, arr)
-                {
-                    if(item.id == this.$route.params.id){
+        methods: {
+            async setEvent() {
+                let ev = {}
+                await this.$store.state.events.forEach(function (item, i, arr) {
+                    if (item.id == this.$route.params.id) {
                         ev = item
                     }
                 });
                 return ev;
             },
-             getParameterByName(name, url) {
-                 if (!url) url = window.location.href;
-                 console.log('url = ', url)
-             }
+            getParameterByName(name, url) {
+                if (!url) url = window.location.href;
+                console.log('url = ', url)
+            },
+            join() {
+                if (!auth.user.authenticated) {
+                    this.$router.push('/login')
+                }
+                else {
+                    let participant = {
+                        part: localStorage.getItem('username'),
+                        status: false
+                    }
+                    var data = new FormData();
+                    data.append("participant", participant.part);
+                    data.append("id", this.$route.query.id);
+                    this.$http.post('event/join', data, {}).then(
+                        response => {
+                            this.$store.dispatch('getEvents')
+                            console.log(response.ok)
+                            this.$router.go(this.$router.currentRoute);
+                        }
+                    );
+                }
+            }
         },
-        async created(){
+        async created() {
             console.log('params = ', this.$route.query.id)
-            this.$store.state.events.forEach(function(item, i, arr)
+            /*this.$store.state.events.forEach(function(item, i, arr)
             {
                 if(item.id == this.$route.params.id){
                     this.event = item
                 }
             });
-            this.setEvent();
+            this.setEvent();*/
+            /* await  this.$store.state.events.forEach(function(item, i, arr)
+               {
+                   if(item.category === 'Турнир'){
+                       item.participants.forEach(function (part, i, arr) {
+                           if(part.part === localStorage.getItem('username')){
+                               this.joinButton = 'Выйти'
+                           }
+                           else this.joinButton = 'Присоединиться'
+                       })
+                   }
+               })*/
+            console.log('params = ', this.joinButton)
         },
-        asyncComputed:{
-            async getEvent(){
+        asyncComputed: {
+            async getEvent() {
                 let event;
-                await this.$store.state.events.forEach(function(item, i, arr)
-                {
-                    if(item.id == 2){
-                       // console.log('params = ', this.$route.query.id)
+                await this.$store.state.events.forEach(function (item, i, arr) {
+                    if (item.id == 2) {
+                        // console.log('params = ', this.$route.query.id)
                         event = item
                     }
                 });
                 return event;
+            },
+            async getButton() {
+                let button = '';
+                await this.$store.state.events.forEach(function (item, i, arr) {
+                    if (item.category === 'Турнир') {
+                        if (item.participants.length > 0) {
+                            item.participants.forEach(function (part, i, arr) {
+                                if (part.part === localStorage.getItem('username')) {
+                                    button = 'Выйти'
+                                }
+                                else button = 'Присоединиться'
+                            })
+                        }
+                        else button = 'Присоединиться'
+                    }
+                })
+                return button
             }
         }
     }

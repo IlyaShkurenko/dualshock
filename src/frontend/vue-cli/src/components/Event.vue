@@ -10,7 +10,7 @@
         <figure>
             <a href=""
                title="Create your own ninja in NARUTO TO BORUTO: SHINOBI STRIKER">
-                <img :src="event.img"
+                <img :src="event.img" style="background-size: 100%"
                      alt="Create your own ninja in NARUTO TO BORUTO: SHINOBI STRIKER">
             </a>
         </figure>

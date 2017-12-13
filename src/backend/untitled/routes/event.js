@@ -6,14 +6,14 @@ var path = require('path');
 var multer  = require('multer');
 var formidable = require('formidable');
 var fileWrite = require('../src/file');
-var Room = require('../models/event').Event;
+var Event = require('../models/event').Event;
 var cors = require('cors');
 router.options('*', cors());
 util = require('util');
 /* GET home page. */
 router.get('/',async function (req, res, next) {
     var userMap = {};
-    await Room.find({}, function(err, users) {
+    await Event.find({}, function(err, users) {
 
         users.forEach(function(user) {
             userMap[user._id] = user;
@@ -38,10 +38,100 @@ router.post('/remove',async function (req, res, next) {
         });
     form.parse(req);
 });
-router.post('/', async (req, res) => {
-    let newRoom = {};
+router.post('/confirm',async function (req, res, next) {
     let index;
-    Room
+    let array = []
+    let save = []
+    var form = new formidable.IncomingForm(),
+        fields = {};
+    form
+        .on('error', function(err) {
+            res.writeHead(500, {'content-type': 'text/plain'});
+            res.end('error:\n\n'+util.inspect(err));
+            console.error(err);
+        })
+        .on('field', function(name, value) {
+            if(name === 'id'){
+                index = value;
+            }
+            else if(name === 'confirmed'){
+                array = value.split(',')
+            }
+                Event.findOne({id: index}, async function (err, event) {
+                    if (!event) {
+                        let error = {
+                            status: 404,
+                            message: 'Incorrect id'
+                        }
+                    }
+                    else {
+                        save = await event.participants;
+                        event.participants = await [];
+                        await array.forEach(function (item,i) {
+                            save[i].status = item
+                        })
+                        await save.forEach(function (item,i) {
+                            event.participants.push(item)
+                        })
+                        console.log(save)
+                        await event.save(function (err, updatedTank) {
+                            if (err) throw err;
+                            console.log(updatedTank)
+                        });
+                        console.log('-> post done');
+                    }
+                });
+            //ref.remove(value);
+            res.end()
+        });
+    form.parse(req);
+});
+router.post('/join',async function (req, res, next) {
+    let index;
+    let participant = {
+        part: '',
+        status: false
+    }
+    var form = new formidable.IncomingForm(),
+        fields = {};
+    form
+        .on('error', function(err) {
+            res.writeHead(500, {'content-type': 'text/plain'});
+            res.end('error:\n\n'+util.inspect(err));
+            console.error(err);
+        })
+        .on('field', function(name, value) {
+            //ref.remove(value);
+            if(name === 'participant'){
+                participant.part = value
+            }
+            else if(name === 'id'){
+                index = value
+            }
+            Event.findOne({id: index}, function (err, event) {
+                if (!event) {
+                    let error = {
+                        status: 404,
+                        message: 'Incorrect id'
+                    }
+                }
+                else {
+                    event.participants.push(participant)
+                    event.save(function (err, updatedTank) {
+                        if (err) throw err;
+                        console.log(updatedTank)
+                    });
+                    console.log('-> post done');
+                }
+            });
+           res.end()
+        });
+    form.parse(req);
+});
+router.post('/', async (req, res) => {
+    let newevent = {};
+    let index;
+    Event
         .find()
         .sort('id')  // give me the max
         .exec(function (err, member) {
@@ -80,12 +170,11 @@ router.post('/', async (req, res) => {
             fields[field] = value;
         })
         .on('field', function(name, value) {
-            if(name === 'games'){
-                let gamesArray = value.split(',')
-                newRoom['games'] = gamesArray;
+            if(name === 'participants' && value.length < 1){
+                newevent.participants = []
             }
             else {
-                newRoom[name] = value;
+                newevent[name] = value;
             }
         })
         .on('end', function() {
@@ -111,10 +200,10 @@ router.post('/', async (req, res) => {
             .then(async (data) => {
 
                 let file = data[0];
-                newRoom.id = index;
-                newRoom.img = "https://firebasestorage.googleapis.com/v0/b/" + bucket.name + "/o/" + encodeURIComponent(file.name) + "?alt=media&token=" + uuid;
-                await ref.create(newRoom);
-                console.log(newRoom);
+                newevent.id = index;
+                newevent.img = "https://firebasestorage.googleapis.com/v0/b/" + bucket.name + "/o/" + encodeURIComponent(file.name) + "?alt=media&token=" + uuid;
+                await ref.create(newevent);
+                console.log(newevent);
                 console.log('-> post done');
                 res.end('received fields:\n\n '+util.inspect(fields));
                 return Promise.resolve("https://firebasestorage.googleapis.com/v0/b/" + bucket.name + "/o/" + encodeURIComponent(file.name) + "?alt=media&token=" + uuid);
