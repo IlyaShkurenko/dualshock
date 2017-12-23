@@ -1,6 +1,8 @@
 <template>
     <div class="bracketPane current">
-        <div class="bracket" id="bracket0">
+        <edit-cmp v-if="edit"  @close = "edit = !edit" :players="players" :tournament="tournament" :index="game"></edit-cmp>
+        <view-cmp v-if="view" @close = "view = !view" :players="players" :tournament="tournament" :index="game" :scores="scores"></view-cmp>
+        <div v-if="!edit && !view" class="bracket" id="bracket0">
             <div class="Bracket BBDCSS0" id='winners'>
                 <div class="BracketColumn  ">
                     <div class="RoundFormat  BBDCSS1">
@@ -8,181 +10,27 @@
                         <div class="BestOf">Best of <b>1</b></div>
                         <div class="Date"></div>
                     </div>
-                    <div class="match  BBDCSS2 first "><p class=" loser">
+                    <div v-for="i in 8" class="match  BBDCSS2 first "><p class=" loser">
 <span class="team team2281712">
 <span class="TourneyTeamID">2281712</span>
-<img src="//binarybeast.com/img/Icons/flagicons/ru.png" alt="Russian Federation" title="Russian Federation"/>
-<span class="label"><a href="/player/191042" target="_blank">Ekstral</a></span><span
+<img src="//binarybeast.com/img/Icons/flagicons/ua.png" alt="Russian Federation" title="Russian Federation"/>
+<span class="label"><a href="/player/191042" target="_blank">{{tournament.participants[tournament.brackets[getFirst(i)]].part}}</a></span><span
         class='NetworkDisplayName'></span><span class='DisplayName'>Ekstral</span>
 </span>
-                        <span class="score ">0</span>
+                        <span class="score ">{{getFirstScoreQuarter(i)}}</span>
                     </p>
                         <div class="versus ">
-                            <div class="MatchNumber">Match 1</div>
-                            <a class='report' href='/xNSUNS3FB1508010/update_match/1439111'>Редактировать</a><a
-                                class='view' href='/tourney/load_match/1439111'>View Details</a></div>
+                            <div class="MatchNumber">Match {{i}}</div>
+                            <a v-if="admin()" class='report' @click="editMethod(i,1)">Редактировать</a><a
+                                class='view' @click="viewMethod(i,1)">View Details</a></div>
                         <p class=" unplayed temp-winner">
 <span class="team team2281984">
 <span class="TourneyTeamID">2281984</span>
-<img src="//binarybeast.com/img/Icons/flagicons/ru.png" alt="Russian Federation" title="Russian Federation"/>
-<span class="label"><a href="/player/190998" target="_blank">The Star</a></span><span class='NetworkDisplayName'></span><span
+<img src="//binarybeast.com/img/Icons/flagicons/ua.png" alt="Russian Federation" title="Russian Federation"/>
+<span class="label"><a href="/player/190998" target="_blank">{{tournament.participants[tournament.brackets[getSecond(i)]].part}}</a></span><span class='NetworkDisplayName'></span><span
         class='DisplayName'>The Star</span>
 </span>
-                            <span class="score ">1</span>
-                        </p></div>
-                    <div class="match  BBDCSS2  "><p class=" loser">
-<span class="team team2282308">
-<span class="TourneyTeamID">2282308</span>
-<img src="//binarybeast.com/img/Icons/flagicons/ua.png" alt="Ukraine" title="Ukraine"/>
-<span class="label"><a href="/player/187989" target="_blank">HidanSama</a></span><span
-        class='NetworkDisplayName'></span><span class='DisplayName'>HidanSama</span>
-</span>
-                        <span class="score ">0</span>
-                    </p>
-                        <div class="versus ">
-                            <div class="MatchNumber">Match 2</div>
-                            <a class='report' href='/xNSUNS3FB1508010/update_match/1439112'>Редактировать</a><a
-                                class='view' href='/tourney/load_match/1439112'>View Details</a></div>
-                        <p class=" unplayed temp-winner">
-<span class="team team2281938">
-<span class="TourneyTeamID">2281938</span>
-<img src="//binarybeast.com/img/Icons/flagicons/ua.png" alt="Ukraine" title="Ukraine"/>
-<span class="label"><a href="/player/188268" target="_blank">harash</a></span><span
-        class='NetworkDisplayName'></span><span class='DisplayName'>harash</span>
-</span>
-                            <span class="score ">1</span>
-                        </p></div>
-                    <div class="match  BBDCSS2  "><p class=" loser">
-<span class="team team2282949">
-<span class="TourneyTeamID">2282949</span>
-<img src="//binarybeast.com/img/Icons/flagicons/ru.png" alt="Russian Federation" title="Russian Federation"/>
-<span class="label"><a href="/player/205092" target="_blank">Raito.R</a></span><span
-        class='NetworkDisplayName'></span><span class='DisplayName'>Raito.R</span>
-</span>
-                        <span class="score ">0</span>
-                    </p>
-                        <div class="versus ">
-                            <div class="MatchNumber">Match 3</div>
-                            <a class='report' href='/xNSUNS3FB1508010/update_match/1439113'>Редактировать</a><a
-                                class='view' href='/tourney/load_match/1439113'>View Details</a></div>
-                        <p class=" unplayed temp-winner">
-<span class="team team2283185">
-<span class="TourneyTeamID">2283185</span>
-<img src="//binarybeast.com/img/Icons/flagicons/ru.png" alt="Russian Federation" title="Russian Federation"/>
-<span class="label"><a href="/player/175694" target="_blank">Fantomext_TV</a></span><span
-        class='NetworkDisplayName'></span><span class='DisplayName'>Fantomext_TV</span>
-</span>
-                            <span class="score ">1</span>
-                        </p></div>
-                    <div class="match  BBDCSS2  "><p class=" unplayed temp-winner">
-<span class="team team2283259">
-<span class="TourneyTeamID">2283259</span>
-<img src="//binarybeast.com/img/Icons/flagicons/ru.png" alt="Russian Federation" title="Russian Federation"/>
-<span class="label"><a href="/player/175689" target="_blank">Avanger</a></span><span
-        class='NetworkDisplayName'></span><span class='DisplayName'>Avanger</span>
-</span>
-                        <span class="score ">1</span>
-                    </p>
-                        <div class="versus ">
-                            <div class="MatchNumber">Match 4</div>
-                            <a class='report' href='/xNSUNS3FB1508010/update_match/1439114'>Редактировать</a><a
-                                class='view' href='/tourney/load_match/1439114'>View Details</a></div>
-                        <p class=" loser">
-<span class="team team2281711">
-<span class="TourneyTeamID">2281711</span>
-<img src="//binarybeast.com/img/Icons/flagicons/ru.png" alt="Russian Federation" title="Russian Federation"/>
-<span class="label"><a href="/player/175717" target="_blank">Bender</a></span><span
-        class='NetworkDisplayName'></span><span class='DisplayName'>Bender</span>
-</span>
-                            <span class="score ">0</span>
-                        </p></div>
-                    <div class="match  BBDCSS2  "><p class=" loser">
-<span class="team team2281706">
-<span class="TourneyTeamID">2281706</span>
-<img src="//binarybeast.com/img/Icons/flagicons/ru.png" alt="Russian Federation" title="Russian Federation"/>
-<span class="label"><a href="/player/175696" target="_blank">Masao.R</a></span><span
-        class='NetworkDisplayName'></span><span class='DisplayName'>Masao.R</span>
-</span>
-                        <span class="score ">0</span>
-                    </p>
-                        <div class="versus ">
-                            <div class="MatchNumber">Match 5</div>
-                            <a class='report' href='/xNSUNS3FB1508010/update_match/1439116'>Редактировать</a><a
-                                class='view' href='/tourney/load_match/1439116'>View Details</a></div>
-                        <p class=" unplayed temp-winner">
-<span class="team team2281958">
-<span class="TourneyTeamID">2281958</span>
-<img src="//binarybeast.com/img/Icons/flagicons/ru.png" alt="Russian Federation" title="Russian Federation"/>
-<span class="label"><a href="/player/187019" target="_blank">mot9_mot9</a></span><span
-        class='NetworkDisplayName'></span><span class='DisplayName'>mot9_mot9</span>
-</span>
-                            <span class="score ">1</span>
-                        </p></div>
-                    <div class="match  BBDCSS2  "><p class=" unplayed temp-winner">
-<span class="team team2278650 viewer">
-<span class="TourneyTeamID">2278650</span>
-<img src="//binarybeast.com/img/Icons/flagicons/ua.png" alt="Ukraine" title="Ukraine"/>
-<span class="label"><a href="/player/168251" target="_blank">NSF-HulK</a></span><span class='NetworkDisplayName'></span><span
-        class='DisplayName'>NSF-HulK</span>
-</span>
-                        <span class="score ">1</span>
-                    </p>
-                        <div class="versus ">
-                            <div class="MatchNumber">Match 6</div>
-                            <a class='report' href='/xNSUNS3FB1508010/update_match/1439117'>Редактировать</a><a
-                                class='view' href='/tourney/load_match/1439117'>View Details</a></div>
-                        <p class=" loser">
-<span class="team team2281955">
-<span class="TourneyTeamID">2281955</span>
-<img src="//binarybeast.com/img/Icons/flagicons/ru.png" alt="Russian Federation" title="Russian Federation"/>
-<span class="label"><a href="/player/204971" target="_blank">Zhenya Mironov</a></span><span
-        class='NetworkDisplayName'></span><span class='DisplayName'>Zhenya Mironov</span>
-</span>
-                            <span class="score ">0</span>
-                        </p></div>
-                    <div class="match  BBDCSS2  "><p class=" unplayed temp-winner">
-<span class="team team2281957">
-<span class="TourneyTeamID">2281957</span>
-<img src="//binarybeast.com/img/Icons/flagicons/ru.png" alt="Russian Federation" title="Russian Federation"/>
-<span class="label"><a href="/player/202757" target="_blank">Lotrein</a></span><span
-        class='NetworkDisplayName'></span><span class='DisplayName'>Lotrein</span>
-</span>
-                        <span class="score ">1</span>
-                    </p>
-                        <div class="versus ">
-                            <div class="MatchNumber">Match 7</div>
-                            <a class='report' href='/xNSUNS3FB1508010/update_match/1439118'>Редактировать</a><a
-                                class='view' href='/tourney/load_match/1439118'>View Details</a></div>
-                        <p class=" loser">
-<span class="team team2281956">
-<span class="TourneyTeamID">2281956</span>
-<img src="//binarybeast.com/img/Icons/flagicons/ru.png" alt="Russian Federation" title="Russian Federation"/>
-<span class="label"><a href="/player/193297" target="_blank">MasonTV</a></span><span
-        class='NetworkDisplayName'></span><span class='DisplayName'>MasonTV</span>
-</span>
-                            <span class="score ">0</span>
-                        </p></div>
-                    <div class="match    "><p class=" loser">
-<span class="team team2281962">
-<span class="TourneyTeamID">2281962</span>
-<img src="//binarybeast.com/img/Icons/flagicons/ru.png" alt="Russian Federation" title="Russian Federation"/>
-<span class="label"><a href="/player/202696" target="_blank">Frechires</a></span><span
-        class='NetworkDisplayName'></span><span class='DisplayName'>Frechires</span>
-</span>
-                        <span class="score ">0</span>
-                    </p>
-                        <div class="versus ">
-                            <div class="MatchNumber">Match 8</div>
-                            <a class='report' href='/xNSUNS3FB1508010/update_match/1439119'>Редактировать</a><a
-                                class='view' href='/tourney/load_match/1439119'>View Details</a></div>
-                        <p class=" unplayed temp-winner">
-<span class="team team2282140">
-<span class="TourneyTeamID">2282140</span>
-<img src="//binarybeast.com/img/Icons/flagicons/ru.png" alt="Russian Federation" title="Russian Federation"/>
-<span class="label"><a href="/player/165361" target="_blank">o_0 nab</a></span><span
-        class='NetworkDisplayName'></span><span class='DisplayName'>o_0 nab</span>
-</span>
-                            <span class="score ">1</span>
+                            <span class="score ">{{getSecondScoreQuarter(i)}}</span>
                         </p></div>
                 </div>
                 <div class="LineColumn">
@@ -209,93 +57,27 @@
                         <div class="BestOf">Best of <b>1</b></div>
                         <div class="Date"></div>
                     </div>
-                    <div class="match  BBDCSS8  "><p class=" loser">
+                    <div v-for="i in 4" class="match  BBDCSS8  "><p class=" loser">
 <span class="team team2281984">
 <span class="TourneyTeamID">2281984</span>
-<img src="//binarybeast.com/img/Icons/flagicons/ru.png" alt="Russian Federation" title="Russian Federation"/>
-<span class="label"><a href="/player/190998" target="_blank">The Star</a></span><span class='NetworkDisplayName'></span><span
-        class='DisplayName'>The Star</span>
+<img src="//binarybeast.com/img/Icons/flagicons/ua.png" alt="Russian Federation" title="Russian Federation"/>
+<span class="label"><a href="/player/190998" target="_blank">{{getFirstWinnerQuarter(i).player}}</a></span><span class='NetworkDisplayName'></span><span
+        class='DisplayName'>{{getFirstWinnerQuarter(i).player}}</span>
 </span>
-                        <span class="score ">0</span>
+                        <span class="score ">{{getFirstScoreQuarter(i+8)}}</span>
                     </p>
                         <div class="versus ">
-                            <div class="MatchNumber">Match 9</div>
-                            <a class='report' href='/xNSUNS3FB1508010/update_match/1439120'>Редактировать</a><a
-                                class='view' href='/tourney/load_match/1439120'>View Details</a></div>
+                            <div class="MatchNumber">Match {{i+8}}</div>
+                            <a v-if="admin()" class='report' @click="editMethod(i,2)" >Редактировать</a><a
+                                class='view' @click="viewMethod(i,2)">View Details</a></div>
                         <p class=" unplayed temp-winner">
 <span class="team team2281938">
 <span class="TourneyTeamID">2281938</span>
 <img src="//binarybeast.com/img/Icons/flagicons/ua.png" alt="Ukraine" title="Ukraine"/>
-<span class="label"><a href="/player/188268" target="_blank">harash</a></span><span
-        class='NetworkDisplayName'></span><span class='DisplayName'>harash</span>
+<span class="label"><a href="/player/188268" target="_blank">{{getSecondWinnerQuarter(i).player}}</a></span><span
+        class='NetworkDisplayName'></span><span class='DisplayName'>{{getSecondWinnerQuarter(i).player}}</span>
 </span>
-                            <span class="score ">1</span>
-                        </p></div>
-                    <div class="match  BBDCSS8  "><p class=" loser">
-<span class="team team2283185">
-<span class="TourneyTeamID">2283185</span>
-<img src="//binarybeast.com/img/Icons/flagicons/ru.png" alt="Russian Federation" title="Russian Federation"/>
-<span class="label"><a href="/player/175694" target="_blank">Fantomext_TV</a></span><span
-        class='NetworkDisplayName'></span><span class='DisplayName'>Fantomext_TV</span>
-</span>
-                        <span class="score ">0</span>
-                    </p>
-                        <div class="versus ">
-                            <div class="MatchNumber">Match 10</div>
-                            <a class='report' href='/xNSUNS3FB1508010/update_match/1439121'>Редактировать</a><a
-                                class='view' href='/tourney/load_match/1439121'>View Details</a></div>
-                        <p class=" unplayed temp-winner">
-<span class="team team2283259">
-<span class="TourneyTeamID">2283259</span>
-<img src="//binarybeast.com/img/Icons/flagicons/ru.png" alt="Russian Federation" title="Russian Federation"/>
-<span class="label"><a href="/player/175689" target="_blank">Avanger</a></span><span
-        class='NetworkDisplayName'></span><span class='DisplayName'>Avanger</span>
-</span>
-                            <span class="score ">1</span>
-                        </p></div>
-                    <div class="match  BBDCSS8  "><p class=" unplayed temp-winner">
-<span class="team team2281958">
-<span class="TourneyTeamID">2281958</span>
- <img src="//binarybeast.com/img/Icons/flagicons/ru.png" alt="Russian Federation" title="Russian Federation"/>
-<span class="label"><a href="/player/187019" target="_blank">mot9_mot9</a></span><span
-        class='NetworkDisplayName'></span><span class='DisplayName'>mot9_mot9</span>
-</span>
-                        <span class="score ">1</span>
-                    </p>
-                        <div class="versus ">
-                            <div class="MatchNumber">Match 11</div>
-                            <a class='report' href='/xNSUNS3FB1508010/update_match/1439123'>Редактировать</a><a
-                                class='view' href='/tourney/load_match/1439123'>View Details</a></div>
-                        <p class=" loser">
-<span class="team team2278650 viewer">
-<span class="TourneyTeamID">2278650</span>
-<img src="//binarybeast.com/img/Icons/flagicons/ua.png" alt="Ukraine" title="Ukraine"/>
-<span class="label"><a href="/player/168251" target="_blank">NSF-HulK</a></span><span class='NetworkDisplayName'></span><span
-        class='DisplayName'>NSF-HulK</span>
-</span>
-                            <span class="score ">0</span>
-                        </p></div>
-                    <div class="match    "><p class=" loser">
-<span class="team team2281957">
-<span class="TourneyTeamID">2281957</span>
-<img src="//binarybeast.com/img/Icons/flagicons/ru.png" alt="Russian Federation" title="Russian Federation"/>
-<span class="label"><a href="/player/202757" target="_blank">Lotrein</a></span><span
-        class='NetworkDisplayName'></span><span class='DisplayName'>Lotrein</span>
-</span>
-                        <span class="score ">0</span>
-                    </p>
-                        <div class="versus ">
-                            <div class="MatchNumber">Match 12</div>
-                            <a class='report' href='/xNSUNS3FB1508010/update_match/1439124'>Редактировать</a><a
-                                class='view' href='/tourney/load_match/1439124'>View Details</a></div>
-                        <p class=" unplayed temp-winner">
-<span class="team team2282140">
-<span class="TourneyTeamID">2282140</span>
-<img src="//binarybeast.com/img/Icons/flagicons/ru.png" alt="Russian Federation" title="Russian Federation"/>
-<span class="label"><a href="/player/165361" target="_blank">o_0 nab</a></span><span
-        class='NetworkDisplayName'></span><span class='DisplayName'>o_0 nab</span>
-</span>
-                            <span class="score ">1</span>
+                            <span class="score ">{{getSecondScoreQuarter(i+8)}}</span>
                         </p></div>
                 </div>
                 <div class="LineColumn">
@@ -314,49 +96,27 @@
                         <div class="BestOf">Best of <b>1</b></div>
                         <div class="Date"></div>
                     </div>
-                    <div class="match  BBDCSS14  "><p class=" loser">
+                    <div v-for="i in 2" class="match  BBDCSS14  "><p class=" loser">
 <span class="team team2281938">
 <span class="TourneyTeamID">2281938</span>
 <img src="//binarybeast.com/img/Icons/flagicons/ua.png" alt="Ukraine" title="Ukraine"/>
-<span class="label"><a href="/player/188268" target="_blank">harash</a></span><span
-        class='NetworkDisplayName'></span><span class='DisplayName'>harash</span>
+<span class="label"><a href="/player/188268" target="_blank">{{getWinnerSemi((i+8),0).player}}</a></span><span
+        class='NetworkDisplayName'></span><span class='DisplayName'>{{getWinnerSemi((i+8),0).player}}</span>
 </span>
-                        <span class="score ">0</span>
+                        <span class="score ">{{getFirstScoreQuarter(i+12)}}</span>
                     </p>
                         <div class="versus ">
-                            <div class="MatchNumber">Match 13</div>
-                            <a class='report' href='/xNSUNS3FB1508010/update_match/1439126'>Редактировать</a><a
-                                class='view' href='/tourney/load_match/1439126'>View Details</a></div>
+                            <div class="MatchNumber">Match {{i+12}}</div>
+                            <a v-if="admin()" class='report' @click="editMethod(i,3)">Редактировать</a><a
+                                class='view' @click="viewMethod(i,3)">View Details</a></div>
                         <p class=" unplayed temp-winner">
 <span class="team team2283259">
 <span class="TourneyTeamID">2283259</span>
-<img src="//binarybeast.com/img/Icons/flagicons/ru.png" alt="Russian Federation" title="Russian Federation"/>
-<span class="label"><a href="/player/175689" target="_blank">Avanger</a></span><span
-        class='NetworkDisplayName'></span><span class='DisplayName'>Avanger</span>
+<img src="//binarybeast.com/img/Icons/flagicons/ua.png" alt="Russian Federation" title="Russian Federation"/>
+<span class="label"><a href="/player/175689" target="_blank">{{getWinnerSemi((i+8),1).player}}</a></span><span
+        class='NetworkDisplayName'></span><span class='DisplayName'>{{getWinnerSemi((i+8),0).player}}</span>
 </span>
-                            <span class="score ">1</span>
-                        </p></div>
-                    <div class="match    "><p class=" unplayed temp-winner">
-<span class="team team2281958">
-<span class="TourneyTeamID">2281958</span>
-<img src="//binarybeast.com/img/Icons/flagicons/ru.png" alt="Russian Federation" title="Russian Federation"/>
-<span class="label"><a href="/player/187019" target="_blank">mot9_mot9</a></span><span
-        class='NetworkDisplayName'></span><span class='DisplayName'>mot9_mot9</span>
-</span>
-                        <span class="score ">1</span>
-                    </p>
-                        <div class="versus ">
-                            <div class="MatchNumber">Match 14</div>
-                            <a class='report' href='/xNSUNS3FB1508010/update_match/1439127'>Редактировать</a><a
-                                class='view' href='/tourney/load_match/1439127'>View Details</a></div>
-                        <p class=" loser">
-<span class="team team2282140">
-<span class="TourneyTeamID">2282140</span>
-<img src="//binarybeast.com/img/Icons/flagicons/ru.png" alt="Russian Federation" title="Russian Federation"/>
-<span class="label"><a href="/player/165361" target="_blank">o_0 nab</a></span><span
-        class='NetworkDisplayName'></span><span class='DisplayName'>o_0 nab</span>
-</span>
-                            <span class="score ">0</span>
+                            <span class="score ">{{getSecondScoreQuarter(i+12)}}</span>
                         </p></div>
                 </div>
                 <div class="LineColumn">
@@ -374,26 +134,25 @@
                     <div class="match    "><p class=" unplayed temp-winner">
 <span class="team team2283259">
 <span class="TourneyTeamID">2283259</span>
-<img src="//binarybeast.com/img/Icons/flagicons/ru.png" alt="Russian Federation" title="Russian Federation"/>
-<span class="label"><a href="/player/175689" target="_blank">Avanger</a></span><span
-        class='NetworkDisplayName'></span><span class='DisplayName'>Avanger</span>
+<img src="//binarybeast.com/img/Icons/flagicons/ua.png" alt="Russian Federation" title="Russian Federation"/>
+<span class="label"><a href="/player/175689" target="_blank">{{getWinnerSemi((13),0).player}}</a></span><span
+        class='NetworkDisplayName'></span><span class='DisplayName'>{{getWinnerSemi((13),0).player}}</span>
 </span>
-                        <span class="score ">1</span>
+                        <span class="score ">{{getFirstScoreQuarter(15)}}</span>
                     </p>
                         <div class="versus ">
                             <div class="MatchNumber">Match 15</div>
-                            <a class='report' href='/xNSUNS3FB1508010/update_match/1439128'>Редактировать</a><a
-                                href="/xNSUNS3FB1508010/unreport/2283259" class="unreport">Unreport</a><a class='view'
-                                                                                                          href='/tourney/load_match/1439128'>View Details</a>
+                            <a v-if="admin()" class='report' @click="editMethod(i,4)">Редактировать</a><a class='view'
+                                                                                           @click="viewMethod(i,4)">View Details</a>
                         </div>
                         <p class=" loser">
 <span class="team team2281958">
 <span class="TourneyTeamID">2281958</span>
-<img src="//binarybeast.com/img/Icons/flagicons/ru.png" alt="Russian Federation" title="Russian Federation"/>
-<span class="label"><a href="/player/187019" target="_blank">mot9_mot9</a></span><span
-        class='NetworkDisplayName'></span><span class='DisplayName'>mot9_mot9</span>
+<img src="//binarybeast.com/img/Icons/flagicons/ua.png" alt="Russian Federation" title="Russian Federation"/>
+<span class="label"><a href="/player/187019" target="_blank">{{getWinnerSemi((13),1).player}}</a></span><span
+        class='NetworkDisplayName'></span><span class='DisplayName'>{{getWinnerSemi((13),1).player}}</span>
 </span>
-                            <span class="score ">0</span>
+                            <span class="score ">{{getSecondScoreQuarter(15)}}</span>
                         </p></div>
                 </div>
                 <div class="LineColumn">
@@ -408,8 +167,8 @@
                     <div class="match winner BBDCSS20  "><p class=" unplayed">
 <span class="team team2283259">
 <span class="TourneyTeamID">2283259</span>
-<img src="//binarybeast.com/img/Icons/flagicons/ru.png" alt="Russian Federation" title="Russian Federation"/>
-<span class="label"><a href="/player/175689" target="_blank">Avanger</a></span><span
+<img src="//binarybeast.com/img/Icons/flagicons/ua.png" alt="Russian Federation" title="Russian Federation"/>
+<span class="label"><a href="/player/175689" target="_blank">{{getWinnerSemi((14),1).player}}</a></span><span
         class='NetworkDisplayName'></span><span class='DisplayName'>Avanger</span>
 </span>
                         <span class="score">-</span>
@@ -424,3 +183,222 @@
 </style>
 <style src='../../../styles/index.css' scoped>
 </style>
+<script>
+    import Edit from './Edit.vue'
+    import View from  './View.vue';
+    export default {
+        data(){
+            return{
+                edit: false,
+                view: false,
+                pairedArray: [0,2,4,6,8,10,12,14],
+                notPairedArray: [1,3,5,7,9,11,13,15],
+                players: [],
+                game: -1,
+                scores: []
+            }
+        },
+        components: {
+            editCmp: Edit,
+            viewCmp: View
+        },
+        methods:{
+           getFirst(i){
+               return this.pairedArray[i-1];
+           },
+            admin(){
+               return localStorage.getItem('role') === 'admin'
+            },
+            getSecond(i){
+               return this.notPairedArray[i-1];
+           },
+           getPlayer(criteria,value){
+                let count = -1;
+                let bestPlayer = {
+                    player: Object,
+                    index: Number
+                };
+                for (let i = 0; i < this.$store.state.tournaments.length; i++){
+                    if(this.$store.state.tournaments[i].id === this.tournament.id){
+                        this.$store.state.tournaments[i].players.forEach(function (item,k) {
+                            count++;
+                            for(let prop in item){
+                                if(prop == value){
+                                    item[prop].players.forEach(function (player, j) {
+                                        if(player[criteria]){
+                                            bestPlayer.player = player
+                                            bestPlayer.index = i
+                                        }
+                                    })
+                                }
+                            }
+                        })
+                    }
+                }
+               return bestPlayer
+            },
+           getFirstWinnerQuarter(i){
+                let player = ''
+                let secondMatch = i * 2;
+                let firstMatch = secondMatch - 1;
+                player = this.getPlayer('win',firstMatch).player
+                return player
+            },
+            getWinnerSemi(i, semi){
+                let game = -1;
+                if(i === 10){
+                    if(semi === 0){
+                        game = 11
+                    }
+                    else if(semi === 1){
+                        game = 12
+                    }
+                }
+                else {
+                    game = i+semi;
+                }
+                let player = ''
+                let secondMatch = i * 2;
+                let firstMatch = secondMatch - 1;
+                player = this.getPlayer('win',game).player
+                return player
+            },
+            getSecondWinnerSemi(i){
+                let player = ''
+                let secondMatch = i * 2;
+                console.log(i)
+                player = this.getPlayer('win',secondMatch).player
+                return player
+            },
+            getSecondWinnerQuarter(i){
+                let player = ''
+                let secondMatch = i * 2;
+                player = this.getPlayer('win',secondMatch).player
+                return player
+            },
+      async getIndexByName(player){
+            let index = -1;
+            await this.tournament.participants.forEach(function (item,i) {
+                if(item.part === player){
+                    index = i
+                }
+            })
+            return index;
+        },
+            viewMethod(i,stage){
+                this.editMethod(i,stage)
+                this.view = !this.view
+                this.edit = !this.edit;
+                this.game = this.getMatch(i,stage)
+            },
+            getMatch(i, stage){
+                let index = -1
+               if(stage === 1){
+                   index = i
+               }
+               else if(stage === 2){
+                   index = i+8
+               }
+               else if(stage === 3){
+                   index = i+12
+               }
+               else if(stage === 4){
+                   index = 15
+               }
+               return index
+            },
+           async editMethod(i,stage) {
+               this.players = [];
+               let firstPlayer = '';
+               let secondPlayer = '';
+               let firstIndex = -1;
+               let secondIndex = -1;
+               let secondMatch = i * 2;
+               let firstMatch = secondMatch - 1;
+               this.edit = !this.edit;
+               this.game = this.getMatch(i,stage)
+               if (stage === 1) {
+                   this.players.push(this.tournament.brackets[this.getFirst(i)])
+                   this.players.push(this.tournament.brackets[this.getSecond(i)])
+               }
+               else if (stage === 2) {
+                   firstPlayer = this.getPlayer('win', firstMatch).player;
+                   secondPlayer = this.getPlayer('win', secondMatch).player;
+                   firstIndex = await this.getIndexByName(firstPlayer.player);
+                   secondIndex = await this.getIndexByName(secondPlayer.player);
+                   console.log(this.game)
+                   this.players.push(firstIndex)
+                   this.players.push(secondIndex)
+               }
+               else if(stage === 3){
+                   if(i === 1){
+                       firstMatch = 9;
+                       secondMatch = 10;
+                   }
+                   else if(i === 2){
+                       firstMatch = 11;
+                       secondMatch = 12;
+                   }
+                   firstPlayer = this.getPlayer('win', firstMatch).player;
+                   secondPlayer = this.getPlayer('win', secondMatch).player;
+                   firstIndex = await this.getIndexByName(firstPlayer.player);
+                   secondIndex = await this.getIndexByName(secondPlayer.player);
+                   this.players.push(firstIndex)
+                   this.players.push(secondIndex)
+               }
+               else if(stage === 4){
+                   firstMatch = 13;
+                   secondMatch = 14
+                   firstPlayer = this.getPlayer('win', firstMatch).player;
+                   secondPlayer = this.getPlayer('win', secondMatch).player;
+                   firstIndex = await this.getIndexByName(firstPlayer.player);
+                   secondIndex = await this.getIndexByName(secondPlayer.player);
+                   this.players.push(firstIndex)
+                   this.players.push(secondIndex)
+               }
+           },
+            getScore(match){
+                let bestPlayer = [];
+                for (let i = 0; i < this.$store.state.tournaments.length; i++){
+                    if(this.$store.state.tournaments[i].id === this.tournament.id){
+                        this.$store.state.tournaments[i].players.forEach(function (item,i) {
+                            for(let prop in item){
+                                if(prop == match){
+                                    bestPlayer = item[prop].players
+                                }
+                            }
+                        })
+                    }
+                }
+                return bestPlayer
+            },
+            getFirstScoreQuarter(i){
+               let player = {}
+               let score = ''
+                //$store.state.tournaments[0].players[2]['8'].players[0].score
+                player = this.getScore(i)[0];
+                for (let prop in player){
+                    if(prop === 'score'){
+                        score = player[prop]
+                    }
+                }
+                return score
+            },
+            getSecondScoreQuarter(i){
+                let player = {}
+                let score = ''
+                //$store.state.tournaments[0].players[2]['8'].players[0].score
+                player = this.getScore(i)[1];
+                for (let prop in player){
+                    if(prop === 'score'){
+                        score = player[prop]
+                    }
+                }
+                return score
+            },
+        },
+        props:{
+            tournament: Object
+        }
+    }
+</script>

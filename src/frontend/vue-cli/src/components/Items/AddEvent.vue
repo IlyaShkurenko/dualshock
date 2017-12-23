@@ -122,6 +122,7 @@
                 },
                 tournament: {
                     participants: [],
+                    brackets: [],
                     title: '',
                     game: '',
                     max: '',

@@ -61,6 +61,10 @@ var schema = mongoose.Schema({
         type: Array,
         required: false
     },
+    brackets:{
+        type: Array,
+        required: false
+    },
     category:{
         type: String,
         required: true

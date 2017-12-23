@@ -3,6 +3,7 @@ let fs = require("fs");
 var Room = require('../models/event').Event;
 
 let remove = async(index) => {
+    console.log('index = ', index)
     Room.find({ id:index }).remove().exec()
 
 };
@@ -15,20 +16,20 @@ let create = async(roomTodb) => {
     })
 
 };
-
-let getAll = async() => {
-    let roomMap = {};
-    await Room.find({},function(err, rooms) {
-
-        rooms.forEach(function(room) {
-            roomMap[room._id] = room;
-        });
+let getById = async(index) =>{
+    let isThere = {}
+    await Room.findOne({id: index}, function (err, room) {
+        isThere = room
     });
-    return roomMap
+    return isThere
+}
+let getAll = async() => {
+    return Room.find({})
 };
 
 module.exports = {
     remove,
     create,
-    getAll
+    getAll,
+    getById
 };

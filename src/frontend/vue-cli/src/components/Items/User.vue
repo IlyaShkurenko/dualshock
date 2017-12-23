@@ -5,7 +5,7 @@
                 <img class="media-object" :src="user.img" style="width: 150px; height: 150px">
             </a>
             <div class="media-body">
-                <h4 class="media-heading">User {{user._id}}</h4>
+                <h4 class="media-heading">User {{user.username}}</h4>
                 <p>{{user.role}}</p>
                 <ul class="list-inline list-unstyled">
                     <li><span><i class="glyphicon glyphicon-calendar"></i> 1 days, 8 hours </span></li>

@@ -26,8 +26,8 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin User <b class="fa fa-angle-down"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#"><i class="fa fa-fw fa-user"></i> Edit Profile</a></li>
-                            <li><a href="#"><i class="fa fa-fw fa-cog"></i> Change Password</a></li>
+                            <li><router-link to="/settings"><a><i class="fa fa-fw fa-user"></i> Edit Profile</a></router-link></li>
+                            <li><a href="http://localhost:5000/diagram"><i class="fa fa-fw fa-cog"></i> Change Password</a></li>
                             <li class="divider"></li>
                             <li><a href="#"><i class="fa fa-fw fa-power-off"></i> Logout</a></li>
                         </ul>
@@ -70,13 +70,26 @@
                             <div class="panel with-nav-tabs panel-primaryes" style="background-color: #1f5f3a">
                                 <div class="panel-heading">
                                     <ul class="nav nav-tabs" style="background-color: #0d3920">
-                                        <li class="active"><a href="#tab1primary" data-toggle="tab"><span class="fa fa-gamepad"></span> Приставки</a></li>
+                                        <li class="active"><a href="#tab3primary" data-toggle="tab"><span class="fa fa-gamepad"></span> Приставки</a></li>
+                                        <li class="dropdown">
+                                            <a href="#" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>Места</a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="#tabadd_place" data-toggle="tab"><span class="glyphicon glyphicon-user"></span> Добавить</a></li>
+                                                <li><a href="#tabremove_place" data-toggle="tab"><span class="glyphicon glyphicon-user"></span> Посмотреть</a></li>
+                                            </ul>
+                                        </li>
                                         <li><a href="#tab2primary" data-toggle="tab"><span class="glyphicon glyphicon-cutlery"></span> Eда и напитки</a></li>
-                                        <li><a href="#tab3primary" data-toggle="tab"><span class="glyphicon glyphicon-cloud"></span> Кальяны</a></li>
+                                        <li class="dropdown">
+                                            <a href="#" data-toggle="dropdown"><span class="glyphicon glyphicon-cloud"></span> Кальяны</a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="#tabadd_hookah" data-toggle="tab"><span class="glyphicon glyphicon-cloud"></span> Добавить</a></li>
+                                                <li><a href="#tabremove_hookah" data-toggle="tab"><span class="glyphicon glyphicon-cloud"></span> Удалить</a></li>
+                                            </ul>
+                                        </li>
                                         <li><a href="#tab3primary" data-toggle="tab"><span class="fa fa-beer"></span> Бар</a></li>
                                         <li><a href="#tabusers" data-toggle="tab"><span class="glyphicon glyphicon-user"></span> Пользователи</a></li>
                                         <li class="dropdown">
-                                            <a href="#" data-toggle="dropdown"><span class="fa fa-gamepad"></span> Приставки и комнаты</a>
+                                            <a href="#" data-toggle="dropdown"><span class="fa fa-gamepad"></span> Комнаты</a>
                                             <ul class="dropdown-menu" role="menu">
                                                 <li><a href="#tabadd" data-toggle="tab"><span class="fa fa-gamepad"></span> Добавить</a></li>
                                                 <li><a href="#tabremove" data-toggle="tab"><span class="fa fa-gamepad"></span> Удалить</a></li>
@@ -89,196 +102,30 @@
                                                 <li><a href="#tabremove_event" data-toggle="tab"><span class="fa fa-gamepad"></span> Удалить</a></li>
                                             </ul>
                                         </li>
+                                        <li><a href="#tabrates" data-toggle="tab"><span class="glyphicon glyphicon-user"></span> Ставки</a></li>
                                     </ul>
                                 </div>
                                 <div class="panel-body">
                                     <div class="tab-content">
+
                                         <div class="tab-pane fade in active" id="tab1primary">
-                                            <div class="well">
-                                                <div class="media">
-                                                    <a class="pull-left" href="#">
-                                                        <img class="media-object" src="http://i1.wp.com/www.moneybook.ro/wp-content/uploads/2016/02/polen-crud.jpg?resize=768%2C480">
-                                                    </a>
-                                                    <div class="media-body">
-                                                        <h4 class="media-heading">APILARNILUL</h4>
-                                                        <p class="text">By Francisco</p>
-                                                        <p>Apilarnilul este un produs apicol natural, obținut din larvele de
-                                                            trântor care constituie materia primă principală. Acestea la vârsta de
-                                                            7 zile sunt recoltate integral obținându-se astfel apilarnilul.În mod
-                                                            normal, sezonul apicol activ este în perioada mai-iulie. Asta într-o colonie
-                                                            de albine constituită ca o unitate biologică. Într-o astfel de colonie,
-                                                            numărul indivizilor masculi este de 400-1800 trântori rareori numărul lor
-                                                            depășind 2000. Într-o colonie de albine numărul de trântori pe care îi crește
-                                                            și îi tolerează este limitat și depinde de comportamentul coloniei ca un tot unitar.</p>
-                                                        <ul class="list-inline list-unstyled">
-                                                            <li><span><i class="glyphicon glyphicon-calendar"></i> 1 days, 8 hours </span></li>
-                                                            <li>|</li>
-                                                            <span><i class="glyphicon glyphicon-comment"></i> 2 comments</span>
-                                                            <li>|</li>
-                                                            <li>
-                                                                <span class="glyphicon glyphicon-star"></span>
-                                                                <span class="glyphicon glyphicon-star"></span>
-                                                                <span class="glyphicon glyphicon-star"></span>
-                                                                <span class="glyphicon glyphicon-star"></span>
-                                                                <span class="glyphicon glyphicon-star-empty"></span>
-                                                            </li>
-                                                            <li>|</li>
-                                                            <li>
-                                                                <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
-                                                                <span><i class="fa fa-facebook-square"></i></span>
-                                                                <span><i class="fa fa-twitter-square"></i></span>
-                                                                <span><i class="fa fa-google-plus-square"></i></span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="well">
-                                                <div class="media">
-                                                    <a class="pull-left" href="#">
-                                                        <img class="media-object" src="http://i0.wp.com/www.moneybook.ro/wp-content/uploads/2016/08/images_8.jpg?resize=299%2C224">
-                                                    </a>
-                                                    <div class="media-body">
-                                                        <h4 class="media-heading">Ziua Femeii</h4>
-                                                        <p class="text-right">By Anailuj</p>
-                                                        <p>In fiecare an, pe 8 Martie, trebuie sa le spunem din toata inima La Multi Ani!
-                                                            De cand se serbeaza Ziua Femeii?
-                                                            Am putea spune ca Ziua femeii, Ziua mamei se serbeaza inca de pe vremea grecilor antici.
-                                                            In fiecare primavara, ei o serbau pe Rhea, mama tuturor zeilor.
-                                                            In cultura multor tari, 8 Martie s-a transformat dintr-o simpla zi a calendarului in sarbatoarea primaverii,
-                                                            in ziua in care mamele, bunicile, sotiile, prietenele, surorile, fiicele, colegele,
-                                                            primesc flori si mici daruri simbolice care subliniaza rolul lor acasa, in familie, in societate.
-                                                            1907 – La Copenhaga a avut loc prima Conferinta a femeilor socialiste, la initiativa ziaristei germane Clara Zetkin,
-                                                            care conducea din 1890 revista “Die Gleichheit” (Egalitatea).</p>
-                                                        <ul class="list-inline list-unstyled">
-                                                            <li><span><i class="glyphicon glyphicon-calendar"></i> 2 days, 8 hours </span></li>
-                                                            <li>|</li>
-                                                            <span><i class="glyphicon glyphicon-comment"></i> 2 comments</span>
-                                                            <li>|</li>
-                                                            <li>
-                                                                <span class="glyphicon glyphicon-star"></span>
-                                                                <span class="glyphicon glyphicon-star"></span>
-                                                                <span class="glyphicon glyphicon-star"></span>
-                                                                <span class="glyphicon glyphicon-star"></span>
-                                                                <span class="glyphicon glyphicon-star-empty"></span>
-                                                            </li>
-                                                            <li>|</li>
-                                                            <li>
-                                                                <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
-                                                                <span><i class="fa fa-facebook-square"></i></span>
-                                                                <span><i class="fa fa-twitter-square"></i></span>
-                                                                <span><i class="fa fa-google-plus-square"></i></span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-
-
-
-
-
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane fade" id="tab2primary">
-                                            <div class="well">
-                                                <div class="media">
-                                                    <a class="pull-left" href="#">
-                                                        <img class="media-object" src="http://www.moneybook.ro/moneybook-feed.png">
-                                                    </a>
-                                                    <div class="media-body">
-                                                        <h4 class="media-heading">Galerie</h4>
-                                                        <p class="text">By Manager</p>
-                                                        <p><img width="300" height="300" src="http://i1.wp.com/www.moneybook.ro/wp-content/uploads/2016/08/maieu-ALB_1.jpg?resize=300%2C300"
-                                                                class="attachment-image" alt="image1" title="image"
-                                                                sizes="(max-width: 300px) 100vw, 300px">
-                                                            <img width="300" height="300" src="http://i1.wp.com/www.moneybook.ro/wp-content/uploads/2015/11/8Martie.png?resize=300%2C265"
-                                                                 class="attachment-image" alt="image1" title="image"
-                                                                 sizes="(max-width: 300px) 100vw, 300px">
-                                                            <img width="300" height="300" src="http://i0.wp.com/www.moneybook.ro/wp-content/uploads/2014/12/pisici.jpg?w=537"
-                                                                 class="attachment-image" alt="image1" title="image"
-                                                                 sizes="(max-width: 300px) 100vw, 300px">
-                                                            <img width="300" height="300" src="http://i0.wp.com/www.moneybook.ro/wp-content/uploads/2014/10/beagle1.jpg?w=448"
-                                                                 class="attachment-image" alt="image1" title="image"
-                                                                 sizes="(max-width: 300px) 100vw, 300px">
-                                                        </p>
-                                                        <ul class="list-inline list-unstyled">
-                                                            <li><span><i class="glyphicon glyphicon-calendar"></i> 1 days, 8 hours </span></li>
-                                                            <li>|</li>
-                                                            <span><i class="glyphicon glyphicon-comment"></i> 2 comments</span>
-                                                            <li>|</li>
-                                                            <li>
-                                                                <span class="glyphicon glyphicon-star"></span>
-                                                                <span class="glyphicon glyphicon-star"></span>
-                                                                <span class="glyphicon glyphicon-star"></span>
-                                                                <span class="glyphicon glyphicon-star"></span>
-                                                                <span class="glyphicon glyphicon-star-empty"></span>
-                                                            </li>
-                                                            <li>|</li>
-                                                            <li>
-                                                                <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
-                                                                <span><i class="fa fa-facebook-square"></i></span>
-                                                                <span><i class="fa fa-twitter-square"></i></span>
-                                                                <span><i class="fa fa-google-plus-square"></i></span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="well">
-                                                <div class="media">
-                                                    <a class="pull-left" href="#">
-                                                        <img class="media-object" src="http://www.moneybook.ro/moneybook-feed.png">
-                                                    </a>
-                                                    <div class="media-body">
-                                                        <h4 class="media-heading">Galerie2</h4>
-                                                        <p class="text-right">By Manager</p>
-                                                        <p><img width="300" height="300" src="http://dev.webofiice.ro/anunt/oc-content/uploads/0/7_thumbnail.jpg"
-                                                                class="attachment-image" alt="image1" title="image"
-                                                                sizes="(max-width: 300px) 100vw, 300px">
-                                                            <img width="300" height="300" src="http://dev.webofiice.ro/anunt/oc-content/uploads/0/6_thumbnail.jpg"
-                                                                 class="attachment-image" alt="image1" title="image"
-                                                                 sizes="(max-width: 300px) 100vw, 300px">
-                                                            <img width="300" height="300" src="http://i0.wp.com/www.moneybook.ro/wp-content/uploads/2014/12/pisici.jpg?w=537"
-                                                                 class="attachment-image" alt="image1" title="image"
-                                                                 sizes="(max-width: 300px) 100vw, 300px">
-                                                            <img width="300" height="300" src="http://i0.wp.com/www.moneybook.ro/wp-content/uploads/2014/10/beagle1.jpg?w=448"
-                                                                 class="attachment-image" alt="image1" title="image"
-                                                                 sizes="(max-width: 300px) 100vw, 300px"></p>
-                                                        <ul class="list-inline list-unstyled">
-                                                            <li><span><i class="glyphicon glyphicon-calendar"></i> 2 days, 8 hours </span></li>
-                                                            <li>|</li>
-                                                            <span><i class="glyphicon glyphicon-comment"></i> 2 comments</span>
-                                                            <li>|</li>
-                                                            <li>
-                                                                <span class="glyphicon glyphicon-star"></span>
-                                                                <span class="glyphicon glyphicon-star"></span>
-                                                                <span class="glyphicon glyphicon-star"></span>
-                                                                <span class="glyphicon glyphicon-star"></span>
-                                                                <span class="glyphicon glyphicon-star-empty"></span>
-                                                            </li>
-                                                            <li>|</li>
-                                                            <li>
-                                                                <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
-                                                                <span><i class="fa fa-facebook-square"></i></span>
-                                                                <span><i class="fa fa-twitter-square"></i></span>
-                                                                <span><i class="fa fa-google-plus-square"></i></span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-
-
-
-
-
+                                            <div v-for="i in 8">
+                                                <timer-cmp :ps="i"></timer-cmp>
                                             </div>
                                         </div>
                                         <div class="tab-pane fade" id="tab3primary">Primary 3</div>
+                                        <div class="tab-pane fade" id="tab2primary">
+                                        </div>
                                         <div class="tab-pane fade" id="tabremove"><remove-cmp :rooms = "$store.getters.rooms" @deleteRoom = "deleteRoom"></remove-cmp></div>
                                         <div class="tab-pane fade" id="tabremove_event"><removeevent-cmp :events = "$store.getters.events" @deleteEvent = "deleteEvent"></removeevent-cmp></div>
+                                        <div class="tab-pane fade" id="tabremove_hookah"><removehookah-cmp :hookahs = "$store.getters.hookahs" @deleteHookah = "deleteHookah"></removehookah-cmp></div>
+                                        <div class="tab-pane fade" id="tabremove_place"><removeplace-cmp :places = "$store.getters.places" @deletePlace = "deletePlace"></removeplace-cmp></div>
                                         <div class="tab-pane fade" id="tabadd_event"><add-event @addEvent = "added"></add-event></div>
+                                        <div class="tab-pane fade" id="tabadd_hookah"><add-hookah @addHookah = "added"></add-hookah></div>
+                                        <div class="tab-pane fade" id="tabadd_place"><add-place @addPlace = "added"></add-place></div>
                                         <div class="tab-pane fade" id="tabadd"><add-cmp @addRoom = "added"></add-cmp></div>
                                         <div class="tab-pane fade" id="tabusers"><user-list-cmp :users = "$store.getters.users" @toProfile = "toProfile"></user-list-cmp></div>
+                                        <div class="tab-pane fade" id="tabrates"><rate-list-cmp :rates = "$store.getters.rates"></rate-list-cmp></div>
                                         <p>
 
                                         </p>
@@ -768,9 +615,15 @@
 <script>
     import Remove from './Remove.vue'
     import RemoveEvent from './RemoveEvent.vue'
+    import RemoveHookah from './RemoveHookah.vue'
+    import RemovePlace from './RemovePlace.vue'
     import Add from './Items/AddItem.vue'
+    import Timer from  './Timer.vue'
     import AddEvent from './Items/AddEvent.vue'
+    import AddPlace from './Items/AddPlace.vue'
+    import AddHookah from './Items/AddHookah.vue'
     import UserList from './UserList.vue'
+    import RateList from './RatesList.vue'
     import {mapGetters} from 'vuex'
     import {mapActions} from 'vuex'
     export default {
@@ -788,15 +641,35 @@
         components: {
             removeCmp: Remove,
             removeeventCmp: RemoveEvent,
+            removehookahCmp: RemoveHookah,
+            removeplaceCmp: RemovePlace,
             addCmp: Add,
+            addHookah: AddHookah,
+            addPlace: AddPlace,
             userListCmp: UserList,
-            addEvent: AddEvent
+            addEvent: AddEvent,
+            timerCmp: Timer,
+            rateListCmp: RateList
         },
         methods: {
             deleteRoom(room){
                 let index = this.$store.state.rooms.indexOf(room);
                 this.$store.state.rooms.splice(index,1);
                 this.delRooms(room);
+                location.reload();
+                //this.getRooms()
+            },
+            deleteHookah(hookah){
+                let index = this.$store.state.hookahs.indexOf(hookah);
+                this.$store.state.hookahs.splice(index,1);
+                this.delHookah(hookah);
+                location.reload();
+                //this.getRooms()
+            },
+            deletePlace(place){
+                let index = this.$store.state.places.indexOf(place);
+                this.$store.state.places.splice(index,1);
+                this.delPlace(place);
                 location.reload();
                 //this.getRooms()
             },
@@ -831,6 +704,8 @@
         ...mapActions([
             'getRooms',
             'delRooms',
+            'delHookah',
+            'delPlace',
             'getUsers',
             'delEvent',
         ])

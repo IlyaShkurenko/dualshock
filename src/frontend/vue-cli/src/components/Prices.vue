@@ -125,52 +125,52 @@
                         <div class="carousel-inner">
                             <div class="item active">
                                 <ul class="thumbnails">
-                                    <li v-for="item in 4" class="col-sm-3">
+                                    <li v-for="(item,index) in hookahSlider" class="col-sm-3">
                                         <div class="fff">
                                             <div class="thumbnail">
-                                                <a href="buy.html"><img src="http://placehold.it/360x240" alt=""></a>
+                                                <router-link :to="'vip/' + (parseInt(index + 1))"><img :src="$store.state.hookahs[index].img" alt="" style="height: 170px; width: 360px"></router-link>
                                             </div>
                                             <div class="caption">
-                                                <h4>Praesent commodo</h4>
-                                                <p>Nullam Condimentum Nibh Etiam Sem</p>
-                                                <a class="btn btn-mini" href="#">» Read More</a>
+                                                <h4>Hookah {{$store.state.hookahs[index].type}}</h4>
+                                                <p>{{$store.state.hookahs[index].description}}</p>
+                                                <router-link :to="'vip/' + item"><a class="btn btn-mini">» Узнать больше</a></router-link>
                                             </div>
                                         </div>
                                     </li>
                                 </ul>
-                            </div><!-- /Slide1 -->
-                            <div v-for="item in 3" class="item">
+                            </div>
+                            <div v-for="(item,index) in hookahsLength" class="item">
                                 <ul class="thumbnails">
-                                    <li v-for="item in 4" class="col-sm-3">
+                                    <li v-for="item in $store.state.slider[index]" class="col-sm-3">
                                         <div class="fff">
                                             <div class="thumbnail">
-                                                <a href="buy.html"><img src="http://placehold.it/360x240" alt=""></a>
+                                                <router-link :to="'hookah/' + (parseInt((item - 1) + 5))"><img :src="$store.state.hookahs[(item - 1) + 4].img" alt=""></router-link>
                                             </div>
                                             <div class="caption">
-                                                <h4>Praesent commodo</h4>
-                                                <p>Nullam Condimentum Nibh Etiam Sem</p>
-                                                <a class="btn btn-mini" href="#">» Read More</a>
+                                                <h4>Hookah {{$store.state.hookahs[(item - 1) + 4].id}}</h4>
+                                                <p>{{$store.state.hookahs[(item - 1) + 4].description}}</p>
+                                                <router-link :to="'hookah/' + (parseInt((item - 1) + 5))"><a class="btn btn-mini">» Узнать больше</a></router-link>
                                             </div>
                                         </div>
                                     </li>
                                 </ul>
-                            </div><!-- /Slide3 -->
-                        </div>
+                            </div>
+                        </div><!-- /Slide3 -->
+                    </div>
 
 
-                        <nav>
-                            <ul class="control-box pager">
-                                <li><a data-slide="prev" href="#myCarousel3" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
-                                <li><a data-slide="next" href="#myCarousel3" class=""><i class="glyphicon glyphicon-chevron-right"></i></a></li>
-                            </ul>
-                        </nav>
-                        <!-- /.control-box -->
+                    <nav>
+                        <ul class="control-box pager">
+                            <li><a data-slide="prev" href="#myCarousel4" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
+                            <li><a data-slide="next" href="#myCarousel4" class=""><i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                        </ul>
+                    </nav>
+                    <!-- /.control-box -->
 
-                    </div><!-- /#myCarousel -->
+                </div><!-- /#myCarousel -->
 
-                </div><!-- /.col-xs-12 -->
+            </div><!-- /.col-xs-12 -->
 
-            </div>
             <div class="textpad">
                 <h2>Приставки и комнаты</h2>
             </div>
@@ -423,8 +423,11 @@
             return {
                 url: 'vip/1/',
                 rLength: 0,
+                hLength: 0,
                 roomsInSlider: [],
-                firstSliderLength: 0
+                hookahsInSlider: [],
+                firstSliderLength: 0,
+                secondSliderLength: 0
             }
         },
         components: {
@@ -437,6 +440,9 @@
            roomsLength(){
                return this.rLength = Math.ceil((this.$store.state.rooms.length - 4)/4)
            },
+            hookahsLength(){
+               return this.hLength = Math.ceil((this.$store.state.hookahs.length - 4)/4)
+           },
             sliderLength(id){
                return {
                    index: this.roomsInSlider[id]
@@ -444,6 +450,9 @@
             },
             firstSlider(){
                 return this.firstSliderLength = this.$store.state.rooms.length >= 4 ? 4: this.$store.state.rooms.length
+            },
+            hookahSlider(){
+                return this.secondSliderLength = this.$store.state.hookahs.length >= 4 ? 4: this.$store.state.hookahs.length
             }
         },
         methods: {

@@ -4,13 +4,13 @@
         <h1 style="font-family: 'Helvetica Narrow', sans-serif; font-weight: bold">
             <a href=""
                title="Create your own ninja in NARUTO TO BORUTO: SHINOBI STRIKER">
-                {{event.title}}</a>
+                {{$store.state.events[index].title}}</a>
         </h1>
 
         <figure>
             <a href=""
                title="Create your own ninja in NARUTO TO BORUTO: SHINOBI STRIKER">
-                <img :src="event.img" style="background-size: 100%"
+                <img :src="$store.state.events[index].img" style="background-size: 100%"
                      alt="Create your own ninja in NARUTO TO BORUTO: SHINOBI STRIKER">
             </a>
         </figure>
@@ -20,7 +20,7 @@
                 &nbsp;
                 For the first time in ...</p>
             <a
-               class="more" :title="event.title" @click="toEvent">читать еще</a>
+               class="more" :title="$store.state.events[index].title" @click="toEvent">читать еще</a>
         </div>
     </article>
     </div>
@@ -28,7 +28,6 @@
 <script>
     export default {
         props: {
-            event: Object,
             index: Number
         },
         data(){
@@ -42,8 +41,9 @@
                 return images('./' + img)
             },
             toEvent(){
-                if(this.event.category === 'Турнир'){
-                    this.$router.push({ path: 'tournament', query: { id: this.event.id }})
+                console.log('yes')
+                if(this.$store.state.events[this.index].category === 'Турнир'){
+                    this.$router.push('tournament/'+ (this.index + 1))
                 }
             }
         }

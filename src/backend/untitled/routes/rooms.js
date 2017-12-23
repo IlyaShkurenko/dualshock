@@ -8,6 +8,19 @@ var formidable = require('formidable');
 var fileWrite = require('../src/file');
 var Room = require('../models/room').Room;
 var cors = require('cors');
+var auth = require('../public/javascripts/auth.js');
+let notAuthorised = {
+    status: 401,
+    message: 'Not Authorized'
+}
+let forbidden = {
+    status: 403,
+    message: 'Forbidden'
+}
+let notFound = {
+    status: 404,
+    message: 'Incorrect id'
+}
 router.options('*', cors());
     util = require('util');
 /* GET home page. */
@@ -102,5 +115,17 @@ router.post('/', async (req, res) => {
                 return Promise.resolve("https://firebasestorage.googleapis.com/v0/b/" + bucket.name + "/o/" + encodeURIComponent(file.name) + "?alt=media&token=" + uuid);
             });
     };
+});
+router.delete('/remove/:id',async function (req, res, next) {{
+            console.log(req.params.id)
+            let room = await ref.getById(req.params.id);
+            if (room) {
+                await ref.remove(req.params.id);
+                res.send("Deleted");
+            }
+            else {
+                res.json(notFound)
+            }
+        }
 });
 module.exports = router;

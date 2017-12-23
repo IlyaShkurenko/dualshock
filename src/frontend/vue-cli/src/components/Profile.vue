@@ -10,7 +10,7 @@
                         <a href="/" class="home "><span></span></a>
                     </li>
                     <li>
-                        <a href="/tourney/list/public">Турниры</a>
+                        <a href="/tourney/list/public">Dualshock</a>
                     </li>
                     <li>
                         <a href="/contact">Контакты</a>
@@ -18,7 +18,10 @@
                 </ul>
             </div>
             <div id="Breadcrumbs">
-                <a href="/" class="Last"><span>DualShock</span></a>
+                <a href="/" class="Last"><span></span></a>
+            </div>
+            <div>
+                {{getTournament()}}
             </div>
             <div id="BreadcrumbsFiller">&nbsp;</div>
             <div class="adWide top">
@@ -91,8 +94,8 @@
                                 Games </a>
                             <a href="/player/168251/contact">
                                 Контакты </a>
-                            <a href="/player/168251/guestbook">
-                                Guestbook </a>
+                            <a href="https://t.me/dshock_bot" target="_blank">
+                                Telegram </a>
                         </div>
                         <div id="latestVisitors" >
                             <h3><span>Latest</span> Visitors</h3>
@@ -134,140 +137,23 @@
                     </div>
                     <div id="right">
                         <div id="matches">
-                            <div class="matchTourney" style="font-family: 'Helvetica Narrow', sans-serif; font-weight: bold">
+                            <div v-for="tournament in playedTournaments.tournaments.length" class="matchTourney" style="font-family: 'Helvetica Narrow', sans-serif; font-weight: bold">
                                 <h3>
                                     <img src="https://binarybeast.com/img/games/icons/NSUNS3FB.png"
                                          alt="Naruto Shippuden : Ultimate Ninja Storm 3 Full Burst"/>
-                                    <a href="/xNSUNS3FB1508010" target="_blank">Weekly Tournament II №1[PC]</a>
+                                    <a href="/xNSUNS3FB1508010" target="_blank">{{playedTournaments.tournaments[0]}}</a>
                                     <span>Tournament</span>
                                 </h3>
-                                <a href="/tourney/load_match/1439123" target="_blank" class="loss">
+                                <a v-for="index in playedTournaments.matches.myScore.length" target="_blank" :class="{win:playedTournaments.matches.wins[index-1], loss:!playedTournaments.matches.wins[index-1]}">
                                     <p class="result"></p>
                                     <p class="score">
-                                        <span>1</span>
+                                        <span>{{playedTournaments.matches.myScore[index-1]}}</span>
                                         -
-                                        <span class="opponentScore">0</span>
+                                        <span class="opponentScore">{{playedTournaments.matches.theirScore[index-1]}}</span>
                                     </p>
-                                    <p class="opponent">mot9_mot9</p>
+                                    <p class="opponent">{{playedTournaments.matches.opponents[index-1]}}</p>
 
-                                    <p class="match">Loss</p>
-                                </a>
-                                <a href="/tourney/load_match/1439117" target="_blank" class="win">
-                                    <p class="result"></p>
-                                    <p class="score">
-                                        <span>1</span>
-                                        -
-                                        <span class="opponentScore">0</span>
-                                    </p>
-                                    <p class="opponent">Zhenya Mironov</p>
-
-                                    <p class="match">Win</p>
-                                </a>
-                            </div>
-                            <div class="matchTourney">
-                                <h3>
-                                    <img src="https://binarybeast.com/img/games/icons/NSUNS3FB.png"
-                                         alt="Naruto Shippuden : Ultimate Ninja Storm 3 Full Burst"/>
-                                    <a href="/xNSUNS3FB1501240" target="_blank">Naruto Storm Winter Tournament [PS3]</a>
-                                    <span>Tournament</span>
-                                </h3>
-                                <a href="/tourney/load_match/1295688" target="_blank" class="loss">
-                                    <p class="result"></p>
-                                    <p class="score">
-                                        <span>1</span>
-                                        -
-                                        <span class="opponentScore">0</span>
-                                    </p>
-                                    <p class="opponent">DennossPL</p>
-
-                                    <p class="match">Loss</p>
-                                </a>
-                            </div>
-                            <div class="matchTourney">
-                                <h3>
-                                    <img src="https://binarybeast.com/img/games/icons/NSUNS3FB.png"
-                                         alt="Naruto Shippuden : Ultimate Ninja Storm 3 Full Burst"/>
-                                    <a href="/xNSUNS3G1501240" target="_blank">Naruto Storm Winter Tournament [PC]</a>
-                                    <span>Tournament</span>
-                                </h3>
-                                <a href="/tourney/load_match/1294329" target="_blank" class="loss">
-                                    <p class="result"></p>
-                                    <p class="score">
-                                        <span>1</span>
-                                        -
-                                        <span class="opponentScore">0</span>
-                                    </p>
-                                    <p class="opponent">fantomext</p>
-
-                                    <p class="match">Loss</p>
-                                </a>
-                                <a href="/tourney/load_match/1294258" target="_blank" class="win">
-                                    <p class="result"></p>
-                                    <p class="score">
-                                        <span>1</span>
-                                        -
-                                        <span class="opponentScore">0</span>
-                                    </p>
-                                    <p class="opponent">AtomicAnvil</p>
-
-                                    <p class="match">Win</p>
-                                </a>
-                            </div>
-                            <div class="matchTourney">
-                                <h3>
-                                    <img src="https://binarybeast.com/img/games/icons/NSUNS3FB.png"
-                                         alt="Naruto Shippuden : Ultimate Ninja Storm 3 Full Burst"/>
-                                    <a href="/xNSUNS3FB1412260" target="_blank">New Year's Cup (PlayStation 3)</a>
-                                    <span>Tournament</span>
-                                </h3>
-                                <a href="/tourney/load_match/1277200" target="_blank" class="loss">
-                                    <p class="result"></p>
-                                    <p class="score">
-                                        <span>2</span>
-                                        -
-                                        <span class="opponentScore">0</span>
-                                    </p>
-                                    <p class="opponent">NintendofreakFTW</p>
-
-                                    <p class="match">Loss</p>
-                                </a>
-                            </div>
-                            <div class="matchTourney">
-                                <h3>
-                                    <img src="https://binarybeast.com/img/games/icons/NSUNS3FB.png"
-                                         alt="Naruto Shippuden : Ultimate Ninja Storm 3 Full Burst"/>
-                                    <a href="/xNSUNS3FB1412130" target="_blank">Christmas Cup (PC)</a>
-                                    <span>Tournament</span>
-                                </h3>
-                                <a href="/tourney/load_match/1266917" target="_blank" class="loss">
-                                    <p class="result"></p>
-                                    <p class="score">
-                                        <span>2</span>
-                                        -
-                                        <span class="opponentScore">0</span>
-                                    </p>
-                                    <p class="opponent">Avanger</p>
-
-                                    <p class="match">Loss</p>
-                                </a>
-                            </div>
-                            <div class="matchTourney">
-                                <h3>
-                                    <img src="https://binarybeast.com/img/games/icons/NSUNS3FB.png"
-                                         alt="Naruto Shippuden : Ultimate Ninja Storm 3 Full Burst"/>
-                                    <a href="/xSC21412134" target="_blank">Christmas Cup</a>
-                                    <span>Tournament</span>
-                                </h3>
-                                <a href="/tourney/load_match/1266992" target="_blank" class="loss">
-                                    <p class="result"></p>
-                                    <p class="score">
-                                        <span>2</span>
-                                        -
-                                        <span class="opponentScore">0</span>
-                                    </p>
-                                    <p class="opponent">ChrisZero_17</p>
-
-                                    <p class="match">Loss</p>
+                                    <p class="match">{{getResult(index)}}</p>
                                 </a>
                             </div>
                         </div>
@@ -289,7 +175,8 @@
     export default {
         data() {
             return {
-                role: ''
+                role: '',
+                playedTournaments:{}
             }
         },
         components: {
@@ -305,12 +192,62 @@
             src(){
                 console.log(localStorage.getItem('nickname'))
                 return localStorage.getItem('img')
+            },
+            storeTournaments(){
+                this.$store.state.index = 5;
+                let array = this.$store.getters.playedTournaments
+                return array
             }
         },
         beforeCreate() {
             auth.checkAuth();
             if (!auth.user.authenticated) {
                 this.$router.push('/login')
+            }
+        },
+        methods:{
+           getTournament(){
+                let participant = this.$store.state.users[this.$route.params.id].username
+                let events = [];
+                events = this.$store.state.events;
+                let title = '';
+                let index;
+                let playedTournaments = {
+                    tournaments: [],
+                    matches: {
+                        opponents: [],
+                        theirScore: [],
+                        myScore: [],
+                        wins: []
+                    }
+                }
+                let count = -1;
+                let bestPlayer = {
+                    player: Object,
+                    index: Number
+                };
+               this.$store.state.tournaments.forEach(function (tournament,i) {
+                    tournament.players.forEach(function (item,k) {
+                        for(let prop in item){
+                            item[prop].players.forEach(function (player, j) {
+                                if(player.player === participant){
+                                    index = j;
+                                    playedTournaments.matches.opponents.push(item[prop].players[1-j].player);
+                                    playedTournaments.matches.theirScore.push(item[prop].players[1-j].score);
+                                    playedTournaments.matches.myScore.push(item[prop].players[j].score);
+                                    playedTournaments.matches.wins.push(item[prop].players[j].win);
+                                   // console.log('player = ',item[prop].players[1-j].player)
+                                    title = events[tournament.id].title;
+                                }
+                            })
+                        }
+                    })
+                    playedTournaments.tournaments.push(title)
+                })
+                this.playedTournaments = playedTournaments;
+            },
+            getResult(index){
+               return this.playedTournaments.matches.wins[index-1] ? 'Победа' : 'Поражение'
             }
         }
     }

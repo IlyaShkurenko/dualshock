@@ -193,6 +193,7 @@
                }).then(
                    response => {
                        console.log('Success! Response: ', response.body);
+                       this.$router.go(this.$router.currentRoute);
                        this.$store.state.booked = false
                    },
                    response => {

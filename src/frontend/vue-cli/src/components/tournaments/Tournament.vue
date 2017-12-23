@@ -25,9 +25,9 @@
             <div id="Message"><img src="" alt=""/><span></span></div>
             <div id="tourneyTitleBar">
                 <h2>
-                    <img :src="$store.state.events[$route.query.id - 1].img"
-                         :alt="$store.state.events[$route.query.id - 1].title"
-                         style="height: 30px; width: 30px; margin-top: 10px"/>{{$store.state.events[$route.query.id - 1].title}}
+                    <img :src="$store.state.events[$route.params.id - 1].img"
+                         :alt="$store.state.events[$route.params.id - 1].title"
+                         style="height: 30px; width: 30px; margin-top: 10px"/>{{$store.state.events[$route.params.id - 1].title}}
                 </h2>
                 <div id="ajaxNav">
                     <div id="ajaxLoading">
@@ -35,11 +35,12 @@
                     <a href="#streams">Трансляции</a>
                     <a href="#info" class="current">Информация</a>
                 </div>
-                <a class="join" @click="join">{{getButton}}</a>
+                <a  v-if="joined().joined" class="join" @click="quit" style="color: red">{{joined().button}}</a>
+                <a  class="join" @click="join" v-else>{{joined().button}}</a>
 
             </div>
             <div id="tourneyBannerContainer" style="height: 23vw; width: 80vw; background-size: 100%"
-                 v-bind:style="{ backgroundImage: 'url(' + $store.state.events[$route.query.id - 1].img + ')' }">
+                 v-bind:style="{ backgroundImage: 'url(' + $store.state.events[$route.params.id - 1].img + ')' }">
                 <div id="tourneyBanner" style="height: 99%; width: 100%"></div>
             </div>
             <div id="socialButtons">
@@ -49,13 +50,13 @@
             <div class="w960">
                 <div id="toolsContainer">
                     <div id="toolsNav">
-                        <a href="#table" class="current" @click="brackets = 1">Детали</a>
-                        <a href="#brackets" class="current" @click="brackets = 2">Сетка</a>
-                        <a href="#brackets" class="current" @click="brackets = 3">Игроки</a>
+                        <a class="current" @click="brackets = 1">Детали</a>
+                        <a v-if="$store.state.events[$route.params.id - 1].status === true" class="current" @click="brackets = 2">Сетка</a>
+                        <a class="current" @click="brackets = 3">Игроки</a>
                     </div>
-                    <table-cmp :tournament="$store.state.events[$route.query.id - 1]" v-if="brackets === 1"></table-cmp>
-                    <brackets-cmp v-else-if="brackets === 2"></brackets-cmp>
-                    <participants-cmp :tournament="$store.state.events[$route.query.id - 1]" v-else></participants-cmp>
+                    <table-cmp :tournament="$store.state.events[$route.params.id - 1]" v-if="brackets === 1"></table-cmp>
+                    <brackets-cmp v-else-if="brackets === 2" :tournament="$store.state.events[$route.params.id - 1]"></brackets-cmp>
+                    <participants-cmp :tournament="$store.state.events[$route.params.id - 1]" v-else></participants-cmp>
                 </div>
             </div>
         </div>
@@ -1146,6 +1147,7 @@
         data() {
             return {
                 brackets: 1,
+                color: '',
                 index: this.$route.params.id,
                 event: {},
                 joinButton: ''
@@ -1185,7 +1187,7 @@
                     }
                     var data = new FormData();
                     data.append("participant", participant.part);
-                    data.append("id", this.$route.query.id);
+                    data.append("id", this.$store.state.events[this.$route.params.id-1].id);
                     this.$http.post('event/join', data, {}).then(
                         response => {
                             this.$store.dispatch('getEvents')
@@ -1194,10 +1196,57 @@
                         }
                     );
                 }
+                console.log(this.$store.state.events[this.$route.params.id-1].id)
+            },
+            quit() {
+                if (!auth.user.authenticated) {
+                    this.$router.push('/login')
+                }
+                else {
+                    let participant = {
+                        part: localStorage.getItem('username'),
+                        status: false
+                    }
+                    var data = new FormData();
+                    data.append("participant", participant.part);
+                    data.append("id", this.$store.state.events[this.$route.params.id-1].id);
+                    this.$http.post('event/quit', data, {}).then(
+                        response => {
+                            this.$store.dispatch('getEvents')
+                            console.log(response.ok)
+                            this.$router.go(this.$router.currentRoute);
+                        }
+                    );
+                }
+            },
+             joined(){
+                let joined = false;
+                let player = {
+                    button: '',
+                    joined: false
+                }
+                let button = '';
+                if(this.$store.state.events[this.$route.params.id - 1].participants.length > 0){
+                    this.$store.state.events[this.$route.params.id - 1].participants.forEach(function (item, i, arr) {
+                        if (item.part === localStorage.getItem('username')) {
+                            player.button = 'Выйти';
+                            player.joined = true
+                        }
+                        else if(player.button.length < 1) {
+                            player.button = 'Присоединиться'
+                            player.joined = false
+                        }
+                    })
+                }
+                else {
+                    player.button = 'Присоединиться'
+                    player.joined = false
+                }
+                return player
             }
         },
         async created() {
-            console.log('params = ', this.$route.query.id)
+            console.log('params = ', this.$route.params.id)
             /*this.$store.state.events.forEach(function(item, i, arr)
             {
                 if(item.id == this.$route.params.id){
@@ -1223,7 +1272,7 @@
                 let event;
                 await this.$store.state.events.forEach(function (item, i, arr) {
                     if (item.id == 2) {
-                        // console.log('params = ', this.$route.query.id)
+                        // console.log('params = ', this.$route.params.id)
                         event = item
                     }
                 });
@@ -1231,19 +1280,19 @@
             },
             async getButton() {
                 let button = '';
-                await this.$store.state.events.forEach(function (item, i, arr) {
-                    if (item.category === 'Турнир') {
-                        if (item.participants.length > 0) {
-                            item.participants.forEach(function (part, i, arr) {
-                                if (part.part === localStorage.getItem('username')) {
-                                    button = 'Выйти'
+                if(this.$store.state.events[this.$route.params.id - 1].participants.length > 0){
+                    await this.$store.state.events[this.$route.params.id - 1].participants.forEach(function (item, i, arr) {
+                                if (item.part === localStorage.getItem('username')) {
+                                    button = 'Выйти';
                                 }
-                                else button = 'Присоединиться'
-                            })
-                        }
-                        else button = 'Присоединиться'
-                    }
-                })
+                                else if(button.length < 1) {
+                                    button = 'Присоединиться'
+                                }
+                    })
+                }
+                else {
+                   button = 'Присоединиться'
+                }
                 return button
             }
         }

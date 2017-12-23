@@ -14,13 +14,21 @@ export default {
             'getRooms',
             'getArray',
             'getUsers',
-            'getEvents'
+            'getEvents',
+            'getTournaments',
+            'getHookahs',
+            'getPlaces',
+            'getRates'
         ])
     },
     created(){
         this.getRooms();
         this.getUsers();
         this.getEvents();
+        this.getTournaments();
+        this.getHookahs();
+        this.getPlaces()
+        this.getRates()
     }
 
 }

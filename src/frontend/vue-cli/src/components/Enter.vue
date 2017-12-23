@@ -26,8 +26,8 @@
             <!-- Indicators -->
             <ol class="carousel-indicators">
                 <li data-target="#bootstrap-touch-slider" data-slide-to="0" class="active"></li>
-                <li data-target="#bootstrap-touch-slider" data-slide-to="1"></li>
-                <li data-target="#bootstrap-touch-slider" data-slide-to="2"></li>
+               <!-- <li data-target="#bootstrap-touch-slider" data-slide-to="1"></li>
+                <li data-target="#bootstrap-touch-slider" data-slide-to="2"></li>-->
             </ol>
 
             <!-- wrapperstart For Slides -->
@@ -62,28 +62,15 @@
                 <!-- End of Slide -->
 
                 <!-- Second Slide -->
-                <div class="item">
 
-                    <!-- Slide Background -->
-                    <div class="bs-slider-overlay"></div>
-                    <!-- Slide Text Layer -->
-                    <div class="slide-text slide_style_center">
-                        <h1 data-animation="animated flipInX">Bootstrap touch slider</h1>
-                        <p data-animation="animated lightSpeedIn">Make Bootstrap Better together.</p>
-                        <a href="http://bootstrapthemes.co/" target="_blank" class="btn btn-default"
-                           data-animation="animated fadeInUp">select one</a>
-                        <a href="http://bootstrapthemes.co/" target="_blank" class="btn btn-primary"
-                           data-animation="animated fadeInDown">select two</a>
-                    </div>
-                </div>
                 <!-- End of Slide -->
 
                 <!-- Third Slide -->
-                <div class="item">
+               <!--<div class="item">
 
-                    <!-- Slide Background -->
+
                     <div class="bs-slider-overlay"></div>
-                    <!-- Slide Text Layer -->
+
                     <div class="slide-text slide_style_right">
                         <h1 data-animation="animated zoomInLeft">Beautiful Animations</h1>
                         <p data-animation="animated fadeInRight">Lots of css3 Animations to make slide beautiful .</p>
@@ -92,7 +79,7 @@
                         <a href="http://bootstrapthemes.co/" target="_blank" class="btn btn-primary"
                            data-animation="animated fadeInRight">select two</a>
                     </div>
-                </div>
+                </div> -->
                 <!-- End of Slide -->
 
 
@@ -141,8 +128,8 @@
                         </article>
                         </router-link>
                     </li>-->
-                    <li  v-for="item in $store.state.events" class="bloc-news">
-                        <event-component :event="item"></event-component>
+                    <li  v-for="(item, index) in $store.state.events" class="bloc-news">
+                        <event-component :index="index"></event-component>
                     </li>
                    <!-- <li class="bloc-news">
                         <article>

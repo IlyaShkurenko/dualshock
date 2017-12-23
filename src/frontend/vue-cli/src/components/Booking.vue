@@ -17,8 +17,14 @@
                 <div id="block-r" class="display" v-else>
                     <img alt="Driving hall" class="hall"
                          src="http://gameinn.com.ua/wp-content/themes/game/img/driving2.png"/>
-                    <div v-for="i in returnTime"  :id="'n' + i" class="icon" :data-for="'popap-' + i" @click="$store.state.booked = true; place.number = i">
+                    <div  v-for="i in returnTime"  :id="'n' + i" class="icon" :data-for="'popap-' + i" @click="$store.state.booked = true; place.number = i">
                         <img :alt="i" class="hover"
+                             src="http://gameinn.com.ua/wp-content/themes/game/img/n.bkg.hover.png"/>
+                        <img :alt="i" class="h" src="http://gameinn.com.ua/wp-content/themes/game/img/n.bkg.png"/>
+                        <span>{{i}}</span>
+                    </div>
+                    <div v-if="admin()" v-for="i in returnBooked"  :id="'n' + i" class="icon" :data-for="'popap-' + i" @click="remove(i)">
+                        <img :alt="i" class="hover2"
                              src="http://gameinn.com.ua/wp-content/themes/game/img/n.bkg.hover.png"/>
                         <img :alt="i" class="h" src="http://gameinn.com.ua/wp-content/themes/game/img/n.bkg.png"/>
                         <span>{{i}}</span>
@@ -50,6 +56,7 @@
                 </div>
             </section>
             <form-component v-if="$store.state.booked" :placeNumber="place.number"></form-component>
+            <remove-form v-if="$store.state.remove" :placeNumber="removePlace" :time="selectedTime"></remove-form>
         </div>
         <logo-component></logo-component>
     </div>
@@ -6373,6 +6380,7 @@
     import Login from './LoginAndReg.vue';
     import Logo from './Items/Logo.vue';
     import Form from './ReservForm.vue';
+    import RemoveForm from './RemoveForm.vue';
 
     export default {
         data(){
@@ -6381,6 +6389,7 @@
                selectedTime: 'Сейчас',
                allPlaces:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],
                 showAll: true,
+                removePlace: -1,
                place: {
                    number: -1,
                    timeBefore:[],
@@ -6415,15 +6424,8 @@
                       console.log(time)
                       // console.log(parseInt(item['timeAfter'][i].replace(':','')))
                       if((time >= parseInt(item['timeBefore'][i].replace(':',''))) && (time <= parseInt(item['timeAfter'][i].replace(':','')))){
-                          console.log('yes')
-                          console.log(item.name[i])
                           booked.push(item.number);
                       }
-                      else {
-                          console.log(parseInt(item['timeBefore'][i].replace(':','')))
-                          console.log('no')
-                      }
-                      console.log(booked)
                       //console.log(parseInt(item['timeBefore'][i].replace(':','')))
                   }
               });
@@ -6433,7 +6435,30 @@
                   }
               });
               return free
-          }
+          },
+            async returnBooked(){
+                let time;
+                let booked = [];
+                let free = [];
+                if(this.selectedTime === 'Сейчас'){
+                    let currentdate = new Date()
+                    let datetime = parseInt(currentdate.getHours() + '' + currentdate.getMinutes())
+                    time = datetime
+                }
+                else {
+                    time =  parseInt(this.selectedTime.replace(':',''))
+                }
+                await this.$store.state.places.forEach(function (item, i) {
+                    for(let i = 0; i < item.name.length; i++){
+                        // console.log(parseInt(item['timeAfter'][i].replace(':','')))
+                        if((time >= parseInt(item['timeBefore'][i].replace(':',''))) && (time <= parseInt(item['timeAfter'][i].replace(':','')))){
+                            booked.push(item.number);
+                        }
+                        //console.log(parseInt(item['timeBefore'][i].replace(':','')))
+                    }
+                });
+                return booked
+            }
         },
         methods:{
             getCurrentTime(){
@@ -6445,14 +6470,25 @@
                 else {
                     return parseInt(this.selectedTime.replace(':',''))
                 }
+            },
+            admin(){
+                console.log(localStorage.getItem('role'))
+                return localStorage.getItem('role') === 'admin'
+            },
+            remove(i){
+                this.$store.state.remove = true;
+                this.removePlace = i;
+                console.log(i)
             }
         },
         components: {
+            RemoveForm,
             'header-component': Header,
             'footer-component': Footer,
             'loginandreg': Login,
             'logo-component': Logo,
-            'form-component': Form
+            'form-component': Form,
+            'remove-form':RemoveForm
         }
     }
 </script>

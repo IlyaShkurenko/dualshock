@@ -22,15 +22,11 @@ export const routes = [
     {path: '/login', component: Login},
     {path: '/signup', component: SignUp},
     {path: '/settings', component: Settings},
-    {path: '/tournament', component: Tournament},
+    {path: '/tournament/:id', component: Tournament},
     {path: '/games', component: Games},
     {path: '/sale', component: Sale},
     {path: '/single/:id', component: SingleNews},
-    {path: '/user/:id', component: Profile,
-        meta: {
-            permission: 'user',
-            fail: '/error-public'
-        },},
+    {path: '/user/:id', component: Profile},
     {path: '/admin', component: Admin,
         meta: {
             permission: 'admin',
@@ -38,5 +34,6 @@ export const routes = [
         },
         children: [
         { path: 'remove', component: Remove}
-    ]}
+    ]},
+    {path:'*', redirect: '/'}
 ];

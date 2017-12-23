@@ -233,7 +233,7 @@
                 isActiveConfirm: false,
                 isActiveBegin: false,
                 buttonConfirm: 'Подтвердить',
-                buttonBegin: 'Начать турнир',
+                buttonBegin: 'Сформировать',
             }
         },
         created(){
@@ -275,9 +275,23 @@
                 })
                 var data = new FormData();
                 data.append("confirmed", this.active);
-                data.append("id", this.$route.query.id);
+                data.append("id", this.$store.state.events[this.$route.params.id-1].id);
                 console.log(this.active)
                 this.$http.post('event/confirm', data, {}).then(
+                    response => {
+                        this.$store.dispatch('getEvents')
+                        console.log(response.ok)
+                        this.$router.go(this.$router.currentRoute);
+                    }
+                );
+            },
+
+            begin(){
+                var data = new FormData();
+                data.append("confirmed", this.active);
+                data.append("id", this.$store.state.events[this.$route.params.id-1].id);
+                console.log(this.active)
+                this.$http.post('event/begin', data, {}).then(
                     response => {
                         this.$store.dispatch('getEvents')
                         console.log(response.ok)
@@ -294,7 +308,8 @@
                 return localStorage.getItem('role') === 'admin'
             },
             enought(){
-                return this.tournament.participants.length === this.tournament.max
+                console.log(this.tournament.max);
+                return this.tournament.participants.length === parseInt(this.tournament.max)
             }
         },
         asyncComputed:{

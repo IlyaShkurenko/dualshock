@@ -7,7 +7,7 @@
             </tr>
             <tr>
                 <th>Игра</th>
-                <td><img :src="tournament.img" alt="Counter-Strike: Global Offensive"  style="width: 30px; height: 30px"/><a href="/game/load/CSGO">FIFA 18</a></td>
+                <td><img :src="tournament.img" alt="Counter-Strike: Global Offensive"  style="width: 30px; height: 30px"/><a href="/game/load/CSGO">{{tournament.game}}</a></td>
             </tr>
             <tr>
                 <th>Максимум игроков</th>

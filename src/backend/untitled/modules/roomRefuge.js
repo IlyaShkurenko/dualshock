@@ -15,13 +15,21 @@ let create = async(roomTodb) => {
     })
 
 };
-
+let getById = async(index) =>{
+    let isThere = {}
+    await Room.findOne({id: index}, function (err, room) {
+        isThere = room
+    });
+    return isThere
+}
 let getAll = async() => {
+    let count = 0;
     let roomMap = {};
     await Room.find({},function(err, rooms) {
 
         rooms.forEach(function(room) {
-            roomMap[room._id] = room;
+            roomMap[count] = room;
+            count++;
         });
     });
     return roomMap
@@ -30,5 +38,6 @@ let getAll = async() => {
 module.exports = {
     remove,
     create,
-    getAll
+    getAll,
+    getById
 };

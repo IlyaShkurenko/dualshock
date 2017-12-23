@@ -7,7 +7,21 @@ var multer  = require('multer');
 var formidable = require('formidable');
 var fileWrite = require('../src/file');
 var Event = require('../models/event').Event;
+let bot = require('../bot')
 var cors = require('cors');
+var auth = require('../public/javascripts/auth.js');
+let notAuthorised = {
+    status: 401,
+    message: 'Not Authorized'
+}
+let forbidden = {
+    status: 403,
+    message: 'Forbidden'
+}
+let notFound = {
+    status: 404,
+    message: 'Incorrect id'
+}
 router.options('*', cors());
 util = require('util');
 /* GET home page. */
@@ -21,22 +35,18 @@ router.get('/',async function (req, res, next) {
         res.json(userMap);
     });
 });
-router.post('/remove',async function (req, res, next) {
-    let index;
-    var form = new formidable.IncomingForm(),
-        fields = {};
-    form
-        .on('error', function(err) {
-            res.writeHead(500, {'content-type': 'text/plain'});
-            res.end('error:\n\n'+util.inspect(err));
-            console.error(err);
-        })
-        .on('field', function(name, value) {
-            index = value;
-            ref.remove(value);
-            res.send('deleted')
-        });
-    form.parse(req);
+router.delete('/remove/:id',async function (req, res, next) {
+    console.log('yes')
+            console.log(req.params.id)
+            let room = await ref.getById(req.params.id);
+            if (room) {
+                await ref.remove(req.params.id);
+                res.send("Deleted");
+            }
+            else {
+                res.json(notFound)
+            }
+
 });
 router.post('/confirm',async function (req, res, next) {
     let index;
@@ -74,6 +84,49 @@ router.post('/confirm',async function (req, res, next) {
                             event.participants.push(item)
                         })
                         console.log(save)
+                        await event.save(function (err, updatedTank) {
+                            if (err) throw err;
+                            console.log(updatedTank)
+                        });
+                        console.log('-> post done');
+                    }
+                });
+            //ref.remove(value);
+            res.end()
+        });
+    form.parse(req);
+});
+router.post('/begin',async function (req, res, next) {
+    let index;
+    let array = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+    let save = []
+    var form = new formidable.IncomingForm(),
+        fields = {};
+    form
+        .on('error', function(err) {
+            res.writeHead(500, {'content-type': 'text/plain'});
+            res.end('error:\n\n'+util.inspect(err));
+            console.error(err);
+        })
+        .on('field', function(name, value) {
+            if(name === 'id'){
+                index = value;
+            }
+                Event.findOne({id: index}, async function (err, event) {
+                    if (!event) {
+                        let error = {
+                            status: 404,
+                            message: 'Incorrect id'
+                        }
+                    }
+                    else {
+                        event.brackets = await [];
+                        save = await array.sort(compareRandom);
+                        await save.forEach(function (item,i) {
+                            event.brackets.push(item)
+                        })
+                        console.log(event.brackets)
+                        event.status = true;
                         await event.save(function (err, updatedTank) {
                             if (err) throw err;
                             console.log(updatedTank)
@@ -128,9 +181,62 @@ router.post('/join',async function (req, res, next) {
         });
     form.parse(req);
 });
+router.post('/quit',async function (req, res, next) {
+    let index;
+    let participant = {
+        part: '',
+        status: false
+    }
+    var form = new formidable.IncomingForm(),
+        fields = {};
+    form
+        .on('error', function(err) {
+            res.writeHead(500, {'content-type': 'text/plain'});
+            res.end('error:\n\n'+util.inspect(err));
+            console.error(err);
+        })
+        .on('field', function(name, value) {
+            //ref.remove(value);
+            if(name === 'participant'){
+                participant.part = value
+            }
+            else if(name === 'id'){
+                index = value
+            }
+            Event.findOne({id: index}, async function (err, event) {
+                if (!event) {
+                    let error = {
+                        status: 404,
+                        message: 'Incorrect id'
+                    }
+                }
+                else {
+                    await event.participants.forEach(function (part, i) {
+                        if(part.part === participant.part){
+                            event.participants.splice(i, 1);
+                        }
+                    })
+                    event.save(function (err, updatedTank) {
+                        if (err) throw err;
+                        console.log(updatedTank)
+                    });
+                    console.log('-> post done');
+                }
+            });
+           res.end()
+        });
+    form.parse(req);
+});
 router.post('/', async (req, res) => {
     let newevent = {};
     let index;
+    let path = '';
+    let array = await ref.getAll();
+    const UUID = require("uuid-v4");
+    const fbId = "vue-app-75351";
+    const fbKeyFile = "vue-app-75351-firebase-adminsdk-9pkad-49d805f90e.json";
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');
     Event
         .find()
         .sort('id')  // give me the max
@@ -146,13 +252,6 @@ router.post('/', async (req, res) => {
 
 
         });
-    let path = '';
-    let array = await ref.getAll();
-    const UUID = require("uuid-v4");
-    const fbId = "vue-app-75351";
-    const fbKeyFile = "vue-app-75351-firebase-adminsdk-9pkad-49d805f90e.json";
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');
     //parse form
     var form = new formidable.IncomingForm(),
         fields = {};
@@ -172,6 +271,9 @@ router.post('/', async (req, res) => {
         .on('field', function(name, value) {
             if(name === 'participants' && value.length < 1){
                 newevent.participants = []
+            }
+            if(name === 'brackets' && value.length < 1){
+                newevent.brackets = []
             }
             else {
                 newevent[name] = value;
@@ -204,10 +306,15 @@ router.post('/', async (req, res) => {
                 newevent.img = "https://firebasestorage.googleapis.com/v0/b/" + bucket.name + "/o/" + encodeURIComponent(file.name) + "?alt=media&token=" + uuid;
                 await ref.create(newevent);
                 console.log(newevent);
+                bot.newEvent(newevent)
                 console.log('-> post done');
                 res.end('received fields:\n\n '+util.inspect(fields));
                 return Promise.resolve("https://firebasestorage.googleapis.com/v0/b/" + bucket.name + "/o/" + encodeURIComponent(file.name) + "?alt=media&token=" + uuid);
             });
     };
 });
+let compareRandom = function(a, b) {
+    return Math.random() - 0.5;
+}
+
 module.exports = router;

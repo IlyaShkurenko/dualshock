@@ -26,23 +26,24 @@ let create = async(roomTodb) => {
 
     }
     let placeToSave = await new Reserve(roomTodb);
-    placeToSave.save(function (err, user, affected) {
+    await placeToSave.save(function (err, user, affected) {
         if (err) throw err;
+        return true
     })
-    console.log(place)
+    return false
 
 };
 
-let getAll = async() => {
-    let roomMap = {};
-    await Reserve.find({},function(err, places) {
-
-        places.forEach(function(place) {
-            roomMap[place._id] = place;
-        });
+let getAll = function() {
+    return Reserve.find({})
+};
+let getById = async(index) =>{
+    let isThere = {}
+    await Reserve.findOne({id: index}, function (err, Reserve) {
+        isThere = Reserve
     });
-    return roomMap
-};
+    return isThere
+}
 let isEmpty = async(index) =>{
         Reserve.find( {}, function (err, results) {
             if (err) {
@@ -73,5 +74,6 @@ module.exports = {
     create,
     getAll,
     getPlace,
-    isEmpty
+    isEmpty,
+    getById
 };

@@ -196,7 +196,7 @@
                 password: false,
                 gamesStr: '',
                 srcPrefix: '/vue/image-uploader/assets/img/',
-                content: "//binarybeast.com/img/avatar/200.png",
+                content: "",
                 // New image's File object
                 file: null,
                 isLoading: false,
@@ -222,9 +222,13 @@
             },
             src () {
                 if (this.content) {
-                    return this.content;
+                   return this.content
                 }
-                return this.isEmpty ? '' : this.srcPrefix + this.value;
+                else {
+                    let img = this.getImage();
+                    console.log(img)
+                    return img;
+                }
             },
             validation: function () {
                 return {
@@ -287,6 +291,17 @@
                     );
                 }
 
+            },
+           getImage(){
+                let img = ''
+               this.$store.state.users.forEach(function (user,i) {
+                    if(user.username === localStorage.getItem('username')){
+                        img = user.img
+                        console.log('img = ', img)
+                    }
+                })
+                console.log('img = ', img)
+                return img
             },
             sync (e) {
                 e.preventDefault();
